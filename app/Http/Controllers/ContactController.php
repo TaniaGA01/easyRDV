@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
 
+use App\Contact;
+
 class ContactController extends Controller
 {
     /**
@@ -39,6 +41,8 @@ class ContactController extends Controller
         // Envoi du mail
         Mail::to('contact@easy-rdv.com')->send(new ContactMail($data));
 
+        // Envoi dans la BDD
+        Contact::create($data);
 
         // On redirige vers la page d'accueil
         return redirect('/');
