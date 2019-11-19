@@ -135,7 +135,7 @@
                 <li><a href="#">Tarifs</a></li>
                 <li><a href="/contact">Nous contacter</a></li>
                 <li><a href="#">Je suis un professionnel</a></li>
-                <li><a href="#">Se connecter</a></li>
+                <li><a href="/login">Se connecter</a></li>
             </ul>
         </nav>
         <!-- End NavHeader -->

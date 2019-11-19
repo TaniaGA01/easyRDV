@@ -19,3 +19,6 @@ Route::get('/', function () {
 // Contact
 Route::get('contact','ContactController@create');
 Route::post('contact','ContactController@store');
+
+// Login
+Route::get('login','LoginController@create');
