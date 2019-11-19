@@ -1,158 +1,31 @@
-<!DOCTYPE html>
-<html lang="fr">
+@extends('layout')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Nous contacter</title>
-    <style type="text/css">
-        .form-style-5 {
-            max-width: 500px;
-            padding: 10px 20px;
-            background: #f4f7f8;
-            margin: 10px auto;
-            padding: 20px;
-            background: #f4f7f8;
-            border-radius: 8px;
-            font-family: Georgia, "Times New Roman", Times, serif;
-        }
+@section('content')
+<div class="form-style-5">
+    <form action="/contact" method="POST">
+        @csrf
+        <fieldset>
+            <legend>Nous contacter</legend>
+            <!-- si le champ n'est pas rempli on affiche un message et on ajoute la classe bg-red -->
+            @error('last_name'){{ $errors->first('last_name') }}@enderror
+            <!-- {{ old('last_name') }} : si problème lors de la validation on garde la valeur écrite par l'utilisateur -->
+            <input @error('last_name') class="bg-red" @enderror type="text" name="last_name"
+                placeholder="Nom (obligatoire)" value="{{ old('last_name') }}">
 
-        .form-style-5 fieldset {
-            border: none;
-        }
+            <input type="text" name="first_name" placeholder="Prenom (facultatif)" value="{{ old('first_name') }}">
 
-        .form-style-5 legend {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-        }
+            @error('email'){{ $errors->first('email') }}@enderror
+            <input @error('email') class="bg-red" @enderror type="email" name="email" placeholder="Email (obligatoire)"
+                value="{{ old('email') }}">
 
-        .form-style-5 label {
-            display: block;
-            margin-bottom: 8px;
-        }
+            <input type="text" name="phone" placeholder="Téléphone (facultatif)" value="{{ old('phone') }}">
 
-        .form-style-5 input[type="text"],
-        .form-style-5 input[type="date"],
-        .form-style-5 input[type="datetime"],
-        .form-style-5 input[type="email"],
-        .form-style-5 input[type="number"],
-        .form-style-5 input[type="search"],
-        .form-style-5 input[type="time"],
-        .form-style-5 input[type="url"],
-        .form-style-5 textarea,
-        .form-style-5 select {
-            font-family: Georgia, "Times New Roman", Times, serif;
-            background: rgba(255, 255, 255, .1);
-            border: none;
-            border-radius: 4px;
-            font-size: 15px;
-            margin: 0;
-            outline: 0;
-            padding: 10px;
-            width: 100%;
-            box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            background-color: #e8eeef;
-            color: #8a97a0;
-            -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-            margin-bottom: 30px;
-        }
+            @error('content'){{ $errors->first('content') }}@enderror
+            <textarea @error('content') class="bg-red" @enderror name="content" cols="30" rows="10"
+                placeholder="Message (obligatoire)">{{ old('content') }}</textarea>
 
-        .form-style-5 input[type="text"]:focus,
-        .form-style-5 input[type="date"]:focus,
-        .form-style-5 input[type="datetime"]:focus,
-        .form-style-5 input[type="email"]:focus,
-        .form-style-5 input[type="number"]:focus,
-        .form-style-5 input[type="search"]:focus,
-        .form-style-5 input[type="time"]:focus,
-        .form-style-5 input[type="url"]:focus,
-        .form-style-5 textarea:focus,
-        .form-style-5 select:focus {
-            background: #d2d9dd;
-        }
-
-        .form-style-5 select {
-            -webkit-appearance: menulist-button;
-            height: 35px;
-        }
-
-        .form-style-5 .number {
-            background: #1abc9c;
-            color: #fff;
-            height: 30px;
-            width: 30px;
-            display: inline-block;
-            font-size: 0.8em;
-            margin-right: 4px;
-            line-height: 30px;
-            text-align: center;
-            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
-            border-radius: 15px 15px 15px 0px;
-        }
-
-        .form-style-5 input[type="submit"],
-        .form-style-5 input[type="button"] {
-            position: relative;
-            display: block;
-            padding: 19px 39px 18px 39px;
-            color: #FFF;
-            margin: 0 auto;
-            background: #1abc9c;
-            font-size: 18px;
-            text-align: center;
-            font-style: normal;
-            width: 100%;
-            border: 1px solid #16a085;
-            border-width: 1px 1px 3px;
-            margin-bottom: 10px;
-        }
-
-        .form-style-5 input[type="submit"]:hover,
-        .form-style-5 input[type="button"]:hover {
-            background: #109177;
-        }
-
-
-        .bg-red{
-            background-color : lightcoral !important;
-        }
-
-    </style>
-</head>
-
-<body>
-    <div class="form-style-5">
-        <form action="/contact" method="POST">
-            @csrf
-            <fieldset>
-                <legend>Nous contacter</legend>
-                <!-- si le champ n'est pas rempli on affiche un message et on ajoute la classe bg-red -->
-                @error('last_name'){{ $errors->first('last_name') }}@enderror
-                <!-- {{ old('last_name') }} : si problème lors de la validation on garde la valeur écrite par l'utilisateur -->
-                <input 
-                @error('last_name') class="bg-red" @enderror
-                type="text" name="last_name" placeholder="Nom (obligatoire)" value="{{ old('last_name') }}">
-                
-                <input type="text" name="first_name" placeholder="Prenom (facultatif)" value="{{ old('first_name') }}">
-
-                @error('email'){{ $errors->first('email') }}@enderror
-                <input 
-                @error('email') class="bg-red" @enderror
-                type="email" name="email" placeholder="Email (obligatoire)" value="{{ old('email') }}">
-                
-                <input type="text" name="phone" placeholder="Téléphone (facultatif)" value="{{ old('phone') }}">
-
-                @error('content'){{ $errors->first('content') }}@enderror
-                <textarea @error('content') class="bg-red" @enderror
-                name="content" cols="30" rows="10" placeholder="Message (obligatoire)">{{ old('content') }}</textarea>
-                
-            </fieldset>
-            <input type="submit"></button>
-        </form>
-    </div>
-</body>
-
-</html>
+        </fieldset>
+        <input type="submit" value="Envoyer le message"></button>
+    </form>
+</div>
+@endsection
