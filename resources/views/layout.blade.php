@@ -124,6 +124,10 @@
             background-color : lightcoral !important;
         }
 
+        .bg-green{
+            background-color : green !important;
+        }
+
     </style>
     </head>
     <body>
@@ -139,6 +143,12 @@
             </ul>
         </nav>
         <!-- End NavHeader -->
+
+        <!-- Msg d'alert #TODO amélioration -->
+        @if(session()->has('message'))
+            <div class="bg-green" role="alert">{{ session()->get('message') }}</div>
+        @endif
+        <!-- EndMsg d'alert -->
 
         <!-- contenu ici -->
         @yield('content')

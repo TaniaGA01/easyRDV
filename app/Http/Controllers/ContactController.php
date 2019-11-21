@@ -44,7 +44,7 @@ class ContactController extends Controller
         // Envoi dans la BDD
         Contact::create($data);
 
-        // On redirige vers la page d'accueil
-        return redirect('/');
+        // On redirige vers la page d'accueil et on affiche le message 
+        return redirect('/')->with('message','Votre message a bien été envoyé');
     }
 }
