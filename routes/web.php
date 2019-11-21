@@ -22,3 +22,4 @@ Route::post('contact','ContactController@store');
 
 // Login
 Route::get('login','LoginController@create');
+Route::post('login','LoginController@store');

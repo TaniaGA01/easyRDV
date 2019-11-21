@@ -6,8 +6,8 @@
         @csrf
         <fieldset>
             <legend>Se connecter</legend>
-            <input type="email" name="email" placeholder="Email">
-            <input type="text" name="password" placeholder="Mot de passe">
+            <input type="email" name="email_login" placeholder="Email">
+            <input type="text" name="password_login" placeholder="Mot de passe">
             <input type="submit" value="Se connecter"></button>
         <fieldset>
     </form>
@@ -18,11 +18,11 @@
         @csrf
         <fieldset>
             <legend>S'inscrire</legend>
-            <input type="email" name="email" placeholder="Email">
-            <input type="text" name="password" placeholder="Mot de passe">
-            <input type="text" name="password_confirm" placeholder="Confirmer mot de passe">
-            <input type="checkbox">Je suis d'accord avec le Terms et condition
-            <input type="submit" value="Se connecter"></button>
+            <input type="email" name="email_register" placeholder="Email">
+            <input type="text" name="password_register" placeholder="Mot de passe">
+            <input type="text" name="password_confirm_register" placeholder="Confirmer mot de passe">
+            <input type="checkbox" name="cgu_register">"Je suis d'accord avec les Conditions Générales d'Utilisation"
+            <input type="submit" value="S'inscrire"></button>
         <fieldset>
     </form>
 </div>

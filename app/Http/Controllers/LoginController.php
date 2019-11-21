@@ -10,4 +10,9 @@ class LoginController extends Controller
     {
         return view('login/create');
     }
+
+    public function store()
+    {
+        return view('admin');
+    }
 }
