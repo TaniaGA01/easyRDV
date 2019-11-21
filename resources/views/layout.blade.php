@@ -44,6 +44,7 @@
         .form-style-5 input[type="search"],
         .form-style-5 input[type="time"],
         .form-style-5 input[type="url"],
+        .form-style-5 input[type="password"],
         .form-style-5 textarea,
         .form-style-5 select {
             font-family: Georgia, "Times New Roman", Times, serif;
