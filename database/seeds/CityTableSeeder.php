@@ -13,61 +13,82 @@ class CityTableSeeder extends Seeder
     public function run()
     {
         DB::table('city')->insert([
-            'name' => 'Vladivostok',
-        ]);
-        DB::table('city')->insert([
-            'name' => 'Perpignan',
-        ]);
-        DB::table('city')->insert([
-            'name' => 'Carcassonne',
-        ]);
-        DB::table('city')->insert([
-            'name' => 'Corlaix',
-        ]);
-        DB::table('city')->insert([
-            'name' => 'Brest',
-        ]);
-        DB::table('city')->insert([
-            'name' => 'Rennes',
-        ]);
-        DB::table('city')->insert([
-            'name' => 'Iakoutsk',
-        ]);
-        DB::table('city')->insert([
-            'name' => 'Kyoto',
-        ]);
-        DB::table('city')->insert([
-            'name' => 'Bourg-les-Mouls',
-        ]);
-        DB::table('city')->insert([
-            'name' => 'Serres-les-Coings',
-        ]);
-        DB::table('city')->insert([
-            'name' => 'Marseille',
-        ]);
-        DB::table('city')->insert([
-            'name' => 'Xandar City',
-        ]);
-        DB::table('city')->insert([
-            'name' => 'Poudlard',
-        ]);
-        DB::table('city')->insert([
-            'name' => 'Rungis',
-        ]);
-        DB::table('city')->insert([
-            'name' => 'Minas Territ',
-        ]);
-        DB::table('city')->insert([
-            'name' => 'Vannes',
-        ]);
-        DB::table('city')->insert([
-            'name' => 'Kaamelott',
-        ]);
-        DB::table('city')->insert([
-            'name' => 'Montréal',
-        ]);
-        DB::table('city')->insert([
-            'name' => 'Laraville',
+            [
+                'name' => 'Vladivostok',
+                'departement' => 'Primorie'
+            ],
+            [
+                'name' => 'Perpignan',
+                'departement' => 'Pyrénées Orientales'
+            ],
+            [
+                'name' => 'Carcassonne',
+                'departement' => 'Aude'
+            ],
+            [
+                'name' => 'Corlaix',
+                'departement' => 'Finistère'
+            ],
+            [
+                'name' => 'Rennes',
+                'departement' => 'Ille et Vilaine'
+            ],
+            [
+                'name' => 'Brest',
+                'departement' => 'Finistère'
+            ],
+            [
+                'name' => 'Iakoutsk',
+                'departement' => 'Iakoutie'
+            ],
+            [
+                'name' => 'Kyoto',
+                'departement' => 'Kansai'
+            ],
+            [
+                'name' => 'Bourg-les-Mouls',
+                'departement' => 'Creuse'
+            ],
+            [
+                'name' => 'Serres-les-Coings',
+                'departement' => 'Charente Maritime'
+            ],
+            [
+                'name' => 'Marseille',
+                'departement' => 'Bouches du Rhône'
+            ],
+            [
+                'name' => 'Xandar City',
+                'departement' => 'Secteur WBH3'
+            ],
+            [
+                'name' => 'Poudlard',
+                'departement' => 'Highlands'
+            ],
+            [
+                'name' => 'Rungis',
+                'departement' => 'Val-de-Marne'
+            ],
+            [
+                'name' => 'Minas Territ',
+                'departement' => 'Terre du Milieu'
+            ],
+            [
+                'name' => 'Vannes',
+                'departement' => 'Morbihan'
+            ],
+            [
+                'name' => 'Kaamelott',
+                'departement' => 'Armorique'
+            ],
+            [
+                'name' => 'Montréal',
+                'departement' => 'Québec'
+            ],
+            [
+                'name' => 'Laraville',
+                'departement' => 'Ille et Vilaine'
+            ]
         ]);
     }
 }
