@@ -22,6 +22,14 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->unsignedBigInteger('city_id');
+            $table->unsignedBigInteger('role_id');
+            $table->unsignedBigInteger('profession_id');
+            $table->unsignedBigInteger('agenda_id');
+            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->foreign('profession_id')->references('id')->on('professions')->onDelete('cascade');
+            $table->foreign('agenda_id')->references('id')->on('agendas')->onDelete('cascade');
         });
     }
 

@@ -12,7 +12,7 @@ class CityTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('city')->insert([
+        DB::table('cities')->insert([
             [
                 'name' => 'Vladivostok',
                 'departement' => 'Primorie'
