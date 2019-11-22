@@ -18,6 +18,7 @@ class LoginController extends Controller
         $user = new User();
         $user->email = request('email_register');
         $user->password = bcrypt(request('password_register'));
+        $user->role_id = 3;
         $user->save();
 
         return view('admin');
