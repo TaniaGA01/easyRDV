@@ -25,4 +25,4 @@ Route::get('login','LoginController@create');
 Route::post('login','LoginController@store');
 
 // Inscription
-Route::post('login/new','LoginController@store');
+Route::post('login/new','LoginController@storeNew');
