@@ -26,3 +26,4 @@ Route::post('login','LoginController@store');
 
 // Inscription
 Route::post('login/new','LoginController@storeNew');
+Route::get('user','LoginController@createNew');

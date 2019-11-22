@@ -18,6 +18,11 @@ class LoginController extends Controller
         return back();
     }
 
+    public function createNew()
+    {
+        return view('user/index');
+    }
+
     public function storeNew()
     {
         // Vérification des champs pour la création d'un compte
@@ -27,13 +32,14 @@ class LoginController extends Controller
             'cgu_register' => 'accepted'
         ]);
 
-        $user = new User();
-        $user->email = request('email_register');
-        $user->password = bcrypt(request('password_register'));
-        $user->role_id = 3;
         // Envoi dans la BDD
-        $user->save();
-
-        return view('admin');
+        User::create([
+            'email' => request('email_register'),
+            'password' => bcrypt(request('password_register')),
+            'role_id' => 3
+        ]);
+        
+        // On va sur le back-office de l'utilisateur
+        return view('user/index');
     }
 }
