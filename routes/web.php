@@ -27,3 +27,7 @@ Route::post('login','LoginController@store');
 // Inscription
 Route::post('login/new','LoginController@storeNew');
 Route::get('user','LoginController@createNew');
+
+// Route Temporaire : test de David
+Route::get('tempo','TemporaireSearch@search');
+Route::get('tempo/json','TemporaireSearch@tableau');

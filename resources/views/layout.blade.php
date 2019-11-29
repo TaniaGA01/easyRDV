@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="{{asset('css/app.css')}}">
         <style type="text/css">
         .form-style-5 {
             max-width: 500px;
@@ -132,7 +133,7 @@
     </style>
     </head>
     <body>
-        <!-- NavHeader --> 
+        <!-- NavHeader -->
         <nav>
             <ul>
                 <li><a href="/">Logo easyRDV</a></li>
@@ -166,5 +167,6 @@
         </nav>
         <!-- End NavFooter -->
 
+        <script src="{{asset('js/app.js')}}"></script>
     </body>
 </html>
