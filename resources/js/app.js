@@ -33,11 +33,6 @@ const app = new Vue({
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // new ListePros(function (listePros) {
-    //     return listePros;
-    // });
-    console.log('js chargé');
-
     var tabPros = [];
     function appelAjax () {
         fetch('/tempo/json')
@@ -57,25 +52,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
                 return tabPros;
             })
-            // .then(pros => {
-            //     if (pros.length){
-            //         for (let pro of pros)
-            //         tabPros.push(pro.name);
-            //     }
-            //     return tabPros;
-            // })
     }
     appelAjax();
-
-    // console.log(tabPros);
 
     var formPros = document.getElementById('pros');
     var suggPros = document.getElementById('suggestions');
     var formSearch = document.querySelector('.form-container');
-    var urlWindow = window.location.href;
-
-    // console.log(urlSearch);
-    // replace(regex, 'ferret');
+    var urlWindow = window.location.origin;
+    if (formSearch.action) {
+        formSearch.action.innerText="";
+    }
 
     formPros.addEventListener('keyup', function(e){
         let entree = e.target.value.toLowerCase();
@@ -88,8 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 suggestionPros.classList.add('suggestion');
                 suggPros.appendChild(suggestionPros);
                 suggestionPros.addEventListener('click', function(evt){
-                    let urlSearch = urlWindow+'/'+pros;
-                    // formSearch.action.replace('@', pros );
+                    let urlSearch = urlWindow+'/tempo/'+pros;
                     formSearch.setAttribute('action', urlSearch);
                     formPros.value=pros;
                     suggPros.innerHTML='';
@@ -97,5 +82,4 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
     });
-
 });

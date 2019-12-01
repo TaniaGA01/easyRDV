@@ -2,7 +2,7 @@
 
 @section('content')
 <div>On teste la page temporaire</div>
-<form class="form-container" action="{{route('results', '@')}}" method="GET">
+<form class="form-container" method="GET">
     <label for="pros">Entrez le nom d'un professionnel ou d'une profession</label> :<br />
     <input type="text" id="pros">
     <button type="submit">Rechercher</button>
@@ -34,9 +34,6 @@
         <div>{{$nope}}</div>
     @endisset
 
-    {{-- @isset($nope)
-    <div>{{$nope}}</div>
-    @endisset --}}
 </section>
 
 

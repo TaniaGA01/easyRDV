@@ -26,22 +26,26 @@ class TemporaireSearch extends Controller
     public function results($name){
         // $profession = Profession::find($name);
         $profession = Profession::where('name',$name)->get();
-        // return $profession;
+        $nope = "Aucun résultat pour cette recherche";
 
-        $id_profession = $profession[0]->id;
-
-        // return $id_profession;
-
-        $results = User::where('profession_id',$id_profession)->get();
-        if (isset($results)) {
-            return view('temporaire',[
-                'results'=> $results,
-            ]);
+        if (isset($profession[0]->id)) {
+            $id_profession = $profession[0]->id;
+            $results = User::where('profession_id',$id_profession)->get();
+            $tab_json = json_decode($results);
+            if (empty($tab_json)) {
+                return view('temporaire', [
+                    'nope' => $nope,
+                ]);
+            }elseif(isset($results)) {
+                return view('temporaire',[
+                    'results'=> $results,
+                ]);
+            }
         }else {
-            $nope = "Aucun résultat pour cette recherche";
             return view('temporaire', [
                 'nope' => $nope,
             ]);
         }
+
     }
 }
