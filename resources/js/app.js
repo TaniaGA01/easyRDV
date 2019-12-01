@@ -30,3 +30,72 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    // new ListePros(function (listePros) {
+    //     return listePros;
+    // });
+    console.log('js chargé');
+
+    var tabPros = [];
+    function appelAjax () {
+        fetch('/tempo/json')
+            .then(response => response.json())
+            .then(tabs => {
+                if (tabs.length){
+                    for (let tab of tabs){
+                        for (let value of tab) {
+                            if (value.name) {
+                                tabPros.push(value.name);
+                            }else if (value.last_name) {
+                                let nomComplet = value.first_name+' '+value.last_name;
+                                tabPros.push(nomComplet);
+                            }
+                        }
+                    }
+                }
+                return tabPros;
+            })
+            // .then(pros => {
+            //     if (pros.length){
+            //         for (let pro of pros)
+            //         tabPros.push(pro.name);
+            //     }
+            //     return tabPros;
+            // })
+    }
+    appelAjax();
+
+    // console.log(tabPros);
+
+    var formPros = document.getElementById('pros');
+    var suggPros = document.getElementById('suggestions');
+    var formSearch = document.querySelector('.form-container');
+    var urlWindow = window.location.href;
+
+    // console.log(urlSearch);
+    // replace(regex, 'ferret');
+
+    formPros.addEventListener('keyup', function(e){
+        let entree = e.target.value.toLowerCase();
+        suggPros.innerHTML='';
+
+        for (let pros of tabPros) {
+            if (pros.toLowerCase().match(entree)) {
+                let suggestionPros = document.createElement('div');
+                suggestionPros.innerText=pros;
+                suggestionPros.classList.add('suggestion');
+                suggPros.appendChild(suggestionPros);
+                suggestionPros.addEventListener('click', function(evt){
+                    let urlSearch = urlWindow+'/'+pros;
+                    // formSearch.action.replace('@', pros );
+                    formSearch.setAttribute('action', urlSearch);
+                    formPros.value=pros;
+                    suggPros.innerHTML='';
+                });
+            }
+        }
+    });
+
+});
