@@ -49457,6 +49457,125 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+document.addEventListener('DOMContentLoaded', function () {
+  var tabPros = [];
+
+  function appelAjax() {
+    fetch('/tempo/json').then(function (response) {
+      return response.json();
+    }).then(function (tabs) {
+      if (tabs.length) {
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+          for (var _iterator = tabs[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+            var tab = _step.value;
+            var _iteratorNormalCompletion2 = true;
+            var _didIteratorError2 = false;
+            var _iteratorError2 = undefined;
+
+            try {
+              for (var _iterator2 = tab[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                var value = _step2.value;
+
+                if (value.name) {
+                  tabPros.push(value.name);
+                } else if (value.last_name) {
+                  var nomComplet = value.first_name + ' ' + value.last_name;
+                  tabPros.push(nomComplet);
+                }
+              }
+            } catch (err) {
+              _didIteratorError2 = true;
+              _iteratorError2 = err;
+            } finally {
+              try {
+                if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
+                  _iterator2["return"]();
+                }
+              } finally {
+                if (_didIteratorError2) {
+                  throw _iteratorError2;
+                }
+              }
+            }
+          }
+        } catch (err) {
+          _didIteratorError = true;
+          _iteratorError = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+              _iterator["return"]();
+            }
+          } finally {
+            if (_didIteratorError) {
+              throw _iteratorError;
+            }
+          }
+        }
+      }
+
+      return tabPros;
+    });
+  }
+
+  appelAjax();
+  var formPros = document.getElementById('pros');
+  var suggPros = document.getElementById('suggestions');
+  var formSearch = document.querySelector('.form-container');
+  var urlWindow = window.location.origin;
+
+  if (formSearch.action) {
+    formSearch.action.innerText = "";
+  }
+
+  formPros.addEventListener('keyup', function (e) {
+    var entree = e.target.value.toLowerCase();
+    suggPros.innerHTML = '';
+    var _iteratorNormalCompletion3 = true;
+    var _didIteratorError3 = false;
+    var _iteratorError3 = undefined;
+
+    try {
+      var _loop = function _loop() {
+        var pros = _step3.value;
+
+        if (pros.toLowerCase().match(entree)) {
+          var suggestionPros = document.createElement('div');
+          suggestionPros.innerText = pros;
+          suggestionPros.classList.add('suggestion');
+          suggPros.appendChild(suggestionPros);
+          suggestionPros.addEventListener('click', function (evt) {
+            var urlSearch = urlWindow + '/tempo/' + pros;
+            formSearch.setAttribute('action', urlSearch);
+            formPros.value = pros;
+            suggPros.innerHTML = '';
+          });
+        }
+      };
+
+      for (var _iterator3 = tabPros[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+        _loop();
+      }
+    } catch (err) {
+      _didIteratorError3 = true;
+      _iteratorError3 = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion3 && _iterator3["return"] != null) {
+          _iterator3["return"]();
+        }
+      } finally {
+        if (_didIteratorError3) {
+          throw _iteratorError3;
+        }
+      }
+    }
+  });
+});
 
 /***/ }),
 
@@ -49592,8 +49711,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Erwan\Desktop\Github_Projects\easyRDV\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Erwan\Desktop\Github_Projects\easyRDV\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\David\Desktop\dfgh\easyRDV\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\David\Desktop\dfgh\easyRDV\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
