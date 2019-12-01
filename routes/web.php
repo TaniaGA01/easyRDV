@@ -31,3 +31,7 @@ Route::get('user','LoginController@createNew');
 // Route Temporaire : test de David
 Route::get('tempo','TemporaireSearch@search');
 Route::get('tempo/json','TemporaireSearch@tableau');
+
+// Auth
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');

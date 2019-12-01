@@ -1,25 +1,8 @@
-//
-/* Augmente l'espacement gauche et droite des suggestions */
-.suggestion {
-    padding-left: 2px;
-    padding-right: 2px;
-}
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 
-/* Modifie la couleur de la suggestion survolée par la souris */
-.suggestion:hover {
-    background-color: #adf;
-    cursor: pointer;
-}
+// Variables
+@import 'variables';
 
-/* Positionne la liste des suggestions au-dessous de la zone de saisie */
-#suggestions {
-    position: absolute;
-    border: 1px solid black;
-    left: 171px;
-}
-
-.form-container {
-    position: absolute;
-    top: 40vh;
-    left: 35vw;
-}
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
