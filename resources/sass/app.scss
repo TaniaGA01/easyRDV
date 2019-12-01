@@ -6,3 +6,32 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+//
+/*====================MODIFs TEMPORAIRES DAVID========================*/
+/*====================================================================*/
+/* Augmente l'espacement gauche et droite des suggestions */
+.suggestion {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+/* Modifie la couleur de la suggestion survolée par la souris */
+.suggestion:hover {
+    background-color: #adf;
+    cursor: pointer;
+}
+
+/* Positionne la liste des suggestions au-dessous de la zone de saisie */
+#suggestions {
+    position: absolute;
+    border: 1px solid black;
+    // left: 171px;
+    background-color: #fff;
+}
+
+.form-container {
+    top: 40vh;
+    left: 35vw;
+}
+/*=======================FIN MODIFS============================*/
