@@ -33,5 +33,5 @@ Route::get('tempo','TemporaireSearch@search');
 Route::get('tempo/json','TemporaireSearch@tableau');
 
 // Auth
-Auth::routes();
+Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
