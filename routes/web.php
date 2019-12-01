@@ -78,6 +78,7 @@ Route::get('user','LoginController@createNew');
 // Route Temporaire : test de David
 Route::get('tempo','TemporaireSearch@search');
 Route::get('tempo/json','TemporaireSearch@tableau');
+Route::get('tempo/{name}','TemporaireSearch@results')->name('results');
 
 // Auth
 Auth::routes(['verify' => true]);
