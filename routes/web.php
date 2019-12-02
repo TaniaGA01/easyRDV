@@ -35,6 +35,10 @@ Route::post('je-suis-un-professionnel','ProfessionalController@store')->name('pr
 Route::get('connexion-inscription','LoginController@create')->name('login');
 Route::post('connexion','LoginController@store')->name('login.store');
 
+
+
+
+
 Route::post('inscription','InscriptionController@store')->name('inscription.store');
 
 // Page "Information légales"
@@ -83,3 +87,4 @@ Route::get('tempo/{name}','TemporaireSearch@results')->name('results');
 // Auth
 Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
+
