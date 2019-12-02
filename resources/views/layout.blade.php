@@ -19,7 +19,7 @@
                 <li><a href="/">Logo easyRDV</a></li>
                 <li><a href="#">A propos</a></li>
                 <li><a href="#">Tarifs</a></li>
-                <li><a href="/contact">Nous contacter</a></li>
+                <li><a href="{{route('contact.create')}}">Nous contacter</a></li>
                 <li><a href="#">Je suis un professionnel</a></li>
                 <li><a href="/login">Se connecter/S'inscrire</a></li>
             </ul>

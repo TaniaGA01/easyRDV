@@ -8,7 +8,7 @@
                 <div class="card-header">Nous contacter</div>
 
                 <div class="card-body">
-                    <form action="/contact" method="POST">
+                    <form action="{{route('contact.store')}}" method="POST">
                         @csrf
 
                         <!-- si le champ n'est pas rempli on affiche un message et on ajoute la classe bg-red -->
