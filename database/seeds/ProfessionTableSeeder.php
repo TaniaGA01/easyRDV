@@ -17,9 +17,6 @@ class ProfessionTableSeeder extends Seeder
                 'name' => 'Neurologue'
             ],
             [
-                'name' => 'Neuro-compresseur'
-            ],
-            [
                 'name' => 'Psychologue'
             ],
             [
@@ -32,19 +29,19 @@ class ProfessionTableSeeder extends Seeder
                 'name' => 'Psychopathe'
             ],
             [
-                'name' => 'Ramasseur de champignons'
+                'name' => 'Ramasseur-de-champignons'
             ],
             [
                 'name' => 'Flyfu**er'
             ],
             [
-                'name' => 'Moine à temps partiel'
+                'name' => 'Moine-à-temps-partiel'
             ],
             [
-                'name' => 'Socialiste dépressif'
+                'name' => 'Socialiste-dépressif'
             ],
             [
-                'name' => 'Chasseur de Troll'
+                'name' => 'Chasseur-de-Troll'
             ],
             [
                 'name' => 'Avocat'
@@ -53,22 +50,22 @@ class ProfessionTableSeeder extends Seeder
                 'name' => 'Barbier'
             ],
             [
-                'name' => 'Stagiaire spécialisé Maison du Café'
+                'name' => 'Stagiaire-spécialisé-Maison-du-Café'
             ],
             [
-                'name' => 'Web designer'
+                'name' => 'Web-designer'
             ],
             [
                 'name' => 'Péripapétitien*ne'
             ],
             [
-                'name' => 'Développeur Web'
+                'name' => 'Développeur-Web'
             ],
             [
-                'name' => 'Laveur de cerveau'
+                'name' => 'Laveur-de-cerveau'
             ],
             [
-                'name' => 'Chasseur de primes'
+                'name' => 'Chasseur-de-primes'
             ]
         ]);
     }

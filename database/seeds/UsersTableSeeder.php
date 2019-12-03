@@ -20,7 +20,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('1234'),
                 'city_id' => '1',
                 'role_id' => '3',
-                'profession_id' => '6',
+                'profession_id' => '10',
             ],
             [
                 'last_name' => 'Crevard',
@@ -29,7 +29,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
                 'city_id' => '1',
                 'role_id' => '2',
-                'profession_id' => '12',
+                'profession_id' => '11',
             ],
             [
                 'last_name' => 'Connare',
@@ -38,7 +38,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
                 'city_id' => '9',
                 'role_id' => '2',
-                'profession_id' => '12',
+                'profession_id' => '11',
 
             ],
             [
@@ -48,7 +48,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
                 'city_id' => '9',
                 'role_id' => '2',
-                'profession_id' => '12',
+                'profession_id' => '11',
 
             ],
             [
@@ -58,7 +58,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
                 'city_id' => '2',
                 'role_id' => '2',
-                'profession_id' => '12',
+                'profession_id' => '11',
 
             ],
             [
@@ -68,7 +68,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
                 'city_id' => '5',
                 'role_id' => '2',
-                'profession_id' => '12',
+                'profession_id' => '11',
 
             ],
             [
@@ -78,7 +78,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
                 'city_id' => '1',
                 'role_id' => '2',
-                'profession_id' => '12',
+                'profession_id' => '11',
 
             ],
             [
@@ -88,7 +88,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
                 'city_id' => '17',
                 'role_id' => '2',
-                'profession_id' => '12',
+                'profession_id' => '11',
 
             ],
             [
@@ -98,7 +98,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
                 'city_id' => '5',
                 'role_id' => '2',
-                'profession_id' => '13',
+                'profession_id' => '12',
 
             ],
             [
@@ -108,7 +108,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
                 'city_id' => '5',
                 'role_id' => '2',
-                'profession_id' => '13',
+                'profession_id' => '12',
 
             ],
             [
@@ -118,7 +118,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
                 'city_id' => '5',
                 'role_id' => '2',
-                'profession_id' => '13',
+                'profession_id' => '12',
 
             ],
             [
@@ -128,7 +128,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
                 'city_id' => '13',
                 'role_id' => '2',
-                'profession_id' => '13',
+                'profession_id' => '12',
 
             ],
             [
@@ -138,7 +138,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
                 'city_id' => '13',
                 'role_id' => '2',
-                'profession_id' => '13',
+                'profession_id' => '12',
 
             ],
             [
@@ -148,7 +148,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
                 'city_id' => '17',
                 'role_id' => '2',
-                'profession_id' => '13',
+                'profession_id' => '12',
 
             ],
             [
@@ -158,7 +158,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
                 'city_id' => '2',
                 'role_id' => '2',
-                'profession_id' => '13',
+                'profession_id' => '12',
 
             ],
             [
@@ -168,7 +168,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
                 'city_id' => '17',
                 'role_id' => '2',
-                'profession_id' => '13',
+                'profession_id' => '12',
 
             ],
             [
@@ -178,7 +178,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
                 'city_id' => '12',
                 'role_id' => '2',
-                'profession_id' => '6',
+                'profession_id' => '5',
 
             ],
             [
@@ -188,7 +188,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
                 'city_id' => '9',
                 'role_id' => '2',
-                'profession_id' => '6',
+                'profession_id' => '5',
 
             ],
             [
@@ -198,7 +198,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
                 'city_id' => '5',
                 'role_id' => '2',
-                'profession_id' => '6',
+                'profession_id' => '5',
 
             ],
             [
@@ -208,7 +208,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
                 'city_id' => '19',
                 'role_id' => '2',
-                'profession_id' => '6',
+                'profession_id' => '5',
 
             ]
         ]);

@@ -19,7 +19,7 @@ class CityTableSeeder extends Seeder
             ],
             [
                 'name' => 'Perpignan',
-                'departement' => 'Pyrénées Orientales'
+                'departement' => 'Pyrénées-Orientales'
             ],
             [
                 'name' => 'Carcassonne',
@@ -31,7 +31,7 @@ class CityTableSeeder extends Seeder
             ],
             [
                 'name' => 'Rennes',
-                'departement' => 'Ille et Vilaine'
+                'departement' => 'Ille-et-Vilaine'
             ],
             [
                 'name' => 'Brest',
@@ -51,15 +51,15 @@ class CityTableSeeder extends Seeder
             ],
             [
                 'name' => 'Serres-les-Coings',
-                'departement' => 'Charente Maritime'
+                'departement' => 'Charente-Maritime'
             ],
             [
                 'name' => 'Marseille',
-                'departement' => 'Bouches du Rhône'
+                'departement' => 'Bouches-du-Rhône'
             ],
             [
                 'name' => 'Xandar City',
-                'departement' => 'Secteur WBH3'
+                'departement' => 'Secteur-WBH3'
             ],
             [
                 'name' => 'Poudlard',
@@ -70,8 +70,8 @@ class CityTableSeeder extends Seeder
                 'departement' => 'Val-de-Marne'
             ],
             [
-                'name' => 'Minas Territ',
-                'departement' => 'Terre du Milieu'
+                'name' => 'Minas-Territ',
+                'departement' => 'Terre-du-Milieu'
             ],
             [
                 'name' => 'Vannes',
@@ -87,7 +87,7 @@ class CityTableSeeder extends Seeder
             ],
             [
                 'name' => 'Laraville',
-                'departement' => 'Ille et Vilaine'
+                'departement' => 'Ille-et-Vilaine'
             ]
         ]);
     }

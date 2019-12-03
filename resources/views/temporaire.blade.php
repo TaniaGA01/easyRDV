@@ -2,16 +2,25 @@
 
 @section('content')
 <div>On teste la page temporaire</div>
-<form class="form-container" method="GET">
-    <label for="pros">Entrez le nom d'un professionnel ou d'une profession</label> :<br />
-    <input type="text" id="pros">
-    <button type="submit">Rechercher</button>
+<form class="form-container" method="POST" autocomplete="off">
+
+    <label for="pros">Entrez le nom d'une profession</label> :<br />
+    <input type="text" id="pros" name="pros" autocomplete="off">
     <div id="suggestions"></div>
+
+    <br />
+    <label for="locs">Choisissez un lieu</label> :<br />
+    <input type="text" id="locs" name="locs" autocomplete="off">
+    <div id="suggestions-locs"></div>
+
+    <button type="submit">Rechercher</button>
+    @csrf
 </form>
 
 <section style="float:right;width:60vw;">
     @isset($results)
 
+    <div>Vous avez recherché un {{str_replace('-', ' ', strtolower($job[0]->name))}}@isset($city) à {{$city[0]->name}}@endisset</div><br />
     @foreach ($results as $result)
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row no-gutters">

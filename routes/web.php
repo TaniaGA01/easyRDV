@@ -63,13 +63,10 @@ Route::put('mes-informations/{name}','ProfessionnelController@update')->name('pr
 
 
 //#######################################################
-// Contact
-Route::get('contact','ContactController@create');
-Route::post('contact','ContactController@store');
 
 // Login
-Route::get('login','LoginController@create');
-Route::post('login','LoginController@store');
+Route::get('login2','LoginController@create');
+Route::post('login2','LoginController@store');
 
 // Inscription
 Route::post('login/new','LoginController@storeNew');
@@ -77,8 +74,10 @@ Route::get('user','LoginController@createNew');
 
 // Route Temporaire : test de David
 Route::get('tempo','TemporaireSearch@search');
-Route::get('tempo/json','TemporaireSearch@tableau');
-Route::get('tempo/{name}','TemporaireSearch@results')->name('results');
+Route::get('tempo/json','TemporaireSearch@tableau_1');
+Route::get('tempo/json-loc','TemporaireSearch@tableau_2');
+Route::get('tempo/json-pros','TemporaireSearch@tableau_3');
+Route::post('tempo','TemporaireSearch@results')->name('results');
 
 // Auth
 Auth::routes(['verify' => true]);
