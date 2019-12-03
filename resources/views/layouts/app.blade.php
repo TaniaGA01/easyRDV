@@ -37,7 +37,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href=" {{route('about')}}  " class="nav-link">À propos</a></li>
+                        <li class="nav-item"><a href="{{route('about')}}" class="nav-link">À propos</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Tarifs</a></li>
                         <li class="nav-item"><a href="{{route('contact.create')}}" class="nav-link">Nous contacter</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Je suis un professionnel</a></li>
@@ -77,19 +77,24 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+        @yield('content')
     </div>
     <!-- NavFooter -->
-    <nav>
-        <ul>
-            <li><a href="/">Logo easyRDV</a></li>
-            <li><a href=" {{route('about')}} ">À propos</a></li>
-            <li><a href="#">Tarifs</a></li>
-            <li><a href="{{route('contact.create')}}">Nous contacter</a></li>
-            <li><a href="{{route('legal.index')}}">Informations légales</a></li>
-        </ul>
-    </nav>
+    <footer>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <nav class="">
+                        <ul>
+                            <li><a href="{{route('about')}}">A propos</a></li>
+                            <li><a href="#">Tarifs</a></li>
+                            <li><a href="{{route('contact.create')}}">Nous contacter</a></li>
+                            <li><a href="{{route('legal.index')}}">Informations légales</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+    </footer>
 </body>
 </html>
