@@ -13,10 +13,10 @@
                         <div class="form-group row justify-content-center">
                             <div class="col-md-10">
                                 <input placeholder="Email" type="email"
-                                    class="form-control @error('email_login') is-invalid @enderror" name="email_login"
-                                    value="{{ old('email_login') }}" required autocomplete="email" autofocus>
+                                    class="form-control @error('email') is-invalid @enderror" name="email"
+                                    value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                                @error('email_login')
+                                @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -29,10 +29,10 @@
 
                             <div class="col-md-10">
                                 <input placeholder="Mot de passe" type="password"
-                                    class="form-control @error('password') is-invalid @enderror" name="password_login"
+                                    class="form-control @error('password') is-invalid @enderror" name="password"
                                     required autocomplete="current-password">
 
-                                @error('password_login')
+                                @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -114,12 +114,17 @@
                         <div class="form-group row justify-content-center">
                                 <div class="col-md-10">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="cgu_register" id="cgu_register">
+                                    <input class="form-check-input @error('cgu_register') is-invalid @enderror" type="checkbox" name="cgu_register" id="cgu_register">
 
                                     <label class="form-check-label" for="cgu_register">
                                         Je suis d'accord avec les<a href=""> Conditions Générales d'Utilisation</a>
                                     </label>
                                 </div>
+                                @error('cgu_register')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
                         </div>
 
