@@ -24,7 +24,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <img src="{{ asset('img/logo-easy-rdv.svg') }}" alt="{{ config('app.name', 'Laravel') }}" width="150">    
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -39,7 +39,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a href="#" class="nav-link">A propos</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Tarifs</a></li>
-                        <li class="nav-item"><a href="/contact" class="nav-link">Nous contacter</a></li>
+                        <li class="nav-item"><a href="{{route('contact.create')}}" class="nav-link">Nous contacter</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Je suis un professionnel</a></li>
                         <!-- Authentication Links -->
                         @guest
@@ -81,5 +81,15 @@
             @yield('content')
         </main>
     </div>
+    <!-- NavFooter -->
+    <nav>
+        <ul>
+            <li><a href="/">Logo easyRDV</a></li>
+            <li><a href="#">A propos</a></li>
+            <li><a href="#">Tarifs</a></li>
+            <li><a href="{{route('contact.create')}}">Nous contacter</a></li>
+            <li><a href="#">Informations légales</a></li>
+        </ul>
+    </nav>
 </body>
 </html>
