@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Profession;
 use App\User;
+use App\City;
 
 
 class TemporaireSearch extends Controller
@@ -13,22 +14,27 @@ class TemporaireSearch extends Controller
         return view('temporaire');
     }
 
-    public function tableau(){
-        $jobs = Profession::all();
-        $pros = User::all();
-        $tab = [];
-        array_push($tab, $jobs, $pros);
-        return response()->json($tab);
-        // $pros = Profession::all();
-        // return response()->json($pros);
+    public function tableau_1(){
+        $pros = Profession::all();
+        return response()->json($pros);
+    }
+    public function tableau_2(){
+        $locs = City::all();
+        return response()->json($locs);
+    }
+    public function tableau_3(){
+        $locs = User::where('role_id','2')->get();
+        return response()->json($locs);
     }
 
-    public function results($name){
-        // $profession = Profession::find($name);
+    public function results(Request $request){
+        $name = str_replace(' ', '-', $request->input('pros'));
+        $loc = str_replace(' ', '-', $request->input('locs'));
         $profession = Profession::where('name',$name)->get();
+        $localisation = City::where('name', $loc)->get();
         $nope = "Aucun résultat pour cette recherche";
 
-        if (isset($profession[0]->id)) {
+        if (isset($profession[0]->id) && !isset($localisation[0]->id)) {
             $id_profession = $profession[0]->id;
             $results = User::where('profession_id',$id_profession)->get();
             $tab_json = json_decode($results);
@@ -41,11 +47,29 @@ class TemporaireSearch extends Controller
                     'results'=> $results,
                 ]);
             }
+        }elseif (isset($profession[0]->id) && isset($localisation[0]->id)) {
+            $id_profession = $profession[0]->id;
+            $id_localisation = $localisation[0]->id;
+            $results = User::where('profession_id',$id_profession)->where('city_id',$id_localisation)->get();
+            $tab_json = json_decode($results);
+            if (empty($tab_json)) {
+                return view('temporaire', [
+                    'nope' => $nope,
+                ]);
+            }elseif(isset($results)) {
+                return view('temporaire',[
+                    'results'=> $results,
+                ]);
+            }
+        }elseif (!isset($profession[0]->id) && isset($localisation[0]->id)) {
+            $nope= "Vous devez sélectionner une profession";
+            return view('temporaire', [
+                'nope' => $nope,
+            ]);
         }else {
             return view('temporaire', [
                 'nope' => $nope,
             ]);
         }
-
     }
 }
