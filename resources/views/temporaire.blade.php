@@ -8,6 +8,7 @@
     <input type="text" id="pros" name="pros" autocomplete="off">
     <div id="suggestions"></div>
 
+    <br />
     <label for="locs">Choisissez un lieu</label> :<br />
     <input type="text" id="locs" name="locs" autocomplete="off">
     <div id="suggestions-locs"></div>
