@@ -114,17 +114,18 @@
                         <div class="form-group row justify-content-center">
                                 <div class="col-md-10">
                                 <div class="form-check">
-                                    <input class="form-check-input @error('cgu_register') is-invalid @enderror" type="checkbox" name="cgu_register" id="cgu_register">
+                                    <input class="form-check-input @error('cgu_register') is-invalid @enderror" type="checkbox" name="cgu_register" id="cgu_register" >
 
-                                    <label class="form-check-label" for="cgu_register">
+                                    <label for="cgu_register">
                                         Je suis d'accord avec les<a href=""> Conditions Générales d'Utilisation</a>
                                     </label>
-                                </div>
+
                                 @error('cgu_register')
-                                <span class="invalid-feedback" role="alert">
+                                <div class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
-                                </span>
+                                </div>
                                 @enderror
+                            </div>
                             </div>
                         </div>
 
