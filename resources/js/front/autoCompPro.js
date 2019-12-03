@@ -19,19 +19,27 @@ var formPros = document.getElementById('pros');
 var suggPros = document.getElementById('suggestions');
 
 formPros.addEventListener('keyup', function(e){
-    let entree = e.target.value.toLowerCase();
-    suggPros.innerHTML='';
-
-    for (let pros of tabPros) {
-        if (pros.toLowerCase().match(entree)) {
-            let suggestionPros = document.createElement('div');
-            suggestionPros.innerText=pros;
-            suggestionPros.classList.add('suggestion');
-            suggPros.appendChild(suggestionPros);
-            suggestionPros.addEventListener('click', function(evt){
-                formPros.value=pros;
-                suggPros.innerHTML='';
-            });
+    if (formPros.value.length>2) {
+        let entree = e.target.value.toLowerCase();
+        suggPros.innerHTML='';
+        for (let pros of tabPros) {
+            if (pros.toLowerCase().match(entree)) {
+                let suggestionPros = document.createElement('div');
+                suggestionPros.innerText=pros;
+                suggestionPros.classList.add('suggestion');
+                suggPros.appendChild(suggestionPros);
+                suggestionPros.addEventListener('click', function(evt){
+                    formPros.value=pros;
+                    suggPros.innerHTML='';
+                });
+            }
         }
     }
 });
+
+// formPros.addEventListener("keypress", function (e) {
+//     console.log("Vous avez appuyé sur la touche " + String.fromCharCode(e.charCode));
+//     if (e.keyCode == '40') {
+//         console.log('fleche bas');
+//     }
+// });
