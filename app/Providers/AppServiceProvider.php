@@ -2,28 +2,26 @@
 
 namespace App\Providers;
 
+use Carbon\Carbon;
+use Illuminate\Auth\Notifications\VerifyEmail;
+use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Schema; //NEW: Import Schema
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
+    public function boot()
+    {
+        VerifyEmail::toMailUsing(function ($notifiable,$url){
+            $mail = new MailMessage;
+            $mail->subject('Bienvenu !');
+            $mail->markdown('emails.verify', ['url' => $url]);
+            return $mail;
+        });
+    }
+
     public function register()
     {
         //
-    }
-
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        Schema::defaultStringLength(191); //NEW: Increase StringLength
     }
 }
