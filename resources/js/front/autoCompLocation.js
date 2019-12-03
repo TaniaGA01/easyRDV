@@ -22,19 +22,20 @@ var formLocs = document.getElementById('locs');
 var suggLocs = document.getElementById('suggestions-locs');
 
 formLocs.addEventListener('keyup', function(e){
-    let entree = e.target.value.toLowerCase();
-    suggLocs.innerHTML='';
-
-    for (let locs of tabLocs) {
-        if (locs.toLowerCase().match(entree)) {
-            let suggestionLocs = document.createElement('div');
-            suggestionLocs.innerText=locs;
-            suggestionLocs.classList.add('suggestion');
-            suggLocs.appendChild(suggestionLocs);
-            suggestionLocs.addEventListener('click', function(evt){
-                formLocs.value=locs;
-                suggLocs.innerHTML='';
-            });
+    if (formLocs.value.length>2){
+        let entree = e.target.value.toLowerCase();
+        suggLocs.innerHTML='';
+        for (let locs of tabLocs) {
+            if (locs.toLowerCase().match(entree)) {
+                let suggestionLocs = document.createElement('div');
+                suggestionLocs.innerText=locs;
+                suggestionLocs.classList.add('suggestion');
+                suggLocs.appendChild(suggestionLocs);
+                suggestionLocs.addEventListener('click', function(evt){
+                    formLocs.value=locs;
+                    suggLocs.innerHTML='';
+                });
+            }
         }
     }
 });

@@ -43,8 +43,10 @@ class TemporaireSearch extends Controller
                     'nope' => $nope,
                 ]);
             }elseif(isset($results)) {
+                $us_profession = Profession::where('id',$results[0]->profession_id)->get();
                 return view('temporaire',[
                     'results'=> $results,
+                    'job' => $us_profession,
                 ]);
             }
         }elseif (isset($profession[0]->id) && isset($localisation[0]->id)) {
@@ -57,8 +59,12 @@ class TemporaireSearch extends Controller
                     'nope' => $nope,
                 ]);
             }elseif(isset($results)) {
+                $us_profession = Profession::where('id',$results[0]->profession_id)->get();
+                $us_localisation = City::where('id', $results[0]->city_id)->get();
                 return view('temporaire',[
                     'results'=> $results,
+                    'city' => $us_localisation,
+                    'job' => $us_profession,
                 ]);
             }
         }elseif (!isset($profession[0]->id) && isset($localisation[0]->id)) {
