@@ -38,7 +38,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href="#" class="nav-link">A propos</a></li>
+                        <li class="nav-item"><a href="{{route('about')}}" class="nav-link">A propos</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Tarifs</a></li>
                         <li class="nav-item"><a href="{{route('contact.create')}}" class="nav-link">Nous contacter</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Je suis un professionnel</a></li>
@@ -87,7 +87,7 @@
                 <div class="row">
                     <nav class="">
                         <ul>
-                            <li><a href="#">A propos</a></li>
+                            <li><a href="{{route('about')}}">A propos</a></li>
                             <li><a href="#">Tarifs</a></li>
                             <li><a href="{{route('contact.create')}}">Nous contacter</a></li>
                             <li><a href="{{route('legal.index')}}">Informations légales</a></li>
@@ -97,5 +97,7 @@
             </div>
         </section>
     </footer>
+
+    <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>
