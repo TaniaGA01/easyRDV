@@ -86,7 +86,7 @@
                 <div class="row">
                     <nav class="">
                         <ul>
-                            <li><a href="{{route('about')}}">A propos</a></li>
+                            <li><a href="{{route('about')}}">À propos</a></li>
                             <li><a href="#">Tarifs</a></li>
                             <li><a href="{{route('contact.create')}}">Nous contacter</a></li>
                             <li><a href="{{route('legal.index')}}">Informations légales</a></li>
