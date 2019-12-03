@@ -2335,7 +2335,7 @@ pre code {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-  /*border-radius: 0.25rem;*/
+  border-radius: 0.25rem;
   -webkit-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -9130,13 +9130,6 @@ button.bg-dark:focus {
 .px-5 {
   padding-left: 3rem !important;
 }
-
-.p-6 {
-  padding: 5rem !important;
-}
-.ptb-6{
-    padding: 5rem 0 !important;
-  }
 
 .m-n1 {
   margin: -0.25rem !important;
