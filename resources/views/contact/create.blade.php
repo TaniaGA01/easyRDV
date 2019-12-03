@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container  ptb-6">
+    <div class="row justify-content-center ">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Nous contacter</div>
@@ -12,7 +12,7 @@
                         @csrf
 
                         <!-- si le champ n'est pas rempli on affiche un message et on ajoute la classe bg-red -->
-                       
+
                         <!-- {{ old('last_name') }} : si problème lors de la validation on garde la valeur écrite par l'utilisateur -->
 
                         <div class="form-group row">

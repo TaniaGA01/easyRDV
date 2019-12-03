@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container ptb-6">
     <div class="row">
         <div class=" justify-content-center col-lg-6 col-md-12">
             <div class="card">
@@ -46,14 +46,14 @@
                                     <input class="form-check-input" type="checkbox" name="remember"
                                         {{ old('remember') ? 'checked' : '' }}>
 
-                                    <label class="form-check-label" for="remember">Se souvenir de moi</label>
+                                    <label  for="remember">Se souvenir de moi</label>
                                 </div>
                             </div>
                         </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-10 offset-md-1">
-                                <button type="submit" class="btn btn-primary btn-md col-md-7">Se connecter</button>
+                                <button type="submit" class="btn-pr col-md-7">Se connecter</button>
 
                                 @if (Route::has('password.request'))
                                 <a class="btn btn-link" href="{{ route('password.request') }}">Mot de passe oublié ?</a>
@@ -70,7 +70,7 @@
             <div class="card">
                 <div class="card-header">S'inscrire</div>
 
-                <div class="card-body">
+                <div class="card-body py-5">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
@@ -90,7 +90,7 @@
 
                         <div class="form-group row justify-content-center">
 
-                            <div class="col-md-10">
+                            <div class="col-md-5">
                                 <input placeholder="Mot de passe" type="password"
                                     class="form-control @error('password_register') is-invalid @enderror" name="password_register"
                                     required autocomplete="new-password">
@@ -101,11 +101,8 @@
                                 </span>
                                 @enderror
                             </div>
-                        </div>
 
-                        <div class="form-group row justify-content-center">
-
-                            <div class="col-md-10">
+                            <div class="col-md-5">
                                 <input placeholder="Confirmer mot de passe" type="password" class="form-control"
                                     name="password_register_confirmation" required autocomplete="new-password">
                             </div>
@@ -113,25 +110,24 @@
 
                         <div class="form-group row justify-content-center">
                                 <div class="col-md-10">
-                                <div class="form-check">
-                                    <input class="form-check-input @error('cgu_register') is-invalid @enderror" type="checkbox" name="cgu_register" id="cgu_register" >
+                                    <div class="form-check">
+                                        <input class="form-check-input @error('cgu_register') is-invalid @enderror" type="checkbox" name="cgu_register" id="cgu_register" >
 
-                                    <label for="cgu_register">
-                                        Je suis d'accord avec les<a href=""> Conditions Générales d'Utilisation</a>
-                                    </label>
+                                        <label for="cgu_register">
+                                            Je suis d'accord avec les<a href=""> Conditions Générales d'Utilisation</a>
+                                        </label>
 
-                                @error('cgu_register')
-                                <div class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </div>
-                                @enderror
-                            </div>
+                                    @error('cgu_register')
+                                    <div class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                    @enderror
+                                    </div>
                             </div>
                         </div>
-
                         <div class="form-group row mb-0">
                             <div class="col-md-10 offset-md-1">
-                                <button type="submit" class="btn btn-primary btn-block">S'inscrire</button>
+                                <button type="submit" class="btn-pr btn-block">S'inscrire</button>
                             </div>
                         </div>
                     </form>

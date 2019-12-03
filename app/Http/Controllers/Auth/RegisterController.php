@@ -48,11 +48,15 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        $validator = Validator::make($data, [
+        $validator = Validator::make($data,
+        [
             // 'name' => ['required', 'string', 'max:255'],
             'email_register' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
             'password_register' => ['required', 'string', 'min:6', 'confirmed'],
             'cgu_register' => ['accepted']
+        ],
+        [
+            'accepted'=> 'Les conditions d\'utilisation doivent être acceptées'
         ]);
 
         $validator->setAttributeNames([
