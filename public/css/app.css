@@ -8,8 +8,6 @@
  */
 
 :root {
-  --blue-easyrdv: #022340;
-  --orange-easyrdv: #F2790F;
   --blue: #3490dc;
   --indigo: #6574cd;
   --purple: #9561e2;
@@ -2337,7 +2335,7 @@ pre code {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-  border-radius: 0.25rem;
+  /*border-radius: 0.25rem;*/
   -webkit-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }

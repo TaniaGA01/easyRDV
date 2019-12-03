@@ -1,0 +1,29 @@
+:root{
+    --bleu:#022340;
+    --orange:#F2790F;
+    --orange-clair: #F2A03D;
+    --orange-fc:#F25116;
+    --white:#ffffff;
+}
+
+/* =============== padding/margin ====================*/
+
+.px-6{padding: 4rem;}
+.px-7{padding: 5rem;}
+
+.py-6{padding: 4rem;}
+.py-7{padding: 5rem;}
+
+.mx-6{margin: 4rem;}
+.mx-7{margin: 5rem;}
+
+.my-6{margin: 4rem;}
+.my-7{margin: 5rem;}
+
+/* ================ buttons =====================*/
+.btn-pr{
+    background-color: var(--orange);
+    color: var(--white) ;
+    border: none;
+    padding: 10px;
+}
