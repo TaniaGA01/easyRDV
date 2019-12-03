@@ -8,6 +8,8 @@
  */
 
 :root {
+  --blue-easyrdv: #022340;
+  --orange-easyrdv: #F2790F;
   --blue: #3490dc;
   --indigo: #6574cd;
   --purple: #9561e2;
@@ -9130,6 +9132,13 @@ button.bg-dark:focus {
 .px-5 {
   padding-left: 3rem !important;
 }
+
+.p-6 {
+  padding: 5rem !important;
+}
+.ptb-6{
+    padding: 5rem 0 !important;
+  }
 
 .m-n1 {
   margin: -0.25rem !important;
