@@ -33,53 +33,7 @@ const app = new Vue({
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    var tabPros = [];
-    function appelAjax () {
-        fetch('/tempo/json')
-            .then(response => response.json())
-            .then(tabs => {
-                if (tabs.length){
-                    for (let tab of tabs){
-                        for (let value of tab) {
-                            if (value.name) {
-                                tabPros.push(value.name);
-                            }else if (value.last_name) {
-                                let nomComplet = value.first_name+' '+value.last_name;
-                                tabPros.push(nomComplet);
-                            }
-                        }
-                    }
-                }
-                return tabPros;
-            })
-    }
-    appelAjax();
+    require('./front/autoCompPro');
+    require('./front/autoCompLocation');
 
-    var formPros = document.getElementById('pros');
-    var suggPros = document.getElementById('suggestions');
-    var formSearch = document.querySelector('.form-container');
-    var urlWindow = window.location.origin;
-    if (formSearch.action) {
-        formSearch.action.innerText="";
-    }
-
-    formPros.addEventListener('keyup', function(e){
-        let entree = e.target.value.toLowerCase();
-        suggPros.innerHTML='';
-
-        for (let pros of tabPros) {
-            if (pros.toLowerCase().match(entree)) {
-                let suggestionPros = document.createElement('div');
-                suggestionPros.innerText=pros;
-                suggestionPros.classList.add('suggestion');
-                suggPros.appendChild(suggestionPros);
-                suggestionPros.addEventListener('click', function(evt){
-                    let urlSearch = urlWindow+'/tempo/'+pros;
-                    formSearch.setAttribute('action', urlSearch);
-                    formPros.value=pros;
-                    suggPros.innerHTML='';
-                });
-            }
-        }
-    });
 });
