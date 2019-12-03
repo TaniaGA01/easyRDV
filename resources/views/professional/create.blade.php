@@ -45,6 +45,22 @@
                         </div>
 
                         <div class="form-group row justify-content-center">
+							<div class="col-md-10">
+                                <select class="form-control @error('profession_id') is-invalid @enderror" name="profession_id">
+                                    <option value="" >Sélectionnez votre métier</option>
+                                    @foreach ($professions as $profession)
+                                        <option value="{{$profession->id}}" {{ old('profession_id') == $profession->id ? "selected":""}}>{{$profession->name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('glider_id')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+						</div>
+
+                        <div class="form-group row justify-content-center">
                             <div class="col-md-10">
                                 <div class="form-check">
                                     <input class="form-check-input @error('cgu_register') is-invalid @enderror"
