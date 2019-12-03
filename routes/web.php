@@ -54,22 +54,19 @@ Route::get('mes-informations/{name}/editer','ClientController@edit')->name('clie
 Route::put('mes-informations/{name}','ClientController@update')->name('client.update');
 
 // Espace Professionnel
-Route::get('mon-agenda/{name}','ProfessionnelController@indexAgenda')->name('professionnel.indexAgenda');
+Route::get('mon-agenda/{name}','ProfessionalController@indexAgenda')->name('professionnel.indexAgenda');
 // Route formulaire creation rdv perso ???
-Route::post('mon-agenda/{name}','ProfessionnelController@store')->name('professionnel.store');
+Route::post('mon-agenda/{name}','ProfessionalController@store')->name('professionnel.store');
 
-Route::get('mes-rendez-vous/{name}','ProfessionnelController@indexAppointment')->name('professionnel.indexAppointment');
+Route::get('mes-rendez-vous/{name}','ProfessionalController@indexAppointment')->name('professionnel.indexAppointment');
 
-Route::get('mes-informations/{name}/editer','ProfessionnelController@edit')->name('professionnel.edit');
-Route::put('mes-informations/{name}','ProfessionnelController@update')->name('professionnel.update');
+Route::get('mes-informations/{name}/editer','ProfessionalController@edit')->name('professionnel.edit');
+Route::put('mes-informations/{name}','ProfessionalController@update')->name('professionnel.update');
 
 
 
 
 //#######################################################
-// Contact
-Route::get('contact','ContactController@create');
-Route::post('contact','ContactController@store');
 
 // Login
 Route::get('login','LoginController@create');
