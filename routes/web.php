@@ -38,7 +38,7 @@ Route::post('connexion','LoginController@store')->name('login.store');
 Route::post('inscription','InscriptionController@store')->name('inscription.store');
 
 // Page "Information légales"
-Route::get('/information-legales', 'LegalController@index')->name('legal.index');
+Route::get('/informations-legales', 'LegalController@index')->name('legal.index');
 
 
 // Espace client
