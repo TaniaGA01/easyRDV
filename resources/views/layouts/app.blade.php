@@ -38,10 +38,10 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href="#" class="nav-link">A propos</a></li>
+                        <li class="nav-item"><a href="{{route('about')}}" class="nav-link">A propos</a></li>
                         <li class="nav-item"><a href="#" class="nav-link">Tarifs</a></li>
                         <li class="nav-item"><a href="{{route('contact.create')}}" class="nav-link">Nous contacter</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Je suis un professionnel</a></li>
+                        <li class="nav-item"><a href="{{route('professional.create')}}" class="nav-link">Je suis un professionnel</a></li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -83,16 +83,23 @@
     <!-- NavFooter -->
     <footer>
         <section>
-            <div class="container">
+            <div class="container ptb-5">
                 <div class="row">
-                    <nav class="">
-                        <ul>
-                            <li><a href="#">A propos</a></li>
-                            <li><a href="#">Tarifs</a></li>
-                            <li><a href="{{route('contact.create')}}">Nous contacter</a></li>
-                            <li><a href="{{route('legal.index')}}">Informations légales</a></li>
-                        </ul>
-                    </nav>
+                    <div class="col-4">
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            <img src="{{ asset('img/logo-easyrdv-w.svg') }}" alt="{{ config('app.name', 'Laravel') }}" width="150">
+                        </a>
+                    </div>
+                    <div class="col-8">
+                        <nav class="footer-nav">
+                            <ul>
+                                <li><a href="{{route('about')}}">A propos</a></li>
+                                <li><a href="#">Tarifs</a></li>
+                                <li><a href="{{route('contact.create')}}">Nous contacter</a></li>
+                                <li><a href="{{route('legal.index')}}">Informations légales</a></li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </section>

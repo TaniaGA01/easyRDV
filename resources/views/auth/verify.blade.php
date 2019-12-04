@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container ptb-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    Avant de continuer, veuillez vérifier dans votre boite mail que vous avez bien reçu un lien de vérification. <br> 
+                    Avant de continuer, veuillez vérifier dans votre boite mail que vous avez bien reçu un lien de vérification. <br>
                     Si vous n'avez pas reçu le mail,
                     <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
                         @csrf
