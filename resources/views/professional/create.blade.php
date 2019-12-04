@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container ptb-6">
+<div class="container ptb-5">
     <div class="row">
-        <div class=" justify-content-center col-lg-6 col-md-12">
+        <div class=" justify-content-center col-lg-4 col-md-12">
             <div class="card">
-                <div class="card-header">S'inscrire</div>
+                <div class="card-header">S'inscrire en tant que professionnel</div>
                 <div class="card-body py-5">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -37,7 +37,7 @@
                                 </span>
                                 @enderror
                             </div>
-                            
+
                             <div class="col-md-5">
                                 <input placeholder="Confirmer mot de passe" type="password" class="form-control"
                                     name="password_register_confirmation" required autocomplete="new-password">
