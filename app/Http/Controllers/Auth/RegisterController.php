@@ -75,12 +75,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $role_id = 3;
+        $profession_id = null;
+        
+        if(array_key_exists('professional',$data) && array_key_exists('profession_id',$data)){
+            $role_id = 2;
+            $profession_id = $data['profession_id'];
+        }
 
         return User::create([
             // 'name' => $data['name'],
             'email' => $data['email_register'],
             'password' => Hash::make($data['password_register']),
-            'role_id' => 3
+            'role_id' => $role_id,
+            'profession_id' => $profession_id
         ]);
     }
 }
