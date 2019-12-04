@@ -19,7 +19,7 @@ var formPros = document.getElementById('pros');
 var suggPros = document.getElementById('suggestions');
 
 formPros.addEventListener('keyup', function(e){
-    if (formPros.value.length>2) {
+    if (formPros.value.length>1) {
         let entree = e.target.value.toLowerCase();
         suggPros.innerHTML='';
         for (let pros of tabPros) {
@@ -35,11 +35,23 @@ formPros.addEventListener('keyup', function(e){
             }
         }
     }
-});
+    if (e.keyCode == '40' && suggPros.innerHTML!=='') {
+        var listeSelected = document.querySelector('.suggestion.active');
+        if (listeSelected) {
+            console.log('IF');
+            if (listeSelected.nextElementSibling) {
+                listeSelected.classList.remove('active');
+                listeSelected.nextElementSibling.classList.add('active');
+                listeSelected.nextElementSibling.style.color = 'red';
 
-// formPros.addEventListener("keypress", function (e) {
-//     console.log("Vous avez appuyé sur la touche " + String.fromCharCode(e.charCode));
-//     if (e.keyCode == '40') {
-//         console.log('fleche bas');
-//     }
-// });
+            }
+        } else {
+            let suggestion = document.querySelector('.suggestion');
+            suggestion.classList.add('active');
+            suggestion.style.color = 'red';
+            console.log('else !');
+            console.log(listeSelected.nextElementSibling);
+            // formPros.value = suggestion.innerText;
+        }
+    }
+});
