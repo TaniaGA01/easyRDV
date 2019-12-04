@@ -77,14 +77,12 @@ class RegisterController extends Controller
     {
         $role_id = 3;
         $profession_id = null;
-
-        if(array_key_exists('professional',$data)){
+        
+        if(array_key_exists('professional',$data) && array_key_exists('profession_id',$data)){
             $role_id = 2;
-        }
-        if(array_key_exists('profession_id',$data)){
             $profession_id = $data['profession_id'];
         }
-        
+
         return User::create([
             // 'name' => $data['name'],
             'email' => $data['email_register'],
