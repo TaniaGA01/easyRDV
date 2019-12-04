@@ -56,6 +56,7 @@ footer{
     bottom: 0;
     width: 100%;
     border-top: solid 5px var(--orange);
+    position: relative;
 }
 .footer-nav {
     text-align: right;

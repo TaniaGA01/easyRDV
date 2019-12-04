@@ -76,6 +76,10 @@ Route::get('user','LoginController@createNew');
 // Déconnection
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
+// Route informations personnelles
+Route::get('/informations-personnelles', 'UserInfoController@create')->name('userInformations.create');
+Route::post('/informations-personnelles', 'UserInfoController@store')->name('userInformations.store');
+
 
 // Route Temporaire : test de David
 Route::get('tempo','TemporaireSearch@search');
