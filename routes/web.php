@@ -72,6 +72,11 @@ Route::post('login2','LoginController@store');
 Route::post('login/new','LoginController@storeNew');
 Route::get('user','LoginController@createNew');
 
+//#######################################################
+// Déconnection
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+
 // Route Temporaire : test de David
 Route::get('tempo','TemporaireSearch@search');
 Route::get('tempo/json','TemporaireSearch@tableau_1');
