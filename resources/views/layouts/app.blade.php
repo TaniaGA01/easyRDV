@@ -17,13 +17,14 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
-<body>
+<body  class="body" onLoad="Horloge();" >
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('img/logo-easy-rdv.svg') }}" alt="{{ config('app.name', 'Laravel') }}" width="150">
                 </a>
+                
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -41,9 +42,15 @@
                         <li class="nav-item"><a href="{{route('professional.create')}}" class="nav-link">Je suis un professionnel</a></li>
                         <!-- Authentication Links -->
                         @guest
+                        
                             <li class="nav-item">
+                                    
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter/S\'inscrire') }}</a>
+                                
                             </li>
+                                <form  name="form1" id="form1">
+                                    <input type="texte" name="pendule" id="pendule" value="" size="9" class="time">
+                                </form>
                             <!--
                             @if (Route::has('register'))
                                 <li class="nav-item">
@@ -84,6 +91,8 @@
 
         @yield('content')
     </div>
+
+        
     <!-- NavFooter -->
     <footer>
         <section>
