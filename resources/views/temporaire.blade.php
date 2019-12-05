@@ -7,13 +7,13 @@
         <form class="col-4" method="POST" autocomplete="off">
 
             <label for="pros">Entrez le nom d'une profession</label> :<br />
-            <input type="text" id="pros" name="pros" autocomplete="off">
-            <div id="suggestions"></div>
+            <input list="suggestions" type="text" id="pros" name="pros" autocomplete="off">
+            <datalist id="suggestions"></datalist>
 
             <br />
             <label for="locs">Choisissez un lieu</label> :<br />
-            <input type="text" id="locs" name="locs" autocomplete="off">
-            <div id="suggestions-locs"></div>
+            <input list="suggestions-locs" type="text" id="locs" name="locs" autocomplete="off">
+            <datalist id="suggestions-locs"></datalist>
 
             <button type="submit">Rechercher</button>
             @csrf
