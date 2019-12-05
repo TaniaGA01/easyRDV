@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth','verified']);
+        // $this->middleware(['auth','verified']);
     }
 
     /**
@@ -24,5 +25,20 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    /**
+     * Renvoie vers la page du professionnel, côté client.
+     *
+     */
+    public function show($profession, $city, $first_name, $last_name)
+    {
+        // return 'TEST';
+
+        $result = User::where('last_name',$last_name)->get();
+        // return $result;
+        return view('espacepro', [
+            'pro' => $result,
+        ]);
     }
 }

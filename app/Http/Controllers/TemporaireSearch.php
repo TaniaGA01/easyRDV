@@ -28,13 +28,13 @@ class TemporaireSearch extends Controller
     }
 
     public function results(Request $request){
+        $ville = $request->input('locs');
         $name = str_replace(' ', '-', $request->input('pros'));
-        $loc = str_replace(' ', '-', $request->input('locs'));
+        $loc = str_replace(' ', '-', $ville);
         $profession = Profession::where('name',$name)->get();
         $localisation = City::where('name', $loc)->get();
-        $nope = "Aucun résultat pour cette recherche";
-
-        if (isset($profession[0]->id) && !isset($localisation[0]->id)) {
+        $nope = "Aucun résultat pour cette recherche.";
+        if (empty($ville) && isset($profession[0]->id)) {
             $id_profession = $profession[0]->id;
             $results = User::where('profession_id',$id_profession)->get();
             $tab_json = json_decode($results);
@@ -44,12 +44,13 @@ class TemporaireSearch extends Controller
                 ]);
             }elseif(isset($results)) {
                 $us_profession = Profession::where('id',$results[0]->profession_id)->get();
+                // $us_localisation = City::where('id', $results->city_id)->get();
                 return view('temporaire',[
                     'results'=> $results,
-                    'job' => $us_profession,
+                    'job' => $us_profession
                 ]);
             }
-        }elseif (isset($profession[0]->id) && isset($localisation[0]->id)) {
+        } elseif (isset($profession[0]->id) && isset($localisation[0]->id)) {
             $id_profession = $profession[0]->id;
             $id_localisation = $localisation[0]->id;
             $results = User::where('profession_id',$id_profession)->where('city_id',$id_localisation)->get();
@@ -68,7 +69,7 @@ class TemporaireSearch extends Controller
                 ]);
             }
         }elseif (!isset($profession[0]->id) && isset($localisation[0]->id)) {
-            $nope= "Vous devez sélectionner une profession";
+            $nope= "Vous devez sélectionner une profession !";
             return view('temporaire', [
                 'nope' => $nope,
             ]);
