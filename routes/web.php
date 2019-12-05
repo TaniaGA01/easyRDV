@@ -50,9 +50,9 @@ Route::get('mes-informations/{name}/editer','ClientAreaController@edit')->name('
 Route::put('mes-informations/{name}','ClientAreaController@update')->name('clientArea.update');
 
 // Espace Professionnel
-Route::get('mon-agenda/{name}','ProfessionalAreaController@indexAgenda')->name('professionnelArea.indexAgenda');
+Route::get('mon-agenda/{first_name}','ProfessionalAreaController@indexAgenda')->name('professionnelArea.indexAgenda');
 // Route formulaire creation rdv perso ???
-Route::post('mon-agenda/{name}','ProfessionalAreaController@store')->name('professionnelArea.store');
+Route::post('mon-agenda/{name}/send','ProfessionalAreaController@store')->name('professionnelArea.store');
 
 Route::get('mes-rendez-vous/{name}','ProfessionalAreaController@indexAppointment')->name('professionnelArea.indexAppointment');
 
