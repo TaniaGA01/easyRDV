@@ -53,7 +53,6 @@ class TemporaireSearch extends Controller
         } elseif (isset($profession[0]->id) && isset($localisation[0]->id)) {
             $id_profession = $profession[0]->id;
             $id_localisation = $localisation[0]->id;
-            return 'test';
             $results = User::where('profession_id',$id_profession)->where('city_id',$id_localisation)->get();
             $tab_json = json_decode($results);
             if (empty($tab_json)) {
