@@ -2,7 +2,7 @@
 
 @section('content')
 <div>On teste la page temporaire</div>
-<div class="container" style="min-height:65vh;">
+<div class="container ptb-5" style="min-height:65vh;">
     <div class="row">
         <form class="col-4" method="POST" autocomplete="off">
 
@@ -22,20 +22,20 @@
         <section class="col-8">
             @isset($results)
 
-            <div>Vous avez recherché un {{str_replace('-', ' ', strtolower($job[0]->name))}}@isset($city) à {{$city[0]->name}}@endisset</div><br />
+            <div>Vous avez recherché un {{str_replace('-', ' ', strtolower($job[0]->name))}}@isset($city) à {{$city[0]->name_ville}}@endisset</div><br />
             @foreach ($results as $result)
                 <div class="card mb-3">
                     <div class="row no-gutters">
                         <div class="col-md-2">
-                            <img src="@isset($result->image){{$result->image}}@endisset" class="card-img" alt="@isset($result->image){{$result->first_name}} {{$result->last_name}}, {{$result->profession->name}} à {{$result->city->name}}@endisset" style="max-height:102px;border-radius: 3px 0 0 3px;" />
+                            <img src="@isset($result->image){{$result->image}}@endisset" class="card-img" alt="@isset($result->image){{$result->first_name}} {{$result->last_name}}, {{$result->profession->name}} à {{$result->city->name_ville}}@endisset" style="max-height:102px;border-radius: 3px 0 0 3px;" />
                         </div>
                         <div class="col-md-10">
                             <div class="card-body">
                                 <div class="row align-items-center">
-                                <a class="col-md-6" href="{{route('show', [$result->profession->name,$result->city->name,$result->first_name,$result->last_name])}}"><h5 class="card-title">{{$result->first_name}} {{$result->last_name}}</h5></a>
+                                <a class="col-md-6" href="{{route('show', [$result->profession->name,$result->city->name_ville,$result->first_name,$result->last_name])}}"><h5 class="card-title">{{$result->first_name}} {{$result->last_name}}</h5></a>
                                     <div class="col-md-6">
                                         <p class="card-text text-right">{{$result->profession->name}}</p>
-                                        <p class="card-text text-right">{{$result->city->name}}</p>
+                                        <p class="card-text text-right">{{$result->city->name_ville}}</p>
                                     </div>
                                 </div>
                             </div>

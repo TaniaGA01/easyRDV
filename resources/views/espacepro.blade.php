@@ -2,7 +2,7 @@
 
 @section('content')
 
-@isset($pro)
+@isset($pro[0])
 {{-- @php
 var_dump($pro);
     return 'TEST';
@@ -18,8 +18,13 @@ var_dump($pro);
         </div>
     </div>
 </div>
+
 @else
-<div>Ce compte n'existe pas !</div>
+
+<div class="container ptb-5" style="min-height:60vh">
+    <p>Ce compte n'existe pas !</p>
+    <a class="btn btn-info" href="javascript:history.back()">Retour</a>
+</div>
 
 @endisset
 
