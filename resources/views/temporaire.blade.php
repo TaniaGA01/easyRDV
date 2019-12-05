@@ -24,15 +24,20 @@
 
             <div>Vous avez recherché un {{str_replace('-', ' ', strtolower($job[0]->name))}}@isset($city) à {{$city[0]->name}}@endisset</div><br />
             @foreach ($results as $result)
-                <div class="card mb-3" style="max-width: 540px;">
+                <div class="card mb-3">
                     <div class="row no-gutters">
-                        <div class="col-md-4">
+                        <div class="col-md-1">
                             <img src="..." class="card-img" alt="...">
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-11">
                             <div class="card-body">
-                                <h5 class="card-title">{{$result->first_name}} {{$result->last_name}}</h5>
-                                {{-- <p class="card-text">{{$results->first_name}}</p> --}}
+                                <div class="row">
+                                    <h5 class="card-title col-md-6">{{$result->first_name}} {{$result->last_name}}</h5>
+                                    <div class="col-md-6">
+                                        <p class="card-text text-right">{{$job[0]->name}}</p>
+                                        <p class="card-text text-right">{{$result->city->name}}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
