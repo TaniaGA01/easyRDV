@@ -26,15 +26,15 @@
             @foreach ($results as $result)
                 <div class="card mb-3">
                     <div class="row no-gutters">
-                        <div class="col-md-1">
-                            <img src="..." class="card-img" alt="...">
+                        <div class="col-md-2">
+                            <img src="@isset($result->image){{$result->image}}@endisset" class="card-img" alt="@isset($result->image){{$result->first_name}} {{$result->last_name}}, {{$result->profession->name}} à {{$result->city->name}}@endisset" style="max-height:102px;border-radius: 3px 0 0 3px;" />
                         </div>
-                        <div class="col-md-11">
+                        <div class="col-md-10">
                             <div class="card-body">
-                                <div class="row">
+                                <div class="row align-items-center">
                                     <h5 class="card-title col-md-6">{{$result->first_name}} {{$result->last_name}}</h5>
                                     <div class="col-md-6">
-                                        <p class="card-text text-right">{{$job[0]->name}}</p>
+                                        <p class="card-text text-right">{{$result->profession->name}}</p>
                                         <p class="card-text text-right">{{$result->city->name}}</p>
                                     </div>
                                 </div>
