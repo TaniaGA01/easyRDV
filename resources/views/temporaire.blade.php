@@ -32,7 +32,7 @@
                         <div class="col-md-10">
                             <div class="card-body">
                                 <div class="row align-items-center">
-                                    <h5 class="card-title col-md-6">{{$result->first_name}} {{$result->last_name}}</h5>
+                                <a class="col-md-6" href="{{route('show', [$result->profession->name,$result->city->name,$result->first_name,$result->last_name])}}"><h5 class="card-title">{{$result->first_name}} {{$result->last_name}}</h5></a>
                                     <div class="col-md-6">
                                         <p class="card-text text-right">{{$result->profession->name}}</p>
                                         <p class="card-text text-right">{{$result->city->name}}</p>
