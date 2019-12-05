@@ -19,7 +19,7 @@ var formPros = document.getElementById('pros');
 var suggPros = document.getElementById('suggestions');
 
 formPros.addEventListener('keyup', function(e){
-    if (formPros.value.length>1 && e.keyCode != '40') {
+    if (formPros.value.length>1 && e.keyCode != '40' && e.keyCode != '38') {
         let entree = e.target.value.toLowerCase();
         suggPros.innerHTML='';
         for (let pros of tabPros) {
