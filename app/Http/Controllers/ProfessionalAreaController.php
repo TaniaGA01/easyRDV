@@ -12,12 +12,14 @@ class ProfessionalAreaController extends Controller
      * Affiche la page "Mon agenda" du professionnel 
      */
     public function indexAgenda($id){
-        self::getAgenda();
+        //$grid = self::getAgenda();
 
         $user = Auth::user();
         $user_id = $user->id;
         if($id == $user_id){
-            return view('professionalArea/indexAgenda',['user' => $user]);
+            return view('professionalArea/indexAgenda',[
+                'user' => $user, 
+                ]);
         }else
             return view('welcome');
     }
@@ -26,7 +28,7 @@ class ProfessionalAreaController extends Controller
      * Génère l'agenda
      */
     public function getAgenda(){
-        // #TODO
+        
     }
 
     /**
