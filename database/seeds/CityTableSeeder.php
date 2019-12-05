@@ -12,83 +12,17 @@ class CityTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('cities')->insert([
-            [
-                'name' => 'Vladivostok',
-                'departement' => 'Primorie'
-            ],
-            [
-                'name' => 'Perpignan',
-                'departement' => 'Pyrénées-Orientales'
-            ],
-            [
-                'name' => 'Carcassonne',
-                'departement' => 'Aude'
-            ],
-            [
-                'name' => 'Corlaix',
-                'departement' => 'Finistère'
-            ],
-            [
-                'name' => 'Rennes',
-                'departement' => 'Ille-et-Vilaine'
-            ],
-            [
-                'name' => 'Brest',
-                'departement' => 'Finistère'
-            ],
-            [
-                'name' => 'Iakoutsk',
-                'departement' => 'Iakoutie'
-            ],
-            [
-                'name' => 'Kyoto',
-                'departement' => 'Kansai'
-            ],
-            [
-                'name' => 'Bourg-les-Mouls',
-                'departement' => 'Creuse'
-            ],
-            [
-                'name' => 'Serres-les-Coings',
-                'departement' => 'Charente-Maritime'
-            ],
-            [
-                'name' => 'Marseille',
-                'departement' => 'Bouches-du-Rhône'
-            ],
-            [
-                'name' => 'Xandar City',
-                'departement' => 'Secteur-WBH3'
-            ],
-            [
-                'name' => 'Poudlard',
-                'departement' => 'Highlands'
-            ],
-            [
-                'name' => 'Rungis',
-                'departement' => 'Val-de-Marne'
-            ],
-            [
-                'name' => 'Minas-Territ',
-                'departement' => 'Terre-du-Milieu'
-            ],
-            [
-                'name' => 'Vannes',
-                'departement' => 'Morbihan'
-            ],
-            [
-                'name' => 'Kaamelott',
-                'departement' => 'Armorique'
-            ],
-            [
-                'name' => 'Montréal',
-                'departement' => 'Québec'
-            ],
-            [
-                'name' => 'Laraville',
-                'departement' => 'Ille-et-Vilaine'
-            ]
-        ]);
+        $seed = [];
+       if ($handle = fopen(__DIR__.'/laposte_hexasmal.csv', 'r')) {
+         while(($data = fgetcsv($handle, 1000, ';')) !== FALSE){
+             $seed[] = [
+                 'name_ville' => $data[1],
+                 'postal_code' => $data[2]
+             ];
+         }
+       }
+       foreach ($seed as $city) {
+        DB::table('cities')->insert($city);
+    }
     }
 }
