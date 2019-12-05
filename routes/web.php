@@ -15,7 +15,7 @@
 Route::view('/','welcome');
 Route::post('/','HomeController@searchPro')->name('searchpro');
 Route::get('/liste-des-professionnels/{page}/{field}/{city}','HomeController@index')->name('index');
-Route::get('/{name}/{city}/{profession}','HomeController@show')->name('show');
+Route::get('/{profession}/{city}/{name}','HomeController@show')->name('show');
 
 // Page "A propos"
 Route::get('/a-propos', 'AboutController@index')->name('about');
@@ -44,20 +44,20 @@ Route::get('/informations-legales', 'LegalController@index')->name('legal.index'
 // Espace client
 // Route page d'accueil ???
 
-Route::get('mes-rendez-vous/{name}','ClientAreaController@index')->name('clientArea.index');
+Route::get('mes-rendez-vous/{id}','ClientAreaController@index')->name('clientArea.index');
 
-Route::get('mes-informations/{name}/editer','ClientAreaController@edit')->name('clientArea.edit');
-Route::put('mes-informations/{name}','ClientAreaController@update')->name('clientArea.update');
+Route::get('mes-informations/{id}/editer','ClientAreaController@edit')->name('clientArea.edit');
+Route::put('mes-informations/{id}','ClientAreaController@update')->name('clientArea.update');
 
 // Espace Professionnel
-Route::get('mon-agenda/{first_name}','ProfessionalAreaController@indexAgenda')->name('professionnelArea.indexAgenda');
+Route::get('mon-agenda/{id}','ProfessionalAreaController@indexAgenda')->name('professionnelArea.indexAgenda');
 // Route formulaire creation rdv perso ???
-Route::post('mon-agenda/{name}/send','ProfessionalAreaController@store')->name('professionnelArea.store');
+Route::post('mon-agenda/{id}/send','ProfessionalAreaController@store')->name('professionnelArea.store');
 
-Route::get('mes-rendez-vous/{name}','ProfessionalAreaController@indexAppointment')->name('professionnelArea.indexAppointment');
+Route::get('mes-rendez-vous/{id}','ProfessionalAreaController@indexAppointment')->name('professionnelArea.indexAppointment');
 
-Route::get('mes-informations/{name}/editer','ProfessionalAreaController@edit')->name('professionnelArea.edit');
-Route::put('mes-informations/{name}','ProfessionalAreaController@update')->name('professionnelArea.update');
+Route::get('mes-informations/{id}/editer','ProfessionalAreaController@edit')->name('professionnelArea.edit');
+Route::put('mes-informations/{id}','ProfessionalAreaController@update')->name('professionnelArea.update');
 
 
 
