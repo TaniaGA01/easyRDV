@@ -7,13 +7,13 @@
         <form class="col-4" method="POST" autocomplete="off">
 
             <label for="pros">Entrez le nom d'une profession</label> :<br />
-            <input type="text" id="pros" name="pros" autocomplete="off">
-            <div id="suggestions"></div>
+            <input list="suggestions" type="text" id="pros" name="pros" autocomplete="off">
+            <datalist id="suggestions"></datalist>
 
             <br />
             <label for="locs">Choisissez un lieu</label> :<br />
-            <input type="text" id="locs" name="locs" autocomplete="off">
-            <div id="suggestions-locs"></div>
+            <input list="suggestions-locs" type="text" id="locs" name="locs" autocomplete="off">
+            <datalist id="suggestions-locs"></datalist>
 
             <button type="submit">Rechercher</button>
             @csrf
@@ -24,15 +24,20 @@
 
             <div>Vous avez recherché un {{str_replace('-', ' ', strtolower($job[0]->name))}}@isset($city) à {{$city[0]->name}}@endisset</div><br />
             @foreach ($results as $result)
-                <div class="card mb-3" style="max-width: 540px;">
+                <div class="card mb-3">
                     <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img src="..." class="card-img" alt="...">
+                        <div class="col-md-2">
+                            <img src="@isset($result->image){{$result->image}}@endisset" class="card-img" alt="@isset($result->image){{$result->first_name}} {{$result->last_name}}, {{$result->profession->name}} à {{$result->city->name}}@endisset" style="max-height:102px;border-radius: 3px 0 0 3px;" />
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-10">
                             <div class="card-body">
-                                <h5 class="card-title">{{$result->first_name}} {{$result->last_name}}</h5>
-                                {{-- <p class="card-text">{{$results->first_name}}</p> --}}
+                                <div class="row align-items-center">
+                                    <h5 class="card-title col-md-6">{{$result->first_name}} {{$result->last_name}}</h5>
+                                    <div class="col-md-6">
+                                        <p class="card-text text-right">{{$result->profession->name}}</p>
+                                        <p class="card-text text-right">{{$result->city->name}}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

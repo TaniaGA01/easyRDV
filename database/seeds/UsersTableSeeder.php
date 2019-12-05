@@ -21,6 +21,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '1',
                 'role_id' => '3',
                 'profession_id' => '10',
+                'image' => 'https://picsum.photos/200/200',
             ],
             [
                 'last_name' => 'Crevard',
@@ -30,6 +31,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '1',
                 'role_id' => '2',
                 'profession_id' => '11',
+                'image' => 'https://picsum.photos/200/200',
             ],
             [
                 'last_name' => 'Connare',
@@ -39,7 +41,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '9',
                 'role_id' => '2',
                 'profession_id' => '11',
-
+                'image' => 'https://picsum.photos/200/200',
             ],
             [
                 'last_name' => 'Bastar',
@@ -49,7 +51,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '9',
                 'role_id' => '2',
                 'profession_id' => '11',
-
+                'image' => 'https://picsum.photos/200/200',
             ],
             [
                 'last_name' => 'Baveux',
@@ -59,7 +61,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '2',
                 'role_id' => '2',
                 'profession_id' => '11',
-
+                'image' => 'https://picsum.photos/200/200',
             ],
             [
                 'last_name' => 'Fissdeuh',
@@ -69,7 +71,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '5',
                 'role_id' => '2',
                 'profession_id' => '11',
-
+                'image' => 'https://picsum.photos/200/200',
             ],
             [
                 'last_name' => 'Lescrault',
@@ -79,6 +81,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '1',
                 'role_id' => '2',
                 'profession_id' => '11',
+                'image' => 'https://picsum.photos/200/200',
 
             ],
             [
@@ -89,7 +92,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '17',
                 'role_id' => '2',
                 'profession_id' => '11',
-
+                'image' => 'https://picsum.photos/200/200',
             ],
             [
                 'last_name' => 'La Barbu',
@@ -99,7 +102,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '5',
                 'role_id' => '2',
                 'profession_id' => '12',
-
+                'image' => 'https://picsum.photos/200/200',
             ],
             [
                 'last_name' => 'Aupouhalt',
@@ -109,7 +112,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '5',
                 'role_id' => '2',
                 'profession_id' => '12',
-
+                'image' => 'https://picsum.photos/200/200',
             ],
             [
                 'last_name' => 'De Taille',
@@ -119,7 +122,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '5',
                 'role_id' => '2',
                 'profession_id' => '12',
-
+                'image' => 'https://picsum.photos/200/200',
             ],
             [
                 'last_name' => 'Dupoil',
@@ -129,7 +132,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '13',
                 'role_id' => '2',
                 'profession_id' => '12',
-
+                'image' => 'https://picsum.photos/200/200',
             ],
             [
                 'last_name' => 'Sete',
@@ -139,7 +142,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '13',
                 'role_id' => '2',
                 'profession_id' => '12',
-
+                'image' => 'https://picsum.photos/200/200',
             ],
             [
                 'last_name' => 'Nougaret',
@@ -149,7 +152,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '17',
                 'role_id' => '2',
                 'profession_id' => '12',
-
+                'image' => 'https://picsum.photos/200/200',
             ],
             [
                 'last_name' => 'De la Vieille Barbe',
@@ -159,7 +162,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '2',
                 'role_id' => '2',
                 'profession_id' => '12',
-
+                'image' => 'https://picsum.photos/200/200',
             ],
             [
                 'last_name' => 'Palat',
@@ -169,7 +172,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '17',
                 'role_id' => '2',
                 'profession_id' => '12',
-
+                'image' => 'https://picsum.photos/200/200',
             ],
             [
                 'last_name' => 'Warlord',
@@ -179,7 +182,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '12',
                 'role_id' => '2',
                 'profession_id' => '5',
-
+                'image' => 'https://picsum.photos/200/200',
             ],
             [
                 'last_name' => 'Rockfeller',
@@ -189,7 +192,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '9',
                 'role_id' => '2',
                 'profession_id' => '5',
-
+                'image' => 'https://picsum.photos/200/200',
             ],
             [
                 'last_name' => 'Dus',
@@ -199,7 +202,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '5',
                 'role_id' => '2',
                 'profession_id' => '5',
-
+                'image' => 'https://picsum.photos/200/200',
             ],
             [
                 'last_name' => 'Lear',
@@ -209,7 +212,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '19',
                 'role_id' => '2',
                 'profession_id' => '5',
-
+                'image' => 'https://picsum.photos/200/200',
             ]
         ]);
     }
