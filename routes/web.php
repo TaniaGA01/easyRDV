@@ -44,20 +44,20 @@ Route::get('/informations-legales', 'LegalController@index')->name('legal.index'
 // Espace client
 // Route page d'accueil ???
 
-Route::get('mes-rendez-vous/{name}','ClientController@index')->name('client.index');
+Route::get('mes-rendez-vous/{name}','ClientAreaController@index')->name('clientArea.index');
 
-Route::get('mes-informations/{name}/editer','ClientController@edit')->name('client.edit');
-Route::put('mes-informations/{name}','ClientController@update')->name('client.update');
+Route::get('mes-informations/{name}/editer','ClientAreaController@edit')->name('clientArea.edit');
+Route::put('mes-informations/{name}','ClientAreaController@update')->name('clientArea.update');
 
 // Espace Professionnel
-Route::get('mon-agenda/{name}','ProfessionnelController@indexAgenda')->name('professionnel.indexAgenda');
+Route::get('mon-agenda/{name}','ProfessionalAreaController@indexAgenda')->name('professionnelArea.indexAgenda');
 // Route formulaire creation rdv perso ???
-Route::post('mon-agenda/{name}','ProfessionnelController@store')->name('professionnel.store');
+Route::post('mon-agenda/{name}','ProfessionalAreaController@store')->name('professionnelArea.store');
 
-Route::get('mes-rendez-vous/{name}','ProfessionnelController@indexAppointment')->name('professionnel.indexAppointment');
+Route::get('mes-rendez-vous/{name}','ProfessionalAreaController@indexAppointment')->name('professionnelArea.indexAppointment');
 
-Route::get('mes-informations/{name}/editer','ProfessionnelController@edit')->name('professionnel.edit');
-Route::put('mes-informations/{name}','ProfessionnelController@update')->name('professionnel.update');
+Route::get('mes-informations/{name}/editer','ProfessionalAreaController@edit')->name('professionnelArea.edit');
+Route::put('mes-informations/{name}','ProfessionalAreaController@update')->name('professionnelArea.update');
 
 
 

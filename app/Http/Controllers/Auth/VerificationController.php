@@ -44,6 +44,6 @@ class VerificationController extends Controller
         $user = Auth::user();
         $r_id = $user->role_id;
         //dd($role, $r_id);
-        return view('userInformations.form',['r_id' => $r_id]);  
+        return route('userInformations.create',['r_id' => $r_id]);  
     }
 }
