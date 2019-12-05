@@ -28,11 +28,10 @@ class TemporaireSearch extends Controller
     }
 
     public function results(Request $request){
-        $ville = $request->input('locs');
+        $loc = $request->input('locs');
         $name = str_replace(' ', '-', $request->input('pros'));
-        $loc = str_replace(' ', '-', $ville);
         $profession = Profession::where('name',$name)->get();
-        $localisation = City::where('name', $loc)->get();
+        $localisation = City::where('name_ville', $loc)->get();
         $nope = "Aucun résultat pour cette recherche.";
         if (empty($ville) && isset($profession[0]->id)) {
             $id_profession = $profession[0]->id;
