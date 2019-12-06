@@ -30,11 +30,11 @@ class CreateUsersTable extends Migration
             $table->unsignedBigInteger('city_id')->nullable();
             $table->unsignedBigInteger('role_id');
             $table->unsignedBigInteger('profession_id')->nullable();
-            $table->unsignedBigInteger('agenda_id')->nullable();
-            $table->foreign('city_id')->references('id')->on('cities')->onDelete('cascade');
-            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
-            $table->foreign('profession_id')->references('id')->on('professions')->onDelete('cascade');
-            $table->foreign('agenda_id')->references('id')->on('agendas')->onDelete('cascade');
+            $table->unsignedBigInteger('appointments_id')->nullable();
+            $table->foreign('city_id')->references('id')->on('cities')->onUpdate('cascade');
+            $table->foreign('role_id')->references('id')->on('roles')->onUpdate('cascade');
+            $table->foreign('profession_id')->references('id')->on('professions')->onUpdate('cascade');
+            // $table->foreign('appointments_id')->references('id')->on('appointments')->onUpdate('cascade');
         });
     }
 

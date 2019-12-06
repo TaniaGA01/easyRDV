@@ -9,7 +9,7 @@
            
             <div class="form-style-5 bg-white shadow-sm col-12 px-6 py-6">
                     <img src="/uploads/avatars/{{ $user->avatar }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
-                    <h2>{{ $user->name }}Profile</h2>
+                    {{-- <h2>{{ $user->name }}Profile</h2> --}}
                     <form enctype="multipart/form-data" action="/profile" method="POST">
                         <label>Update Profile Image</label>
                         <input type="file" name="avatar">

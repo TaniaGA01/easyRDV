@@ -51,14 +51,14 @@ Route::get('mes-informations/{id}/editer','ClientAreaController@edit')->where('i
 Route::put('mes-informations/{id}','ClientAreaController@update')->where('id','[0-9]+')->name('clientArea.update');
 
 // Espace Professionnel
-Route::get('mon-agenda/{id}/agenda','ProfessionalAreaController@indexAgenda')->where('id','[0-9]+')->name('professionnelArea.indexAgenda')->middleware('verified');
+Route::get('mon-agenda/{id}/agenda','ProfessionalAreaController@indexAgenda')->where('id','[0-9]+')->name('professionnelArea.indexAgenda');
 // Route formulaire creation rdv perso ???
-Route::post('mon-agenda/{id}/agenda','ProfessionalAreaController@store')->where('id','[0-9]+')->name('professionnelArea.store')->middleware('verified');
+Route::post('mon-agenda/{id}/agenda','ProfessionalAreaController@store')->where('id','[0-9]+')->name('professionnelArea.store');
 
-Route::get('mes-rendez-vous/{id}','ProfessionalAreaController@indexAppointment')->where('id','[0-9]+')->name('professionnelArea.indexAppointment')->middleware('verified');
+Route::get('mes-rendez-vous/{id}','ProfessionalAreaController@indexAppointment')->where('id','[0-9]+')->name('professionnelArea.indexAppointment');
 
-Route::get('mes-informations/{id}/editer','ProfessionalAreaController@edit')->where('id','[0-9]+')->name('professionnelArea.edit')->middleware('verified');
-Route::put('mes-informations/{id}','ProfessionalAreaController@update')->where('id','[0-9]+')->name('professionnelArea.update')->middleware('verified');
+Route::get('mes-informations/{id}/editer','ProfessionalAreaController@edit')->where('id','[0-9]+')->name('professionnelArea.edit');
+Route::put('mes-informations/{id}','ProfessionalAreaController@update')->where('id','[0-9]+')->name('professionnelArea.update');
 
 
 
@@ -92,7 +92,6 @@ Route::post('tempo','TemporaireSearch@results')->name('results');
 // Auth
 Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
-
 
 //#######################################################
 // Avatar Profile

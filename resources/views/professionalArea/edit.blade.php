@@ -9,7 +9,7 @@
                 <div class="card-header">Mes informations personnelles</div>
 
                 <div class="card-body py-5">
-                    <form action="{{route('professionnelArea.update', Auth::user()->id)}}" method="POST">
+                    <form  enctype="multipart/form-data" action="{{route('professionnelArea.update', Auth::user()->id)}}" method="POST">
                         @csrf
 
                         <div class="form-group justify-content-center row">
