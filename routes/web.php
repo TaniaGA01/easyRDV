@@ -45,9 +45,9 @@ Route::get('/informations-legales', 'LegalController@index')->name('legal.index'
 // Espace client
 // Route page d'accueil ???
 
-Route::get('mes-rendez-vous/{id}','ClientAreaController@index')->where('id','[0-9]+')->name('clientArea.index');
+Route::get('mes-rendez-vous-client/{id}','ClientAreaController@index')->where('id','[0-9]+')->name('clientArea.index');
 
-Route::get('mes-informations/{id}/editer','ClientAreaController@edit')->where('id','[0-9]+')->name('clientArea.edit');
+Route::get('mes-informations-client/{id}/editer','ClientAreaController@edit')->where('id','[0-9]+')->name('clientArea.edit');
 Route::put('mes-informations/{id}','ClientAreaController@update')->where('id','[0-9]+')->name('clientArea.update');
 
 // Espace Professionnel
