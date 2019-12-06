@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAgendasTable extends Migration
+class CreateStatusAppointmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateAgendasTable extends Migration
      */
     public function up()
     {
-        Schema::create('agendas', function (Blueprint $table) {
+        Schema::create('status_appointments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('id_users');
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateAgendasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('agendas');
+        Schema::dropIfExists('status_appointments');
     }
 }
