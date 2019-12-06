@@ -75,11 +75,17 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @if(Auth::user()->role_id == 2)
-                                    <a class="dropdown-item" href="{{ route('professionnelArea.indexAgenda', Auth::user()->first_name) }}">Mon agenda</a>
-                                    @endif
+                                    <a class="dropdown-item" href="{{ route('professionnelArea.indexAgenda', Auth::user()->id) }}">Mon agenda</a>
                                     <a class="dropdown-item" href="#">Mes rendez-vous</a>
-                                    <a class="dropdown-item" href="#">Mes infos perso</a>
+                                    <a class="dropdown-item" href="{{ route('professionnelArea.edit', Auth::user()->id) }}">Mes infos perso</a>
                                     <a class="dropdown-item" href="{{ url('/profile') }}">Profile</a>
+                                    @elseif(Auth::user()->role_id == 3)
+                                    <a class="dropdown-item" href="#">Mes rendez-vous</a> <!-- {{ route('clientArea.index', Auth::user()->id) }} -->
+                                    <a class="dropdown-item" href="#">Mes infos perso</a> <!-- {{ route('clientArea.edit', Auth::user()->id) }} -->
+                                    <a class="dropdown-item" href="{{ url('/profile') }}">Profile</a>
+                                    @endif
+
+                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
