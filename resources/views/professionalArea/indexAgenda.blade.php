@@ -33,7 +33,7 @@
                     for($i=$timeStart; $i<=$timeEnd; $i++){
                         echo '<tr>';
                         echo "<th> {$i}h </th>";
-                        echo '<td colspan="2" class="data-rdv" data-tartempion="'.$date.'_'.$i.'"> # </td>';
+                        echo '<td colspan="2" class="data-rdv" data-usr="" data-pro="" data-tartempion="'.$date.'_'.$i.'"> # </td>';
 
                         echo '</tr>';
                     }
