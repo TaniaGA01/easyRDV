@@ -44,7 +44,7 @@
                         @guest
                         
                             <li class="nav-item">
-                                    
+                                   
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter/S\'inscrire') }}</a>
                                 
                             </li>
@@ -61,7 +61,7 @@
                         @else
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="position:relative; padding-left:50px;">
                                 <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="width:32px; height:32px; position:absolute; top:10px; left:10px; border-radius:50%">
-                                {{ Auth::user()->first_name }} <span class="caret"></span>
+                                {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
                             <li class="nav-item dropdown font-weight-bold">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -75,15 +75,17 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @if(Auth::user()->role_id == 2)
-                                    <a class="dropdown-item" href="{{ route('professionnelArea.indexAgenda', Auth::user()->id) }}">Mon agenda</a>
+                                    <a class="dropdown-item" href="{{ route('professionnelArea.indexAgenda', Auth::user()->first_name) }}">Mon agenda</a>
                                     @endif
                                     <a class="dropdown-item" href="#">Mes rendez-vous</a>
-                                    <a class="dropdown-item" href="{{ route('professionnelArea.edit', Auth::user()->id) }}">Mes infos perso</a>
+                                    <a class="dropdown-item" href="#">Mes infos perso</a>
+                                 
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Se déconnecter') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ url('/profile') }}">Profile</a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
@@ -113,7 +115,6 @@
                     <div class="col-8">
                         <nav class="footer-nav">
                             <ul>
-                                <li><a href="tempo">Tempo</a></li>
                                 <li><a href="{{route('about')}}">A propos</a></li>
                                 <li><a href="{{route('price')}}">Tarifs</a></li>
                                 <li><a href="{{route('contact.create')}}">Nous contacter</a></li>
