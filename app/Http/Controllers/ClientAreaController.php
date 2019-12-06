@@ -21,4 +21,14 @@ class ClientAreaController extends Controller
         }else
             return view('welcome');
     }
+
+    public function edit($id){
+        $user = Auth::user();
+        $user_id = $user->id;
+        if($id == $user_id){
+            return view('professionalArea/edit',['user' => $user]);
+        }else{
+            return view('welcome');
+        }
+    }
 }

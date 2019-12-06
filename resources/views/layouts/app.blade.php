@@ -79,7 +79,7 @@
                                     <a class="dropdown-item" href="{{ url('/profile') }}">Profile</a>
                                     @elseif(Auth::user()->role_id == 3)
                                     <a class="dropdown-item" href="#">Mes rendez-vous</a> <!-- {{ route('clientArea.index', Auth::user()->id) }} -->
-                                    <a class="dropdown-item" href="#">Mes infos perso</a> <!-- {{ route('clientArea.edit', Auth::user()->id) }} -->
+                                    <a class="dropdown-item" href="{{ route('clientArea.edit', Auth::user()->id) }}">Mes infos perso</a>
                                     <a class="dropdown-item" href="{{ url('/profile') }}">Profile</a>
                                     @endif
 
@@ -119,6 +119,7 @@
                     <div class="col-8">
                         <nav class="footer-nav">
                             <ul>
+                                <li><a href="http://127.0.0.1:8000/tempo">Tempo</a></li>
                                 <li><a href="{{route('about')}}">A propos</a></li>
                                 <li><a href="{{route('price')}}">Tarifs</a></li>
                                 <li><a href="{{route('contact.create')}}">Nous contacter</a></li>
