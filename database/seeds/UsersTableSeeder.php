@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'randomdada@gmail.com',
                 'password' => bcrypt('1234'),
                 'city_id' => '1',
-                'role_id' => '3',
+                'role_id' => '2',
                 'profession_id' => '10',
                 'image' => 'https://picsum.photos/200/200',
             ],
