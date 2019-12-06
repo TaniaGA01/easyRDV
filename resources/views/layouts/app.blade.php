@@ -17,7 +17,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
-<body  class="body" onLoad="Horloge();" >
+<body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -59,7 +59,7 @@
                             @endif
                             -->
                         @else
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="position:relative; padding-left:50px;">
+                        <a href="#" class="" data-toggle="" role="button" aria-expanded="false" style="position:relative; padding-left:50px;">
                                 <img src="/uploads/avatars/{{ Auth::user()->avatar }}" style="width:32px; height:32px; position:absolute; top:10px; left:10px; border-radius:50%">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
@@ -79,13 +79,13 @@
                                     @endif
                                     <a class="dropdown-item" href="#">Mes rendez-vous</a>
                                     <a class="dropdown-item" href="#">Mes infos perso</a>
-                                 
+                                    <a class="dropdown-item" href="{{ url('/profile') }}">Profile</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Se déconnecter') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ url('/profile') }}">Profile</a>
+                                    
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
