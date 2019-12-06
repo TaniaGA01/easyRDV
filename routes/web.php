@@ -92,3 +92,10 @@ Route::post('tempo','TemporaireSearch@results')->name('results');
 // Auth
 Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//#######################################################
+// Avatar Profile
+
+Route::get('profile', 'UserController@profile');
+Route::post('profile', 'UserController@update_avatar');
