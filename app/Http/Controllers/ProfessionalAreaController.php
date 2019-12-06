@@ -55,7 +55,11 @@ class ProfessionalAreaController extends Controller
      * Ajout d'un rdv
      */
     public function store(Request $request){
+        $contenu = $request->input('contenu');
         $post_id = $request->input('post_id');
-        return $post_id;
+        $id_pro = $request->input('id_pro');
+        return $contenu;
+
+
     }
 }
