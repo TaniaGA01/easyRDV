@@ -11,7 +11,15 @@ class UserInfoController extends Controller
 {
     public function  create(){
 
-        return view('/userInformations.form');
+
+        //return view('/userInformations.form');
+
+
+        $userId = Auth::id();
+        $user = User::findOrFail($userId);
+        $r_id = $user->role_id;
+        return view('/userInformations.form',[$r_id => 'role_id']);
+
 
     }
 
@@ -20,15 +28,12 @@ class UserInfoController extends Controller
         $userId = Auth::id();
         $user = User::findOrFail($userId);
         $r = $request->name;
-        $city = City::where('name','=',$r)->get();
 
-        dd($city,$request->city);
 
         $this->validate($request,[
             'first_name' => 'bail|required',
             'last_name' => 'bail|required',
             'phone_number' => 'bail|required',
-            'city' => 'bail|required',
             'adresse' => 'bail|required',
             'about' => 'bail|required',
         ]);
@@ -41,7 +46,11 @@ class UserInfoController extends Controller
             'about' => $request->about
         ]);
 
-        return view ();
+
+
+        $user->save();
+
+        return view ('/home');
 
 
     }

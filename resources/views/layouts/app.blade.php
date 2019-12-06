@@ -48,9 +48,7 @@
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter/S\'inscrire') }}</a>
                                 
                             </li>
-                                <form  name="form1" id="form1">
-                                    <input type="texte" name="pendule" id="pendule" value="" size="9" class="time">
-                                </form>
+                                
                             <!--
                             @if (Route::has('register'))
                                 <li class="nav-item">

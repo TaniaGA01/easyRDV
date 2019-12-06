@@ -9,7 +9,7 @@ use Auth;
 class ProfessionalAreaController extends Controller
 {
     /**
-     * Affiche la page "Mon agenda" du professionnel 
+     * Affiche la page "Mon agenda" du professionnel
      */
     public function indexAgenda($id){
         //$grid = self::getAgenda();
@@ -18,7 +18,7 @@ class ProfessionalAreaController extends Controller
         $user_id = $user->id;
         if($id == $user_id){
             return view('professionalArea/indexAgenda',[
-                'user' => $user, 
+                'user' => $user,
                 ]);
         }else
             return view('welcome');
@@ -28,7 +28,7 @@ class ProfessionalAreaController extends Controller
      * Génère l'agenda
      */
     public function getAgenda(){
-        
+
     }
 
     /**
@@ -49,5 +49,13 @@ class ProfessionalAreaController extends Controller
      */
     public function update(){
 
+    }
+
+    /**
+     * Ajout d'un rdv
+     */
+    public function store(Request $request){
+        $post_id = $request->input('post_id');
+        return $post_id;
     }
 }
