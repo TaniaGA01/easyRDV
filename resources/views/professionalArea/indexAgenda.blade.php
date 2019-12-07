@@ -12,16 +12,6 @@
     @endif
     <div class="row justify-content-center ">
         <div class="col-md-8">
-            {{-- @isset($rdvs)
-            {{ $rdvs[0]->data_tartempion }}
-
-
-            @endisset --}}
-            {{-- @php
-                foreach ($rdvs as $value) {
-                    echo $value->data_tartempion;
-                }
-            @endphp --}}
 
             @php
             setlocale (LC_TIME, 'fr_FR','fra');
@@ -68,8 +58,11 @@
                         }
 
                         echo '<td colspan="2" class="'.$add_class.'" data-pro="'.$user->id.'" data-token="'.csrf_token().'" data-tartempion="'.$tartempion.'">'.$rdv.'</td>';
-                        echo '<td colspan="2"><a href="#">Modifier</a></td>';
-                        echo '<td colspan="2"><a href="#">Supprimer</a></td>';
+                        if ($add_class==='data-rdv rdv-loaded') {
+                            echo '<td class="btn-agenda agenda-modif" style="position: absolute;right:100px;"><a href="#">Modifier</a></td>';
+                            echo '<td class="btn-agenda agenda-suppr" style="position: absolute;right:15px;"><a href="#">Supprimer</a></td>';
+                        }
+
                         echo '</tr>';
                     }
                     @endphp
