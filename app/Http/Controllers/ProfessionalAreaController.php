@@ -54,11 +54,53 @@ class ProfessionalAreaController extends Controller
     /**
      * Modifie la page/formulaire "Mes informations personnelles" du professionnel
      */
-    public function update(Request $request){
-        //$tst = $request->option('data-value');
+    public function update(Request $request, $id){
+        // #TODO vérification
+        // dd($request);
+        // "_token" => "UAal5oHZ9qpISDaPNOx145iante1GAZmkw3nbL8q"
+        // "_method" => "PUT"
+        // "last_name" => "problabla"
+        // "first_name" => "erwan"
+        // "email" => "erwanpro@gmail.com"
+        // "phone" => "0684431339"
+        // "adresse" => "49 rue des violettes"
+        // "city" => "LINAS"
+        // "about" => "Bonjour je suis blablabla"
+
+        $user = User::find($id);
+        //dd($user);
+
+        request()->validate([
+            'last_name' => 'bail | required | min:3',
+            'first_name' => 'bail | required | min:3',
+            'email' => 'bail | required | email',
+            'phone' => 'bail | required',
+            'adresse' => 'bail | required',
+            'city' => 'bail | required'
+        ]);
+
         $city = $request->input('city');
         $city_input = City::where('name_ville',$city)->first();
-        dd($city,$city_input,$city_input->id);
+        $city_id = $city_input->id;
+
+        $data = [
+            'last_name' => request('last_name'),
+            'first_name' => request('first_name'),
+            'email' => request('email'),
+            'phone' => request('phone'),
+            'adresse' => request('adresse'),
+            // 'city' => $city_input->id,
+            'about' => request('about')
+        ];
+
+        $user->city_id = $city_id;
+        $user->update($data);
+
+        $request->session()->flash('status',"Vos information personnelles ont bien été modifiés");
+        $request->session()->flash('alert-class',"alert-success");
+        return view('professionalArea/indexAgenda',[
+            'user' => $user,
+            ]);
     }
 
     /**
