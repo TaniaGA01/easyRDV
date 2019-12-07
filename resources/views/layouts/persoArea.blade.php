@@ -12,10 +12,15 @@
                 </div>
                 @if($user->role_id == 2)
                 <a href="{{ route('professionnelArea.indexAgenda', Auth::user()->id) }}" class="btn btn-pr btn-block">Mon agenda</a>
-                @endif
                 <a href="#" class="btn btn-pr btn-block">Mes rendez-vous</a>
                 <a href="{{ route('professionnelArea.edit', Auth::user()->id) }}" class="btn btn-pr btn-block">Mes
                     informations personnelles</a>
+                @else
+                <a href="{{ route('clientArea.index', Auth::user()->id) }}" class="btn btn-pr btn-block">Mes rendez-vous</a>
+                <a href="{{ route('clientArea.edit', Auth::user()->id) }}" class="btn btn-pr btn-block">Mes
+                    informations personnelles</a>
+                @endif
+                
             </div>
         <div class="col-8">
             @yield('contentPagePerso')
