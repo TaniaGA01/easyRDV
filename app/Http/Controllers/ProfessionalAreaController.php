@@ -150,21 +150,15 @@ class ProfessionalAreaController extends Controller
     /**
      * Ajout d'un rdv
      */
-    public function deleteRdv(StoreNewAppointment $request, $id){
+    public function deleteRdv(Request $request, $id){
 
-        // JE METS ÇA EN ATTENDANT, SINON ÇA FAIT DES ERREURS
+        $id_rdv = $request->input('id_rdv');
+        $appointment = Appointment::find($id_rdv);
 
-        $user = Auth::user();
-        $user_id = $user->id;
-        $rdvs = Appointment::where('id_pro', $user_id)->get();
-
-        if($id == $user_id){
-            return view('professionalArea/indexAgenda',[
-                'user' => $user,
-                'rdvs' => $rdvs,
-                ]);
-        }else{
-            return view('welcome');
+        if ($appointment && $appointment->delete()) {
+            $request->session()->flash('status',"Rendez-vous supprimé avec succès");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('ProfessionalAreaController@indexAgenda', ['id' => $id]);
         }
     }
 
