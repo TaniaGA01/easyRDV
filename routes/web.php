@@ -53,7 +53,9 @@ Route::put('mes-informations-client/{id}','ClientAreaController@update')->where(
 // Espace Professionnel
 Route::get('mon-agenda/{id}/agenda','ProfessionalAreaController@indexAgenda')->where('id','[0-9]+')->name('professionnelArea.indexAgenda')->middleware('verified');
 // Route formulaire creation rdv perso ???
-Route::post('mon-agenda/{id}/agenda','ProfessionalAreaController@store')->where('id','[0-9]+')->name('professionnelArea.store')->middleware('verified');
+Route::post('mon-agenda/{id}/agenda','ProfessionalAreaController@storeRdv')->where('id','[0-9]+')->name('professionnelArea.storeRdv')->middleware('verified');
+Route::post('mon-agenda/{id}/agenda/delete','ProfessionalAreaController@deleteRdv')->where('id','[0-9]+')->name('professionnelArea.deleteRdv')->middleware('verified');
+Route::post('mon-agenda/{id}/agenda/update','ProfessionalAreaController@updateRdv')->where('id','[0-9]+')->name('professionnelArea.updateRdv')->middleware('verified');
 
 Route::get('mes-rendez-vous/{id}','ProfessionalAreaController@indexAppointment')->where('id','[0-9]+')->name('professionnelArea.indexAppointment')->middleware('verified');
 

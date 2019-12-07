@@ -26,8 +26,9 @@ class ProfessionalAreaController extends Controller
                 'user' => $user,
                 'rdvs' => $rdvs,
                 ]);
-        }else
+        }else{
             return view('welcome');
+        }
     }
 
     /**
@@ -111,7 +112,7 @@ class ProfessionalAreaController extends Controller
     /**
      * Ajout d'un rdv
      */
-    public function store(StoreNewAppointment $request, $id){
+    public function storeRdv(StoreNewAppointment $request, $id){
 
         $validated = $request->validated();
 
@@ -126,4 +127,50 @@ class ProfessionalAreaController extends Controller
         }
 
     }
+
+    /**
+     * Modification d'un rdv
+     */
+    public function updateRdv(StoreNewAppointment $request, $id){
+
+        // JE METS ÇA EN ATTENDANT, SINON ÇA FAIT DES ERREURS
+
+        $user = Auth::user();
+        $user_id = $user->id;
+        $rdvs = Appointment::where('id_pro', $user_id)->get();
+
+        if($id == $user_id){
+            return view('professionalArea/indexAgenda',[
+                'user' => $user,
+                'rdvs' => $rdvs,
+                ]);
+        }else{
+            return view('welcome');
+        }
+    }
+
+    // }
+
+    /**
+     * Ajout d'un rdv
+     */
+    public function deleteRdv(StoreNewAppointment $request, $id){
+
+        // JE METS ÇA EN ATTENDANT, SINON ÇA FAIT DES ERREURS
+
+        $user = Auth::user();
+        $user_id = $user->id;
+        $rdvs = Appointment::where('id_pro', $user_id)->get();
+
+        if($id == $user_id){
+            return view('professionalArea/indexAgenda',[
+                'user' => $user,
+                'rdvs' => $rdvs,
+                ]);
+        }else{
+            return view('welcome');
+        }
+    }
+
+    // }
 }
