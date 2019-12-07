@@ -56,22 +56,27 @@ class ClientAreaController extends Controller
             'phone' => 'bail | required'
         ]);
         
-
-        $city = $request->input('city');
-        $city_input = City::where('name_ville',$city)->first();
-        $city_id = $city_input->id;
-
         $data = [
             'last_name' => request('last_name'),
             'first_name' => request('first_name'),
             'email' => request('email'),
             'phone_number' => request('phone'),
             'adresse' => request('adresse'),
-            // 'city' => $city_input->id,
+            // 'city_id' => null,
             'about' => request('about')
         ];
 
-        $user->city_id = $city_id;
+        //dd($request->input('city'));
+        $user->city_id = null;
+        if($request->input('city')){
+            $city = $request->input('city');
+            $city_input = City::where('name_ville',$city)->first();
+            $city_id = $city_input->id;
+
+            $user->city_id = $city_id;
+        }
+        
+        
         $user->update($data);
 
         $request->session()->flash('status',"Vos informations personnelles ont bien été modifiées");
