@@ -1,5 +1,6 @@
 var intervalles = document.querySelectorAll('.data-rdv');
 // var gridMobile = document.getElementById('gridMobile');
+// var btnSuppr = document.querySelectorAll('.btn-agenda.agenda-suppr');
 
 const nomsMois = {
     '1': 'janvier',
@@ -22,7 +23,7 @@ function setAttributes(el, attrs) {
     }
 }
 
-function getForm(id,pro,message,token) {
+function getForm(id,pro,message,token,status,content,idRdv) {
     let form = document.createElement('form');
     let labelText = document.createElement('label');
     let inputText = document.createElement('textarea');
@@ -42,12 +43,21 @@ function getForm(id,pro,message,token) {
     labelText.innerText=message;
     inputId.value=id;
     inputPro.value=pro;
-    ptiteCroix.innerText='X';
+    ptiteCroix.innerText=status;
+    // ptiteCroix.innerText='X';
     form.appendChild(labelText);
     form.appendChild(inputText);
     form.appendChild(inputId);
     form.appendChild(inputPro);
     form.appendChild(inputToken);
+    if (status === 2) {
+        form.setAttribute("action", '/mon-agenda/'+pro+'/agenda/update');
+        inputText.value = content;
+        let inputIdRdv = document.createElement('input');
+        setAttributes(inputIdRdv, {"type": "hidden", "name":"id_rdv"});
+        inputIdRdv.value=idRdv;
+        form.appendChild(inputIdRdv);
+    }
     form.appendChild(btnSubmit);
     form.appendChild(ptiteCroix);
     document.body.appendChild(form);
@@ -78,17 +88,30 @@ function getForm(id,pro,message,token) {
 if (intervalles){
     for (let heure of intervalles) {
         heure.style.cursor='pointer';
+        let tartId = heure.getAttribute('data-tartempion');
+        // let tartUsr = heure.getAttribute('data-usr');
+        let tartPro = heure.getAttribute('data-pro');
+        let tartToken = heure.getAttribute('data-token');
+        let tartYear = tartId.slice(0, 4);
+        let tartMonth = tartId.slice(5, 7);
+        let tartDay = tartId.slice(8, 10);
+        let tartHeure = tartId.slice(11);
+        let formType = 1;
+        let textAction = 'Ajouter un rendez-vous le ';
+        if (heure.classList.contains("rdv-loaded")) {
+            formType=2;
+            let btn = heure.nextSibling;
+            let tartContent = heure.innerText;
+            let rdvId = btn.getAttribute('data-id');
+            textAction = 'Modifier le rendez-vous du ';
+            btn.addEventListener('click', function(evt){
+                let renseignements =textAction+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
+                getForm(tartId,tartPro,renseignements,tartToken,formType,tartContent,rdvId);
+            });
+        }
         heure.addEventListener('click', function (e){
-            let tartId = heure.getAttribute('data-tartempion');
-            // let tartUsr = heure.getAttribute('data-usr');
-            let tartPro = heure.getAttribute('data-pro');
-            let tartToken = heure.getAttribute('data-token');
-            let tartYear = tartId.slice(0, 4);
-            let tartMonth = tartId.slice(5, 7);
-            let tartDay = tartId.slice(8, 10);
-            let tartHeure = tartId.slice(11);
-            let renseignements ='Ajouter un rendez-vous le '+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
-            getForm(tartId,tartPro,renseignements,tartToken);
+            let renseignements =textAction+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
+            getForm(tartId,tartPro,renseignements,tartToken,formType);
         });
     }
 }

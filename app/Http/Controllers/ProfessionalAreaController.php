@@ -133,23 +133,19 @@ class ProfessionalAreaController extends Controller
      */
     public function updateRdv(StoreNewAppointment $request, $id){
 
-        // JE METS ÇA EN ATTENDANT, SINON ÇA FAIT DES ERREURS
+        $validated = $request->validated();
 
-        $user = Auth::user();
-        $user_id = $user->id;
-        $rdvs = Appointment::where('id_pro', $user_id)->get();
+        $id_rdv = $request->input('id_rdv');
+        $appointment = Appointment::find($id_rdv);
+        $appointment->fill($validated);
 
-        if($id == $user_id){
-            return view('professionalArea/indexAgenda',[
-                'user' => $user,
-                'rdvs' => $rdvs,
-                ]);
-        }else{
-            return view('welcome');
+        if ($appointment->save()) {
+            $request->session()->flash('status',"Rendez-vous modifié avec succès");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('ProfessionalAreaController@indexAgenda', ['id' => $id]);
         }
     }
 
-    // }
 
     /**
      * Ajout d'un rdv
@@ -172,5 +168,4 @@ class ProfessionalAreaController extends Controller
         }
     }
 
-    // }
 }

@@ -44,6 +44,7 @@
                         $tartempion = $date.'_'.$i;
                         $rdv='#';
                         $add_class='data-rdv';
+                        $id_rdv='#';
 
                         echo '<tr>';
                         echo "<th> {$i}h </th>";
@@ -53,14 +54,15 @@
                                 if ($tartempion==$value->data_tartempion) {
                                     $rdv=$value->content;
                                     $add_class='data-rdv rdv-loaded';
+                                    $id_rdv=$value->id;
                                 }
                             }
                         }
 
                         echo '<td colspan="2" class="'.$add_class.'" data-pro="'.$user->id.'" data-token="'.csrf_token().'" data-tartempion="'.$tartempion.'">'.$rdv.'</td>';
                         if ($add_class==='data-rdv rdv-loaded') {
-                            echo '<td class="btn-agenda agenda-modif" style="position: absolute;right:100px;"><a href="#">Modifier</a></td>';
-                            echo '<td class="btn-agenda agenda-suppr" style="position: absolute;right:15px;"><a href="#">Supprimer</a></td>';
+                            echo '<td class="btn-agenda agenda-modif" data-id="'.$id_rdv.'" data-tartempion="'.$tartempion.'" style="position: absolute;right:100px;"><a href="#">Modifier</a></td>';
+                            echo '<td class="btn-agenda agenda-suppr" data-id="'.$id_rdv.'" data-tartempion="'.$tartempion.'" style="position: absolute;right:15px;"><a href="#">Supprimer</a></td>';
                         }
 
                         echo '</tr>';
