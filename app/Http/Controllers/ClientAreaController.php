@@ -26,7 +26,7 @@ class ClientAreaController extends Controller
         $user = Auth::user();
         $user_id = $user->id;
         if($id == $user_id){
-            return view('professionalArea/edit',['user' => $user]);
+            return view('clientArea/edit',['user' => $user]);
         }else{
             return view('welcome');
         }
