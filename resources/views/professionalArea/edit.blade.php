@@ -11,6 +11,7 @@
                 <div class="card-body py-5">
                     <form  enctype="multipart/form-data" action="{{route('professionnelArea.update', Auth::user()->id)}}" method="POST">
                         @csrf
+                        @isset($user) @method('PUT') @endisset
 
                         <div class="form-group justify-content-center row">
                             <div class="col-lg-10 col-md-12">
@@ -91,10 +92,10 @@
                             <div class="col-lg-10 col-md-12">
                             <label for="city">Ville :</label>
 
-                            <input id="city" list="cities" name="city" class="form-control input-search">
+                            <input id="city" list="cities" name="city" class="form-control input-search" value="@isset($user){{ $user->city->name_ville }}@endisset">
                             <datalist id="cities">
                             @foreach($cities as $city)
-                                <option value="{{ $city->name_ville }}">
+                                <option data-value="{{ $city->id }}" value="{{ $city->name_ville }}">
                             @endforeach
                             </datalist>
                             </div>
@@ -117,8 +118,6 @@
                                 <input type="submit" class="btn-pr btn-block " value="Mettre à jour"></button>
                             </div>
                         </div>
-
-
                     </form>
                 </div>
             </div>
