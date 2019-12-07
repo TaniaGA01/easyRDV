@@ -92,10 +92,10 @@
                             <div class="col-lg-10 col-md-12">
                             <label for="city">Ville :</label>
 
-                            <input id="city" list="cities" name="city" class="form-control input-search" value="@isset($user){{ $user->city->name_ville }}@endisset">
+                            <input id="city" list="cities" name="city" class="form-control input-search" value="@isset($user->city_id){{ $user->city->name_ville }}@endisset">
                             <datalist id="cities">
                             @foreach($cities as $city)
-                                <option data-value="{{ $city->id }}" value="{{ $city->name_ville }}">
+                                <option data-value="{{ $city->id }}" value="@isset($user->city_id){{ $city->name_ville }}@endisset">
                             @endforeach
                             </datalist>
                             </div>
