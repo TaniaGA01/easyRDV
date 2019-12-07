@@ -4,7 +4,7 @@
 @section('contentPagePerso')
 <div class="container">
     <div class="row justify-content-center ">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Mes informations personnelles</div>
 
@@ -86,7 +86,7 @@
                             </div>
                         </div>
 
-                        
+
 
                         <div class="form-group justify-content-center row">
                             <div class="col-lg-10 col-md-12">

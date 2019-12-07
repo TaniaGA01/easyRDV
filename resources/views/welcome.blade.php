@@ -3,7 +3,7 @@
 @section('content')
     <div class="container ptb-5">
         <div class="row">
-            <div class="form-style-5 bg-white shadow-sm col-4 px-6 py-6">
+            <div class="form-style-5 bg-white shadow-sm col-4 px-6 py-6 min-height">
                 <form action="/" method="post">
                     <fieldset>
                         <legend>Prendre un rdv en ligne</legend>

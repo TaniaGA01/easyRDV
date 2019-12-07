@@ -25,6 +25,10 @@
 .my-6{margin: 4rem;}
 .my-7{margin: 5rem;}
 
+.min-height{
+    height: min-content;
+}
+
 /* ================ nav =====================*/
 
 .navbar-expand-md .navbar-nav .nav-link {
@@ -33,6 +37,11 @@
 }
 
 /* ================ app =====================*/
+/* ================ form =====================*/
+.form-control, .custom-file-label{
+    border-radius: 0;
+
+}
 
 
 
@@ -43,9 +52,22 @@
     color: var(--white) ;
     border: none;
     padding: 10px;
+    border-radius: 0;
 }
 .btn-pr:hover{
     background-color: var(--orange-fc);
+    color: var(--white);
+}
+
+.avatar{
+    border-radius:50%;
+}
+.custom-file-label::after{
+    background-color: var(--bleu);
+    color: var(--white);
+    border-radius: 0;
+
+
 }
 
 /* ================ footer =====================*/

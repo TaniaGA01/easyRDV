@@ -2,8 +2,7 @@
 @section('content')
 <div class="container ptb-5">
     <div class="row">
-        <div class="col-3">
-            <div class="card">
+            <div class="form-style-5 bg-white shadow-sm col-4 px-6 py-6 min-height">
                 <img src="{{$user->image}}" class="card-img-top" alt="...">
                 <div class="card-body text-center">
                     <h5 class="card-title">{{ $user->first_name }} {{ Str::upper($user->last_name) }}</h5>
@@ -18,8 +17,7 @@
                 <a href="{{ route('professionnelArea.edit', Auth::user()->id) }}" class="btn btn-pr btn-block">Mes
                     informations personnelles</a>
             </div>
-        </div>
-        <div class="col-9">
+        <div class="col-8">
             @yield('contentPagePerso')
         </div>
     </div>
