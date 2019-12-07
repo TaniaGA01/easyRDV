@@ -52,19 +52,20 @@
                     for($i=$timeStart; $i<=$timeEnd; $i++){
 
                         $tartempion = $date.'_'.$i;
+                        $rdv='#';
 
                         echo '<tr>';
                         echo "<th> {$i}h </th>";
 
-                        foreach ($rdvs as $value) {
-                            if ($tartempion==$value->data_tartempion) {
-                                $rdv=$value->content;
-                            }else {
-                                $rdv='#';
+                        if (isset($rdvs)){
+                            foreach ($rdvs as $value) {
+                                if ($tartempion==$value->data_tartempion) {
+                                    $rdv=$value->content;
+                                }
                             }
-                            echo '<td colspan="2" class="data-rdv" data-pro="'.$user->id.'" data-token="'.csrf_token().'" data-tartempion="'.$tartempion.'">'.$rdv.'</td>';
                         }
 
+                        echo '<td colspan="2" class="data-rdv" data-pro="'.$user->id.'" data-token="'.csrf_token().'" data-tartempion="'.$tartempion.'">'.$rdv.'</td>';
                         echo '</tr>';
                     }
                     @endphp
