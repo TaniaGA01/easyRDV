@@ -18,8 +18,8 @@ class CreateAppointmentsTable extends Migration
             $table->string('data_tartempion');
             $table->string('content')->nullable();
             $table->unsignedBigInteger('id_pro');
-            $table->unsignedBigInteger('id_client');
-            $table->unsignedBigInteger('id_status_appointments');
+            $table->unsignedBigInteger('id_client')->nullable();
+            $table->unsignedBigInteger('id_status_appointments')->nullable();
             $table->foreign('id_pro')->references('id')->on('users');
             $table->foreign('id_client')->references('id')->on('users');
             $table->foreign('id_status_appointments')->references('id')->on('status_appointments');
