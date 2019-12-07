@@ -15,7 +15,7 @@ class CreateAppointmentsTable extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('data_tartampion');
+            $table->string('data_tartempion');
             $table->string('content')->nullable();
             $table->unsignedBigInteger('id_pro');
             $table->unsignedBigInteger('id_client');
