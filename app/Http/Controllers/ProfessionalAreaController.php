@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\City;
+use App\Appointment;
+use App\Http\Requests\StoreNewAppointment;
 use Auth;
 
 class ProfessionalAreaController extends Controller
@@ -40,10 +42,10 @@ class ProfessionalAreaController extends Controller
         $user_id = $user->id;
 
         $cities = City::all();
-        
+
         if($id == $user_id){
             return view('professionalArea/edit',[
-                'user' => $user, 
+                'user' => $user,
                 'cities' => $cities
             ]);
         }else{
@@ -106,12 +108,19 @@ class ProfessionalAreaController extends Controller
     /**
      * Ajout d'un rdv
      */
-    public function store(Request $request){
-        $contenu = $request->input('contenu');
-        $post_id = $request->input('post_id');
-        $id_pro = $request->input('id_pro');
-        return $contenu;
+    public function store(StoreNewAppointment $request, $id){
 
+        $validated = $request->validated();
+
+        $newAppointment=new Appointment;
+        $newAppointment->fill($validated);
+        $newAppointment->id_pro = $id;
+
+        if ($newAppointment->save()) {
+            $request->session()->flash('status',"RDV enregistré avec succès");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('ProfessionalAreaController@indexAgenda', ['id' => $id]);
+        }
 
     }
 }

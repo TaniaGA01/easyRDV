@@ -24,8 +24,8 @@ class StoreNewAppointment extends FormRequest
     public function rules()
     {
         return [
-            'data_tartempion' => 'required|text',
-            'content' => 'required|unique:posts|max:255',
+            'data_tartempion' => 'required',
+            'content' => 'required',
         ];
     }
 }
