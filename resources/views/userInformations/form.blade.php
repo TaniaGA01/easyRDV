@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-header">Informations personnelles</div>
                 <div class="card-body py-5">
-                    <form method="POST" action="{{ route('userInformations.store') }}">
+                    <form method="POST" action="{{ route('userInformations.store') }}" class="personalInfos">
                         @csrf
                         <div class="form-group row justify-content-center">
                             <div class="col-md-5">
@@ -38,12 +38,12 @@
                                 @enderror
                             </div>
                             <div class="col-md-3">
-                                {{-- <input placeholder="Ville" type="text" class="form-control" name="city" value="{{ old('city') }}" required autocomplete="city">
-                                @error('city')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror --}}
+                                <input id="city" list="cities" name="city" class="form-control input-search" placeholder="Villes">
+                                <datalist id="cities">
+                                @foreach($cities as $city)
+                                    <option data-value="{{ $city->id }}" value="{{ $city->name_ville }}">
+                                @endforeach
+                            </datalist>
                             </div>
                             <div class="col-md-5">
                                 <input placeholder="Adresse" type="text" class="form-control" name="adresse" value="{{ old('adresse') }}" required autocomplete="adresse">
@@ -54,7 +54,7 @@
                                 @enderror
                             </div>
                         </div>
-                        @if($role_id ?? '' !== 2)
+                        @if($role_id == 2)
                             <div class="form-group row justify-content-center">
                                 <div class="col-md-10">
                                     <textarea placeholder="À propos moi" type="text" class="form-control" name="about" value="{{ old('') }}" required autocomplete="addrese"></textarea>
