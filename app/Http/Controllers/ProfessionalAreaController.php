@@ -19,9 +19,12 @@ class ProfessionalAreaController extends Controller
 
         $user = Auth::user();
         $user_id = $user->id;
+        $rdvs = Appointment::where('id_pro', $user_id)->get();
+
         if($id == $user_id){
             return view('professionalArea/indexAgenda',[
                 'user' => $user,
+                'rdvs' => $rdvs,
                 ]);
         }else
             return view('welcome');

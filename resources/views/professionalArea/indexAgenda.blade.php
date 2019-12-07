@@ -12,6 +12,16 @@
     @endif
     <div class="row justify-content-center ">
         <div class="col-md-8">
+            {{-- @isset($rdvs)
+            {{ $rdvs[0]->data_tartempion }}
+
+
+            @endisset --}}
+            {{-- @php
+                foreach ($rdvs as $value) {
+                    echo $value->data_tartempion;
+                }
+            @endphp --}}
 
             @php
             setlocale (LC_TIME, 'fr_FR','fra');
@@ -40,9 +50,20 @@
                     $timeEnd = 18;
 
                     for($i=$timeStart; $i<=$timeEnd; $i++){
+
+                        $tartempion = $date.'_'.$i;
+
                         echo '<tr>';
                         echo "<th> {$i}h </th>";
-                        echo '<td colspan="2" class="data-rdv" data-pro="'.$user->id.'" data-token="'.csrf_token().'" data-tartempion="'.$date.'_'.$i.'"> # </td>';
+
+                        foreach ($rdvs as $value) {
+                            if ($tartempion==$value->data_tartempion) {
+                                $rdv=$value->content;
+                            }else {
+                                $rdv='#';
+                            }
+                            echo '<td colspan="2" class="data-rdv" data-pro="'.$user->id.'" data-token="'.csrf_token().'" data-tartempion="'.$tartempion.'">'.$rdv.'</td>';
+                        }
 
                         echo '</tr>';
                     }

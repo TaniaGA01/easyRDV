@@ -34,8 +34,8 @@ function getForm(id,pro,message,token) {
     labelText.setAttribute('for', 'entree');
     form.setAttribute("method", "POST");
     // form.setAttribute("action", '/mon-agenda/'+pro+'/agenda');
-    setAttributes(inputText, {"type": "text", "name":"contenu", "placeholder":"// Détails.."});
-    setAttributes(inputId, {"type": "hidden", "name":"post_id"});
+    setAttributes(inputText, {"type": "text", "name":"content", "placeholder":"// Détails.."});
+    setAttributes(inputId, {"type": "hidden", "name":"data_tartempion"});
     setAttributes(inputPro, {"type": "hidden", "name":"id_pro"});
     setAttributes(inputToken, {"type": "hidden", "name":"_token", "value":""+token+""});
     setAttributes(btnSubmit, {"type": "submit", "value":"Valider mon RDV"});
@@ -56,6 +56,7 @@ function getForm(id,pro,message,token) {
     ptiteCroix.style.right='10px';
     ptiteCroix.style.top='10px';
     ptiteCroix.style.cursor='pointer';
+    ptiteCroix.style.fontWeight='bold';
     form.style.width = '500px';
     form.style.minHeight = '100px';
     form.style.position = 'absolute';
@@ -76,6 +77,7 @@ function getForm(id,pro,message,token) {
 
 if (intervalles){
     for (let heure of intervalles) {
+        heure.style.cursor='pointer';
         heure.addEventListener('click', function (e){
             let tartId = heure.getAttribute('data-tartempion');
             // let tartUsr = heure.getAttribute('data-usr');
