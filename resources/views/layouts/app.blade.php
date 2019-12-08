@@ -118,7 +118,6 @@
                     <div class="col-8">
                         <nav class="footer-nav">
                             <ul>
-                                <li><a href="http://127.0.0.1:8000/tempo">Tempo</a></li>
                                 <li><a href="{{route('about')}}">A propos</a></li>
                                 <li><a href="{{route('price')}}">Tarifs</a></li>
                                 <li><a href="{{route('contact.create')}}">Nous contacter</a></li>

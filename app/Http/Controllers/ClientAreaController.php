@@ -12,7 +12,7 @@ class ClientAreaController extends Controller
     /**
      * Affiche la page "Mes rendez-vous" du client 
      */
-    public function index($id){
+    public function index(Request $request, $id){
 
         $user = Auth::user();
         $user_id = $user->id;
@@ -21,6 +21,8 @@ class ClientAreaController extends Controller
                 'user' => $user, 
                 ]);
         }else
+            $request->session()->flash('status',"La page que vous recherchez n'existe pas");
+            $request->session()->flash('alert-class',"alert-info");
             return view('welcome');
     }
 
@@ -35,7 +37,7 @@ class ClientAreaController extends Controller
         if($id == $user_id){
             return view('clientArea/edit',['user' => $user,'cities' => $cities]);
         }else{
-            $request->session()->flash('status',"La page que vous cherchez n'existe pas");
+            $request->session()->flash('status',"La page que vous recherchez n'existe pas");
             $request->session()->flash('alert-class',"alert-info");
             return view('welcome');
         }
