@@ -33,7 +33,7 @@ class TemporaireSearch extends Controller
         $profession = Profession::where('name',$name)->get();
         $localisation = City::where('name_ville', $loc)->get();
         $nope = "Aucun résultat pour cette recherche.";
-        if (empty($localisation) && isset($profession[0]->id)) {
+        if (!isset($localisation[0]->id) && isset($profession[0]->id)) {
             $id_profession = $profession[0]->id;
             $results = User::where('profession_id',$id_profession)->get();
             $tab_json = json_decode($results);
