@@ -14,7 +14,7 @@
 // Page d'accueil/recherche
 Route::view('/','welcome');
 Route::post('/','HomeController@searchPro')->name('searchpro');
-Route::get('/professionnels/{profession}/{city}/{first_name}-{last_name}','HomeController@show')->name('show');
+Route::get('/professionnels/{profession}/{city}/{first_name}_{last_name}','HomeController@show')->name('show');
 Route::get('/liste-des-professionnels/{page}/{field}/{city}','HomeController@index')->name('index');
 
 

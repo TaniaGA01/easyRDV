@@ -33,7 +33,7 @@ class HomeController extends Controller
      */
     public function show($profession, $city, $first_name, $last_name)
     {
-        $result = User::where('last_name',$last_name)->get();
+        $result = User::where('last_name',str_replace('-', ' ', $last_name))->get();
         // return $result;
         return view('espacepro', [
             'pro' => $result,

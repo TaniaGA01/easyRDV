@@ -32,7 +32,7 @@
                         <div class="col-md-10">
                             <div class="card-body">
                                 <div class="row align-items-center">
-                                <a class="col-md-6" href="{{route('show', [$result->profession->name,$result->city->name_ville,$result->first_name,$result->last_name])}}"><h5 class="card-title">{{$result->first_name}} {{$result->last_name}}</h5></a>
+                                <a class="col-md-6" href="{{route('show', [str_replace(' ', '-', $result->profession->name),str_replace(' ', '-', $result->city->name_ville),str_replace(' ', '-', $result->first_name),str_replace(' ', '-', $result->last_name)])}}"><h5 class="card-title">{{$result->first_name}} {{$result->last_name}}</h5></a>
                                     <div class="col-md-6">
                                         <p class="card-text text-right">{{$result->profession->name}}</p>
                                         <p class="card-text text-right">{{$result->city->name_ville}}</p>
