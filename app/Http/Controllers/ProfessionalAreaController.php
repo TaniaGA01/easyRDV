@@ -93,7 +93,7 @@ class ProfessionalAreaController extends Controller
             'last_name' => request('last_name'),
             'first_name' => request('first_name'),
             'email' => request('email'),
-            'phone' => request('phone'),
+            'phone_number' => request('phone'),
             'adresse' => request('adresse'),
             // 'city' => $city_input->id,
             'about' => request('about')
