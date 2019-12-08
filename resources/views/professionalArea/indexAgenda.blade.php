@@ -43,7 +43,7 @@
 
                         $tartempion = $date.'_'.$i;
                         $rdv='#';
-                        $add_class='data-rdv';
+                        $add_class='data-rdv page-agenda';
                         $id_rdv='#';
 
                         echo '<tr>';
@@ -53,7 +53,7 @@
                             foreach ($rdvs as $value) {
                                 if ($tartempion==$value->data_tartempion) {
                                     $rdv=$value->content;
-                                    $add_class='data-rdv rdv-loaded';
+                                    $add_class.=' rdv-loaded';
                                     $id_rdv=$value->id;
                                 }
                             }
