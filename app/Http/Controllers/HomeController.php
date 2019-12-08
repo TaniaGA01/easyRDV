@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Profession;
 use App\User;
 use App\City;
+use App\Appointment;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -35,13 +37,21 @@ class HomeController extends Controller
      */
     public function show($profession, $city, $first_name, $last_name)
     {
+        $user = Auth::user();
         $result = User::where('last_name',str_replace('-', ' ', $last_name))->get();
-        // return $result;
+        // return $result[0]->id;
+        $rdvs = Appointment::where('id_pro', $result[0]->id)->get();
         return view('espacepro', [
             'pro' => $result,
+            'user' => $user,
+            'rdvs' => $rdvs,
         ]);
     }
 
+    /**
+     * Création des tableaux JSON pour l'autocomplétion
+     *
+     */
     public function tableau_1(){
         $pros = Profession::all();
         return response()->json($pros);
@@ -55,6 +65,10 @@ class HomeController extends Controller
         return response()->json($locs);
     }
 
+    /**
+     * Effectue la recherche en page d'accueil
+     *
+     */
     public function searchPro(Request $request){
         $loc = $request->input('locs');
         $name = str_replace(' ', '-', $request->input('pros'));
