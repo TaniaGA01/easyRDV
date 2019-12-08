@@ -7,6 +7,10 @@
 var_dump($pro);
     return 'TEST';
 @endphp --}}
+{{-- @php
+    // dd($user->id);
+@endphp --}}
+
 <div class="container ptb-5">
     <div class="row">
         <!-- présentation professionnel -->
@@ -68,6 +72,10 @@ var_dump($pro);
             $gridD .= '<tr>';
             $gridD .= "<th> $linkPrevWeek </th>";
 
+            $visiteur='#';
+            if (isset($user)) {
+                $visiteur=$user->id;
+            }
 
             for($i=0;$i<count($days);$i++){
                 if(date('l',strtotime($date))==='Monday'){
@@ -77,7 +85,7 @@ var_dump($pro);
                     $monday = date('Y-m-d', strtotime('last monday', strtotime($date)));
                     $date_tar = $monday;
                 }
-                
+
                 $nextDay = date('Y-m-d', strtotime("+{$i} day", strtotime($monday)));
                 $dayOfWeek = ucfirst(strftime('%A %d', strtotime($nextDay)));
 
@@ -93,12 +101,38 @@ var_dump($pro);
                 $gridD .= '<tr>';
                 $gridD .= "<td> {$i}h </td>";
                 for($j=0;$j<=count($days);$j++){
+
                     if($j<count($days)){
+
                         $date_tar_day = date('Y-m-d', strtotime($date_tar .' +'.$j.' day'));
-                        $gridD .= "<td class=\"data-rdv\" data-pro=\"1\" data-tartempion=\"{$date_tar_day}_{$i}\"> # </td>"; 
+
+                        $tartempion=$date_tar_day.'_'.$i;
+                        $tab_json = json_decode($rdvs);
+                        $add_class='data-rdv page-pro';
+
+                        if (!empty($tab_json)){
+                            foreach ($rdvs as $value) {
+                                if ($tartempion==$value->data_tartempion) {
+                                    // $id_rdv=$value->id;
+                                    // $rdv = $value->id_client;
+                                    if ($value->id_client === $visiteur) {
+                                        $rdv='Vous avez rdv';
+                                        $add_class.=' rdv-loaded';
+                                    }else {
+                                        $rdv='Créneau non disponible';
+                                        $add_class.=' rdv-indispo';
+                                    }
+                                    $gridD .= "<td class=\"".$add_class."\" data-user=\"".$visiteur."\" data-pro=\"".$pro[0]->id."\" data-name-pro=\"".$pro[0]->first_name." ".$pro[0]->last_name."\" data-tartempion=\"".$tartempion."\" data-token=\"".csrf_token()."\">".$rdv."</td>";
+                                }else {
+                                    $gridD .= "<td class=\"".$add_class."\" data-user=\"".$visiteur."\" data-pro=\"".$pro[0]->id."\" data-name-pro=\"".$pro[0]->first_name." ".$pro[0]->last_name."\" data-tartempion=\"".$tartempion."\" data-token=\"".csrf_token()."\"> # </td>";
+                                }
+                            }
+                        }elseif(empty($tab_json)) {
+                            $gridD .= "<td class=\"".$add_class."\" data-user=\"".$visiteur."\" data-pro=\"".$pro[0]->id."\" data-name-pro=\"".$pro[0]->first_name." ".$pro[0]->last_name."\" data-tartempion=\"".$tartempion."\" data-token=\"".csrf_token()."\"> # </td>";
+                        }
                     }else{
                         $gridD .= "<td> {$i}h </td>";
-                    } 
+                    }
                 }
                 $gridD .= '</tr>';
             }
