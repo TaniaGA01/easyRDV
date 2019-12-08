@@ -3,13 +3,6 @@
 @section('content')
 
 @isset($pro[0])
-{{-- @php
-var_dump($pro);
-    return 'TEST';
-@endphp --}}
-{{-- @php
-    // dd($user->id);
-@endphp --}}
 
 <div class="container ptb-5">
     <div class="row">
@@ -109,12 +102,12 @@ var_dump($pro);
                         $tartempion=$date_tar_day.'_'.$i;
                         $tab_json = json_decode($rdvs);
                         $add_class='data-rdv page-pro';
+                        $rdv='#';
 
                         if (!empty($tab_json)){
                             foreach ($rdvs as $value) {
                                 if ($tartempion==$value->data_tartempion) {
                                     // $id_rdv=$value->id;
-                                    // $rdv = $value->id_client;
                                     if ($value->id_client === $visiteur) {
                                         $rdv='Vous avez rdv';
                                         $add_class.=' rdv-loaded';
@@ -122,14 +115,10 @@ var_dump($pro);
                                         $rdv='Créneau non disponible';
                                         $add_class.=' rdv-indispo';
                                     }
-                                    $gridD .= "<td class=\"".$add_class."\" data-user=\"".$visiteur."\" data-pro=\"".$pro[0]->id."\" data-name-pro=\"".$pro[0]->first_name." ".$pro[0]->last_name."\" data-tartempion=\"".$tartempion."\" data-token=\"".csrf_token()."\">".$rdv."</td>";
-                                }else {
-                                    $gridD .= "<td class=\"".$add_class."\" data-user=\"".$visiteur."\" data-pro=\"".$pro[0]->id."\" data-name-pro=\"".$pro[0]->first_name." ".$pro[0]->last_name."\" data-tartempion=\"".$tartempion."\" data-token=\"".csrf_token()."\"> # </td>";
                                 }
                             }
-                        }elseif(empty($tab_json)) {
-                            $gridD .= "<td class=\"".$add_class."\" data-user=\"".$visiteur."\" data-pro=\"".$pro[0]->id."\" data-name-pro=\"".$pro[0]->first_name." ".$pro[0]->last_name."\" data-tartempion=\"".$tartempion."\" data-token=\"".csrf_token()."\"> # </td>";
                         }
+                        $gridD .= "<td class=\"".$add_class."\" data-user=\"".$visiteur."\" data-pro=\"".$pro[0]->id."\" data-name-pro=\"".$pro[0]->first_name." ".$pro[0]->last_name."\" data-tartempion=\"".$tartempion."\" data-token=\"".csrf_token()."\">".$rdv."</td>";
                     }else{
                         $gridD .= "<td> {$i}h </td>";
                     }
