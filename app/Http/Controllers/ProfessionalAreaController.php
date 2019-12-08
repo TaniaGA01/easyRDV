@@ -31,6 +31,23 @@ class ProfessionalAreaController extends Controller
         }
     }
 
+     /**
+     * Affiche la page "Mes rendez-vous" du professionnel 
+     */
+    public function indexAppointment(Request $request, $id){
+
+        $user = Auth::user();
+        $user_id = $user->id;
+        if($id == $user_id){
+            return view('professionalArea/indexAppointment',[
+                'user' => $user, 
+                ]);
+        }else
+            $request->session()->flash('status',"La page que vous recherchez n'existe pas");
+            $request->session()->flash('alert-class',"alert-info");
+            return view('welcome');
+    }
+
     /**
      * Génère l'agenda
      */

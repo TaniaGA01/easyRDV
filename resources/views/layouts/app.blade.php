@@ -73,7 +73,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @if(Auth::user()->role_id == 2)
                                     <a class="dropdown-item" href="{{ route('professionnelArea.indexAgenda', Auth::user()->id) }}">Mon agenda</a>
-                                    <a class="dropdown-item" href="#">Mes rendez-vous</a>
+                                    <a class="dropdown-item" href="{{ route('professionnelArea.indexAppointment', Auth::user()->id) }}">Mes rendez-vous</a>
                                     <a class="dropdown-item" href="{{ route('professionnelArea.edit', Auth::user()->id) }}">Mes infos perso</a>
                                     <a class="dropdown-item" href="{{ url('/profile') }}">Profile</a>
                                     @elseif(Auth::user()->role_id == 3)
