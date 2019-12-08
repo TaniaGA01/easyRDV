@@ -1,6 +1,6 @@
 var tabLocs = [];
 function appelAjaxLoc () {
-    fetch('/tempo/json-loc')
+    fetch('/json-loc')
         .then(response => response.json())
         .then(tab => {
             if (tab.length){

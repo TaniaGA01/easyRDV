@@ -13,10 +13,12 @@
 
 // Page d'accueil/recherche
 Route::view('/','welcome');
+Route::get('/json','HomeController@tableau_1');
+Route::get('/json-loc','HomeController@tableau_2');
+Route::get('/json-pros','HomeController@tableau_3');
 Route::post('/','HomeController@searchPro')->name('searchpro');
 Route::get('/professionnels/{profession}/{city}/{first_name}_{last_name}','HomeController@show')->name('show');
 Route::get('/liste-des-professionnels/{page}/{field}/{city}','HomeController@index')->name('index');
-
 
 // Page "A propos"
 Route::get('/a-propos', 'AboutController@index')->name('about');
@@ -82,14 +84,6 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 // Route informations personnelles
 Route::get('/informations-personnelles', 'UserInfoController@create')->name('userInformations.create');
 Route::post('/informations-personnelles', 'UserInfoController@store')->name('userInformations.store');
-
-
-// Route Temporaire : test de David
-Route::get('tempo','TemporaireSearch@search');
-Route::get('tempo/json','TemporaireSearch@tableau_1');
-Route::get('tempo/json-loc','TemporaireSearch@tableau_2');
-Route::get('tempo/json-pros','TemporaireSearch@tableau_3');
-Route::post('tempo','TemporaireSearch@results')->name('results');
 
 // Auth
 Auth::routes(['verify' => true]);

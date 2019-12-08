@@ -1,6 +1,6 @@
 var tabPros = [];
 function appelAjax () {
-    fetch('/tempo/json')
+    fetch('/json')
         .then(response => response.json())
         .then(tab => {
             if (tab.length){
