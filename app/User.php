@@ -46,4 +46,8 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->belongsTo('App\City');
     }
+
+    public function appointments(){
+        return $this->belongsToMany('App\Appointment');
+    }
 }
