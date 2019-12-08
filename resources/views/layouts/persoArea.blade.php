@@ -12,7 +12,7 @@
                 </div>
                 @if($user->role_id == 2)
                 <a href="{{ route('professionnelArea.indexAgenda', Auth::user()->id) }}" class="btn btn-pr btn-block">Mon agenda</a>
-                <a href="#" class="btn btn-pr btn-block">Mes rendez-vous</a>
+                <a href="{{ route('professionnelArea.indexAppointment', Auth::user()->id) }}" class="btn btn-pr btn-block">Mes rendez-vous</a>
                 <a href="{{ route('professionnelArea.edit', Auth::user()->id) }}" class="btn btn-pr btn-block">Mes
                     informations personnelles</a>
                 @else

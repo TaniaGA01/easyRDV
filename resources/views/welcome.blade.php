@@ -2,16 +2,16 @@
 
 @section('content')
 <div class="container">
+    <div class="container ptb-5">
     @if (session('status'))
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="alert {{ session('alert-class') }}" role="alert">
-                {{ session('status') }}
+                <i class="fas fa-exclamation-triangle"></i> {{ session('status') }}
             </div>
         </div>
     </div>
     @endif
-    <div class="container ptb-5">
         <div class="row">
             <div class="form-style-5 bg-white shadow-sm col-4 px-6 py-6 min-height">
                 <form method="POST" autocomplete="off">

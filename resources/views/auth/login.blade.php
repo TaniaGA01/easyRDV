@@ -43,7 +43,7 @@
                         <div class="form-group row justify-content-center">
                             <div class="col-md-10">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember"
+                                    <input id="remember" class="form-check-input" type="checkbox" name="remember"
                                         {{ old('remember') ? 'checked' : '' }}>
 
                                     <label  for="remember">Se souvenir de moi</label>
