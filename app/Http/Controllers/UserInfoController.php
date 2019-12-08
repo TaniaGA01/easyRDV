@@ -33,17 +33,23 @@ class UserInfoController extends Controller
             'about' => 'bail',
         ]);
 
-        $user->fill([
+        $data = [
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'phone_number' => $request->phone_number,
-            'city' => '',
             'adresse' => $request->adresse,
             'about' => ''
-        ]);
+        ];
 
-        $user->save();
+        $city = $request->input('city');
+        $city_input = City::where('name_ville',$city)->first();
+        $city_id = $city_input->id;
+        $user->city_id = $city_id;
 
-        return view ('/home');
+        $user->update($data);
+
+        $request->session()->flash('status',"Vos informations personnelles ont bien été ajoutées");
+        $request->session()->flash('alert-class',"alert-success");
+        return view('/home');
     }
 }
