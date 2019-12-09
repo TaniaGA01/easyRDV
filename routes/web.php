@@ -23,7 +23,6 @@ Route::get('/liste-des-professionnels/{page}/{field}/{city}','HomeController@ind
 Route::get('/professionnels/{profession}/{city}/{first_name}_{last_name}','HomeController@show')->name('show');
 Route::post('/professionnels/{profession}/{city}/{first_name}_{last_name}','EspaceProController@storeRdv')->name('espacePro.storeRdv')->middleware('verified');
 Route::post('/professionnels/{profession}/{city}/{first_name}_{last_name}/delete','EspaceProController@deleteRdv')->name('espacePro.deleteRdv')->middleware('verified');
-Route::post('/professionnels/{profession}/{city}/{first_name}_{last_name}/update','EspaceProController@updateRdv')->name('espacePro.updateRdv')->middleware('verified');
 
 // Page "A propos"
 Route::get('/a-propos', 'AboutController@index')->name('about');
