@@ -39,60 +39,72 @@ class ProfessionalAreaController extends Controller
         $user = Auth::user();
         $user_id = $user->id;
         if($id == $user_id){
-            // https://stackoverflow.com/questions/36371796/laravel-eloquent-where-field-is-x-or-null/36372109
+            $date_now = date('Y-m-d_H',strtotime('+1 hour'));
+            // Mes activités
             $my_activities = Appointment::where('id_pro', $user_id)->whereNull('id_client')->orderBy('data_tartempion', 'asc')->get();
-            //dd($my_activities);
+
+            $tab_id_activities = [];
             $tab_my_activities_content = [];
             $tab_my_activities_day = [];
 
             foreach($my_activities as $my_activity){
-                $date_now = date('Y-m-d_H',strtotime('+1 hour'));
                 if($date_now <= $my_activity->data_tartempion){
-                     array_push($tab_my_activities_content, ucfirst($my_activity->content));
-                     array_push($tab_my_activities_day,self::getDateHourFr($my_activity->data_tartempion));
+                    array_push($tab_id_activities, $my_activity->id);
+                    array_push($tab_my_activities_content, ucfirst($my_activity->content));
+                    array_push($tab_my_activities_day,self::getDateHourFr($my_activity->data_tartempion));
                 }
             }
+            // Récupère que les 6 premiers
+            $tab_id_activities = array_slice($tab_id_activities,0,6);
+            $tab_my_activities_content = array_slice($tab_my_activities_content,0,6);
+            $tab_my_activities_day = array_slice($tab_my_activities_day,0,6);
             
-
+            // Prochains rendez-vous
             $rdvs = Appointment::where('id_pro', $user_id)->whereNotNull('id_client')->orderBy('data_tartempion', 'asc')->get();
 
-            $tab_client_name = [];
-            $tab_client_phone = [];
-            $tab_client_mail = [];
-            $tab_day = [];
-            $tab_hour = [];
+            $tab_id_rdvs = [];
+            $tab_clients_name = [];
+            $tab_clients_phone = [];
+            $tab_clients_mail = [];
+            $tab_my_rdv_day = [];
+
 
             foreach($rdvs as $rdv){
-                $id_client = $rdv->id_client;
-                $client = User::find($id_client);
-                $client_name = $client->last_name .' '. $client->first_name;
-                $client_phone = $client->phone_number;
-                $client_email = $client->email;
+                if($date_now <= $rdv->data_tartempion){
+                    $id_client = $rdv->id_client;
+                    $client = User::find($id_client);
+                    $client_name = $client->last_name .' '. $client->first_name;
+                    $client_phone = $client->phone_number;
+                    $client_email = $client->email;
 
-                $date = $rdv->data_tartempion;
-                $date_day_hour_en = explode('_',$date);
+                    array_push($tab_id_rdvs, $rdv->id);
 
-                setlocale (LC_TIME, 'fr_FR','fra');
-                $date_day_fr = utf8_encode(strftime('%A %d/%m/%Y', strtotime($date_day_hour_en[0])));
-                $date_day_fr = ucfirst($date_day_fr);
+                    array_push($tab_my_rdv_day,self::getDateHourFr($rdv->data_tartempion));
 
-                $date_hour = $date_day_hour_en[1];
+                    array_push($tab_clients_name,$client_name);
+                    array_push($tab_clients_phone,$client_phone);
+                    array_push($tab_clients_mail,$client_email);
+                }
 
-                array_push($tab_day,$date_day_fr);
-                array_push($tab_hour,$date_hour);
-
-                array_push($tab_client_name,$client_name);
-                array_push($tab_client_phone,$client_phone);
-                array_push($tab_client_mail,$client_email);
+                $tab_id_rdvs = array_slice($tab_id_rdvs,0,6);
+                $tab_clients_name = array_slice($tab_clients_name,0,6);
+                $tab_clients_phone = array_slice($tab_clients_phone,0,6);
+                $tab_clients_mail = array_slice($tab_clients_mail,0,6);
+                $tab_my_rdv_day = array_slice($tab_my_rdv_day,0,6);
             }
-
+            //dd($tab_clients_name);
             return view('professionalArea/indexAppointment',[
                 'user' => $user,
-                'my_activities' => $my_activities,
+                //'my_activities' => $my_activities,
+                'tab_id_activities' => $tab_id_activities,
                 'tab_my_activities_content' => $tab_my_activities_content,
                 'tab_my_activities_day' => $tab_my_activities_day,
-                'rdvs' => $rdvs,
-                'tab_client_name' => $tab_client_name,
+                //'rdvs' => $rdvs,
+                'tab_id_rdvs' => $tab_id_rdvs,
+                'tab_clients_name' => $tab_clients_name,
+                'tab_clients_phone' => $tab_clients_phone,
+                'tab_clients_mail' => $tab_clients_mail,
+                'tab_my_rdv_day' => $tab_my_rdv_day,
                 ]);
         }else{
             $request->session()->flash('status',"La page que vous recherchez n'existe pas");

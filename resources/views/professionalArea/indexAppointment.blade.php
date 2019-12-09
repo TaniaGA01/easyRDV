@@ -22,9 +22,13 @@
                         <hr>
                         <p class="card-text"><i class="far fa-calendar-alt"></i> {{ $tab_my_activities_day[$i][0] }} à
                             {{ $tab_my_activities_day[$i][1] }}h</p>
-                        <div class="form-group justify-content-center row">
-                            <input type="submit" class="btn-pr btn-block " value="Annuler l'activité"></button>
-                        </div>
+                        <form method="POST" action="{{ route('professionnelArea.deleteRdv', Auth::user()->id) }}">
+                            @csrf
+                            <div class="form-group justify-content-center row">
+                                <input type="hidden" name="id_rdv" value="{{ $tab_id_activities[$i] }}">
+                                <input type="submit" class="btn-pr btn-block " value="Annuler l'activité"></button>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 @php $i++; @endphp
@@ -34,20 +38,27 @@
 
             <h5 class="card-title">Prochains rendez-vous</h5>
             <div class="row">
-                @foreach ($rdvs as $rdv)
+                @php $j = 0; @endphp
+                @foreach ($tab_clients_name as $tab_client_name)
                 <div class="card col-md-5">
                     <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">{{ $rdv->id }}</h5>
+                        <h5 class="card-title">{{ $tab_clients_name[$j] }}</h5>
                         <hr>
-                        <p class="card-text"><i class="far fa-calendar-alt"></i> Date du rdv</p>
-                        <p class="card-text"><i class="fas fa-phone"></i> Téléphone</p>
-                        <p class="card-text"><i class="fas fa-at"></i> Mail</p>
-                        <div class="form-group justify-content-center row">
-                            <input type="submit" class="btn-pr btn-block " value="Annuler rendez-vous"></button>
-                        </div>
+                        <p class="card-text"><i class="far fa-calendar-alt"></i> {{ $tab_my_rdv_day[$j][0] }} à
+                            {{ $tab_my_rdv_day[$j][1] }}h</p>
+                        <p class="card-text"><i class="fas fa-phone"></i> {{ $tab_clients_phone[$j] }}</p>
+                        <p class="card-text"><i class="fas fa-at"></i> {{ $tab_clients_mail[$j] }}</p>
+                        <form method="POST" action="{{ route('professionnelArea.deleteRdv', Auth::user()->id) }}">
+                            @csrf
+                            <div class="form-group justify-content-center row">
+                                <input type="hidden" name="id_rdv" value="{{ $tab_id_rdvs[$j] }}">
+                                <input type="submit" class="btn-pr btn-block " value="Annuler rendez-vous"></button>
+                            </div>
+                        </form>
                     </div>
                 </div>
+                @php $j++; @endphp
                 @endforeach
             </div>
         </div>
