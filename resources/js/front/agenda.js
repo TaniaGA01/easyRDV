@@ -26,6 +26,33 @@ function setAttributes(el, attrs) {
 function getForm(id,pro,message,token,status,content,idRdv) {
     // status : paramètre récupéré avec la variable formType, permettant de connaître le type de formulaire nécessaire.
     // 1, 2, et 3 : Ajout, modif et suppression page "mon-agenda" // 4 et 5 : Ajout et annulation page pro
+    let modal = document.createElement('div');//div 1
+    let modalDialog = document.createElement('div');//div 2
+    let modalHeader = document.createElement('div');//div 3
+    let modalBody = document.createElement('div');//div 4
+    let modalFooter = document.createElement('div');//div 5
+    let modalTitle = document.createElement('h5');
+    let modalClose = document.createElement('button');
+    let modalSpan =document.createElement('span');
+    setAttributes(modal, {"class": "modal", "tab-index":"-1", "role":"dialog"});
+    setAttributes(modalDialog, {"class": "modal-dialog", "role":"document"});
+    modalHeader.classList.add("modal-header");
+    modalTitle.classList.add("modal-title");
+    if ((status === 1)||(status === 4)) {
+        modalTitle.textContent="Ajouter";
+    }else if (status === 2) {
+        modalTitle.textContent="Modifier";
+    }else if ((status === 3)||(status === 5)) {
+        modalTitle.textContent="Supprimer";
+    }
+    setAttributes(modalClose, {"class": "close", "type":"close", "data-dismiss":"modal","aria-label":"Close"});
+    // modalSpan.setAttribute('aria-hidden', 'true');
+    modalSpan.innerHTML='&times;';
+    modalClose.appendChild(modalSpan);
+    modalHeader.appendChild(modalTitle);
+    modalHeader.appendChild(modalClose);
+    modalBody.classList.add("modal-body");
+    modalFooter.classList.add("modal-footer");
     let form = document.createElement('form');
     let labelText = document.createElement('label');
     let inputText = document.createElement('textarea');
@@ -33,24 +60,22 @@ function getForm(id,pro,message,token,status,content,idRdv) {
     let inputPro = document.createElement('input');
     let inputToken = document.createElement('input');
     let btnSubmit = document.createElement('input');
-    let ptiteCroix = document.createElement('div');
     labelText.setAttribute('for', 'content');
-    form.setAttribute("method", "POST");
-    setAttributes(inputText, {"type": "text", "name":"content", "placeholder":"// Détails.."});
+    setAttributes(form, {"method": "POST", "class":"modal-content"});
+    setAttributes(inputText, {"type": "text", "name":"content", "placeholder":"// Détails..","class":"form-control"});
     setAttributes(inputId, {"type": "hidden", "name":"data_tartempion"});
     setAttributes(inputPro, {"type": "hidden", "name":"id_pro"});
     setAttributes(inputToken, {"type": "hidden", "name":"_token", "value":""+token+""});
-    setAttributes(btnSubmit, {"type": "submit", "value":"Valider mon RDV"});
+    setAttributes(btnSubmit, {"type": "submit", "value":"Valider mon RDV", "class":"btn btn-primary btn-pr"});
     labelText.innerText=message;
     inputId.value=id;
     inputPro.value=pro;
-    ptiteCroix.innerText='X';
-    form.appendChild(labelText);
+    modalBody.appendChild(labelText);
     if ((status === 1)||(status === 2)) {
-        form.appendChild(inputText);
+        modalBody.appendChild(inputText);
     }
-    form.appendChild(inputId);
-    form.appendChild(inputPro);
+    modalBody.appendChild(inputId);
+    modalBody.appendChild(inputPro);
     if (status === 2){
         btnSubmit.setAttribute("value", "Modifier mon RDV");
         form.setAttribute("action", '/mon-agenda/'+pro+'/agenda/update');
@@ -68,49 +93,43 @@ function getForm(id,pro,message,token,status,content,idRdv) {
         let inputIdRdv = document.createElement('input');
         setAttributes(inputIdRdv, {"type": "hidden", "name":"id_rdv"});
         inputIdRdv.value=idRdv;
-        form.appendChild(inputIdRdv);
+        modalBody.appendChild(inputIdRdv);
     }
     if ((status === 4)) {
         let inputIdUser = document.createElement('input');
         setAttributes(inputIdUser, {"type": "hidden", "name":"id_client"});
         inputIdUser.value=content;
-        form.appendChild(inputIdUser);
+        modalBody.appendChild(inputIdUser);
     }
-    form.appendChild(inputToken);
-    form.appendChild(btnSubmit);
-    form.appendChild(ptiteCroix);
-    document.body.appendChild(form);
+    modalBody.appendChild(inputToken);
+    modalFooter.appendChild(btnSubmit);
+    form.appendChild(modalHeader);
+    form.appendChild(modalBody);
+    form.appendChild(modalFooter);
+    modalDialog.appendChild(form);
+    modal.appendChild(modalDialog);
+    document.body.appendChild(modal);
     /*---STYLE---*/
-    ptiteCroix.style.position='absolute';
-    ptiteCroix.style.right='10px';
-    ptiteCroix.style.top='10px';
-    ptiteCroix.style.cursor='pointer';
-    ptiteCroix.style.fontWeight='bold';
-    labelText.style.textAlign='center';
-    form.style.width = '500px';
-    form.style.minHeight = '100px';
-    form.style.position = 'absolute';
-    form.style.top = '35vh';
-    form.style.left = '30vw';
-    form.style.backgroundColor = '#ddd';
-    form.style.borderRadius = '5px';
-    form.style.display = 'flex';
-    form.style.justifyContent = 'center';
-    form.style.alignItems = 'center';
-    form.style.flexDirection = 'column';
-    form.style.padding = '10px';
+    form.style.textAlign='center';
+    modal.style.display="block";
+    modal.style.marginTop="10%";
     form.style.zIndex="101";
     /** OVERLAY */
     let over = document.createElement('div');
-    over.style.width='100vw';
+    over.style.width='100%';
     over.style.minHeight='100%';
     over.style.backgroundColor='rgba(255,255,255,0.5)';
     over.style.zIndex="100";
     over.style.position="absolute";
     document.body.insertBefore(over,appBody);
     /** */
-    ptiteCroix.addEventListener('click', function (e) {
-        form.remove();
+    modalClose.addEventListener('click', function (e) {
+        e.preventDefault();
+        modal.remove();
+        over.remove();
+    });
+    over.addEventListener('click', function (e) {
+        modal.remove();
         over.remove();
     });
 }
