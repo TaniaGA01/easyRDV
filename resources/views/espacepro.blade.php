@@ -103,6 +103,7 @@
                         $tab_json = json_decode($rdvs);
                         $add_class='data-rdv page-pro';
                         $rdv='#';
+                        $id_rdv='#';
 
                         if (!empty($tab_json)){
                             foreach ($rdvs as $value) {
@@ -111,6 +112,7 @@
                                     if ($value->id_client === $visiteur) {
                                         $rdv='Vous avez rdv';
                                         $add_class.=' rdv-loaded';
+                                        $id_rdv=$value->id;
                                     }else {
                                         $rdv='Créneau non disponible';
                                         $add_class.=' rdv-indispo';
@@ -118,7 +120,7 @@
                                 }
                             }
                         }
-                        $gridD .= "<td class=\"".$add_class."\" data-user=\"".$visiteur."\" data-pro=\"".$pro[0]->id."\" data-name-pro=\"".$pro[0]->first_name." ".$pro[0]->last_name."\" data-tartempion=\"".$tartempion."\" data-token=\"".csrf_token()."\">".$rdv."</td>";
+                        $gridD .= "<td class=\"".$add_class."\" data-user=\"".$visiteur."\" data-pro=\"".$pro[0]->id."\" data-name-pro=\"".$pro[0]->first_name." ".$pro[0]->last_name."\" data-id=\"".$id_rdv."\" data-tartempion=\"".$tartempion."\" data-token=\"".csrf_token()."\">".$rdv."</td>";
                     }else{
                         $gridD .= "<td class=\"col-hour\"> {$i}h </td>";
                     }
