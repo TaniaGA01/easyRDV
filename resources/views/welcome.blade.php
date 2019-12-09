@@ -40,7 +40,7 @@
                         class="form-control my-2" autocomplete="off">
                     <datalist id="suggestions-pros"></datalist>
 
-                    <input type="hidden" name="id-pro">
+                    <input id="hidden-form-accueil" type="hidden" name="id-pro">
 
                     <input type="submit" value="Rechercher" class="btn-pr col-md-12 my-2"></button>
                     @csrf
