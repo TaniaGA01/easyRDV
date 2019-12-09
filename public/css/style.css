@@ -6,6 +6,8 @@
     --orange-fc:#F25116;
     --white:#ffffff;
     --white-tr: rgba(255,255,255,0.95);
+    --gris-cl: #e6e6e6;
+    --gris: rgb(135,135,135)
 }
 
 /* =============== padding/margin ====================*/
@@ -45,6 +47,9 @@
     height: 23rem;
     width: 100%;
     z-index: -1;
+}
+.container{
+    contain: content;
 }
 
 .title h1 {
@@ -114,7 +119,7 @@ form h3 {
     text-align: center;
     font-weight: 600;
     color: var(--bleu);
-    font-size: 1.5rem;
+    font-size: 1.47rem;
 }
 
 /*================== list resultats =================*/
@@ -138,7 +143,6 @@ form h3 {
     background-repeat: no-repeat;
     background-position: right;
     background-size: 38rem;
-    width: 100%;
     background-position-y: 2.5rem;
 }
 .search-result{
@@ -161,7 +165,7 @@ form h3 {
 .search-result-body h5 {
     margin: 0;
     padding: 20px 0;
-    color: var(--orange-fc);
+    color: var(--bleu-fc);
     font-weight: 600;
     font-size: 19px;
 }
@@ -173,7 +177,7 @@ form h3 {
 }
 .search-result-body span{
     font-size: 13px;
-    color: var(--orange);
+    color: var(--gris);
     font-weight: 600 !important;
 }
 .search-result-body a {
@@ -184,7 +188,7 @@ form h3 {
 .search-result-body a:hover{
     text-decoration: none;
     color: var(--white);
-    background-color: var(--orange);
+    background-color: var(--gris-cl);
 }
 
 
