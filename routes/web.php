@@ -16,7 +16,8 @@ Route::view('/','welcome');
 Route::get('/json','HomeController@tableau_1');
 Route::get('/json-loc','HomeController@tableau_2');
 Route::get('/json-pros','HomeController@tableau_3');
-Route::post('/','HomeController@searchPro')->name('searchpro');
+Route::post('/','HomeController@search')->name('search');
+Route::post('/pros','HomeController@searchPro')->name('searchPro');
 Route::get('/liste-des-professionnels/{page}/{field}/{city}','HomeController@index')->name('index');
 
 // Page espace pro

@@ -20,14 +20,25 @@
             <form method="POST" autocomplete="off">
                 <fieldset>
                     <h3>Prendre un rdv en ligne</h3>
-                    <p>Rechercher un professionnel</p>
-                    <input list="suggestions" type="text" name="pros" id="pros" placeholder="Professionnel"
+                    <p>Rechercher une profession</p>
+                    <input list="suggestions" type="text" name="pros" id="pros" placeholder="Profession"
                         class="form-control my-2" autocomplete="off">
                     <datalist id="suggestions"></datalist>
 
                     <input list="suggestions-locs" type="text" name="locs" id="locs" placeholder="Lieu"
                         class="form-control " autocomplete="off">
                     <datalist id="suggestions-locs"></datalist>
+
+                    <input type="submit" value="Rechercher" class="btn-pr col-md-12 my-2"></button>
+                    @csrf
+                </fieldset>
+            </form>
+            <form class="form-pros-accueil" method="POST" action="/pros" autocomplete="off">
+                <fieldset>
+                    <p>Rechercher un professionnel</p>
+                    <input list="suggestions-pros" type="text" name="professionnels" id="professionnels" placeholder="Professionnel"
+                        class="form-control my-2" autocomplete="off">
+                    <datalist id="suggestions-pros"></datalist>
 
                     <input type="submit" value="Rechercher" class="btn-pr col-md-12 my-2"></button>
                     @csrf
