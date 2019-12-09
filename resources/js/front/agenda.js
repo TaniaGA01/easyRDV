@@ -126,24 +126,36 @@ if (intervalles){
                 let btnModif = heure.nextSibling;
                 let tartContent = heure.innerText;
                 let rdvId = btnModif.getAttribute('data-id');
-                btnModif.addEventListener('click', function(evt){
-                    formType=2;
-                    textAction = 'Modifier le rendez-vous du ';
+                if (btnModif.classList.contains("agenda-annul")) {
+                    btnModif.addEventListener('click', function (e){
+                        formType=3;
+                        textAction = 'Annuler le rendez-vous avec ';
+                        let renseignements =textAction+tartContent+' le '+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
+                        getForm(tartId,tartPro,renseignements,tartToken,formType,tartContent,rdvId);
+                    });
+                }else{
+                    btnModif.addEventListener('click', function(evt){
+                        formType=2;
+                        textAction = 'Modifier le rendez-vous du ';
+                        let renseignements =textAction+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
+                        getForm(tartId,tartPro,renseignements,tartToken,formType,tartContent,rdvId);
+                    });
+                    let btnSuppr = btnModif.nextSibling;
+                    if (btnSuppr) {
+                        btnSuppr.addEventListener('click', function(evt){
+                            formType=3;
+                            textAction = 'Supprimer le rendez-vous du ';
+                            let renseignements =textAction+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
+                            getForm(tartId,tartPro,renseignements,tartToken,formType,tartContent,rdvId);
+                        });
+                    }
+                }
+            }else{
+                heure.addEventListener('click', function (e){
                     let renseignements =textAction+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
-                    getForm(tartId,tartPro,renseignements,tartToken,formType,tartContent,rdvId);
-                });
-                let btnSuppr = btnModif.nextSibling;
-                btnSuppr.addEventListener('click', function(evt){
-                    formType=3;
-                    textAction = 'Supprimer le rendez-vous du ';
-                    let renseignements =textAction+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
-                    getForm(tartId,tartPro,renseignements,tartToken,formType,tartContent,rdvId);
+                    getForm(tartId,tartPro,renseignements,tartToken,formType);
                 });
             }
-            heure.addEventListener('click', function (e){
-                let renseignements =textAction+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
-                getForm(tartId,tartPro,renseignements,tartToken,formType);
-            });
         }
     }
 }
