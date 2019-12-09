@@ -1,5 +1,6 @@
 :root{
-    --bleu:#022340;
+    --bleu-fc:#022340;
+    --bleu:#033159;
     --orange:#F2790F;
     --orange-clair: #F2A03D;
     --orange-fc:#F25116;
@@ -29,6 +30,48 @@
     height: min-content;
 }
 
+/*==================== general =================*/
+#app{
+    position: relative;
+}
+#app::before {
+    content: '';
+    background-color: var(--orange-clair);
+    position: absolute;
+    height: 23rem;
+    width: 100%;
+    z-index: -1;
+}
+
+.title h1 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2rem;
+}
+.title h2 {
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    color: var(--bleu);
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.list-deco {
+    background-image: url(../img/prof-home-01.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 38rem;
+    width: 100%;
+    background-position-y: 2.5rem;
+}
+
+
 /* ================ nav =====================*/
 
 .navbar-expand-md .navbar-nav .nav-link {
@@ -40,7 +83,18 @@
 /* ================ form =====================*/
 .form-control, .custom-file-label{
     border-radius: 0;
-
+    border: 1px solid var(--bleu);
+}
+form p {
+    text-align: center;
+    color: var(--bleu);
+    font-size: 1.1rem;
+}
+form h3 {
+    text-align: center;
+    font-weight: 600;
+    color: var(--bleu);
+    font-size: 1.5rem;
 }
 
 
