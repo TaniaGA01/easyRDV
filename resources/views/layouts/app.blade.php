@@ -43,19 +43,23 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item"><a href="{{route('about')}}" class="nav-link">A propos</a></li>
-                        <li class="nav-item"><a href=" {{route('price')}}  " class="nav-link">Tarifs</a></li>
-                        <li class="nav-item"><a href="{{route('contact.create')}}" class="nav-link">Nous contacter</a>
+                        <li class="nav-item">
+                            <a class="nav-link menu-it" href="{{route('about')}}">A propos</a>
                         </li>
-                        <li class="nav-item"><a href="{{route('professional.create')}}" class="nav-link">Je suis un
-                                professionnel</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-it" href=" {{route('price')}}">Tarifs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link menu-it" href="{{route('contact.create')}}">Nous contacter</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link btn-item-pro" href="{{route('professional.create')}}" >Je suis un
+                                professionnel</a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
-
                         <li class="nav-item">
-
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter/S\'inscrire') }}</a>
-
+                            <a class="nav-link btn-insc" href="{{ route('login') }}">{{ __('Se connecter/S\'inscrire') }}</a>
                         </li>
 
                         <!--

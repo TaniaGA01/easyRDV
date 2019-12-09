@@ -15,7 +15,7 @@
         </div>
     </div>
     @endif
-    <div class="row ptb-5 list-deco min-height">
+    <div class="row pt-6 list-deco">
         <div class="form-style-5 bg-white shadow-sm col-lg-4 col-md-12 px-6 py-6 min-height">
             <form method="POST" autocomplete="off">
                 <fieldset>
@@ -34,45 +34,38 @@
                 </fieldset>
             </form>
         </div>
+        <div class="col-lg-8 col-md-12">
 
-        <div class="col-lg-8 col-md-12 ">
             @isset($results)
-
-            <div>Vous avez recherché un {{str_replace('-', ' ', strtolower($job[0]->name))}}@isset($city) à
-                {{$city[0]->name_ville}}@endisset</div><br />
-            @foreach ($results as $result)
-            <div class="card mb-3">
-                <div class="row no-gutters">
-                    <div class="col-md-2">
-                        <img src="@isset($result->image){{$result->image}}@endisset" class="card-img"
-                            alt="@isset($result->image){{$result->first_name}} {{$result->last_name}}, {{$result->profession->name}} à {{$result->city->name_ville}}@endisset"
-                            style="max-height:102px;border-radius: 3px 0 0 3px;" />
-                    </div>
-                    <div class="col-md-10">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <a class="col-md-6"
-                                    href="{{route('show', [str_replace(' ', '-', $result->profession->name),str_replace(' ', '-', $result->city->name_ville),str_replace(' ', '-', $result->first_name),str_replace(' ', '-', $result->last_name)])}}">
-                                    <h5 class="card-title">{{$result->first_name}} {{$result->last_name}}</h5>
+            <div class="list-results shadow-sm px-6">
+                    <div><p>Résultats de la recherche : <span> {{str_replace('-', ' ', strtolower($job[0]->name))}}</span>@isset($city) à
+                        <span>{{$city[0]->name_ville}}</span>
+                    @endisset</p>
+                </div><br />
+                @foreach ($results as $result)
+                    <div class="search-result shadow mb-3">
+                        <div class="row no-gutters search-row-resultat">
+                            <div class="col-md-2">
+                                <figure>
+                                    <img src="@isset($result->image){{$result->image}}@endisset" class="card-img"
+                                    alt="@isset($result->image){{$result->first_name}} {{$result->last_name}}, {{$result->profession->name}} à {{$result->city->name_ville}}@endisset"/>
+                                </figure>
+                            </div>
+                            <div class="col-md-10 align-items-center search-result-body">
+                                <a href="{{route('show', [str_replace(' ', '-', $result->profession->name),str_replace(' ', '-', $result->city->name_ville),str_replace(' ', '-', $result->first_name),str_replace(' ', '-', $result->last_name)])}}">
+                                    <h5>{{$result->first_name}} {{$result->last_name}}</h5>
+                                    <p class="text-right">{{$result->profession->name}}<br/><span>{{$result->city->name_ville}}</span></p>
                                 </a>
-                                <div class="col-md-6">
-                                    <p class="card-text text-right">{{$result->profession->name}}</p>
-                                    <p class="card-text text-right">{{$result->city->name_ville}}</p>
-                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
+                @endisset
             </div>
-            @endforeach
-
-            @endisset
-
             @isset($nope)
             <div>{{$nope}}</div>
             @endisset
-
-        </section>
+        </div>
     </div>
 </div>
 <div class="container ">
@@ -85,4 +78,3 @@
     </div>
 </div>
 @endsection
-
