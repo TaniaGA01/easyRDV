@@ -47,13 +47,18 @@
                         $id_rdv='#';
 
                         echo '<tr>';
-                        echo "<th> {$i}h </th>";
+                        echo "<th class=\"col-hour\"> {$i}h </th>";
 
                         if (isset($rdvs)){
                             foreach ($rdvs as $value) {
                                 if ($tartempion==$value->data_tartempion) {
-                                    $rdv=$value->content;
-                                    $add_class.=' rdv-loaded';
+                                    if (isset($value->id_client)) {
+                                        $rdv=$value->id_client;
+                                        $add_class.=' rdv-loaded rdv-pro';
+                                    }else {
+                                        $rdv=$value->content;
+                                        $add_class.=' rdv-loaded';
+                                    }
                                     $id_rdv=$value->id;
                                 }
                             }
@@ -63,6 +68,8 @@
                         if ($add_class==='data-rdv page-agenda rdv-loaded') {
                             echo '<td class="btn-agenda agenda-modif" data-id="'.$id_rdv.'" data-tartempion="'.$tartempion.'" style="position: absolute;right:100px;"><a href="#">Modifier</a></td>';
                             echo '<td class="btn-agenda agenda-suppr" data-id="'.$id_rdv.'" data-tartempion="'.$tartempion.'" style="position: absolute;right:15px;"><a href="#">Supprimer</a></td>';
+                        }elseif ($add_class==='data-rdv page-agenda rdv-loaded rdv-pro') {
+                            echo '<td class="btn-agenda agenda-annul" data-id="'.$id_rdv.'" data-tartempion="'.$tartempion.'" style="position: absolute;right:15px;"><a href="#">Annuler</a></td>';
                         }
 
                         echo '</tr>';

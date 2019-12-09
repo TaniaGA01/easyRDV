@@ -40,7 +40,7 @@
 
             // ######################### DESKTOP ###############################
             //$days = ['lundi','mardi','mercredi','jeudi','vendredi','samedi','dimanche'];
-            $days = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+            $days = ['monday','tuesday','wednesday','thursday','friday'];
 
             //$dayWeek = date('Y-m-d', strtotime('last monday', strtotime($date)));
             //$dayOfWeek = strftime('%A %d', strtotime($dayWeek));
@@ -92,7 +92,7 @@
             // <th> 8h </th><td colspan="2" class="data-rdv" data-pro="1" data-token="ZznQPxfxCUfGN6gi9HbSKm7DNTj0xtd0ZQ3lH7fX" data-tartempion="2019-12-07_8">#</td>
             for($i=$timeStart;$i<=$timeEnd;$i++){
                 $gridD .= '<tr>';
-                $gridD .= "<td> {$i}h </td>";
+                $gridD .= "<td class=\"col-hour\"> {$i}h </td>";
                 for($j=0;$j<=count($days);$j++){
 
                     if($j<count($days)){
@@ -103,6 +103,7 @@
                         $tab_json = json_decode($rdvs);
                         $add_class='data-rdv page-pro';
                         $rdv='#';
+                        $id_rdv='#';
 
                         if (!empty($tab_json)){
                             foreach ($rdvs as $value) {
@@ -111,6 +112,7 @@
                                     if ($value->id_client === $visiteur) {
                                         $rdv='Vous avez rdv';
                                         $add_class.=' rdv-loaded';
+                                        $id_rdv=$value->id;
                                     }else {
                                         $rdv='Créneau non disponible';
                                         $add_class.=' rdv-indispo';
@@ -118,9 +120,9 @@
                                 }
                             }
                         }
-                        $gridD .= "<td class=\"".$add_class."\" data-user=\"".$visiteur."\" data-pro=\"".$pro[0]->id."\" data-name-pro=\"".$pro[0]->first_name." ".$pro[0]->last_name."\" data-tartempion=\"".$tartempion."\" data-token=\"".csrf_token()."\">".$rdv."</td>";
+                        $gridD .= "<td class=\"".$add_class."\" data-user=\"".$visiteur."\" data-pro=\"".$pro[0]->id."\" data-name-pro=\"".$pro[0]->first_name." ".$pro[0]->last_name."\" data-id=\"".$id_rdv."\" data-tartempion=\"".$tartempion."\" data-token=\"".csrf_token()."\">".$rdv."</td>";
                     }else{
-                        $gridD .= "<td> {$i}h </td>";
+                        $gridD .= "<td class=\"col-hour\"> {$i}h </td>";
                     }
                 }
                 $gridD .= '</tr>';
@@ -135,6 +137,7 @@
     </div>
 
     <!-- iframe -->
+    <!--
     <div class="col-3">
         <div class="embed-responsive embed-responsive-1by1">
             <iframe
@@ -142,7 +145,7 @@
                 style="border:0;" allowfullscreen=""></iframe>
         </div>
     </div>
-
+    -->
 
 
 
