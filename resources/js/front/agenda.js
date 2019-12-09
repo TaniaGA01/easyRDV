@@ -1,4 +1,5 @@
 var intervalles = document.querySelectorAll('.data-rdv');
+const appBody = document.getElementById('app');
 
 const nomsMois = {
     '1': 'janvier',
@@ -20,6 +21,7 @@ function setAttributes(el, attrs) {
         el.setAttribute(key, attrs[key]);
     }
 }
+
 
 function getForm(id,pro,message,token,status,content,idRdv) {
     // status : paramètre récupéré avec la variable formType, permettant de connaître le type de formulaire nécessaire.
@@ -97,8 +99,19 @@ function getForm(id,pro,message,token,status,content,idRdv) {
     form.style.alignItems = 'center';
     form.style.flexDirection = 'column';
     form.style.padding = '10px';
+    form.style.zIndex="101";
+    /** OVERLAY */
+    let over = document.createElement('div');
+    over.style.width='100vw';
+    over.style.minHeight='100%';
+    over.style.backgroundColor='rgba(255,255,255,0.5)';
+    over.style.zIndex="100";
+    over.style.position="absolute";
+    document.body.insertBefore(over,appBody);
+    /** */
     ptiteCroix.addEventListener('click', function (e) {
         form.remove();
+        over.remove();
     });
 }
 
