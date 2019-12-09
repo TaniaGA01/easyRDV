@@ -59,7 +59,7 @@
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link btn-insc" href="{{ route('login') }}">{{ __('Se connecter/S\'inscrire') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter/S\'inscrire') }}</a>
                         </li>
 
                         <!--
