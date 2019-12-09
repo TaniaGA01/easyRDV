@@ -83,9 +83,9 @@
     <div class="title">
         <h2>Vous êtes un professionnel ?</h2>
     </div>
-    <div class="row justify-content-center ">
-        <div class="col-md-5 col-sm-12"></div>
-        <div class="col-md-7 col-sm-12"></div>
+    <div class="row justify-content-center">
+        <div class="col-md-5 col-sm-12 services-list"></div>
+        <div class="col-md-7 col-sm-12 our-services bg-white shadow-sm px-6 py-6 min-height"></div>
     </div>
 </div>
 @endsection

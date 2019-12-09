@@ -121,6 +121,9 @@ form h3 {
     color: var(--bleu);
     font-size: 1.47rem;
 }
+.form-pros-accueil {
+    margin-top: 4rem;
+}
 
 /*================== list resultats =================*/
 .list-results{
@@ -142,7 +145,7 @@ form h3 {
     background-image: url(../img/prof-home-01.svg);
     background-repeat: no-repeat;
     background-position: right;
-    background-size: 38rem;
+    background-size: 40rem;
     background-position-y: 2.5rem;
 }
 .search-result{
