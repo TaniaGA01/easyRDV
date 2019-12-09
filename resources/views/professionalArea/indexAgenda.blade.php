@@ -47,7 +47,7 @@
                         $id_rdv='#';
 
                         echo '<tr>';
-                        echo "<th> {$i}h </th>";
+                        echo "<th class=\"col-hour\"> {$i}h </th>";
 
                         if (isset($rdvs)){
                             foreach ($rdvs as $value) {
