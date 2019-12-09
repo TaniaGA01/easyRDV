@@ -42,7 +42,7 @@ class EspaceProController extends Controller
 
 
     /**
-     * Ajout d'un rdv
+     * Suppression d'un rdv
      */
     public function deleteRdv(Request $request,$profession, $city, $first_name, $last_name){
 
