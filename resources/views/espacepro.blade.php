@@ -91,6 +91,9 @@
 
             // <th> 8h </th><td colspan="2" class="data-rdv" data-pro="1" data-token="ZznQPxfxCUfGN6gi9HbSKm7DNTj0xtd0ZQ3lH7fX" data-tartempion="2019-12-07_8">#</td>
             for($i=$timeStart;$i<=$timeEnd;$i++){
+                if($i<10){
+                    $i = "0".$i;
+                }
                 $gridD .= '<tr>';
                 $gridD .= "<td class=\"col-hour\"> {$i}h </td>";
                 for($j=0;$j<=count($days);$j++){

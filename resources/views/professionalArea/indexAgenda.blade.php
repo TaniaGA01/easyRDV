@@ -40,7 +40,9 @@
                     $timeEnd = 18;
 
                     for($i=$timeStart; $i<=$timeEnd; $i++){
-
+                        if($i<10){
+                            $i = "0".$i;
+                        }
                         $tartempion = $date.'_'.$i;
                         $rdv='#';
                         $add_class='data-rdv page-agenda';
