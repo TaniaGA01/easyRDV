@@ -12,7 +12,9 @@
     @endif
     <div class="row justify-content-center">
         <div class="form-style-5 bg-white shadow-sm col-md-12 px-5 py-5">
-            <h5 class="card-title">Mes activités</h5>
+
+            @if(count($tab_my_activities_content)>0)
+            <h5 class="card-title rdv-content">Mes activités</h5>
             <div class="row">
                 @php $i=0; @endphp
                 @foreach ($tab_my_activities_content as $tab_my_activity_content)
@@ -22,20 +24,18 @@
                         <hr>
                         <p class="card-text"><i class="far fa-calendar-alt"></i> {{ $tab_my_activities_day[$i][0] }} à
                             {{ $tab_my_activities_day[$i][1] }}h</p>
-                        <form method="POST" action="{{ route('professionnelArea.deleteRdv', Auth::user()->id) }}">
-                            @csrf
-                            <div class="form-group justify-content-center row">
-                                <input type="hidden" name="id_rdv" value="{{ $tab_id_activities[$i] }}">
-                                <input type="submit" class="btn-pr btn-block " value="Annuler l'activité"></button>
-                            </div>
-                        </form>
+
+                        <input type="submit" data-id="{{ $tab_my_id_rdvs[$i] }}" data-tartempion="{{ $tab_my_activities_tartempion[$i] }}" data-token="<?php echo csrf_token();?>" data-pro="{{ $user->id }}" class="btn-pr btn-block data-rdv page-pro rdv-loaded activ-annul" value="Modifier/annuler l'activité"></button>
+
                     </div>
                 </div>
                 @php $i++; @endphp
                 @endforeach
 
             </div>
+            @endif
 
+            @if(count($tab_clients_name)>0)
             <h5 class="card-title">Prochains rendez-vous</h5>
             <div class="row">
                 @php $j = 0; @endphp
@@ -57,6 +57,7 @@
                 @php $j++; @endphp
                 @endforeach
             </div>
+            @endif
         </div>
     </div>
     @endsection
