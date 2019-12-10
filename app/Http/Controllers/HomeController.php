@@ -129,7 +129,17 @@ class HomeController extends Controller
 
         $id = $request->input('id-pro');
         $results = User::where('id',$id)->get();
-        return $results;
+
+        $profession=$results[0]->profession->name;
+        $city=$results[0]->city->name_ville;
+        $first_name=$results[0]->first_name;
+        $last_name=$results[0]->last_name;
+        return redirect()->action('HomeController@show', [
+            'profession' => $profession,
+            'city' => $city,
+            'first_name' => $first_name,
+            'last_name' => $last_name,
+        ]);
 
     }
 }
