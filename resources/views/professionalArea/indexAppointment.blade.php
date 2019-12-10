@@ -49,13 +49,9 @@
                             {{ $tab_my_rdv_day[$j][1] }}h</p>
                         <p class="card-text"><i class="fas fa-phone"></i> {{ $tab_clients_phone[$j] }}</p>
                         <p class="card-text"><i class="fas fa-at"></i> {{ $tab_clients_mail[$j] }}</p>
-                        <form method="POST" action="{{ route('professionnelArea.deleteRdv', Auth::user()->id) }}">
-                            @csrf
-                            <div class="form-group justify-content-center row">
-                                <input type="hidden" name="id_rdv" value="{{ $tab_id_rdvs[$j] }}">
-                                <input type="submit" class="btn-pr btn-block " value="Annuler rendez-vous"></button>
-                            </div>
-                        </form>
+
+                        <input type="submit" data-id="{{ $tab_id_rdvs[$j] }}" data-tartempion="{{ $tab_data_tartempion[$j] }}" data-token="<?php echo csrf_token();?>" data-name-client="{{ $tab_clients_name[$j] }}" data-pro="{{ $user->id }}" class="btn-pr btn-block data-rdv page-pro rdv-loaded rdv-annul" value="Annuler rendez-vous">
+
                     </div>
                 </div>
                 @php $j++; @endphp

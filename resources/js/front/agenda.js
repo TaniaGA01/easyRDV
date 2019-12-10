@@ -152,11 +152,16 @@ if (intervalles){
             if (heure.classList.contains("rdv-loaded")) {
                 heure.addEventListener('click',function(e){
                     formType=5;
-                    let namePro = heure.getAttribute('data-name-pro');
+                    let nameUser = heure.getAttribute('data-name-pro');
+                    // Exception : Annulation RDV, "Mes rdv" -> mon agenda
+                    if (heure.classList.contains("rdv-annul")) {
+                        let nameUser = heure.getAttribute('data-name-client');
+                        formType=3;
+                    }
                     let rdvId = heure.getAttribute('data-id');
                     let urlCourante = window.location.pathname;
                     textAction = 'Annuler le rendez-vous avec ';
-                    let renseignements =textAction+namePro+' le '+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
+                    let renseignements =textAction+nameUser+' le '+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
                     getForm(tartId,tartPro,renseignements,tartToken,formType,urlCourante,rdvId);
                 });
             } else if (!heure.classList.contains("rdv-indispo")) {
