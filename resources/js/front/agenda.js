@@ -154,7 +154,7 @@ if (intervalles){
                     formType=5;
                     let namePro = heure.getAttribute('data-name-pro');
                     let rdvId = heure.getAttribute('data-id');
-                    let urlCourante = window.location;
+                    let urlCourante = window.location.pathname;
                     textAction = 'Annuler le rendez-vous avec ';
                     let renseignements =textAction+namePro+' le '+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
                     getForm(tartId,tartPro,renseignements,tartToken,formType,urlCourante,rdvId);
