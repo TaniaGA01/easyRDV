@@ -35,9 +35,10 @@
                 </div>
             </div>
             @endif
-
-            <h4 class="card-title">A propos</h4>
-            <p>{{ $pro[0]->about }}</p>
+            @isset($pro[0]->about)
+                <h4 class="card-title">A propos</h4>
+                <p>{{ $pro[0]->about }}</p>
+            @endisset
 
             <h4 class="card-title">Prendre rendez-vous</h4>
 
