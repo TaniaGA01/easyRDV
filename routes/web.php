@@ -65,6 +65,8 @@ Route::post('mon-agenda/{id}/agenda/delete','ProfessionalAreaController@deleteRd
 Route::post('mon-agenda/{id}/agenda/update','ProfessionalAreaController@updateRdv')->where('id','[0-9]+')->name('professionnelArea.updateRdv')->middleware('verified');
 
 Route::get('mes-rendez-vous/{id}','ProfessionalAreaController@indexAppointment')->where('id','[0-9]+')->name('professionnelArea.indexAppointment')->middleware('verified');
+Route::post('mes-rendez-vous/{id}/delete','ProfessionalAreaController@deleteAppointment')->where('id','[0-9]+')->name('professionnelArea.deleteAppointment')->middleware('verified');
+Route::post('mes-rendez-vous/{id}/update','ProfessionalAreaController@updateAppointment')->where('id','[0-9]+')->name('professionnelArea.updateAppointment')->middleware('verified');
 
 Route::get('mes-informations/{id}/editer','ProfessionalAreaController@edit')->where('id','[0-9]+')->name('professionnelArea.edit')->middleware('verified');
 Route::put('mes-informations/{id}','ProfessionalAreaController@update')->where('id','[0-9]+')->name('professionnelArea.update')->middleware('verified');
