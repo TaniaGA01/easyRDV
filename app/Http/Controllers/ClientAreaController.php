@@ -19,67 +19,101 @@ class ClientAreaController extends Controller
         $user = Auth::user();
         $user_id = $user->id;
 
-        // SELECT * FROM `appointments` WHERE id_client = 22 
-        // https://stackoverflow.com/questions/19325312/how-to-create-multiple-where-clause-query-using-laravel-eloquent
-        $appointments = Appointment::where('id_client', $user_id)->get();
-        //dd($appointments);
-        $tab_pro_name = [];
-        $tab_pro_profession = [];
-        $tab_pro_adresse = [];
-        $tab_pro_city = [];
-        $tab_pro_phone = [];
-        $tab_day = [];
-        $tab_hour = [];
-
-        foreach($appointments as $appointment){
-            $id_pro = $appointment->id_pro;
-            $pro = User::find($id_pro);
-            $pro_name = $pro->last_name .' '. $pro->first_name;
-            $pro_profession = Profession::find($pro->profession_id)->name;
-            $pro_adresse = $pro->adresse;
-            $pro_city = City::find($pro->city_id)->name_ville;
-            $pro_phone = $pro->phone_number;
-
-            // 2019-12-07_14
-            $date = $appointment->data_tartempion;
-            $date_day_hour_en = explode('_',$date);
-
-            setlocale (LC_TIME, 'fr_FR','fra');
-            $date_day_fr = utf8_encode(strftime('%A %d/%m/%Y', strtotime($date_day_hour_en[0])));
-            $date_day_fr = ucfirst($date_day_fr);
-
-            //print_r($date_day_fr);
-
-            $date_hour = $date_day_hour_en[1];
-
-            array_push($tab_day,$date_day_fr);
-            array_push($tab_hour,$date_hour);
-
-            array_push($tab_pro_name, $pro_name);
-            array_push($tab_pro_profession, $pro_profession);
-            array_push($tab_pro_adresse, $pro_adresse);
-            array_push($tab_pro_city, $pro_city);
-            array_push($tab_pro_phone, $pro_phone);
-        }
-        //dd($pro_profession);
-
         if($id == $user_id){
+            // SELECT * FROM `appointments` WHERE id_client = 22 
+            // https://stackoverflow.com/questions/19325312/how-to-create-multiple-where-clause-query-using-laravel-eloquent
+            $date_now = date('Y-m-d_H',strtotime('+1 hour'));
+
+            $appointments = Appointment::where('id_client', $user_id)->get();
+            //dd($appointments);
+            // $tab_appointments = [
+            //     ['nom prenom'],['profession'],['adresse'],['ville'],['téléphone'],[['date',['heure']]]
+            // ];
+            $tab_appointments = [];
+            $tab_appointments_before = [];
+
+            $i = 0;
+            foreach($appointments as $appointment){
+                if($date_now <= $appointment->data_tartempion){
+                    $id_pro = $appointment->id_pro;
+                    $pro = User::find($id_pro);
+                    $pro_name = $pro->last_name .' '. $pro->first_name;
+                    $pro_profession = Profession::find($pro->profession_id)->name;
+                    $pro_address = $pro->adresse;
+                    $pro_city = City::find($pro->city_id)->name_ville;
+                    $pro_phone = $pro->phone_number;
+
+                    $tab_appointments[$i]['name'] =  $pro_name;
+                    $tab_appointments[$i]['profession'] =  $pro_profession;
+                    $tab_appointments[$i]['address'] =  $pro_address;
+                    $tab_appointments[$i]['city'] =  $pro_city;
+                    $tab_appointments[$i]['phone'] =  $pro_phone;
+                    $tab_appointments[$i]['date'] = self::getDateHourFr($appointment->data_tartempion);
+                    $i++;
+                }else{
+                    // select * from `appointments` where `id_client` = 22 group by `id_pro` order by `data_tartempion` desc
+                    $appointments_before = Appointment::orderBy('data_tartempion','asc')->get()->where('id_client', $user_id)->groupBy('id_pro');
+                    //dd($appointments_before);
+                    $j = 0;
+                    foreach($appointments_before as $appointment_before){
+
+                        if($date_now > $appointment_before[0]->data_tartempion){
+                            $id_pro_before = $appointment_before[0]->id_pro;
+                            $pro_before = User::find($id_pro_before);
+                            $pro_name_before = $pro_before->last_name .' '. $pro_before->first_name;
+                            $pro_last_name_before = $pro_before->last_name;
+                            $pro_first_name_before = $pro_before->first_name;
+                            $pro_profession_before = Profession::find($pro_before->profession_id)->name;
+                            $pro_address_before = $pro_before->adresse;
+                            $pro_city_before = City::find($pro_before->city_id)->name_ville;
+                            $pro_phone_before = $pro_before->phone_number;
+
+                            $tab_appointments_before[$j]['name'] =  $pro_name_before;
+                            $tab_appointments_before[$j]['last_name'] =  $pro_last_name_before;
+                            $tab_appointments_before[$j]['first_name'] =  $pro_first_name_before;
+                            $tab_appointments_before[$j]['profession'] =  $pro_profession_before;
+                            $tab_appointments_before[$j]['address'] =  $pro_address_before;
+                            $tab_appointments_before[$j]['city'] =  $pro_city_before;
+                            $tab_appointments_before[$j]['phone'] =  $pro_phone_before;
+                            $tab_appointments_before[$j]['date'] = self::getDateHourFr($appointment_before[0]->data_tartempion);
+                            $j++;
+                        }
+                    }
+                }
+            }
+            //dd($tab_appointments_before);
+            $tab_appointments = array_slice($tab_appointments,0,6);
+            $tab_appointments_before = array_slice($tab_appointments_before,0,6);
             return view('clientArea/index',[
                 'user' => $user,
-                'appointments' => $appointments,
-                'tab_pro_name' => $tab_pro_name,
-                'tab_pro_profession' => $tab_pro_profession,
-                'tab_pro_adresse' => $tab_pro_adresse,
-                'tab_pro_city' => $tab_pro_city,
-                'tab_pro_phone' => $tab_pro_phone,
-                'tab_day' => $tab_day,
-                'tab_hour' => $tab_hour,
+                'tab_appointments' => $tab_appointments,
+                'tab_appointments_before' => $tab_appointments_before
                 ]);
-        }else
+        }else{
             $request->session()->flash('status',"La page que vous recherchez n'existe pas");
             $request->session()->flash('alert-class',"alert-info");
             return view('welcome');
+        }
     }
+
+    /**
+     * Retourne un tableau [0 => date, 1 => heure] à partir du champ "data_tartemption" (2019-12-13_8)
+     */
+    private function getDateHourFr($date){
+        $tab_date_hour_fr = []; 
+        setlocale(LC_TIME, 'fr_FR','fra');
+        $date_day_hour_en = explode('_',$date);
+        $date_day_fr = utf8_encode(strftime('%A %d/%m/%Y', strtotime($date_day_hour_en[0])));
+        $date_day_fr = ucfirst($date_day_fr);
+
+        $date_hour = $date_day_hour_en[1];
+
+        array_push($tab_date_hour_fr,$date_day_fr);
+        array_push($tab_date_hour_fr,$date_hour);
+
+        return $tab_date_hour_fr;
+    }
+
 
     /**
      * Affiche la page/formulaire "Mes informations personnelles" du client
