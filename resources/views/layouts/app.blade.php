@@ -59,7 +59,7 @@
                         <!-- Authentication Links -->
                         @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter/S\'inscrire') }}</a>
+                            <a class="nav-link btn-insc" href="{{ route('login') }}">{{ __('Se connecter/S\'inscrire') }}</a>
                         </li>
 
                         <!--
@@ -70,10 +70,12 @@
                             @endif
                             -->
                         @else
-                        <img src="/uploads/avatars/{{ Auth::user()->avatar }}" width="40" class="avatar">
+                        <div class="avatar">
+                            <img src="/uploads/avatars/{{ Auth::user()->avatar }}" width="40" height="40" class="avatar">
+                        </div>
                         {{ Auth::user()->name }} <span class="caret"></span>
-                        <li class="nav-item dropdown font-weight-bold">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                        <li class="nav-item dropdown font-weight-bold ">
+                            <a id="navbarDropdown" class="dropdown-toggle menu-it-name" href="#" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 @isset(Auth::user()->first_name)
                                 {{ Auth::user()->first_name }}

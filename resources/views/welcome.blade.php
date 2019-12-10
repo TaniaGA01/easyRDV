@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="container ptb-5 ">
     <div class="title">
         <h1>Trouvez des professionnels et demandez gratuitement rendez-vous en ligne</h1>
@@ -81,13 +80,34 @@
         </div>
     </div>
 </div>
-<div class="container pb-6 pt-3">
-    <div class="title">
-        <h2>Vous êtes un professionnel ?</h2>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-md-5 col-sm-12 services-list"></div>
-        <div class="col-md-7 col-sm-12 our-services bg-white shadow-sm px-6 py-6 min-height"></div>
-    </div>
-</div>
+<section class="services">
+        <div class="container pb-6 pt-3">
+                <div class="title">
+                    <h2>Vous êtes un professionnel ?</h2>
+                </div>
+                <div class="row justify-content-center ptb-5">
+                    <div class="col-md-5 col-sm-12 services-list">
+                        <div class="ser-item">
+                            <img src="img/agenda-icn.svg" alt="agenda easy-rdv" width="65">
+                            <h3>Agenda en ligne</h3>
+                        </div>
+                        <div class="ser-item">
+                            <img src="img/page-pro-icn.svg" alt="agenda easy-rdv" width="65">
+                            <h3>Page de présentation de vos prestations</h3>
+                        </div>
+                        <div class="ser-item">
+                            <img src="img/referencement-icn.svg" alt="agenda easy-rdv" width="65">
+                            <h3>Référencement de votre page</h3>
+                        </div>
+                        <div class="ser-item">
+                            <img src="img/visibilite-icn.svg" alt="agenda easy-rdv" width="65">
+                            <h3>Visibilité auprès de clients potentiels</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-7 col-sm-12 ptb-5">
+                        <div class="our-services bg-white shadow-sm px-6 py-6 min-height"></div>
+                    </div>
+                </div>
+            </div>
+</section>
 @endsection

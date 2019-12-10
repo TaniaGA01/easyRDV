@@ -85,9 +85,7 @@
     color: var(--white);
 }
 
-.avatar{
-    border-radius:50%;
-}
+
 .custom-file-label::after{
     background-color: var(--bleu);
     color: var(--white);
@@ -127,7 +125,17 @@
 .navbar .menu-it{
     padding: 20px 0;
 }
-
+.navbar .menu-it-name {
+    padding: 20px 0;
+    color: var(--bleu-fc);
+    display: block;
+}
+.avatar{
+    border-radius:50%;
+}
+.avatar img {
+    margin: 11px;
+}
 
 /* ================ form =====================*/
 .form-control, .custom-file-label{
@@ -216,8 +224,29 @@ form h3 {
 }
 
 /* ================ services home =====================*/
-.services-list{
+.services{
+    position: relative;
+}
+.services::before {
+    content: '';
+    position: absolute;
     background-image: url(../img/rendez-vous-professionnel-home.png);
+    height: 90%;
+    width: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-position-y: 5rem;
+}
+.ser-item {
+    display: flex;
+    align-items: center;
+    margin: 60px 0;
+}
+.ser-item h3{
+    color: var(--white);
+    padding: 0 20px;
+    font-size: 1.4rem;
 }
 .our-services{
 
