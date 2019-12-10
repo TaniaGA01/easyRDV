@@ -16,7 +16,7 @@
                     Lundi au vendredi 8h - 18h</p>
                 <p class="card-text"><i class="fas fa-map-marker"></i><strong> Adresse</strong><br>
                     {{ $pro[0]->adresse }}<br>
-                    #TODO ville </p>
+                    {{ $pro[0]->city->name_ville }} </p>
                 <p class="card-text"><i class="fas fa-phone"></i><strong> Téléphone</strong><br>
                     {{ $pro[0]->phone_number }}</p>
                 <p class="card-text"><i class="fas fa-globe"></i><strong> Site web</strong><br>
