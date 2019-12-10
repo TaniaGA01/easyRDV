@@ -35,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     require('./front/autoCompPro');
     require('./front/autoCompLocation');
+    require('./front/autoCompProfessionnels');
     require('./front/agenda');
 
 });
