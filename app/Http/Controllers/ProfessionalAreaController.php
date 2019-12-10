@@ -39,13 +39,105 @@ class ProfessionalAreaController extends Controller
         $user = Auth::user();
         $user_id = $user->id;
         if($id == $user_id){
+            $date_now = date('Y-m-d_H',strtotime('+1 hour'));
+            // Mes activités
+            $my_activities = Appointment::where('id_pro', $user_id)->whereNull('id_client')->orderBy('data_tartempion', 'asc')->get();
+
+            $tab_id_activities = [];
+            $tab_my_activities_content = [];
+            $tab_my_activities_day = [];
+
+            foreach($my_activities as $my_activity){
+                if($date_now <= $my_activity->data_tartempion){
+                    array_push($tab_id_activities, $my_activity->id);
+                    array_push($tab_my_activities_content, ucfirst($my_activity->content));
+                    array_push($tab_my_activities_day,self::getDateHourFr($my_activity->data_tartempion));
+                }
+            }
+            // Récupère que les 6 premiers
+            $tab_id_activities = array_slice($tab_id_activities,0,6);
+            $tab_my_activities_content = array_slice($tab_my_activities_content,0,6);
+            $tab_my_activities_day = array_slice($tab_my_activities_day,0,6);
+            
+            // Prochains rendez-vous
+            $rdvs = Appointment::where('id_pro', $user_id)->whereNotNull('id_client')->orderBy('data_tartempion', 'asc')->get();
+
+            $tab_id_rdvs = [];
+            $tab_clients_name = [];
+            $tab_clients_phone = [];
+            $tab_clients_mail = [];
+            $tab_my_rdv_day = [];
+
+
+            foreach($rdvs as $rdv){
+                if($date_now <= $rdv->data_tartempion){
+                    $id_client = $rdv->id_client;
+                    $client = User::find($id_client);
+                    $client_name = $client->last_name .' '. $client->first_name;
+                    $client_phone = $client->phone_number;
+                    $client_email = $client->email;
+
+                    array_push($tab_id_rdvs, $rdv->id);
+
+                    array_push($tab_my_rdv_day,self::getDateHourFr($rdv->data_tartempion));
+
+                    array_push($tab_clients_name,$client_name);
+                    array_push($tab_clients_phone,$client_phone);
+                    array_push($tab_clients_mail,$client_email);
+                }
+
+                $tab_id_rdvs = array_slice($tab_id_rdvs,0,6);
+                $tab_clients_name = array_slice($tab_clients_name,0,6);
+                $tab_clients_phone = array_slice($tab_clients_phone,0,6);
+                $tab_clients_mail = array_slice($tab_clients_mail,0,6);
+                $tab_my_rdv_day = array_slice($tab_my_rdv_day,0,6);
+            }
+            //dd($tab_clients_name);
             return view('professionalArea/indexAppointment',[
-                'user' => $user, 
+                'user' => $user,
+                //'my_activities' => $my_activities,
+                'tab_id_activities' => $tab_id_activities,
+                'tab_my_activities_content' => $tab_my_activities_content,
+                'tab_my_activities_day' => $tab_my_activities_day,
+                //'rdvs' => $rdvs,
+                'tab_id_rdvs' => $tab_id_rdvs,
+                'tab_clients_name' => $tab_clients_name,
+                'tab_clients_phone' => $tab_clients_phone,
+                'tab_clients_mail' => $tab_clients_mail,
+                'tab_my_rdv_day' => $tab_my_rdv_day,
                 ]);
-        }else
+        }else{
             $request->session()->flash('status',"La page que vous recherchez n'existe pas");
             $request->session()->flash('alert-class',"alert-info");
             return view('welcome');
+        }
+    }
+
+    /**
+     * Retourne un tableau [0 => date, 1 => heure] à partir du champ "data_tartemption" (2019-12-13_8)
+     */
+    private function getDateHourFr($date){
+        $tab_date_hour_fr = []; 
+        setlocale(LC_TIME, 'fr_FR','fra');
+        $date_day_hour_en = explode('_',$date);
+        $date_day_fr = utf8_encode(strftime('%A %d/%m/%Y', strtotime($date_day_hour_en[0])));
+        $date_day_fr = ucfirst($date_day_fr);
+
+        $date_hour = $date_day_hour_en[1];
+
+        array_push($tab_date_hour_fr,$date_day_fr);
+        array_push($tab_date_hour_fr,$date_hour);
+
+        return $tab_date_hour_fr;
+    }
+
+    /**
+     * Transforme le champ data_tartempion "2019-12-13_08" en date anglais "2019-12-09 17:00:00.0 UTC" 
+     * Return array
+     */
+    private function getDateEn($date_fr){
+        $date_en = date_create_from_format('Y-m-d_H',$date_fr);
+        return date_format($date_en,"Y/m/d H:i:s");
     }
 
     /**
@@ -78,17 +170,6 @@ class ProfessionalAreaController extends Controller
      * Modifie la page/formulaire "Mes informations personnelles" du professionnel
      */
     public function update(Request $request, $id){
-        // #TODO vérification
-        // dd($request);
-        // "_token" => "UAal5oHZ9qpISDaPNOx145iante1GAZmkw3nbL8q"
-        // "_method" => "PUT"
-        // "last_name" => "problabla"
-        // "first_name" => "erwan"
-        // "email" => "erwanpro@gmail.com"
-        // "phone" => "0684431339"
-        // "adresse" => "49 rue des violettes"
-        // "city" => "LINAS"
-        // "about" => "Bonjour je suis blablabla"
 
         $user = User::find($id);
         //dd($user);
@@ -165,7 +246,7 @@ class ProfessionalAreaController extends Controller
 
 
     /**
-     * Ajout d'un rdv
+     * Suppression d'un rdv
      */
     public function deleteRdv(Request $request, $id){
 

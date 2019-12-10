@@ -17,6 +17,7 @@
 .ptb-5{padding: 5rem 0;}
 
 .pt-6{padding-top: 5rem;}
+.pb-6{padding-bottom: 5rem;}
 
 .px-6{padding: 4rem;}
 .px-7{padding: 5rem;}
@@ -71,10 +72,33 @@
     font-size: 2rem;
 }
 
+/* ================ buttons =====================*/
+.btn-pr{
+    background-color: var(--orange);
+    color: var(--white) ;
+    border: none;
+    padding: 10px;
+    border-radius: 0;
+}
+.btn-pr:hover{
+    background-color: var(--orange-fc);
+    color: var(--white);
+}
 
+.avatar{
+    border-radius:50%;
+}
+.custom-file-label::after{
+    background-color: var(--bleu);
+    color: var(--white);
+    border-radius: 0;
+}
 
 
 /* ================ nav =====================*/
+.navbar .container{
+    contain: inherit;
+}
 
 .navbar{
     padding: 0px;
@@ -104,7 +128,7 @@
     padding: 20px 0;
 }
 
-/* ================ app =====================*/
+
 /* ================ form =====================*/
 .form-control, .custom-file-label{
     border-radius: 0;
@@ -162,9 +186,6 @@ form h3 {
     object-position: center center;
     border-radius: 0;
 }
-.search-result-body{
-
-}
 .search-result-body h5 {
     margin: 0;
     padding: 20px 0;
@@ -194,28 +215,11 @@ form h3 {
     background-color: var(--gris-cl);
 }
 
-
-/* ================ buttons =====================*/
-.btn-pr{
-    background-color: var(--orange);
-    color: var(--white) ;
-    border: none;
-    padding: 10px;
-    border-radius: 0;
+/* ================ services home =====================*/
+.services-list{
+    background-image: url(../img/rendez-vous-professionnel-home.png);
 }
-.btn-pr:hover{
-    background-color: var(--orange-fc);
-    color: var(--white);
-}
-
-.avatar{
-    border-radius:50%;
-}
-.custom-file-label::after{
-    background-color: var(--bleu);
-    color: var(--white);
-    border-radius: 0;
-
+.our-services{
 
 }
 
