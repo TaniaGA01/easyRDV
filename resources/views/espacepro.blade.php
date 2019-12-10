@@ -63,7 +63,7 @@
             $linkNextWeek = '<a href="?date='.$nextWeek.'"><i class="fas fa-arrow-right"></i></a>';
 
 
-            $monthFindFr = strtoupper(utf8_encode(strftime('%B %Y', strtotime($date)))); // novembre 2019
+            $monthFindFr = mb_strtoupper(utf8_encode(strftime('%B %Y', strtotime($date)))); // novembre 2019
             echo "<h5 class=\"text-center\">$monthFindFr</h5>";
 
             // $dd = strftime('%A %d', strtotime($date)); // vendredi 29
