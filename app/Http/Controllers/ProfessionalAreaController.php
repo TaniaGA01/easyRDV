@@ -67,6 +67,7 @@ class ProfessionalAreaController extends Controller
             $tab_clients_phone = [];
             $tab_clients_mail = [];
             $tab_my_rdv_day = [];
+            $tab_data_tartempion = [];
 
 
             foreach($rdvs as $rdv){
@@ -78,6 +79,7 @@ class ProfessionalAreaController extends Controller
                     $client_email = $client->email;
 
                     array_push($tab_id_rdvs, $rdv->id);
+                    array_push($tab_data_tartempion, $rdv->data_tartempion);
 
                     array_push($tab_my_rdv_day,self::getDateHourFr($rdv->data_tartempion));
 
@@ -91,6 +93,7 @@ class ProfessionalAreaController extends Controller
                 $tab_clients_phone = array_slice($tab_clients_phone,0,6);
                 $tab_clients_mail = array_slice($tab_clients_mail,0,6);
                 $tab_my_rdv_day = array_slice($tab_my_rdv_day,0,6);
+                $tab_data_tartempion = array_slice($tab_data_tartempion,0,6);
             }
             //dd($tab_clients_name);
             return view('professionalArea/indexAppointment',[
@@ -105,6 +108,7 @@ class ProfessionalAreaController extends Controller
                 'tab_clients_phone' => $tab_clients_phone,
                 'tab_clients_mail' => $tab_clients_mail,
                 'tab_my_rdv_day' => $tab_my_rdv_day,
+                'tab_data_tartempion' => $tab_data_tartempion,
                 ]);
         }else{
             $request->session()->flash('status',"La page que vous recherchez n'existe pas");
