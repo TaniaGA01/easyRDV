@@ -66,10 +66,10 @@ class HomeController extends Controller
     }
 
     /**
-     * Effectue la recherche en page d'accueil
+     * Effectue la recherche en page d'accueil, par profession et localisation
      *
      */
-    public function searchPro(Request $request){
+    public function search(Request $request){
         $loc = $request->input('locs');
         $name = str_replace(' ', '-', $request->input('pros'));
         $profession = Profession::where('name',$name)->get();
@@ -119,5 +119,17 @@ class HomeController extends Controller
                 'nope' => $nope,
             ]);
         }
+    }
+
+    /**
+     * Effectue la recherche en page d'accueil, par professionnels
+     *
+     */
+    public function searchPro(Request $request){
+
+        $id = $request->input('id-pro');
+        $results = User::where('id',$id)->get();
+        return $results;
+
     }
 }
