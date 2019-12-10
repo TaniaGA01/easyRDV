@@ -58,6 +58,8 @@
                 @php $j++; @endphp
                 @endforeach
             </div>
+            @else
+                <h5 class="card-title">Vous n'avez pas de rendez-vous actuellement.</h5>
             @endif
         </div>
     </div>
