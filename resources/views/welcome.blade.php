@@ -119,8 +119,8 @@
                         <h2>Pas de logiciel ?</h2>
                         <h2>Pas d’assistant ou d’employé ? </h2>
                         <h2>Pas le temps d’apprendre à gérer un nouveau système ?</h2>
-                        <p>L'agenda en ligne EasyRDV vous permettra à mieux gérer vos rendez-vous et vos tâches
-                            quotidiennes. Elle vous permettra aussi être plus accesible aux clients potentiels.</p>
+                        <p>L'agenda en ligne EasyRDV vous permettra de mieux gérer vos rendez-vous et vos tâches
+                            quotidiennes. Il vous permettra également d'être plus accessible pour vos clients potentiels.</p>
                         <div class="text-right pt-3">
                             <a class="btn btn-pr" href="{{route('professional.create')}}">En savoir plus</a>
                         </div>
