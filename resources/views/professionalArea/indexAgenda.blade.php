@@ -14,6 +14,7 @@
         <div class="col-md-8">
 
             @php
+            use App\User;
             setlocale (LC_TIME, 'fr_FR','fra');
             $date = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
             $dateFr = utf8_encode(strftime('%d %B %Y', strtotime($date)));
@@ -55,7 +56,8 @@
                             foreach ($rdvs as $value) {
                                 if ($tartempion==$value->data_tartempion) {
                                     if (isset($value->id_client)) {
-                                        $rdv=$value->id_client;
+                                        $client = User::find($value->id_client);
+                                        $rdv = 'Rdv avec '.$client->first_name.' '.$client->last_name;
                                         $add_class.=' rdv-loaded rdv-pro';
                                     }else {
                                         $rdv=$value->content;
