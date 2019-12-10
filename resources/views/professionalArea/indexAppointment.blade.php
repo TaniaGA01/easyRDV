@@ -1,6 +1,7 @@
 @extends('layouts.persoArea')
 @section('contentPagePerso')
 <div class="container">
+
     @if (session('status'))
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -12,7 +13,9 @@
     @endif
     <div class="row justify-content-center">
         <div class="form-style-5 bg-white shadow-sm col-md-12 px-5 py-5">
-            <h5 class="card-title">Mes activités</h5>
+
+            @if(count($tab_my_activities_content)>0)
+            <h5 class="card-title rdv-content">Mes activités</h5>
             <div class="row">
                 @php $i=0; @endphp
                 @foreach ($tab_my_activities_content as $tab_my_activity_content)
@@ -22,20 +25,18 @@
                         <hr>
                         <p class="card-text"><i class="far fa-calendar-alt"></i> {{ $tab_my_activities_day[$i][0] }} à
                             {{ $tab_my_activities_day[$i][1] }}h</p>
-                        <form method="POST" action="{{ route('professionnelArea.deleteRdv', Auth::user()->id) }}">
-                            @csrf
-                            <div class="form-group justify-content-center row">
-                                <input type="hidden" name="id_rdv" value="{{ $tab_id_activities[$i] }}">
-                                <input type="submit" class="btn-pr btn-block " value="Annuler l'activité"></button>
-                            </div>
-                        </form>
+
+                        <input type="submit" data-id="{{ $tab_my_id_rdvs[$i] }}" data-tartempion="{{ $tab_my_activities_tartempion[$i] }}" data-token="<?php echo csrf_token();?>" data-pro="{{ $user->id }}" class="btn-pr btn-block data-rdv page-pro rdv-loaded activ-annul" value="Modifier/annuler l'activité"></button>
+
                     </div>
                 </div>
                 @php $i++; @endphp
                 @endforeach
 
             </div>
+            @endif
 
+            @if(count($tab_clients_name)>0)
             <h5 class="card-title">Prochains rendez-vous</h5>
             <div class="row">
                 @php $j = 0; @endphp
@@ -49,18 +50,15 @@
                             {{ $tab_my_rdv_day[$j][1] }}h</p>
                         <p class="card-text"><i class="fas fa-phone"></i> {{ $tab_clients_phone[$j] }}</p>
                         <p class="card-text"><i class="fas fa-at"></i> {{ $tab_clients_mail[$j] }}</p>
-                        <form method="POST" action="{{ route('professionnelArea.deleteRdv', Auth::user()->id) }}">
-                            @csrf
-                            <div class="form-group justify-content-center row">
-                                <input type="hidden" name="id_rdv" value="{{ $tab_id_rdvs[$j] }}">
-                                <input type="submit" class="btn-pr btn-block " value="Annuler rendez-vous"></button>
-                            </div>
-                        </form>
+
+                        <input type="submit" data-id="{{ $tab_id_rdvs[$j] }}" data-tartempion="{{ $tab_data_tartempion[$j] }}" data-token="<?php echo csrf_token();?>" data-name-client="{{ $tab_clients_name[$j] }}" data-pro="{{ $user->id }}" class="btn-pr btn-block data-rdv page-pro rdv-loaded rdv-annul" value="Annuler rendez-vous">
+
                     </div>
                 </div>
                 @php $j++; @endphp
                 @endforeach
             </div>
+            @endif
         </div>
     </div>
     @endsection

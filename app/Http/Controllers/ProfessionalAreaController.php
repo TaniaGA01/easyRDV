@@ -32,7 +32,7 @@ class ProfessionalAreaController extends Controller
     }
 
      /**
-     * Affiche la page "Mes rendez-vous" du professionnel 
+     * Affiche la page "Mes rendez-vous" du professionnel
      */
     public function indexAppointment(Request $request, $id){
 
@@ -46,19 +46,25 @@ class ProfessionalAreaController extends Controller
             $tab_id_activities = [];
             $tab_my_activities_content = [];
             $tab_my_activities_day = [];
+            $tab_my_activities_tartempion = [];
+            $tab_my_id_rdvs = [];
 
             foreach($my_activities as $my_activity){
                 if($date_now <= $my_activity->data_tartempion){
                     array_push($tab_id_activities, $my_activity->id);
                     array_push($tab_my_activities_content, ucfirst($my_activity->content));
                     array_push($tab_my_activities_day,self::getDateHourFr($my_activity->data_tartempion));
+                    array_push($tab_my_activities_tartempion,$my_activity->data_tartempion);
+                    array_push($tab_my_id_rdvs,$my_activity->id);
                 }
             }
             // Récupère que les 6 premiers
             $tab_id_activities = array_slice($tab_id_activities,0,6);
             $tab_my_activities_content = array_slice($tab_my_activities_content,0,6);
             $tab_my_activities_day = array_slice($tab_my_activities_day,0,6);
-            
+            $tab_my_activities_tartempion = array_slice($tab_my_activities_tartempion,0,6);
+            $tab_my_id_rdvs = array_slice($tab_my_id_rdvs,0,6);
+
             // Prochains rendez-vous
             $rdvs = Appointment::where('id_pro', $user_id)->whereNotNull('id_client')->orderBy('data_tartempion', 'asc')->get();
 
@@ -102,6 +108,8 @@ class ProfessionalAreaController extends Controller
                 'tab_id_activities' => $tab_id_activities,
                 'tab_my_activities_content' => $tab_my_activities_content,
                 'tab_my_activities_day' => $tab_my_activities_day,
+                'tab_my_activities_tartempion' => $tab_my_activities_tartempion,
+                'tab_my_id_rdvs' => $tab_my_id_rdvs,
                 //'rdvs' => $rdvs,
                 'tab_id_rdvs' => $tab_id_rdvs,
                 'tab_clients_name' => $tab_clients_name,
@@ -121,7 +129,7 @@ class ProfessionalAreaController extends Controller
      * Retourne un tableau [0 => date, 1 => heure] à partir du champ "data_tartemption" (2019-12-13_8)
      */
     private function getDateHourFr($date){
-        $tab_date_hour_fr = []; 
+        $tab_date_hour_fr = [];
         setlocale(LC_TIME, 'fr_FR','fra');
         $date_day_hour_en = explode('_',$date);
         $date_day_fr = utf8_encode(strftime('%A %d/%m/%Y', strtotime($date_day_hour_en[0])));
@@ -136,7 +144,7 @@ class ProfessionalAreaController extends Controller
     }
 
     /**
-     * Transforme le champ data_tartempion "2019-12-13_08" en date anglais "2019-12-09 17:00:00.0 UTC" 
+     * Transforme le champ data_tartempion "2019-12-13_08" en date anglais "2019-12-09 17:00:00.0 UTC"
      * Return array
      */
     private function getDateEn($date_fr){
@@ -212,7 +220,7 @@ class ProfessionalAreaController extends Controller
     }
 
     /**
-     * Ajout d'un rdv
+     * Ajout d'un rdv dans l'agenda
      */
     public function storeRdv(StoreNewAppointment $request, $id){
 
@@ -231,7 +239,7 @@ class ProfessionalAreaController extends Controller
     }
 
     /**
-     * Modification d'un rdv
+     * Modification d'un rdv dans l'agenda
      */
     public function updateRdv(StoreNewAppointment $request, $id){
 
@@ -250,7 +258,7 @@ class ProfessionalAreaController extends Controller
 
 
     /**
-     * Suppression d'un rdv
+     * Suppression d'un rdv dans l'agenda
      */
     public function deleteRdv(Request $request, $id){
 
@@ -261,6 +269,41 @@ class ProfessionalAreaController extends Controller
             $request->session()->flash('status',"Rendez-vous supprimé avec succès");
             $request->session()->flash('alert-class',"alert-success");
             return redirect()->action('ProfessionalAreaController@indexAgenda', ['id' => $id]);
+        }
+    }
+
+
+    /**
+     * Modification d'un rdv, page "Mes Rdvs"
+     */
+    public function updateAppointment(StoreNewAppointment $request, $id){
+
+        $validated = $request->validated();
+
+        $id_rdv = $request->input('id_rdv');
+        $appointment = Appointment::find($id_rdv);
+        $appointment->fill($validated);
+
+        if ($appointment->save()) {
+            $request->session()->flash('status',"Rendez-vous modifié avec succès");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('ProfessionalAreaController@indexAppointment', ['id' => $id]);
+        }
+    }
+
+
+    /**
+     * Suppression d'un rdv, page "Mes Rdvs"
+     */
+    public function deleteAppointment(Request $request, $id){
+
+        $id_rdv = $request->input('id_rdv');
+        $appointment = Appointment::find($id_rdv);
+
+        if ($appointment && $appointment->delete()) {
+            $request->session()->flash('status',"Rendez-vous supprimé avec succès");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('ProfessionalAreaController@indexAppointment', ['id' => $id]);
         }
     }
 

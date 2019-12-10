@@ -38,6 +38,12 @@ if (formProfessionnels) {
                     if (formProfessionnels.value==pros) {
                         formHidden.value = tabProfessionnels[pros];
                     }
+                    console.log(formProfessionnels.value)
+                    // suggestionPros.addEventListener('click', function(evt){
+                    //     formProfessionnels.value=pros;
+                    //     suggProfessionnels.innerHTML='';
+                    //     formHidden.value = tabProfessionnels[pros];
+                    // });
                 }
             }
         }
