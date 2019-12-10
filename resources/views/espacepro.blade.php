@@ -26,6 +26,16 @@
 
         <div class="form-style-5 bg-white shadow-sm col-md-9 py-4">
 
+            @if (session('status'))
+            <div class="row justify-content-center">
+                <div class="col-md-10">
+                    <div class="alert {{ session('alert-class') }}" role="alert">
+                        <i class="fas fa-check-circle"></i> {{ session('status') }}
+                    </div>
+                </div>
+            </div>
+            @endif
+
             <h4 class="card-title">A propos</h4>
             <p>{{ $pro[0]->about }}</p>
 
