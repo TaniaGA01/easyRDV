@@ -81,6 +81,9 @@ function getForm(id,pro,message,token,status,content,idRdv) {
     if ((status === 2)||(status === 6)){
         btnSubmit.setAttribute("value", "Modifier mon RDV");
         form.setAttribute("action", '/mon-agenda/'+pro+'/agenda/update');
+        if (status === 6){
+            form.setAttribute("action", '/mes-rendez-vous/'+pro+'/update');
+        }
         inputText.value = content;
     }
     if ((status === 3)||(status === 5)){
@@ -108,7 +111,7 @@ function getForm(id,pro,message,token,status,content,idRdv) {
         setAttributes(btnSupprimer, {"type": "submit", "value":"Supprimer mon RDV", "class":"btn btn-primary btn-sec"});
         modalFooter.appendChild(btnSupprimer);
         btnSupprimer.addEventListener('click', function(e){
-            form.setAttribute("action", '/mon-agenda/'+pro+'/agenda/delete');
+            form.setAttribute("action", '/mes-rendez-vous/'+pro+'/delete');
         })
     }
     modalBody.appendChild(inputToken);

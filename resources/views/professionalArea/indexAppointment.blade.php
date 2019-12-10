@@ -1,6 +1,7 @@
 @extends('layouts.persoArea')
 @section('contentPagePerso')
 <div class="container">
+
     @if (session('status'))
     <div class="row justify-content-center">
         <div class="col-md-12">

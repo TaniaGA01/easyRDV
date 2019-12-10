@@ -220,7 +220,7 @@ class ProfessionalAreaController extends Controller
     }
 
     /**
-     * Ajout d'un rdv
+     * Ajout d'un rdv dans l'agenda
      */
     public function storeRdv(StoreNewAppointment $request, $id){
 
@@ -239,7 +239,7 @@ class ProfessionalAreaController extends Controller
     }
 
     /**
-     * Modification d'un rdv
+     * Modification d'un rdv dans l'agenda
      */
     public function updateRdv(StoreNewAppointment $request, $id){
 
@@ -258,7 +258,7 @@ class ProfessionalAreaController extends Controller
 
 
     /**
-     * Suppression d'un rdv
+     * Suppression d'un rdv dans l'agenda
      */
     public function deleteRdv(Request $request, $id){
 
@@ -269,6 +269,41 @@ class ProfessionalAreaController extends Controller
             $request->session()->flash('status',"Rendez-vous supprimé avec succès");
             $request->session()->flash('alert-class',"alert-success");
             return redirect()->action('ProfessionalAreaController@indexAgenda', ['id' => $id]);
+        }
+    }
+
+
+    /**
+     * Modification d'un rdv, page "Mes Rdvs"
+     */
+    public function updateAppointment(StoreNewAppointment $request, $id){
+
+        $validated = $request->validated();
+
+        $id_rdv = $request->input('id_rdv');
+        $appointment = Appointment::find($id_rdv);
+        $appointment->fill($validated);
+
+        if ($appointment->save()) {
+            $request->session()->flash('status',"Rendez-vous modifié avec succès");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('ProfessionalAreaController@indexAppointment', ['id' => $id]);
+        }
+    }
+
+
+    /**
+     * Suppression d'un rdv, page "Mes Rdvs"
+     */
+    public function deleteAppointment(Request $request, $id){
+
+        $id_rdv = $request->input('id_rdv');
+        $appointment = Appointment::find($id_rdv);
+
+        if ($appointment && $appointment->delete()) {
+            $request->session()->flash('status',"Rendez-vous supprimé avec succès");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('ProfessionalAreaController@indexAppointment', ['id' => $id]);
         }
     }
 
