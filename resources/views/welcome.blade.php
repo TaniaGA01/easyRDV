@@ -38,7 +38,7 @@
                     <fieldset>
                         <p>Rechercher un professionnel</p>
                         <input list="suggestions-pros" type="text" name="professionnels" id="professionnels"
-                            placeholder="Nom du professionnel" class="form-control my-2" autocomplete="off">
+                            placeholder="Nom du professionnel" class="form-control" autocomplete="off">
                         <datalist id="suggestions-pros"></datalist>
 
                         <input id="hidden-form-accueil" type="hidden" name="id-pro">
@@ -133,19 +133,19 @@
     <div class="container ptb-5">
         <div class="row justify-content-center">
             <div class="col-lg-3 ">
-                <div class="container bck-orange-fc px-4 py-5 shadow">
+                <div class="container bck-orange-fc px-4 py-5 mb-3 shadow">
                     <h2>3 897</h2>
                     <h3>Professionnels inscrits</h3>
                 </div>
             </div>
             <div class="col-lg-3">
-                <div class="container bck-orange px-4 py-5 shadow">
+                <div class="container bck-orange px-4 py-5 mb-3 shadow">
                     <h2>9 750</h2>
                     <h3>Clients potentiels inscrits</h3>
                 </div>
             </div>
             <div class="col-lg-3">
-                <div class="container bck-orange-fc px-4 py-5 shadow">
+                <div class="container bck-orange-fc px-4 py-5 mb-3 shadow">
                     <h2>17 450</h2>
                     <h3>Rendez-vous pris</h3>
                 </div>
