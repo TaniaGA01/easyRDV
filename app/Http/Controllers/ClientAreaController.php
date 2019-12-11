@@ -191,7 +191,7 @@ class ClientAreaController extends Controller
         $id_rdv = $request->input('id_rdv');
         $appointment = Appointment::find($id_rdv);
 
-        if (($user_id==$appointment->id_client) && $appointment && $appointment->delete()) {
+        if ((isset($appointment)) && ($user_id==$appointment->id_client) && $appointment && $appointment->delete()) {
             $request->session()->flash('status',"Rendez-vous supprimé avec succès");
             $request->session()->flash('alert-class',"alert-success");
             return redirect()->action('ClientAreaController@index', ['id' => $user_id]);
