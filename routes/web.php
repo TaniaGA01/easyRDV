@@ -22,7 +22,7 @@ Route::get('/liste-des-professionnels/{page}/{field}/{city}','HomeController@ind
 
 // Page espace pro
 Route::get('/professionnels/{profession}/{city}/{first_name}_{last_name}','HomeController@show')->name('show');
-Route::post('/professionnels/{profession}/{city}/{first_name}_{last_name}','EspaceProController@storeRdv')->name('espacePro.storeRdv')->middleware('verified');
+Route::post('/professionnels/{profession}/{city}/{first_name}_{last_name}','EspaceProController@storeRdv')->name('espacePro.storeRdv')->middleware('verified')->middleware('completedPersonalInformation');
 Route::post('/professionnels/{profession}/{city}/{first_name}_{last_name}/delete','EspaceProController@deleteRdv')->name('espacePro.deleteRdv')->middleware('verified');
 
 // Page "A propos"
@@ -59,18 +59,18 @@ Route::get('mes-informations-client/{id}/editer','ClientAreaController@edit')->w
 Route::put('mes-informations-client/{id}','ClientAreaController@update')->where('id','[0-9]+')->name('clientArea.update')->middleware('verified')->middleware('completedPersonalInformation');
 
 // Espace Professionnel
-Route::get('mon-agenda/{id}/agenda','ProfessionalAreaController@indexAgenda')->where('id','[0-9]+')->name('professionnelArea.indexAgenda')->middleware('verified');
+Route::get('mon-agenda/{id}/agenda','ProfessionalAreaController@indexAgenda')->where('id','[0-9]+')->name('professionnelArea.indexAgenda')->middleware('verified')->middleware('completedPersonalInformation');
 // Route formulaire creation rdv perso ???
-Route::post('mon-agenda/{id}/agenda','ProfessionalAreaController@storeRdv')->where('id','[0-9]+')->name('professionnelArea.storeRdv')->middleware('verified');
-Route::post('mon-agenda/{id}/agenda/delete','ProfessionalAreaController@deleteRdv')->where('id','[0-9]+')->name('professionnelArea.deleteRdv')->middleware('verified');
-Route::post('mon-agenda/{id}/agenda/update','ProfessionalAreaController@updateRdv')->where('id','[0-9]+')->name('professionnelArea.updateRdv')->middleware('verified');
+Route::post('mon-agenda/{id}/agenda','ProfessionalAreaController@storeRdv')->where('id','[0-9]+')->name('professionnelArea.storeRdv')->middleware('verified')->middleware('completedPersonalInformation');
+Route::post('mon-agenda/{id}/agenda/delete','ProfessionalAreaController@deleteRdv')->where('id','[0-9]+')->name('professionnelArea.deleteRdv')->middleware('verified')->middleware('completedPersonalInformation');
+Route::post('mon-agenda/{id}/agenda/update','ProfessionalAreaController@updateRdv')->where('id','[0-9]+')->name('professionnelArea.updateRdv')->middleware('verified')->middleware('completedPersonalInformation');
 
-Route::get('mes-rendez-vous/{id}','ProfessionalAreaController@indexAppointment')->where('id','[0-9]+')->name('professionnelArea.indexAppointment')->middleware('verified');
-Route::post('mes-rendez-vous/{id}/delete','ProfessionalAreaController@deleteAppointment')->where('id','[0-9]+')->name('professionnelArea.deleteAppointment')->middleware('verified');
-Route::post('mes-rendez-vous/{id}/update','ProfessionalAreaController@updateAppointment')->where('id','[0-9]+')->name('professionnelArea.updateAppointment')->middleware('verified');
+Route::get('mes-rendez-vous/{id}','ProfessionalAreaController@indexAppointment')->where('id','[0-9]+')->name('professionnelArea.indexAppointment')->middleware('verified')->middleware('completedPersonalInformation');
+Route::post('mes-rendez-vous/{id}/delete','ProfessionalAreaController@deleteAppointment')->where('id','[0-9]+')->name('professionnelArea.deleteAppointment')->middleware('verified')->middleware('completedPersonalInformation');
+Route::post('mes-rendez-vous/{id}/update','ProfessionalAreaController@updateAppointment')->where('id','[0-9]+')->name('professionnelArea.updateAppointment')->middleware('verified')->middleware('completedPersonalInformation');
 
-Route::get('mes-informations/{id}/editer','ProfessionalAreaController@edit')->where('id','[0-9]+')->name('professionnelArea.edit')->middleware('verified');
-Route::put('mes-informations/{id}','ProfessionalAreaController@update')->where('id','[0-9]+')->name('professionnelArea.update')->middleware('verified');
+Route::get('mes-informations/{id}/editer','ProfessionalAreaController@edit')->where('id','[0-9]+')->name('professionnelArea.edit')->middleware('verified')->middleware('completedPersonalInformation');
+Route::put('mes-informations/{id}','ProfessionalAreaController@update')->where('id','[0-9]+')->name('professionnelArea.update')->middleware('verified')->middleware('completedPersonalInformation');
 
 
 
