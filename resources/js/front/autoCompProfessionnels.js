@@ -26,7 +26,7 @@ var suggProfessionnels = document.getElementById('suggestions-pros');
 var formHidden = document.getElementById('hidden-form-accueil');
 
 if (formProfessionnels) {
-    formProfessionnels.addEventListener('keyup', function(e){
+    formProfessionnels.addEventListener('input', function(e){
         if (formProfessionnels.value.length>1 && e.keyCode != '40' && e.keyCode != '38') {
             let entree = e.target.value.toLowerCase();
             suggProfessionnels.innerHTML='';
@@ -38,12 +38,6 @@ if (formProfessionnels) {
                     if (formProfessionnels.value==pros) {
                         formHidden.value = tabProfessionnels[pros];
                     }
-                    console.log(formProfessionnels.value)
-                    // suggestionPros.addEventListener('click', function(evt){
-                    //     formProfessionnels.value=pros;
-                    //     suggProfessionnels.innerHTML='';
-                    //     formHidden.value = tabProfessionnels[pros];
-                    // });
                 }
             }
         }
