@@ -38,7 +38,7 @@ class HomeController extends Controller
     public function show($profession, $city, $first_name, $last_name)
     {
         $user = Auth::user();
-        $result = User::where('last_name',str_replace('-', ' ', $last_name))->where('first_name',str_replace('-', ' ', $first_name))->get();
+        $result = User::where('last_name',str_replace('-', ' ', $last_name))->where('first_name',$first_name)->get();
         $tab_json = json_decode($result);
 
         if (empty($tab_json)) {
