@@ -11,7 +11,8 @@
     </div>
     @endif
     <div class="row justify-content-center ">
-        <div class="col-md-8">
+        <div class="form-style-5 bg-white shadow-sm col-md-9 py-4">
+            <h4 class="card-title">Mon agenda</h4>
 
             @php
             use App\User;
@@ -27,7 +28,7 @@
             $linkNextDay = '<a href="?date='.$nextDay.'">></a>';
             @endphp
 
-            <div id="gridMobile">
+            <div id="gridMobile" class="d-none">
                 <table class="table table-striped">
                     <thead>
                         <tr>
@@ -78,6 +79,78 @@
 
                         echo '</tr>';
                     }
+                    echo '</tbody>';
+                    echo '</table>';
+                    echo '</div>';
+
+                    
+                    // ######################### DESKTOP ###############################
+                    $days = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
+
+                    //$dayWeek = date('Y-m-d', strtotime('last monday', strtotime($date)));
+                    //$dayOfWeek = strftime('%A %d', strtotime($dayWeek));
+
+                    $previousWeek = date('Y-m-d', strtotime($date .' -1 week'));
+                    $nextWeek = date('Y-m-d', strtotime($date .' +1 week'));
+
+                    $linkPrevWeek = '<a href="?date='.$previousWeek.'"><</a>';
+                    $linkNextWeek = '<a href="?date='.$nextWeek.'">></a>';
+
+
+                    $monthFindFr = mb_strtoupper(utf8_encode(strftime('%B %Y', strtotime($date)))); // novembre 2019
+                    echo "<h2>$monthFindFr</h2>";
+
+                    // $dd = strftime('%A %d', strtotime($date)); // vendredi 29
+
+
+                    $gridD = '<div id="gridDesktop">';
+                    $gridD .= '<table class="paleBlueRows">';
+
+                    $gridD .= '<thead>';
+                    $gridD .= '<tr>';
+                    $gridD .= "<th> $linkPrevWeek </th>";
+                    for($i=0;$i<count($days);$i++){
+                        if(date('l',strtotime($date))==='Monday'){
+                            $monday = date('Y-m-d', strtotime('monday', strtotime($date)));
+                            $date_tar = $monday;
+                        }else{
+                            $monday = date('Y-m-d', strtotime('last monday', strtotime($date)));
+                            $date_tar = $monday;
+                        }
+                        
+                        $nextDay = date('Y-m-d', strtotime("+{$i} day", strtotime($monday)));
+                        $dayOfWeek = strftime('%A %d', strtotime($nextDay));
+
+                        $gridD .= "<th>$dayOfWeek</th>";
+                    }
+                    $gridD .= "<th> $linkNextWeek </th>";
+                    $gridD .= '</tr>';
+                    $gridD .= '</thead>';
+                    $gridD .= '<tbody>';
+
+                    for($i=$timeStart;$i<=$timeEnd;$i++){
+                        if($i<10){
+                            $i = "0".$i;
+                        }
+                        $gridD .= '<tr>';
+                        $gridD .= "<td> {$i}h </td>";
+                        for($j=0;$j<=count($days);$j++){
+                            if($j<count($days)){
+                                $date_tar_day = date('Y-m-d', strtotime($date_tar .' +'.$j.' day'));
+                                $tartempion=$date_tar_day.'_'.$i;
+
+                                $gridD .= "<td data-tartempion=".$tartempion."> # </td>";
+                            }else{
+                                $gridD .= "<td> {$i}h </td>";
+                            } 
+                        }
+                        $gridD .= '</tr>';
+                    }
+                    $gridD .= '</tbody>';
+                    $gridD .= '</table>';
+                    $gridD .= '</div>';
+
+                    echo $gridD;
                     @endphp
                     </tbody>
                 </table>
