@@ -17,7 +17,7 @@
 
                         <div class="form-group justify-content-center row">
                             <div class="col-lg-10 col-md-12">
-                                <input type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" autocomplete="name" autofocus placeholder="Nom (obligatoire)">
+                                <input type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" autocomplete="name" autofocus placeholder="Nom *">
 
                                 @error('last_name')
                                     <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
 
                         <div class="form-group justify-content-center row">
                             <div class="col-lg-10 col-md-12">
-                                <input type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" autocomplete="given-name" autofocus placeholder="Prénom (facultatif)">
+                                <input type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" autocomplete="given-name" autofocus placeholder="Prénom">
 
                                 @error('first_name')
                                     <span class="invalid-feedback" role="alert">
@@ -41,7 +41,7 @@
 
                         <div class="form-group justify-content-center row">
                             <div class="col-lg-10 col-md-12">
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" autofocus placeholder="Email (obligatoire)">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" autofocus placeholder="Email *">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -53,7 +53,7 @@
 
                         <div class="form-group justify-content-center row">
                             <div class="col-lg-10 col-md-12">
-                                <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" autocomplete="tel" autofocus placeholder="Téléphone (facultatif)">
+                                <input type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" autocomplete="tel" autofocus placeholder="Téléphone">
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
@@ -65,7 +65,7 @@
 
                         <div class="form-group justify-content-center row">
                             <div class="col-lg-10 col-md-12">
-                                <textarea rows="5" class="form-control @error('content') is-invalid @enderror" name="content" autofocus placeholder="Message (obligatoire)">{{ old('content') }}</textarea>
+                                <textarea rows="5" class="form-control @error('content') is-invalid @enderror" name="content" autofocus placeholder="Message *">{{ old('content') }}</textarea>
 
                                 @error('content')
                                     <span class="invalid-feedback" role="alert">
@@ -74,13 +74,12 @@
                                 @enderror
                             </div>
                         </div>
+                        <small id="emailHelp" class="form-text text-muted mb-3">(*) Champs obligatoires</small>
                         <div class="form-group justify-content-center row">
                             <div class="col-lg-10 col-md-12">
                                 <input type="submit" class="btn-pr btn-block " value="Envoyer le message"></button>
                             </div>
                         </div>
-
-
                     </form>
                 </div>
             </div>
