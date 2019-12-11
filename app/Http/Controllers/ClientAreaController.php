@@ -187,13 +187,18 @@ class ClientAreaController extends Controller
      */
     public function deleteAppointment(Request $request, $id){
 
+        $user_id = Auth::user()->id;
         $id_rdv = $request->input('id_rdv');
         $appointment = Appointment::find($id_rdv);
 
-        if ($appointment && $appointment->delete()) {
+        if (($user_id==$appointment->id_client) && $appointment && $appointment->delete()) {
             $request->session()->flash('status',"Rendez-vous supprimé avec succès");
             $request->session()->flash('alert-class',"alert-success");
-            return redirect()->action('ClientAreaController@index', ['id' => $id]);
+            return redirect()->action('ClientAreaController@index', ['id' => $user_id]);
+        }else {
+            $request->session()->flash('status',"Impossible de supprimer cette entrée");
+            $request->session()->flash('alert-class',"alert-danger");
+            return redirect()->action('ClientAreaController@index', ['id' => $user_id]);
         }
     }
 
