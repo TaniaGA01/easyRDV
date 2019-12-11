@@ -47,7 +47,7 @@
                         }
                         $tartempion = $date.'_'.$i;
                         $rdv='#';
-                        $add_class='data-rdv page-agenda';
+                        $add_class='data-rdv page-agenda agenda-mobile';
                         $id_rdv='#';
 
                         echo '<tr>';
@@ -58,7 +58,7 @@
                                 if ($tartempion==$value->data_tartempion) {
                                     if (isset($value->id_client)) {
                                         $client = User::find($value->id_client);
-                                        $rdv = 'Rdv avec '.$client->first_name.' '.$client->last_name;
+                                        $rdv = 'RDV avec '.$client->first_name.' '.$client->last_name;
                                         $add_class.=' rdv-loaded rdv-pro';
                                     }else {
                                         $rdv=$value->content;
@@ -70,10 +70,10 @@
                         }
 
                         echo '<td colspan="2" class="'.$add_class.'" data-pro="'.$user->id.'" data-token="'.csrf_token().'" data-tartempion="'.$tartempion.'">'.$rdv.'</td>';
-                        if ($add_class==='data-rdv page-agenda rdv-loaded') {
+                        if ($add_class==='data-rdv page-agenda agenda-mobile rdv-loaded') {
                             echo '<td class="btn-agenda agenda-modif" data-id="'.$id_rdv.'" data-tartempion="'.$tartempion.'" style="position: absolute;right:100px;"><a href="#">Modifier</a></td>';
                             echo '<td class="btn-agenda agenda-suppr" data-id="'.$id_rdv.'" data-tartempion="'.$tartempion.'" style="position: absolute;right:15px;"><a href="#">Supprimer</a></td>';
-                        }elseif ($add_class==='data-rdv page-agenda rdv-loaded rdv-pro') {
+                        }elseif ($add_class==='data-rdv page-agenda agenda-mobile rdv-loaded rdv-pro') {
                             echo '<td class="btn-agenda agenda-annul" data-id="'.$id_rdv.'" data-tartempion="'.$tartempion.'" style="position: absolute;right:15px;"><a href="#">Annuler</a></td>';
                         }
 
@@ -83,7 +83,7 @@
                     echo '</table>';
                     echo '</div>';
 
-                    
+
                     // ######################### DESKTOP ###############################
                     $days = ['monday','tuesday','wednesday','thursday','friday','saturday','sunday'];
 
@@ -117,7 +117,7 @@
                             $monday = date('Y-m-d', strtotime('last monday', strtotime($date)));
                             $date_tar = $monday;
                         }
-                        
+
                         $nextDay = date('Y-m-d', strtotime("+{$i} day", strtotime($monday)));
                         $dayOfWeek = strftime('%A %d', strtotime($nextDay));
 
@@ -138,11 +138,31 @@
                             if($j<count($days)){
                                 $date_tar_day = date('Y-m-d', strtotime($date_tar .' +'.$j.' day'));
                                 $tartempion=$date_tar_day.'_'.$i;
+                                $rdv='#';
+                                $add_class='data-rdv page-agenda agenda-desktop';
+                                $id_rdv='#';
 
-                                $gridD .= "<td data-tartempion=".$tartempion."> # </td>";
+                                if (isset($rdvs)){
+                                foreach ($rdvs as $value) {
+                                    if ($tartempion==$value->data_tartempion) {
+                                        if (isset($value->id_client)) {
+                                            $client = User::find($value->id_client);
+                                            $rdv = 'RDV avec '.$client->first_name.' '.$client->last_name;
+                                            $add_class.=' rdv-loaded rdv-pro';
+                                        }else {
+                                            $rdv=$value->content;
+                                            $add_class.=' rdv-loaded';
+                                        }
+                                        $id_rdv=$value->id;
+                                    }
+                                }
+                            }
+
+                            $gridD .= "<td class=\"".$add_class."\" data-tartempion=".$tartempion." data-id=".$id_rdv." data-pro=".$user->id." data-token=".csrf_token().">".$rdv."</td>";
+
                             }else{
                                 $gridD .= "<td> {$i}h </td>";
-                            } 
+                            }
                         }
                         $gridD .= '</tr>';
                     }
