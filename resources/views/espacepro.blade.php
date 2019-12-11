@@ -178,9 +178,15 @@
 
     @else
 
-    <div class="container ptb-5" style="min-height:60vh">
-        <p>Ce compte n'existe pas !</p>
-        <a class="btn btn-info" href="javascript:history.back()">Retour</a>
+    <div class="col-12" style="margin:60px 0">{{-- Style à améliorer --}}
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="form-style-5 bg-white shadow-sm col-md-12 px-5 py-5">
+                    <h5 class="card-title">Ce professionnel n'existe pas.</h5>
+                    <a class="btn btn-info btn-pr" href="javascript:history.back()">Retour</a>
+                </div>
+            </div>
+        </div>
     </div>
 
     @endisset

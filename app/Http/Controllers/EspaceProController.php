@@ -46,12 +46,22 @@ class EspaceProController extends Controller
      */
     public function deleteRdv(Request $request,$profession, $city, $first_name, $last_name){
 
+        $user_id = Auth::user()->id;
         $id_rdv = $request->input('id_rdv');
         $appointment = Appointment::find($id_rdv);
 
-        if ($appointment && $appointment->delete()) {
+        if ((isset($appointment)) && ($user_id==$appointment->id_client) && $appointment && $appointment->delete()) {
             $request->session()->flash('status',"Rendez-vous supprimé avec succès");
             $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('HomeController@show', [
+                'profession' => $profession,
+                'city' => $city,
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+            ]);
+        }else {
+            $request->session()->flash('status',"Impossible de supprimer cette entrée");
+            $request->session()->flash('alert-class',"alert-danger");
             return redirect()->action('HomeController@show', [
                 'profession' => $profession,
                 'city' => $city,
