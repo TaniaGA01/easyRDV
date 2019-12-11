@@ -132,10 +132,12 @@
                                     if ($tartempion==$value->data_tartempion) {
                                         // $id_rdv=$value->id;
                                         if ($value->id_client === $visiteur) {
-                                            if($date_now_tartempion <= $tartempion){
+                                            if($date_now_tartempion < $tartempion){
                                                 $rdv='Prochain rdv';
-                                            }else{
+                                            }elseif($date_now_tartempion > $tartempion){
                                                 $rdv='Rdv passé';
+                                            }else{
+                                                $rdv='Rdv en cours, kestufou dépêche toi !';
                                             }
                                             
                                             $add_class.=' rdv-loaded';
