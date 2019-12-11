@@ -119,8 +119,7 @@
                         <h2>Pas de logiciel ?</h2>
                         <h2>Pas d’assistant ou d’employé ? </h2>
                         <h2>Pas le temps d’apprendre à gérer un nouveau système ?</h2>
-                        <p>L'agenda en ligne EasyRDV vous permettra de mieux gérer vos rendez-vous et vos tâches
-                            quotidiennes. Il vous permettra également d'être plus accessible pour vos clients potentiels.</p>
+                        <p>L'agenda en ligne EasyRDV vous permettra de mieux gérer vos rendez-vous et vos tâches quotidiennes. Il vous permettra également d'être plus accessible pour vos clients potentiels.</p>
                         <div class="text-right pt-3">
                             <a class="btn btn-pr" href="{{route('professional.create')}}">En savoir plus</a>
                         </div>
@@ -131,9 +130,26 @@
     </div>
 </section>
 <section class="statistics">
-    <div class="container">
-        <div class="row">
-
+    <div class="container ptb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-3 ">
+                <div class="container bck-orange-fc px-4 py-5 shadow">
+                    <h2>3 897</h2>
+                    <h3>Professionnels inscrits</h3>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="container bck-orange px-4 py-5 shadow">
+                    <h2>9 750</h2>
+                    <h3>Clients potentiels inscrits</h3>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="container bck-orange-fc px-4 py-5 shadow">
+                    <h2>17 450</h2>
+                    <h3>Rendez-vous pris</h3>
+                </div>
+            </div>
         </div>
     </div>
 </section>

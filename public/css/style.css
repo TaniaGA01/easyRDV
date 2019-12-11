@@ -10,6 +10,15 @@
     --gris: rgb(135,135,135)
 }
 
+/* =============== background color ====================*/
+
+.bck-orange{
+    background-color: var(--orange);
+}
+.bck-orange-fc{
+    background-color: var(--orange-fc);
+}
+
 /* =============== padding/margin ====================*/
 .ptb-2{padding: 2rem 0;}
 .ptb-3{padding: 3rem 0;}
@@ -178,7 +187,6 @@ a.dropdown-item.menu-it:hover {
 
 }
 .navbar .menu-it-name {
-    padding: 20px 0;
     color: var(--bleu-fc);
     display: block;
 }
@@ -324,6 +332,34 @@ form h3 {
     text-align: right;
 }
 
+/* ================ statistics =====================*/
+.statistics{
+    position: relative;
+}
+.statistics::before{
+    content: '';
+    position: absolute;
+    background-image: url(../img/fond-section.svg);
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.statistics h2{
+    text-align: center;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 2rem;
+}
+.statistics h3{
+    font-size: 1rem;
+    text-align: center;
+    color: var(--white);
+    font-weight: 600;
+}
+
+
 /* ================ footer =====================*/
 
 footer{
@@ -388,10 +424,8 @@ footer{
     }
     .nav-pr {
         flex-direction: row-reverse;
-        position: absolute;
         top: 0;
         right: 0;
-        margin-right: 7rem;
     }
     .navbar-nav .dropdown-menu {
         position: absolute !important;
@@ -437,49 +471,9 @@ footer{
   }
 
   @media (min-width: 992px) {
-    .navbar-expand-md {
-      -webkit-box-orient: horizontal !important;
-      -webkit-box-direction: normal !important;
-              flex-flow: row nowrap !important;
-      -webkit-box-pack: start !important;
-              justify-content: flex-start !important;
-    }
 
-    .navbar-expand-md .navbar-nav {
-      -webkit-box-orient: horizontal !important;
-      -webkit-box-direction: normal !important;
-              flex-direction: row !important;
-    }
-
-    .navbar-expand-md .navbar-nav .dropdown-menu {
-      position: absolute !important;
-    }
-
-    .navbar-expand-md .navbar-nav .nav-link {
-      padding-right: 0.5rem !important;
-      padding-left: 0.5rem !important;
-    }
-
-    .navbar-expand-md > .container,
-    .navbar-expand-md > .container-fluid,
-    .navbar-expand-md > .container-sm,
-    .navbar-expand-md > .container-md,
-    .navbar-expand-md > .container-lg,
-    .navbar-expand-md > .container-xl {
-      flex-wrap: nowrap !important;
-    }
-
-    .navbar-expand-md .navbar-collapse {
-      display: -webkit-box !important;
-      display: flex !important;
-      flex-basis: auto !important;
-    }
-
-    .navbar-expand-md .navbar-toggler {
-      display: none !important;
-    }
   }
-
+  
   @media (max-width: 767.98px){
     .ser-item{
         margin: 60px 40px !important;
@@ -497,4 +491,25 @@ footer{
     .search-result-body a p{
         text-align: left !important;
     }
+    .navbar-toggler{
+        padding: 0.25rem 0.5rem;
+    }
   }
+
+  @media (max-width: 575.98px){
+    .navbar .container{
+        margin: 0 10px;
+    }
+
+  }
+  @media (max-width: 387.98px){
+    .navbar-brand{
+        margin-right: 0 !important;
+        width: 30%;
+    }
+    .navbar-brand img{
+        width: 100% !important;
+    }
+    }
+
+
