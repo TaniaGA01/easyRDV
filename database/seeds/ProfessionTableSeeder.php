@@ -66,7 +66,31 @@ class ProfessionTableSeeder extends Seeder
             ],
             [
                 'name' => 'Chasseur-de-primes'
-            ]
+            ],
+            [
+                'name' => 'Oncologue'
+            ],
+            [
+                'name' => 'Lécheurs-de-timbre'
+            ],
+            [
+                'name' => 'Taxidermiste'
+            ],
+            [
+                'name' => 'Mannequin-de-crash-test'
+            ],
+            [
+                'name' => 'Beauf-professionnel'
+            ],
+            [
+                'name' => 'Skipper'
+            ],
+            [
+                'name' => 'Nanipabulophile'
+            ],
+            [
+                'name' => 'Porno-phonographiste'
+            ],
         ]);
     }
 }
