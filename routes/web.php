@@ -85,10 +85,6 @@ Route::post('login2','LoginController@store');
 Route::post('login/new','LoginController@storeNew');
 Route::get('user','LoginController@createNew');
 
-//#######################################################
-// Déconnection
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
 // Route informations personnelles
 Route::get('/informations-personnelles', 'UserInfoController@create')->name('userInformations.create');
 Route::post('/informations-personnelles', 'UserInfoController@store')->name('userInformations.store');
