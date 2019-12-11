@@ -105,7 +105,7 @@
                                         rendez-vous</a>
                                     <a class="dropdown-item menu-it" href="{{ route('clientArea.edit', Auth::user()->id) }}">Mes
                                         infos perso</a>
-                                    <a class="dropdown-item menu-it" href="{{ url('/profile') }}">Profile</a>
+                                    <a class="dropdown-item menu-it" href="{{ url('/profile') }}">Profil</a>
                                     @endif
 
 

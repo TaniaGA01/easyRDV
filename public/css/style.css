@@ -58,9 +58,7 @@
     width: 100%;
     z-index: -1;
 }
-.container{
-    contain: content;
-}
+
 
 .title {
     text-align: center;
@@ -207,7 +205,7 @@ a.dropdown-item.menu-it:hover {
 
 /* ================ form =====================*/
 form{
-    text-align: center;
+    text-align: left;
 }
 .form-control, .custom-file-label{
     border-radius: 0;
@@ -216,6 +214,7 @@ form{
 form p, .our-services {
     color: var(--bleu);
     font-size: 1.1rem;
+    text-align: center;
 }
 form h3 {
     text-align: center;
@@ -372,12 +371,60 @@ form h3 {
 }
 .aide h3 span a{
     text-decoration: none;
-    color: var(--bleu-fc);
+    color: var(--orange-clair);
     font-size: 1.3rem;
     font-weight: 800;
 }
 .aide h3 span a:hover{
     color: var(--white);
+}
+
+
+/* ================ space =====================*/
+
+.proInfo h1{
+    color: var(--bleu);
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+.proInfo h2{
+    color: var(--orange);
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+}
+.proInfoCard{
+    padding-top: 3rem;
+}
+.proInfoCard p span{
+    margin-left: 1rem;
+}
+
+/* ================ scheduler =====================*/
+.scheduler{
+
+}
+.scheduler h2{
+    text-align: center;
+    color: var(--bleu);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+}
+#gridDesktop table thead{
+    text-align: center;
+    font-size: 0.8rem;
+    background-color: var(--bleu);
+    color: var(--white);
+}
+#gridDesktop table thead .arrows{
+    background-color: var(--orange);
+    color: var(--white);
+}
+#gridDesktop table thead .arrows a{
+    color: var(--white);
+}
+#gridDesktop table thead .arrows:hover{
+    background-color: var(--orange-fc);
 }
 
 
@@ -421,6 +468,9 @@ footer p {
 /*===================== responsive nav =======================*/
 
 @media (max-width: 991.98px) {
+    .container{
+        contain: content;
+    }
     .navbar{
         position: absolute;
         width: 100%;
