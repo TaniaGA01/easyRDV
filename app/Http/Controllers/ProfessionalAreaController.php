@@ -275,7 +275,7 @@ class ProfessionalAreaController extends Controller
         $id_rdv = $request->input('id_rdv');
         $appointment = Appointment::find($id_rdv);
 
-        if ((isset($appointment)) && ($user_id==$appointment->id_client) && $appointment->delete()) {
+        if ((isset($appointment)) && ($user_id==$appointment->id_pro) && $appointment->delete()) {
             $request->session()->flash('status',"Rendez-vous supprimé avec succès");
             $request->session()->flash('alert-class',"alert-success");
             return redirect()->action('ProfessionalAreaController@indexAgenda', ['id' => $user_id]);
@@ -326,7 +326,7 @@ class ProfessionalAreaController extends Controller
         $id_rdv = $request->input('id_rdv');
         $appointment = Appointment::find($id_rdv);
 
-        if ((isset($appointment)) && ($user_id==$appointment->id_client) && $appointment->delete()) {
+        if ((isset($appointment)) && ($user_id==$appointment->id_pro) && $appointment->delete()) {
             $request->session()->flash('status',"Rendez-vous supprimé avec succès");
             $request->session()->flash('alert-class',"alert-success");
             return redirect()->action('ProfessionalAreaController@indexAppointment', ['id' => $user_id]);
