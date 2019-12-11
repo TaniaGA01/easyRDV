@@ -27,9 +27,6 @@
                 <p><i class="fas fa-phone"></i><strong> Téléphone</strong><br>
                     <span>{{ $pro[0]->phone_number }}</span>
                 </p>
-                <p><i class="fas fa-globe"></i><strong> Site web</strong><br>
-                    <span>www.buroscope.bzh</span>
-                </p>
             </div>
         </div>
 
