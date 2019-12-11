@@ -128,18 +128,26 @@ class HomeController extends Controller
     public function searchPro(Request $request){
 
         $id = $request->input('id-pro');
-        $results = User::where('id',$id)->get();
+        if (isset($id)) {
+            $results = User::where('id',$id)->get();
 
-        $profession=$results[0]->profession->name;
-        $city=$results[0]->city->name_ville;
-        $first_name=$results[0]->first_name;
-        $last_name=$results[0]->last_name;
-        return redirect()->action('HomeController@show', [
-            'profession' => $profession,
-            'city' => $city,
-            'first_name' => $first_name,
-            'last_name' => $last_name,
-        ]);
+            $profession=$results[0]->profession->name;
+            $city=$results[0]->city->name_ville;
+            $first_name=$results[0]->first_name;
+            $last_name=$results[0]->last_name;
 
+            return redirect()->action('HomeController@show', [
+                'profession' => $profession,
+                'city' => $city,
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+            ]);
+
+        }else {
+            $nope = "Aucun résultat pour cette recherche.";
+            return view('welcome', [
+                'nope' => $nope,
+            ]);
+        }
     }
 }
