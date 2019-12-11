@@ -52,6 +52,8 @@
                 <h2>Prendre rendez-vous</h2>
 
                 @php
+                $date_now_tartempion = date('Y-m-d_H',strtotime('+1 hour'));
+
                 setlocale (LC_TIME, 'fr_FR.utf8','fra');
                 $date = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
                 $dateFr = strftime('%d %B %Y', strtotime($date));
@@ -133,7 +135,12 @@
                                     if ($tartempion==$value->data_tartempion) {
                                         // $id_rdv=$value->id;
                                         if ($value->id_client === $visiteur) {
-                                            $rdv='Mes rdv';
+                                            if($date_now_tartempion <= $tartempion){
+                                                $rdv='Prochain rdv';
+                                            }else{
+                                                $rdv='Rdv passé';
+                                            }
+                                            
                                             $add_class.=' rdv-loaded';
                                             $id_rdv=$value->id;
                                         }else {
