@@ -35,7 +35,7 @@
                             <p class="card-text"><i class="fas fa-globe"></i> Site web</p>
                             -->
                         <div class="form-group justify-content-center row">
-                            <input type="submit" class="btn-pr btn-block data-rdv page-pro rdv-loaded rdv-annul" data-id="{{ $tab_appointments[$i]['id_rdv'] }}" data-tartempion="{{ $tab_appointments[$i]['data_tartempion'] }}" data-name="{{ $tab_appointments[$i]['name'] }}" data-token="<?php echo csrf_token();?>" value="Annuler le rendez-vous">
+                        <input type="submit" class="btn-pr btn-block data-rdv page-pro rdv-loaded rdv-annul page-client" data-client="{{Auth::user()->id}}" data-id="{{ $tab_appointments[$i]['id_rdv'] }}" data-tartempion="{{ $tab_appointments[$i]['data_tartempion'] }}" data-name="{{ $tab_appointments[$i]['name'] }}" data-token="<?php echo csrf_token();?>" value="Annuler le rendez-vous">
                         </div>
                     </div>
                 </div>
