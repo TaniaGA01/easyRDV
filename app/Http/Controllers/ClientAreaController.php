@@ -43,12 +43,14 @@ class ClientAreaController extends Controller
                     $pro_city = City::find($pro->city_id)->name_ville;
                     $pro_phone = $pro->phone_number;
 
+                    $tab_appointments[$i]['id_rdv'] =  $appointment->id;
                     $tab_appointments[$i]['name'] =  $pro_name;
                     $tab_appointments[$i]['profession'] =  $pro_profession;
                     $tab_appointments[$i]['address'] =  $pro_address;
                     $tab_appointments[$i]['city'] =  $pro_city;
                     $tab_appointments[$i]['phone'] =  $pro_phone;
                     $tab_appointments[$i]['date'] = self::getDateHourFr($appointment->data_tartempion);
+                    $tab_appointments[$i]['data_tartempion'] = $appointment->data_tartempion;
                     $i++;
                 }else{
                     // select * from `appointments` where `id_client` = 22 group by `id_pro` order by `data_tartempion` desc
