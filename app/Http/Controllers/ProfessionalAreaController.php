@@ -245,14 +245,23 @@ class ProfessionalAreaController extends Controller
 
         $validated = $request->validated();
 
+        $user_id = Auth::user()->id;
         $id_rdv = $request->input('id_rdv');
         $appointment = Appointment::find($id_rdv);
-        $appointment->fill($validated);
 
-        if ($appointment->save()) {
-            $request->session()->flash('status',"Rendez-vous modifié avec succès");
-            $request->session()->flash('alert-class',"alert-success");
-            return redirect()->action('ProfessionalAreaController@indexAgenda', ['id' => $id]);
+        if (isset($appointment)) {
+
+            $appointment->fill($validated);
+
+            if (($user_id==$appointment->id_pro) && $appointment->save()) {
+                $request->session()->flash('status',"Rendez-vous modifié avec succès");
+                $request->session()->flash('alert-class',"alert-success");
+                return redirect()->action('ProfessionalAreaController@indexAgenda', ['id' => $user_id]);
+            }
+        }else {
+            $request->session()->flash('status',"Impossible de modifier cette entrée");
+            $request->session()->flash('alert-class',"alert-danger");
+            return redirect()->action('ProfessionalAreaController@indexAgenda', ['id' => $user_id]);
         }
     }
 
@@ -262,13 +271,18 @@ class ProfessionalAreaController extends Controller
      */
     public function deleteRdv(Request $request, $id){
 
+        $user_id = Auth::user()->id;
         $id_rdv = $request->input('id_rdv');
         $appointment = Appointment::find($id_rdv);
 
-        if ($appointment && $appointment->delete()) {
+        if ((isset($appointment)) && ($user_id==$appointment->id_pro) && $appointment->delete()) {
             $request->session()->flash('status',"Rendez-vous supprimé avec succès");
             $request->session()->flash('alert-class',"alert-success");
-            return redirect()->action('ProfessionalAreaController@indexAgenda', ['id' => $id]);
+            return redirect()->action('ProfessionalAreaController@indexAgenda', ['id' => $user_id]);
+        }else {
+            $request->session()->flash('status',"Impossible de supprimer cette entrée");
+            $request->session()->flash('alert-class',"alert-danger");
+            return redirect()->action('ProfessionalAreaController@indexAgenda', ['id' => $user_id]);
         }
     }
 
@@ -280,14 +294,25 @@ class ProfessionalAreaController extends Controller
 
         $validated = $request->validated();
 
+        $user_id = Auth::user()->id;
         $id_rdv = $request->input('id_rdv');
         $appointment = Appointment::find($id_rdv);
         $appointment->fill($validated);
 
-        if ($appointment->save()) {
-            $request->session()->flash('status',"Rendez-vous modifié avec succès");
-            $request->session()->flash('alert-class',"alert-success");
-            return redirect()->action('ProfessionalAreaController@indexAppointment', ['id' => $id]);
+
+        if (isset($appointment)) {
+
+            $appointment->fill($validated);
+
+            if (($user_id==$appointment->id_pro) && $appointment->save()) {
+                $request->session()->flash('status',"Rendez-vous modifié avec succès");
+                $request->session()->flash('alert-class',"alert-success");
+                return redirect()->action('ProfessionalAreaController@indexAppointment', ['id' => $user_id]);
+            }
+        }else {
+            $request->session()->flash('status',"Impossible de modifier cette entrée");
+            $request->session()->flash('alert-class',"alert-danger");
+            return redirect()->action('ProfessionalAreaController@indexAppointment', ['id' => $user_id]);
         }
     }
 
@@ -297,13 +322,18 @@ class ProfessionalAreaController extends Controller
      */
     public function deleteAppointment(Request $request, $id){
 
+        $user_id = Auth::user()->id;
         $id_rdv = $request->input('id_rdv');
         $appointment = Appointment::find($id_rdv);
 
-        if ($appointment && $appointment->delete()) {
+        if ((isset($appointment)) && ($user_id==$appointment->id_pro) && $appointment->delete()) {
             $request->session()->flash('status',"Rendez-vous supprimé avec succès");
             $request->session()->flash('alert-class',"alert-success");
-            return redirect()->action('ProfessionalAreaController@indexAppointment', ['id' => $id]);
+            return redirect()->action('ProfessionalAreaController@indexAppointment', ['id' => $user_id]);
+        }else {
+            $request->session()->flash('status',"Impossible de supprimer cette entrée");
+            $request->session()->flash('alert-class',"alert-danger");
+            return redirect()->action('ProfessionalAreaController@indexAppointment', ['id' => $user_id]);
         }
     }
 
