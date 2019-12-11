@@ -18,6 +18,9 @@
 .bck-orange-fc{
     background-color: var(--orange-fc);
 }
+.bck-bleu{
+    background-color: var(--bleu);
+}
 
 /* =============== padding/margin ====================*/
 .ptb-2{padding: 2rem 0;}
@@ -320,6 +323,9 @@ form h3 {
     padding: 0 20px;
     font-size: 1.2rem;
 }
+.our-services-cont {
+    text-align: left;
+}
 .our-services h2 {
     font-size: 1.5rem;
     color: var(--orange);
@@ -403,9 +409,16 @@ form h3 {
 .scheduler{
 
 }
-.scheduler h2{
+.scheduler h2, .my-appointments h2, .my-personal-info h2{
     text-align: center;
     color: var(--bleu);
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+}
+.my-past-appointments h2{
+    text-align: center;
+    color: var(--white);
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 2.5rem;
@@ -427,6 +440,21 @@ form h3 {
     background-color: var(--orange-fc);
 }
 
+
+/* ================ my appointments =====================*/
+.my-appointments hr{
+    margin-bottom: 1rem;
+}
+.my-appointments h5, .my-past-appointments h5{
+    color: var(--bleu);
+    font-weight: 700;
+}
+.rdv{
+    margin-bottom: 3rem;
+}
+.rdvInfo {
+    padding: 30px;
+}
 
 /* ================ footer =====================*/
 
