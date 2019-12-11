@@ -360,6 +360,27 @@ form h3 {
 }
 
 
+/* ================ aide =====================*/
+.aide{
+    background-color: var(--orange-fc);
+}
+.aide h3{
+    text-align: center;
+    color:var(--white);
+    margin: 0;
+    padding: 15px 0;
+}
+.aide h3 span a{
+    text-decoration: none;
+    color: var(--bleu-fc);
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+.aide h3 span a:hover{
+    color: var(--white);
+}
+
+
 /* ================ footer =====================*/
 
 footer{
@@ -381,6 +402,13 @@ footer{
 .footer-nav a{
     color: var(--white);
 }
+footer p {
+    font-size: 1.1rem;
+}
+.footer-nav ul li a:hover{
+    text-decoration: none;
+    color: var(--orange-clair);
+}
 
 
 /*:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -393,16 +421,6 @@ footer{
 /*===================== responsive nav =======================*/
 
 @media (max-width: 991.98px) {
-    .navbar-expand-md > .container,
-    .navbar-expand-md > .container-fluid,
-    .navbar-expand-md > .container-sm,
-    .navbar-expand-md > .container-md,
-    .navbar-expand-md > .container-lg,
-    .navbar-expand-md > .container-xl {
-      padding-right: 0 !important;
-      padding-left: 0 !important;
-    }
-
     .navbar{
         position: absolute;
         width: 100%;
@@ -415,6 +433,10 @@ footer{
         height: 60%;
         width: 100%;
         background-position-y:6rem;
+    }
+    .title h1{
+        width: 90%;
+        margin-top: 4rem;
     }
     .title h2{
         width: 90%;
@@ -466,6 +488,13 @@ footer{
     .navbar .btn-item-pro{
         padding: 10px 0;
     }
+    footer, .footer-nav{
+        text-align: center;
+    }
+    .footer-nav ul{
+        padding: 2rem 0;
+    }
+
 
 
   }
@@ -473,7 +502,7 @@ footer{
   @media (min-width: 992px) {
 
   }
-  
+
   @media (max-width: 767.98px){
     .ser-item{
         margin: 60px 40px !important;
@@ -493,6 +522,10 @@ footer{
     }
     .navbar-toggler{
         padding: 0.25rem 0.5rem;
+    }
+    .footer-nav ul li {
+        display: block;
+        padding: 10px 30px;
     }
   }
 

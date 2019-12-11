@@ -25,7 +25,7 @@ function setAttributes(el, attrs) {
 
 function getForm(id,pro,message,token,status,content,idRdv) {
     // status : paramètre récupéré avec la variable formType, permettant de connaître le type de formulaire nécessaire.
-    // 1, 2, et 3 : Ajout, modif et suppression page "mon-agenda" // 4 et 5 : Ajout et annulation page pro // 6 : Double choix
+    // 1, 2, et 3 : Ajout, modif et suppression page "mon-agenda" // 4 et 5 : Ajout et annulation page pro // 6 : Double choix // 7 : suppression espace client
     let modal = document.createElement('div');//div 1
     let modalDialog = document.createElement('div');//div 2
     let modalHeader = document.createElement('div');//div 3
@@ -42,7 +42,7 @@ function getForm(id,pro,message,token,status,content,idRdv) {
         modalTitle.textContent="Ajouter";
     }else if (status === 2) {
         modalTitle.textContent="Modifier";
-    }else if ((status === 3)||(status === 5)) {
+    }else if ((status === 3)||(status === 5)||(status === 7)) {
         modalTitle.textContent="Supprimer";
     }else if (status === 6) {
         modalTitle.textContent="Modifier/Supprimer";
@@ -86,15 +86,17 @@ function getForm(id,pro,message,token,status,content,idRdv) {
         }
         inputText.value = content;
     }
-    if ((status === 3)||(status === 5)){
+    if ((status === 3)||(status === 5)||(status === 7)){
         btnSubmit.setAttribute("value", "Supprimer mon RDV");
         if ((status === 3)) {
             form.setAttribute("action", '/mon-agenda/'+pro+'/agenda/delete');
-        }else if ((status === 5)) {
+        }else if (status === 5) {
             form.setAttribute("action", content+'/delete');
+        }else if (status === 7) {
+            form.setAttribute("action", pro+'/deleteAppointment');
         }
     }
-    if ((status === 2)||(status === 3)||(status === 5)||(status === 6)) {
+    if ((status === 2)||(status === 3)||(status === 5)||(status === 6)||(status === 7)) {
         let inputIdRdv = document.createElement('input');
         setAttributes(inputIdRdv, {"type": "hidden", "name":"id_rdv"});
         inputIdRdv.value=idRdv;
@@ -171,10 +173,15 @@ if (intervalles){
                     let renseignements =textAction+nameUser+' le '+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
                     // Exception : Annulation RDV, "Mes rdv" -> mon agenda
                     if (heure.classList.contains("rdv-annul")) {
-                        let nameUser = heure.getAttribute('data-name-client');
+                        nameUser = heure.getAttribute('data-name');
                         formType=3;
+                        if (heure.classList.contains("page-client")) {
+                            formType=7;
+                            tartPro = heure.getAttribute('data-client');
+                        }
+                        renseignements =textAction+nameUser+' le '+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
                     }else if (heure.classList.contains("activ-annul")) {
-                        let nameUser ='';
+                        nameUser ='';
                         varForm=((heure.previousElementSibling).previousElementSibling).previousElementSibling.innerText;
                         formType=6;
                         renseignements = 'Modifier ou supprimer l\'activité du '+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h?';

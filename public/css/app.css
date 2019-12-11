@@ -4906,7 +4906,7 @@ input[type=button].btn-block {
   }
 }
 
-/* @media (max-width: 767.98px) {
+@media (max-width: 767.98px) {
   .navbar-expand-md > .container,
   .navbar-expand-md > .container-fluid,
   .navbar-expand-md > .container-sm,
@@ -4960,7 +4960,7 @@ input[type=button].btn-block {
   .navbar-expand-md .navbar-toggler {
     display: none;
   }
-} */
+}
 
 @media (max-width: 991.98px) {
   .navbar-expand-lg > .container,

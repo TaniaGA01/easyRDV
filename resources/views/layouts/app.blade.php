@@ -51,75 +51,9 @@
                                     <a class="nav-link menu-it" href="{{route('contact.create')}}">Nous contacter</a>
                                 </li>
                                 <li class="nav-item">
-                                        <a class="nav-link btn-item-pro" href="{{route('professional.create')}}">Je suis un
-                                            professionnel</a>
-                                    </li>
-                                {{-- <li class="nav-item ">
                                     <a class="nav-link btn-item-pro" href="{{route('professional.create')}}">Je suis un
-                                professionnel</a>
+                                        professionnel</a>
                                 </li>
-                                <!-- Authentication Links -->
-                                @guest
-                                <li class="nav-item">
-                                    <a class="nav-link btn-insc" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
-                                </li>
-
-                                <!--
-                                    @if (Route::has('register'))
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{ route('register') }}">{{ __('S\'inscrire') }}</a>
-                                        </li>
-                                    @endif
-                                    -->
-                                @else
-                                <div class="avatar">
-                                    <img src="/uploads/avatars/{{ Auth::user()->avatar }}" width="40" height="40"
-                                        class="avatar">
-                                </div>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                                <li class="nav-item dropdown font-weight-bold ">
-                                    <a id="navbarDropdown" class="dropdown-toggle menu-it-name" href="#" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        @isset(Auth::user()->first_name)
-                                        {{ Auth::user()->first_name }}
-                                        @else
-                                        {{ Auth::user()->email }}
-                                        @endisset
-                                        <span class="caret"></span>
-                                    </a>
-
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        @if(Auth::user()->role_id == 2)
-                                        <a class="dropdown-item"
-                                            href="{{ route('professionnelArea.indexAgenda', Auth::user()->id) }}">Mon agenda</a>
-                                        <a class="dropdown-item"
-                                            href="{{ route('professionnelArea.indexAppointment', Auth::user()->id) }}">Mes
-                                            rendez-vous</a>
-                                        <a class="dropdown-item"
-                                            href="{{ route('professionnelArea.edit', Auth::user()->id) }}">Mes infos perso</a>
-                                        <a class="dropdown-item" href="{{ url('/profile') }}">Profile</a>
-                                        @elseif(Auth::user()->role_id == 3)
-                                        <a class="dropdown-item" href="{{ route('clientArea.index', Auth::user()->id) }}">Mes
-                                            rendez-vous</a>
-                                        <a class="dropdown-item" href="{{ route('clientArea.edit', Auth::user()->id) }}">Mes
-                                            infos perso</a>
-                                        <a class="dropdown-item" href="{{ url('/profile') }}">Profile</a>
-                                        @endif
-
-
-                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                             document.getElementById('logout-form').submit();">
-                                            {{ __('Se déconnecter') }}
-                                        </a>
-
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                                @endguest --}}
                             </ul>
                         </div>
                     </div>
@@ -196,20 +130,30 @@
 
         @yield('content')
     </div>
-
+    <section class="aide">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3>Des questions ? Besoin d’aide ? <span><a href="{{route('contact.create')}}">Contactez-nous</a></span></h3>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- NavFooter -->
     <footer>
         <section>
             <div class="container ptb-5">
                 <div class="row">
-                    <div class="col-4">
+
+                    <div class="col-lg-4 col-md-12">
                         <a class="navbar-brand" href="{{ url('/') }}">
                             <img src="{{ asset('img/logo-easyrdv-w.svg') }}" alt="{{ config('app.name', 'Laravel') }}"
                                 width="150">
                         </a>
+                        <p>Le site pour trouver des professionnels et demander des rendez-vous en ligne</p>
                     </div>
-                    <div class="col-8">
+                    <div class="col-lg-8 col-md-12">
                         <nav class="footer-nav">
                             <ul>
                                 <li><a href="{{route('about')}}">A propos</a></li>
