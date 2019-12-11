@@ -124,7 +124,7 @@
                                 if ($tartempion==$value->data_tartempion) {
                                     // $id_rdv=$value->id;
                                     if ($value->id_client === $visiteur) {
-                                        $rdv='Vous avez rdv';
+                                        $rdv='Mes rdv';
                                         $add_class.=' rdv-loaded';
                                         $id_rdv=$value->id;
                                     }else {

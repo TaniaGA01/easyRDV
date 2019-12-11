@@ -51,7 +51,7 @@
                         <p class="card-text"><i class="fas fa-phone"></i> {{ $tab_clients_phone[$j] }}</p>
                         <p class="card-text"><i class="fas fa-at"></i> {{ $tab_clients_mail[$j] }}</p>
 
-                        <input type="submit" data-id="{{ $tab_id_rdvs[$j] }}" data-tartempion="{{ $tab_data_tartempion[$j] }}" data-token="<?php echo csrf_token();?>" data-name-client="{{ $tab_clients_name[$j] }}" data-pro="{{ $user->id }}" class="btn-pr btn-block data-rdv page-pro rdv-loaded rdv-annul" value="Annuler rendez-vous">
+                        <input type="submit" data-id="{{ $tab_id_rdvs[$j] }}" data-tartempion="{{ $tab_data_tartempion[$j] }}" data-token="<?php echo csrf_token();?>" data-name="{{ $tab_clients_name[$j] }}" data-pro="{{ $user->id }}" class="btn-pr btn-block data-rdv page-pro rdv-loaded rdv-annul" value="Annuler rendez-vous">
 
                     </div>
                 </div>

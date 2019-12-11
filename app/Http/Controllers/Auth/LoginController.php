@@ -38,17 +38,17 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    // protected function authenticated(){
-    //     $user = Auth::user();
-    //     $id = $user->id;
-    //     $r_id = $user->role_id;
+    protected function authenticated($id){
+        $user = Auth::user();
+        $id = $user->id;
+        $r_id = $user->role_id;
 
-    //     if($r_id == 2){
-    //         return view('professionnelArea/indexAgenda',['id' => $id]);
-    //     }elseif($r_id == 3){
-    //         return view('clientArea.index',['id' => $id]);
-    //     }else{
-    //         return view('welcome');
-    //     }
-    // }
+        if($r_id == 2){
+            return redirect()->action('ProfessionalAreaController@indexAgenda',['id' => $id]);
+        }elseif($r_id == 3){
+            return redirect()->action('ClientAreaController@index',['id' => $id]);
+        }else{
+            return view('welcome');
+        }
+    }
 }
