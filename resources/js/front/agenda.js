@@ -64,7 +64,7 @@ function getForm(id,pro,message,token,status,content,idRdv) {
     let btnSubmit = document.createElement('input');
     labelText.setAttribute('for', 'content');
     setAttributes(form, {"method": "POST", "class":"modal-content"});
-    setAttributes(inputText, {"type": "text", "name":"content", "placeholder":"// Détails..","class":"form-control"});
+    setAttributes(inputText, {"type": "text", "name":"content", "placeholder":"Détails..","class":"form-control"});
     setAttributes(inputId, {"type": "hidden", "name":"data_tartempion"});
     setAttributes(inputPro, {"type": "hidden", "name":"id_pro"});
     setAttributes(inputToken, {"type": "hidden", "name":"_token", "value":""+token+""});
@@ -187,7 +187,10 @@ if (intervalles){
                         renseignements =textAction+nameUser+' le '+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
                     }else if (heure.classList.contains("activ-annul")) {
                         nameUser ='';
-                        varForm=((heure.previousElementSibling).previousElementSibling).previousElementSibling.innerText;
+                        let heurePrES = heure.previousElementSibling;
+                        let heurePrES2 = heurePrES.previousElementSibling;
+                        let heurePrES3 = heurePrES2.previousElementSibling;
+                        varForm=heurePrES3.innerText;
                         formType=6;
                         renseignements = 'Modifier ou supprimer l\'activité du '+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h?';
                     }
