@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use phpDocumentor\Reflection\Types\Integer;
+use Carbon\Carbon;
 
 class UsersTableSeeder extends Seeder
 {
@@ -23,6 +24,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '10',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Crevard',
@@ -34,6 +36,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '11',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Connare',
@@ -45,6 +48,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '11',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Bastar',
@@ -56,6 +60,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '11',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Baveux',
@@ -67,6 +72,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '11',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Fissdeuh',
@@ -78,6 +84,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '11',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Lescrault',
@@ -89,7 +96,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '11',
                 'image' => 'https://picsum.photos/200/200',
-
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Collard',
@@ -101,6 +108,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '11',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'La Barbu',
@@ -112,6 +120,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '12',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Aupouhalt',
@@ -123,6 +132,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '12',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'De Taille',
@@ -134,6 +144,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '12',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Dupoil',
@@ -145,6 +156,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '12',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Sete',
@@ -156,6 +168,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '12',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Nougaret',
@@ -167,6 +180,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '12',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'De la Vieille Barbe',
@@ -178,6 +192,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '12',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Palat',
@@ -189,6 +204,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '12',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Warlord',
@@ -200,6 +216,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '5',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Rockfeller',
@@ -211,6 +228,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '5',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Dus',
@@ -222,6 +240,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '5',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Lear',
@@ -233,6 +252,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '5',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Nicholson',
@@ -244,6 +264,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '1',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Cabochard',
@@ -255,6 +276,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '1',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Dubois',
@@ -266,6 +288,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '6',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Le Men',
@@ -277,6 +300,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '6',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
             [
                 'last_name' => 'Poulpe',
@@ -288,6 +312,7 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '6',
                 'image' => 'https://picsum.photos/200/200',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
             ],
         ]);
     }
