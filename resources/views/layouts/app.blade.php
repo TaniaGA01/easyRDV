@@ -140,19 +140,19 @@
                             @endif
                             -->
                             @else
-                            <div class="avatar">
-                                <img src="/uploads/avatars/{{ Auth::user()->avatar }}" width="40" height="40"
-                                    class="avatar">
-                            </div>
-                            {{ Auth::user()->name }} <span class="caret"></span>
+
                             <li class="nav-item dropdown font-weight-bold ">
                                 <a id="navbarDropdown" class="dropdown-toggle menu-it-name" href="#" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    @isset(Auth::user()->first_name)
-                                    {{ Auth::user()->first_name }}
-                                    @else
-                                    {{ Auth::user()->email }}
-                                    @endisset
+                                    <span class="avatar">
+                                        <img src="/uploads/avatars/{{ Auth::user()->avatar }}" width="40" height="40"
+                                            class="avatar">
+                                    </span>
+                                    <span class="user-name">@isset(Auth::user()->first_name)
+                                        {{ Auth::user()->first_name }}
+                                        @else
+                                        {{ Auth::user()->email }}
+                                        @endisset</span>
                                     <span class="caret"></span>
                                 </a>
 
