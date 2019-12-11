@@ -14,24 +14,28 @@ class UserInfoController extends Controller
         $user = User::findOrFail($userId);
         $r_id = $user->role_id;
         $cities = City::all();
-        return view('/userInformations.form',['role_id' => $r_id,  'cities' => $cities]);
+        return view('/userInformations.form',['role_id' => $r_id,  'cities' => $cities, 'user' => $user]);
     }
 
     public function store(Request $request){
+        //dd($request);
 
         $userId = Auth::id();
         $user = User::findOrFail($userId);
-        $r = $request->name;
-        $formCity = City::all();
+        $role_id = $user->role_id;
 
         $this->validate($request,[
             'first_name' => 'bail|required',
             'last_name' => 'bail|required',
             'phone_number' => 'bail|required',
-            'city' => 'bail',
-            'adresse' => 'bail|required',
-            'about' => 'bail',
         ]);
+
+        if($role_id == 2){
+            $this->validate($request,[
+                'city' => 'bail|required',
+                'adresse' => 'bail|required',
+            ]);
+        }
 
         $data = [
             'first_name' => $request->first_name,
@@ -41,10 +45,13 @@ class UserInfoController extends Controller
             'about' => ''
         ];
 
-        $city = $request->input('city');
-        $city_input = City::where('name_ville',$city)->first();
-        $city_id = $city_input->id;
-        $user->city_id = $city_id;
+        $user->city_id = null;
+        if($request->input('city')){
+            $city = $request->input('city');
+            $city_input = City::where('name_ville',$city)->first();
+            $city_id = $city_input->id;
+            $user->city_id = $city_id;
+        }
 
         $user->update($data);
 

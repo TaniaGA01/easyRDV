@@ -5,23 +5,33 @@
 <div class="container ptb-5">
     <div class="row justify-content-center">
         <div class="col-lg-8 col-md-12">
+            @if (session('status'))
+            <div class="row justify-content-center ">
+                <div class="col-md-12 col-sm-12">
+                    <div class="alert {{ session('alert-class') }}" role="alert">
+                        <i class="fas fa-exclamation-triangle"></i> {{ session('status') }}
+                    </div>
+                </div>
+            </div>
+            @endif
             <div class="card">
+                <!-- #TODO required -->
                 <div class="card-header">Informations personnelles</div>
-                <div class="card-body py-5">
+                <div class="card-body py-6">
                     <form method="POST" action="{{ route('userInformations.store') }}" class="personalInfos">
                         @csrf
                         <div class="form-group row justify-content-center">
-                            <div class="col-md-5">
-                                <input placeholder="Prénom" type="text" class="form-control" name="first_name" value="{{ old('first_name') }}" required autocomplete="name">
-                                @error('name')
+                            <div class="col-md-6">
+                                <input class="form-control @error('first_name') is-invalid @enderror" placeholder="Prénom *" type="text" class="form-control" name="first_name" value="{{ $user->first_name ? $user->first_name : old('first_name') }}"  autocomplete="given-name">
+                                @error('first_name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
                             </div>
-                            <div class="col-md-5">
-                                <input placeholder="Nom" type="text" class="form-control" name="last_name" value="{{ old('last_name') }}" required autocomplete="lastName">
-                                @error('lastName')
+                            <div class="col-md-6">
+                                <input class="form-control @error('last_name') is-invalid @enderror"  placeholder="Nom *" type="text" class="form-control" name="last_name" value="{{ $user->last_name ? $user->last_name : old('last_name') }}"  autocomplete="family-name">
+                                @error('last_name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -29,25 +39,31 @@
                             </div>
                         </div>
                         <div class="form-group row justify-content-center">
-                            <div class="col-md-2">
-                                <input placeholder="Téléphone" type="text" class="form-control" name="phone_number" value="{{ old('phone_number') }}" required autocomplete="phoneNumber">
-                                @error('phoneNumber')
+                            <div class="col-md-3">
+                                <input class="form-control @error('phone_number') is-invalid @enderror" placeholder="Téléphone *" type="text" class="form-control" name="phone_number" value="{{ $user->phone_number ? $user->phone_number : old('phone_number') }}"  autocomplete="tel">
+                                @error('phone_number')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
                             </div>
+                            <!-- #TODO vérif ville -->
                             <div class="col-md-3">
-                                <input id="city" list="cities" name="city" class="form-control input-search" placeholder="Villes">
+                                <input id="city" list="cities" name="city" class="form-control input-search" placeholder="Villes @if($user->role_id == 2)* @endif"  @if($user->role_id == 2)  @endif>
                                 <datalist id="cities">
                                 @foreach($cities as $city)
                                     <option data-value="{{ $city->id }}" value="{{ $city->name_ville }}">
                                 @endforeach
                             </datalist>
+                                @error('city')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
-                            <div class="col-md-5">
-                                <input placeholder="Adresse" type="text" class="form-control" name="adresse" value="{{ old('adresse') }}" required autocomplete="adresse">
-                                @error('addrese')
+                            <div class="col-md-6">
+                                <input class="form-control @error('adresse') is-invalid @enderror" placeholder="Adresse @if($user->role_id == 2)* @endif" type="text" class="form-control" name="adresse" value="{{ $user->adresse ? $user->adresse : old('adresse') }}" autocomplete="street-address" @if($user->role_id == 2)  @endif>
+                                @error('adresse')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -56,8 +72,8 @@
                         </div>
                         @if($role_id == 2)
                             <div class="form-group row justify-content-center">
-                                <div class="col-md-10">
-                                    <textarea placeholder="À propos moi" type="text" class="form-control" name="about" value="{{ old('') }}" required autocomplete="addrese"></textarea>
+                                <div class="col-md-12">
+                                    <textarea placeholder="À propos moi" type="text" class="form-control" name="about">{{ old('about') }}</textarea>
                                     @error('addrese')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -66,8 +82,9 @@
                                 </div>
                             </div>
                         @endif
+                        <small id="emailHelp" class="form-text text-muted mb-3">(*) Champs obligatoires</small>
                         <div class="form-group justify-content-center row mb-0">
-                            <div class="col-md-10">
+                            <div class="col-md-12">
                                 <button type="submit" class="btn-pr btn-block">Envoyer</button>
                             </div>
                         </div>
