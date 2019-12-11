@@ -53,6 +53,7 @@ Route::get('/informations-legales', 'LegalController@index')->name('legal.index'
 // Route page d'accueil ???
 
 Route::get('mes-rendez-vous-client/{id}','ClientAreaController@index')->where('id','[0-9]+')->name('clientArea.index')->middleware('verified');
+Route::post('mes-rendez-vous-client/{id}/deleteAppointment','ClientAreaController@deleteAppointment')->where('id','[0-9]+')->name('clientArea.deleteAppointment')->middleware('verified');
 
 Route::get('mes-informations-client/{id}/editer','ClientAreaController@edit')->where('id','[0-9]+')->name('clientArea.edit')->middleware('verified');
 Route::put('mes-informations-client/{id}','ClientAreaController@update')->where('id','[0-9]+')->name('clientArea.update')->middleware('verified');

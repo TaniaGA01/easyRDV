@@ -12,7 +12,7 @@ use Auth;
 class ClientAreaController extends Controller
 {
     /**
-     * Affiche la page "Mes rendez-vous" du client 
+     * Affiche la page "Mes rendez-vous" du client
      */
     public function index(Request $request, $id){
 
@@ -20,7 +20,7 @@ class ClientAreaController extends Controller
         $user_id = $user->id;
 
         if($id == $user_id){
-            // SELECT * FROM `appointments` WHERE id_client = 22 
+            // SELECT * FROM `appointments` WHERE id_client = 22
             // https://stackoverflow.com/questions/19325312/how-to-create-multiple-where-clause-query-using-laravel-eloquent
             $date_now = date('Y-m-d_H',strtotime('+1 hour'));
 
@@ -102,7 +102,7 @@ class ClientAreaController extends Controller
      * Retourne un tableau [0 => date, 1 => heure] à partir du champ "data_tartemption" (2019-12-13_8)
      */
     private function getDateHourFr($date){
-        $tab_date_hour_fr = []; 
+        $tab_date_hour_fr = [];
         setlocale(LC_TIME, 'fr_FR','fra');
         $date_day_hour_en = explode('_',$date);
         $date_day_fr = utf8_encode(strftime('%A %d/%m/%Y', strtotime($date_day_hour_en[0])));
@@ -148,7 +148,7 @@ class ClientAreaController extends Controller
             'email' => 'bail | required | email',
             'phone' => 'bail | required'
         ]);
-        
+
         $data = [
             'last_name' => request('last_name'),
             'first_name' => request('first_name'),
@@ -168,8 +168,8 @@ class ClientAreaController extends Controller
 
             $user->city_id = $city_id;
         }
-        
-        
+
+
         $user->update($data);
 
         $request->session()->flash('status',"Vos informations personnelles ont bien été modifiées");
@@ -179,4 +179,22 @@ class ClientAreaController extends Controller
             ]);
 
     }
+
+
+
+    /**
+     * Suppression d'un rdv, page "Mes Rdvs"
+     */
+    public function deleteAppointment(Request $request, $id){
+
+        $id_rdv = $request->input('id_rdv');
+        $appointment = Appointment::find($id_rdv);
+
+        if ($appointment && $appointment->delete()) {
+            $request->session()->flash('status',"Rendez-vous supprimé avec succès");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('ClientAreaController@index', ['id' => $id]);
+        }
+    }
+
 }
