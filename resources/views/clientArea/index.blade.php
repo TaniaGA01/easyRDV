@@ -35,7 +35,7 @@
                             <p class="card-text"><i class="fas fa-globe"></i> Site web</p>
                             -->
                         <div class="form-group justify-content-center row">
-                            <input type="submit" class="btn-pr btn-block " value="Annuler le rendez-vous"></button>
+                            <input type="submit" class="btn-pr btn-block data-rdv page-pro rdv-loaded rdv-annul" data-id="{{ $tab_appointments[$i]['id_rdv'] }}" data-tartempion="{{ $tab_appointments[$i]['data_tartempion'] }}" data-name="{{ $tab_appointments[$i]['name'] }}" data-token="<?php echo csrf_token();?>" value="Annuler le rendez-vous">
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                         <p class="card-text"><i class="fas fa-map-marker"></i> {{ $tab_appointments_before[$j]['address'] }}<br>
                             {{ $tab_appointments_before[$j]['city'] }}</p></p>
                         <p class="card-text"><i class="fas fa-phone"></i> {{ $tab_appointments_before[$j]['phone'] }}</p>
-                        <!-- 
+                        <!--
                         <p class="card-text"><i class="fas fa-globe"></i> Site web</p>
                         -->
                         <!-- Route::get('/professionnels/{profession}/{city}/{first_name}_{last_name}','HomeController@show')->name('show'); -->
