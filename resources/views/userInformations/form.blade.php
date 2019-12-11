@@ -22,7 +22,7 @@
                         @csrf
                         <div class="form-group row justify-content-center">
                             <div class="col-md-6">
-                                <input class="form-control @error('first_name') is-invalid @enderror" placeholder="Prénom *" type="text" class="form-control" name="first_name" value="{{ $user->first_name ? $user->first_name : old('first_name') }}"  autocomplete="given-name">
+                                <input class="form-control @error('first_name') is-invalid @enderror" placeholder="Prénom *" type="text"  name="first_name" value="{{ $user->first_name ? $user->first_name : old('first_name') }}"  autocomplete="given-name">
                                 @error('first_name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -30,7 +30,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control @error('last_name') is-invalid @enderror"  placeholder="Nom *" type="text" class="form-control" name="last_name" value="{{ $user->last_name ? $user->last_name : old('last_name') }}"  autocomplete="family-name">
+                                <input class="form-control @error('last_name') is-invalid @enderror"  placeholder="Nom *" type="text"  name="last_name" value="{{ $user->last_name ? $user->last_name : old('last_name') }}"  autocomplete="family-name">
                                 @error('last_name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -40,16 +40,15 @@
                         </div>
                         <div class="form-group row justify-content-center">
                             <div class="col-md-3">
-                                <input class="form-control @error('phone_number') is-invalid @enderror" placeholder="Téléphone *" type="text" class="form-control" name="phone_number" value="{{ $user->phone_number ? $user->phone_number : old('phone_number') }}"  autocomplete="tel">
+                                <input class="form-control @error('phone_number') is-invalid @enderror" placeholder="Téléphone *" type="text"  name="phone_number" value="{{ $user->phone_number ? $user->phone_number : old('phone_number') }}"  autocomplete="tel">
                                 @error('phone_number')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
                             </div>
-                            <!-- #TODO vérif ville -->
                             <div class="col-md-3">
-                                <input id="city" list="cities" name="city" class="form-control input-search" placeholder="Villes @if($user->role_id == 2)* @endif"  @if($user->role_id == 2)  @endif>
+                                <input class="form-control input-search @error('city') is-invalid @enderror" id="city" list="cities" name="city" placeholder="Villes @if($user->role_id == 2)* @endif" value="@isset($user->city_id){{ $user->city->name_ville }}@else{{ old('city') }}@endisset"> 
                                 <datalist id="cities">
                                 @foreach($cities as $city)
                                     <option data-value="{{ $city->id }}" value="{{ $city->name_ville }}">
@@ -62,7 +61,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-6">
-                                <input class="form-control @error('adresse') is-invalid @enderror" placeholder="Adresse @if($user->role_id == 2)* @endif" type="text" class="form-control" name="adresse" value="{{ $user->adresse ? $user->adresse : old('adresse') }}" autocomplete="street-address" @if($user->role_id == 2)  @endif>
+                                <input class="form-control @error('adresse') is-invalid @enderror" placeholder="Adresse @if($user->role_id == 2)* @endif" type="text"  name="adresse" value="{{ $user->adresse ? $user->adresse : old('adresse') }}" autocomplete="street-address" @if($user->role_id == 2)  @endif>
                                 @error('adresse')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -73,7 +72,7 @@
                         @if($role_id == 2)
                             <div class="form-group row justify-content-center">
                                 <div class="col-md-12">
-                                    <textarea placeholder="À propos moi" type="text" class="form-control" name="about">{{ old('about') }}</textarea>
+                                    <textarea placeholder="À propos moi" type="text" class="form-control"  name="about">{{ old('about') }}</textarea>
                                     @error('addrese')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

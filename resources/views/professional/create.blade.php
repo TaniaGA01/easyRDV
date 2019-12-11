@@ -6,6 +6,7 @@
         <div class=" justify-content-center col-lg-4 col-md-12">
             <div class="card">
                 <div class="card-header">S'inscrire en tant que professionnel</div>
+                <!-- #TODO required -->
                 <div class="card-body py-5">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -14,7 +15,7 @@
                             <div class="col-md-10">
                                 <input placeholder="Email" type="email"
                                     class="form-control @error('email_register') is-invalid @enderror"
-                                    name="email_register" value="{{ old('email_register') }}" required
+                                    name="email_register" value="{{ old('email_register') }}"
                                     autocomplete="email">
 
                                 @error('email_register')
@@ -29,7 +30,7 @@
                             <div class="col-md-5">
                                 <input placeholder="Mot de passe" type="password"
                                     class="form-control @error('password_register') is-invalid @enderror"
-                                    name="password_register" required autocomplete="new-password">
+                                    name="password_register" autocomplete="new-password">
 
                                 @error('password_register')
                                 <span class="invalid-feedback" role="alert">
@@ -40,22 +41,22 @@
 
                             <div class="col-md-5">
                                 <input placeholder="Confirmer mot de passe" type="password" class="form-control"
-                                    name="password_register_confirmation" required autocomplete="new-password">
+                                    name="password_register_confirmation" autocomplete="new-password">
                             </div>
                         </div>
 
                         <div class="form-group row justify-content-center">
 							<div class="col-md-10">
                                 <select class="form-control @error('profession_id') is-invalid @enderror" name="profession_id">
-                                    <option value="" >Sélectionnez votre métier</option>
+                                    <option>Sélectionnez votre métier</option>
                                     @foreach ($professions as $profession)
                                         <option value="{{$profession->id}}" {{ old('profession_id') == $profession->id ? "selected":""}}>{{$profession->name}}</option>
                                     @endforeach
                                 </select>
-                                @error('glider_id')
-                                    <div class="invalid-feedback">
-                                        {{ $message }}
-                                    </div>
+                                @error('profession_id')
+                                <div class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </div>
                                 @enderror
                             </div>
 						</div>
