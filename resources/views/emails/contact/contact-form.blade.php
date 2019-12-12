@@ -1,15 +1,12 @@
 @component('mail::message')
-# Message de la part de {{ $data['last_name'] }} {{ $data['first_name'] }}
-E-mail : {{ $data['email'] }}
-Téléphone : {{ $data['phone'] }}
+<strong>Message de  : </strong> {{ $data['last_name'] }} {{ $data['first_name'] }} <br>
+<strong>E-mail : </strong> {{ $data['email'] }} <br>
+<strong>Téléphone : </strong> {{ $data['phone'] }} <br>
 
-Message :
+<strong>Message : </strong> <br>
 {{ $data['content'] }}
 
-@component('mail::button', ['url' => ''])
-Button Text
-@endcomponent
 
-Thanks,<br>
-{{ config('app.name') }}
+
+<br>
 @endcomponent

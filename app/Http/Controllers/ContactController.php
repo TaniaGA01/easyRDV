@@ -21,13 +21,19 @@ class ContactController extends Controller
     /**
      * Traitement des informations du formulaire de Contact
      */
-    public function store()
+    public function store(Request $request)
     {
         // Vérification des champs
         request()->validate([
             'last_name' => 'required',
             'email' => 'required | email',
             'content' => 'required | min:10'
+        ],[
+            'last_name.required' => 'Le nom est obligatoire',
+            'email.required' => 'L\'email est obligatoire.',
+            'email.email' => 'Adresse mail non valide.',
+            'content.required' => 'Veuillez entrer un message dans la zone de texte.',
+            'content.min' => 'Votre message est trop court',
         ]);
 
         $data = [
@@ -44,7 +50,9 @@ class ContactController extends Controller
         // Envoi dans la BDD
         Contact::create($data);
 
-        // On redirige vers la page d'accueil et on affiche le message 
-        return redirect('/')->with('message','Votre message a bien été envoyé');
+        // On redirige vers la page d'accueil et on affiche le message
+        $request->session()->flash('status',"Votre message à bien été envoyé");
+        $request->session()->flash('alert-class',"alert-success");
+        return redirect('/');
     }
 }
