@@ -2,7 +2,7 @@
 @section('content')
 <div class="container ptb-5">
     <div class="row">
-            <div class="form-style-5 bg-white shadow-sm col-4 px-6 py-6 min-height">
+            <div class="form-style-5 bg-white shadow-sm col-lg-4 col-md-12 px-6 py-6 min-height">
                 <img src="{{$user->image}}" class="card-img-top" alt="...">
                 <div class="card-body text-center">
                     <h5 class="card-title">{{ $user->first_name }} {{ Str::upper($user->last_name) }}</h5>
@@ -20,9 +20,9 @@
                 <a href="{{ route('clientArea.edit', Auth::user()->id) }}" class="btn btn-pr btn-block">Mes
                     informations personnelles</a>
                 @endif
-                
+
             </div>
-        <div class="col-8">
+        <div class="col-lg-8 col-md-12">
             @yield('contentPagePerso')
         </div>
     </div>
