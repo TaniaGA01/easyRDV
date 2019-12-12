@@ -27,9 +27,6 @@
                 <p><i class="fas fa-phone"></i><strong> Téléphone</strong><br>
                     <span>{{ $pro[0]->phone_number }}</span>
                 </p>
-                <p><i class="fas fa-globe"></i><strong> Site web</strong><br>
-                    <span>www.buroscope.bzh</span>
-                </p>
             </div>
         </div>
 
@@ -52,6 +49,8 @@
                 <h2>Prendre rendez-vous</h2>
 
                 @php
+                $date_now_tartempion = date('Y-m-d_H',strtotime('+1 hour'));
+
                 setlocale (LC_TIME, 'fr_FR.utf8','fra');
                 $date = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
                 $dateFr = strftime('%d %B %Y', strtotime($date));
@@ -133,7 +132,14 @@
                                     if ($tartempion==$value->data_tartempion) {
                                         // $id_rdv=$value->id;
                                         if ($value->id_client === $visiteur) {
-                                            $rdv='Mes rdv';
+                                            if($date_now_tartempion < $tartempion){
+                                                $rdv='Prochain rdv';
+                                            }elseif($date_now_tartempion > $tartempion){
+                                                $rdv='Rdv passé';
+                                            }else{
+                                                $rdv='Rdv en cours, kestufou dépêche toi !';
+                                            }
+                                            
                                             $add_class.=' rdv-loaded';
                                             $id_rdv=$value->id;
                                         }else {
