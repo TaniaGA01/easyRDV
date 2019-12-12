@@ -8,7 +8,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    @if (Route::currentRouteName() == 'search' || Route::currentRouteName() == 'welcome')
+    <title>{{ config('app.name', 'Laravel') }}, l'application de prise de rendez-vous des professionnels</title>
+    @else
     <title>@yield('meta_title') - {{ config('app.name', 'Laravel') }}</title>
+    @endif
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
