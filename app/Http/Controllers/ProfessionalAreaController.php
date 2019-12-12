@@ -220,6 +220,30 @@ class ProfessionalAreaController extends Controller
     }
 
     /**
+     * Update image Avatar
+     */
+    public function updateAvatar(Request $request){
+
+        if($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
+
+            $user = Auth::user();
+            $user->avatar = $filename;
+            $user->save();
+        }
+
+        // return view('profile', array('user' => Auth::user()) );
+        $cities = City::all();
+        return view('professionalArea/edit',[
+            'user' => $user,
+            'cities' => $cities
+        ]);
+    }
+
+
+    /**
      * Ajout d'un rdv dans l'agenda
      */
     public function storeRdv(StoreNewAppointment $request, $id){

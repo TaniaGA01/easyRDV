@@ -1,5 +1,8 @@
 @extends('layouts.persoArea')
 
+@section('meta_title')
+Mes informations personnelles - {{ $user->first_name }} {{ $user->last_name }}
+@endsection
 
 @section('contentPagePerso')
 <div class="container">
@@ -9,11 +12,22 @@
                 <div class="card-header">Mes informations personnelles</div>
 
                 <div class="card-body py-5">
+
+                    <form enctype="multipart/form-data" action="/profile" method="POST" style="max-width: 500px;margin: auto;margin-bottom: 25px;">
+
+                        <img src="/uploads/avatars/{{ $user->avatar }}" style="width:50px; height:50px; float:left; border-radius:50%; margin-right:25px;">
+
+                        <label>Selectionner une image de profil</label>
+                        <input type="file" name="avatar">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="submit" class="pull-right btn btn-sm btn-primary">
+                    </form>
+
                     <form  enctype="multipart/form-data" action="{{route('professionnelArea.update', Auth::user()->id)}}" method="POST">
                         @csrf
                         @isset($user) @method('PUT') @endisset
 
-                        <div class="form-group justify-content-center row">
+                        {{-- <div class="form-group justify-content-center row">
                             <div class="col-lg-10 col-md-12">
                             <label for="photo">Photo :</label>
                                 <div class="custom-file">
@@ -21,7 +35,7 @@
                                     <label class="custom-file-label" for="customFile">Selectionner une photo</label>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group justify-content-center row">
                             <div class="col-lg-10 col-md-12">
