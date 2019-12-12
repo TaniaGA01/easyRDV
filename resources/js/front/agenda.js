@@ -34,7 +34,7 @@ function getForm(id,pro,message,token,status,content,idRdv) {
     let modalTitle = document.createElement('h5');
     let modalClose = document.createElement('button');
     let modalSpan =document.createElement('span');
-    setAttributes(modal, {"class": "modal", "tab-index":"-1", "role":"dialog"});
+    setAttributes(modal, {"class": "modal fenetre-modale", "tab-index":"-1", "role":"dialog"});
     setAttributes(modalDialog, {"class": "modal-dialog", "role":"document"});
     modalHeader.classList.add("modal-header");
     modalTitle.classList.add("modal-title");
