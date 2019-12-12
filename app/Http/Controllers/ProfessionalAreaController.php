@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\City;
 use App\Appointment;
+use Image;
 use App\Http\Requests\StoreNewAppointment;
 use Auth;
 
@@ -218,6 +219,30 @@ class ProfessionalAreaController extends Controller
             'user' => $user,
             ]);
     }
+
+    /**
+     * Update image Avatar
+     */
+    public function updateAvatar(Request $request){
+
+        if($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
+
+            $user = Auth::user();
+            $user->avatar = $filename;
+            $user->save();
+        }
+
+        // return view('profile', array('user' => Auth::user()) );
+        $cities = City::all();
+        return view('professionalArea/edit',[
+            'user' => $user,
+            'cities' => $cities
+        ]);
+    }
+
 
     /**
      * Ajout d'un rdv dans l'agenda
