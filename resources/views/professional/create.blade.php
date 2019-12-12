@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('meta_title')
+Inscription gratuite pour les professionnels
+@endsection
+
 @section('content')
 <div class="container ptb-5">
     <div class="row">
