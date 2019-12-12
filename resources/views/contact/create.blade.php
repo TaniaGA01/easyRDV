@@ -3,7 +3,13 @@
 @section('content')
 <div class="container ptb-5">
     <div class="row justify-content-center ">
-        <div class="col-md-8">
+        <div class="title">
+            <h1>Nous vous approchons à vos clients potentiels avec notre agenda en ligne</h1>
+        </div>
+        <div class="col-lg-5 col-md-12">
+            
+        </div>
+        <div class="col-lg-7 col-md-12">
             <div class="card">
                 <div class="card-header">Nous contacter</div>
 
