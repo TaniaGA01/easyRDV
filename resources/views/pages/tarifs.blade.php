@@ -2,6 +2,10 @@
 
 @extends('layouts.app')
 
+@section('meta_title')
+Nos tarifs
+@endsection
+
 @section('content')
 
 <section class="pricing py-5">

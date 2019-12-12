@@ -1,7 +1,7 @@
 @extends('layouts.persoArea')
 
 @section('meta_title')
-Mes rendez-vous, {{ $user->first_name }} {{ $user->last_name }}
+Mes rendez-vous professionnels - {{ $user->first_name }} {{ $user->last_name }}
 @endsection
 
 @section('contentPagePerso')

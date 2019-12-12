@@ -1,8 +1,10 @@
 @extends('layouts.persoArea')
+
+@section('meta_title')
+Mon agenda professionnel - {{ $user->first_name }} {{ $user->last_name }}
+@endsection
+
 @section('contentPagePerso')
-
-
-
 
         <div class="scheduler bg-white shadow-sm px-6 py-6">
 
@@ -28,7 +30,7 @@
             $previousDay = date('Y-m-d', strtotime($date .' -1 day'));
             $nextDay = date('Y-m-d', strtotime($date .' +1 day'));
 
-            $linkPrevDay = '<a href="?date='.$previousDay.'"><i class="fas fa-arrow-left"></i></a>'; 
+            $linkPrevDay = '<a href="?date='.$previousDay.'"><i class="fas fa-arrow-left"></i></a>';
             $linkNextDay='<a href="?date=' .$nextDay.'"><i class="fas fa-arrow-right"></i></a>';
             @endphp
 
@@ -47,9 +49,9 @@
                         $timeEnd = 18;
 
                         for($i=$timeStart; $i<=$timeEnd; $i++){
-                            if($i<10){ 
+                            if($i<10){
                                 $i="0" .$i;
-                            } 
+                            }
                             $tartempion=$date.'_'.$i;
                             $rdv='#';
                             $add_class='data-rdv page-agenda agenda-mobile';
@@ -104,7 +106,7 @@
             $monthFindFr = mb_strtoupper(utf8_encode(strftime('%B %Y', strtotime($date)))); // novembre 2019
             echo "<h5 class=\"text-center\">$monthFindFr</h5>";
 
-            
+
             // $dd = strftime('%A %d', strtotime($date)); // vendredi 29
 
 
@@ -171,8 +173,8 @@
             @endphp
             </tbody>
             </table>
-       
-    
+
+
 </div>
 </div>
 @endsection

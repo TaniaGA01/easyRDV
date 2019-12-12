@@ -1,4 +1,9 @@
 @extends('layouts.persoArea')
+
+@section('meta_title')
+Mes rendez-vous - {{ $user->first_name }} {{ $user->last_name }}
+@endsection
+
 @section('contentPagePerso')
 <div class="container">
     <div class="row justify-content-center">
