@@ -39,7 +39,7 @@
                             <span class="navbar-toggler-icon"></span>
                         </button>
 
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div class="collapse navbar-collapse shadow" id="navbarSupportedContent">
                             <ul class="navbar-nav ml-auto">
                                 <li class="nav-item">
                                     <a class="nav-link menu-it" href="{{route('about')}}">A propos</a>
@@ -90,7 +90,7 @@
                                     <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-right shadow" aria-labelledby="navbarDropdown">
                                     @if(Auth::user()->role_id == 2)
                                     <a class="dropdown-item menu-it"
                                         href="{{ route('professionnelArea.indexAgenda', Auth::user()->id) }}">Mon agenda</a>
