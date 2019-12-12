@@ -12,7 +12,7 @@
 */
 
 // Page d'accueil/recherche
-Route::view('/','welcome');
+Route::view('/','welcome')->name('welcome');
 Route::get('/json','HomeController@tableau_1');
 Route::get('/json-loc','HomeController@tableau_2');
 Route::get('/json-pros','HomeController@tableau_3');
