@@ -21,6 +21,9 @@
 .bck-bleu{
     background-color: var(--bleu);
 }
+.bck-gray{
+    background-color: var(--gris);
+}
 
 /* =============== padding/margin ====================*/
 .ptb-2{padding: 2rem 0;}
@@ -394,10 +397,12 @@ form h3 {
     font-size: 1.6rem;
     font-weight: 700;
 }
-.proInfo h2{
+.proInfo h1 span {
     color: var(--orange);
     font-size: 1.4rem;
     margin-bottom: 2rem;
+    font-weight: 500;
+    line-height: 1.2;
 }
 .proInfoCard{
     padding-top: 3rem;
@@ -461,6 +466,18 @@ form h3 {
 .about-img img {
     width: 120%;
 }
+/* ================ contact =====================*/
+.map{
+    position: relative;
+}
+.contact-info{
+    position: absolute;
+    width: 70%;
+    height: 20rem;
+    bottom: 0;
+}
+
+
 /* ================ footer =====================*/
 
 footer{
@@ -568,8 +585,22 @@ footer p {
         border-bottom: solid 1px var(--bleu-fc);
 
     }
+    .navbar-collapse{
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    }
     .navbar .btn-item-pro{
         padding: 10px 0;
+    }
+    .about-img img {
+        width: 100%;
+    }
+    .map{
+        width: 100%;
+    }
+    .contact-info {
+        width: 100%;
+        position: relative;
+        margin: 2rem 0;
     }
     footer, .footer-nav{
         text-align: center;
@@ -578,9 +609,7 @@ footer p {
         padding: 2rem 0;
     }
 
-    .about-img img {
-        width: 100%;
-    }
+
 
   }
 
