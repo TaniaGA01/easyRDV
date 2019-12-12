@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('meta_title')
+@if ($user->first_name || $user->last_name)
+Mes informations personnelles - {{ $user->first_name }} {{ $user->last_name }}
+@else
+Mes informations personnelles
+@endif
+@endsection
+
 @section('content')
 
 <div class="container ptb-5">
@@ -48,7 +56,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-3">
-                                <input class="form-control input-search @error('city') is-invalid @enderror" id="city" list="cities" name="city" placeholder="Villes @if($user->role_id == 2)* @endif" value="@isset($user->city_id){{ $user->city->name_ville }}@else{{ old('city') }}@endisset"> 
+                                <input class="form-control input-search @error('city') is-invalid @enderror" id="city" list="cities" name="city" placeholder="Villes @if($user->role_id == 2)* @endif" value="@isset($user->city_id){{ $user->city->name_ville }}@else{{ old('city') }}@endisset">
                                 <datalist id="cities">
                                 @foreach($cities as $city)
                                     <option data-value="{{ $city->id }}" value="{{ $city->name_ville }}">
