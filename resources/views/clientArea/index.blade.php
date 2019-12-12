@@ -6,17 +6,17 @@ Mes rendez-vous - {{ $user->first_name }} {{ $user->last_name }}
 
 @section('contentPagePerso')
 <div class="container">
-    @if (session('status'))
-    <div class="row justify-content-center ">
-        <div class="col-md-12">
-            <div class="alert {{ session('alert-class') }}" role="alert">
-                <i class="fas fa-check-circle"></i> {{ session('status') }}
-            </div>
-        </div>
-    </div>
-    @endif
     <div class="row justify-content-center">
         <div class="my-appointments bg-white shadow-sm col-md-12 px-5 py-5">
+            @if (session('status'))
+            <div class="row justify-content-center ">
+                <div class="col-md-12">
+                    <div class="alert {{ session('alert-class') }}" role="alert">
+                        <i class="fas fa-check-circle"></i> {{ session('status') }}
+                    </div>
+                </div>
+            </div>
+            @endif
             @if(count($tab_appointments)>0)
 
             <div class="container">
