@@ -1,7 +1,7 @@
 @extends('layouts.persoArea')
 
 @section('meta_title')
-Mon agenda, {{ $user->first_name }} {{ $user->last_name }}
+Mon agenda professionnel - {{ $user->first_name }} {{ $user->last_name }}
 @endsection
 
 @section('contentPagePerso')

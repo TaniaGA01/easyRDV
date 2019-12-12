@@ -1,5 +1,8 @@
 @extends('layouts.persoArea')
 
+@section('meta_title')
+Mes informations personnelles - {{ $user->first_name }} {{ $user->last_name }}
+@endsection
 
 @section('contentPagePerso')
 <div class="container">
