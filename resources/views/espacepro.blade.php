@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('meta_title')
+{{ $pro[0]->last_name }} {{ $pro[0]->first_name }}, {{ $pro[0]->profession->name }} à {{ Str::title($pro[0]->city->name_ville) }}
+@endsection
+
 @section('content')
 
 @isset($pro[0])
@@ -139,7 +143,7 @@
                                             }else{
                                                 $rdv='Rdv en cours, kestufou dépêche toi !';
                                             }
-                                            
+
                                             $add_class.=' rdv-loaded';
                                             $id_rdv=$value->id;
                                         }else {

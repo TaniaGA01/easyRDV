@@ -8,7 +8,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    @if (Route::currentRouteName() == 'search' || Route::currentRouteName() == 'welcome')
+    <title>{{ config('app.name', 'Laravel') }}, l'application de prise de rendez-vous des professionnels</title>
+    @else
+    <title>@yield('meta_title') - {{ config('app.name', 'Laravel') }}</title>
+    @endif
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -27,7 +31,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('img/logo-easy-rdv.svg') }}" alt="{{ config('app.name', 'Laravel') }}"
+                    <img src="{{ asset('img/logo-easy-rdv.svg') }}" alt="Logo {{ config('app.name', 'Laravel') }}"
                         width="150">
                 </a>
 

@@ -80,7 +80,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <small id="emailHelp" class="form-text text-muted mb-3">(*) Champs obligatoires</small>
+                        <small id="emailHelp" class="form-text text-muted mb-3 ml-5 pl-3">(*) Champs obligatoires</small>
                         <div class="form-group justify-content-center row">
                             <div class="col-lg-10 col-md-12">
                                 <input type="submit" class="btn-pr btn-block " value="Envoyer le message"></button>
