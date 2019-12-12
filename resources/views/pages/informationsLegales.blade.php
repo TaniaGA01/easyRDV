@@ -2,6 +2,10 @@
 
 @extends('layouts.app')
 
+@section('meta_title')
+Informations légales
+@endsection
+
 @section('content')
     <div class="container">
         <div class="container ptb-5">
