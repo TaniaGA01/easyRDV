@@ -70,7 +70,7 @@ Route::post('mes-rendez-vous/{id}/delete','ProfessionalAreaController@deleteAppo
 Route::post('mes-rendez-vous/{id}/update','ProfessionalAreaController@updateAppointment')->where('id','[0-9]+')->name('professionnelArea.updateAppointment')->middleware('verified')->middleware('completedPersonalInformation');
 
 Route::get('mes-informations/{id}/editer','ProfessionalAreaController@edit')->where('id','[0-9]+')->name('professionnelArea.edit')->middleware('verified')->middleware('completedPersonalInformation');
-Route::post('mes-informations/{id}/avatar', 'ProfessionalAreaController@updateAvatar');
+Route::post('mes-informations/{id}/avatar', 'ProfessionalAreaController@updateAvatar')->where('id','[0-9]+')->name('professionnelArea.updateAvatar')->middleware('verified')->middleware('completedPersonalInformation');
 Route::put('mes-informations/{id}','ProfessionalAreaController@update')->where('id','[0-9]+')->name('professionnelArea.update')->middleware('verified')->middleware('completedPersonalInformation');
 
 

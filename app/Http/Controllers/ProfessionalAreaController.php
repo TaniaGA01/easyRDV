@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\City;
 use App\Appointment;
+use Image;
 use App\Http\Requests\StoreNewAppointment;
 use Auth;
 
