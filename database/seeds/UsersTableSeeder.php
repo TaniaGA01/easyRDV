@@ -25,6 +25,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '10',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Crevard',
@@ -37,6 +38,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '11',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Connare',
@@ -49,6 +51,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '11',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Bastar',
@@ -61,6 +64,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '11',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Baveux',
@@ -73,6 +77,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '11',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Fissdeuh',
@@ -85,6 +90,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '11',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Lescrault',
@@ -97,6 +103,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '11',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Collard',
@@ -109,6 +116,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '11',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'La Barbu',
@@ -121,6 +129,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '12',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Aupouhalt',
@@ -133,6 +142,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '12',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'De Taille',
@@ -145,6 +155,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '12',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Dupoil',
@@ -157,6 +168,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '12',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Sete',
@@ -169,6 +181,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '12',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Nougaret',
@@ -181,6 +194,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '12',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'De la Vieille Barbe',
@@ -193,6 +207,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '12',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Palat',
@@ -205,6 +220,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '12',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Warlord',
@@ -217,6 +233,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '5',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Rockfeller',
@@ -229,6 +246,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '5',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Dus',
@@ -241,6 +259,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '5',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Lear',
@@ -253,6 +272,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '5',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Nicholson',
@@ -265,6 +285,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '1',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Cabochard',
@@ -277,6 +298,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '1',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Dubois',
@@ -289,6 +311,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '6',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Le Men',
@@ -301,6 +324,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '6',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Poulpe',
@@ -313,6 +337,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '6',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Géraldounet',
@@ -325,6 +350,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '7',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Glandu',
@@ -337,6 +363,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '7',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Le Tondu',
@@ -349,6 +376,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '8',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Hamon',
@@ -361,6 +389,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '9',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Gatsby',
@@ -373,6 +402,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '10',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Raffarin',
@@ -385,6 +415,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '13',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Rypkonovitch',
@@ -397,6 +428,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '14',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Komovitch',
@@ -409,6 +441,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '14',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Latanneuse',
@@ -421,6 +454,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '14',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Lemito',
@@ -433,6 +467,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '15',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Zemmour',
@@ -445,6 +480,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '15',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Chiffre',
@@ -457,6 +493,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '15',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Reactavel',
@@ -469,6 +506,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '16',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'De La Joie',
@@ -481,6 +519,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '16',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'La Baston',
@@ -493,6 +532,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '16',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Lechok',
@@ -505,6 +545,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '17',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Harvey',
@@ -517,6 +558,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '18',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Lesouague',
@@ -529,6 +571,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '18',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Sapin',
@@ -541,6 +584,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '19',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Winston',
@@ -553,6 +597,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '19',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Folamour',
@@ -565,6 +610,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '19',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Pala',
@@ -577,6 +623,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '20',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Gibbs',
@@ -589,6 +636,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '21',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Morvan',
@@ -601,6 +649,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '21',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'De la Bonne Idée',
@@ -613,6 +662,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '22',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Le Tive',
@@ -625,6 +675,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '23',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Le Breton',
@@ -637,6 +688,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '24',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Pouloupou',
@@ -649,6 +701,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '25',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
             [
                 'last_name' => 'Lafleur',
@@ -661,6 +714,7 @@ class UsersTableSeeder extends Seeder
                 'profession_id' => '26',
                 'image' => 'https://picsum.photos/200/200',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
             ],
         ]);
     }
