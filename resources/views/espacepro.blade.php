@@ -14,8 +14,7 @@
         <div class="proInfo bg-white shadow-sm col-lg-4 col-md-12 px-6 py-6 min-height">
             <img src="{{$pro[0]->image}}" class="card-img-top" alt="...">
             <div class="proInfoCard">
-                <h1>{{ $pro[0]->first_name }} {{ Str::upper($pro[0]->last_name) }}</h1>
-                <h2>{{ $pro[0]->profession->name }}</h2>
+                <h1>{{ $pro[0]->first_name }} {{ Str::upper($pro[0]->last_name) }}<br /><span>{{ $pro[0]->profession->name }}<br />{{ $pro[0]->city->name_ville }}</span></h1>
                 <p><i class="far fa-calendar-alt"></i><strong> Horaires</strong><br>
                     <span>Lundi au vendredi 8h - 18h</span>
                 </p>
