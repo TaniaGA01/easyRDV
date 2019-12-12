@@ -232,6 +232,15 @@ form h3 {
 .form-pros-accueil {
     margin-top: 4rem;
 }
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-border-radius: 0px;
+    background-image: url("https://image.flaticon.com/icons/svg/60/60781.svg");
+    background-position: 99% 50%;
+    background-repeat: no-repeat;
+    background-size: 16px;
+  }
 
 /*================== list resultats =================*/
 .list-results{
@@ -396,10 +405,11 @@ form h3 {
     color: var(--bleu);
     font-size: 1.6rem;
     font-weight: 700;
+    margin-bottom: 3rem;
 }
 .proInfo h1 span {
     color: var(--orange);
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin-bottom: 2rem;
     font-weight: 500;
     line-height: 1.2;
@@ -475,8 +485,22 @@ form h3 {
     width: 70%;
     height: 20rem;
     bottom: 0;
+    color: var(--white);
 }
-
+.contact-info h3{
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+.contact-info p{
+    padding: 12px 0;
+    margin: 0;
+}
+.contact-info i{
+    margin-right: 10px;
+}
+.contact-info span{
+    margin-left: 22px;
+}
 
 /* ================ footer =====================*/
 

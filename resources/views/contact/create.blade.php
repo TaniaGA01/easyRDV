@@ -13,7 +13,9 @@ Nous contacter
                 <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10657.273766789185!2d-1.6311037!3d48.1040925!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xaaeab7e3b81b7174!2sBuroscope!5e0!3m2!1sfr!2sfr!4v1576161337423!5m2!1sfr!2sfr" width="100%" height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
                 <div class="contact-info bck-bleu shadow-sm px-6 py-6 min-height justify-content-center ">
                     <h3>Siège social</h3>
-
+                    <p><i class="fas fa-map-marker"></i>4 Rue de Bray, 35510 <span>Cesson-Sévigné</span></p>
+                    <p><i class="fas fa-phone"></i>02 99 22 84 84</p>
+                    <p><i class="fa fa-paper-plane" aria-hidden="true"></i>contact@easyrdv.com</p>
                 </div>
         </div>
         <div class="col-lg-7 col-md-12">
