@@ -24,16 +24,29 @@ class UserInfoController extends Controller
         $user = User::findOrFail($userId);
         $role_id = $user->role_id;
 
-        $this->validate($request,[
-            'first_name' => 'bail|required',
-            'last_name' => 'bail|required',
-            'phone_number' => 'bail|required',
-        ]);
-
         if($role_id == 2){
             $this->validate($request,[
-                'city' => 'bail|required',
-                'adresse' => 'bail|required',
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'phone_number' => 'required',
+                'city' => 'required',
+                'adresse' => 'required',
+            ],[
+                'first_name.required' => 'Le prénom est obligatoire.',
+                'last_name.required' => 'Le nom est obligatoire.',
+                'phone_number.required' => 'Le numéro de téléphone est obligatoire.',
+                'city.required' => 'La ville est obligatoire.',
+                'adresse.required' => 'L\'adresse est obligatoire.',
+            ]);
+        }else{
+            $this->validate($request,[
+                'first_name' => 'required',
+                'last_name' => 'required',
+                'phone_number' => 'required',
+            ],[
+                'first_name.required' => 'Le prénom est obligatoire.',
+                'last_name.required' => 'Le nom est obligatoire.',
+                'phone_number.required' => 'Le numéro de téléphone est obligatoire.',
             ]);
         }
 
@@ -57,6 +70,14 @@ class UserInfoController extends Controller
 
         $request->session()->flash('status',"Vos informations personnelles ont bien été ajoutées");
         $request->session()->flash('alert-class',"alert-success");
-        return view('/home');
+
+        if($role_id == 2){
+            return redirect()->action('ProfessionalAreaController@indexAppointment', ['id' => $userId]);
+        }
+        elseif($role_id == 3){
+            return redirect()->action('ClientAreaController@index', ['id' => $userId]);
+        }else{
+            return view('welcome');
+        }
     }
 }

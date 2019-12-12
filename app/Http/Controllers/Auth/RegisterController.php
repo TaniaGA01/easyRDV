@@ -48,16 +48,48 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        $validator = Validator::make($data,
-        [
-            // 'name' => ['required', 'string', 'max:255'],
-            'email_register' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
-            'password_register' => ['required', 'string', 'min:6', 'confirmed'],
-            'cgu_register' => ['accepted']
-        ],
-        [
-            'accepted'=> 'Les conditions d\'utilisation doivent être acceptées'
-        ]);
+        if(array_key_exists('professional',$data) && array_key_exists('profession_id',$data)){
+            $validator = Validator::make($data,
+            [
+                'email_register' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+                'password_register' => ['required', 'string', 'min:6', 'confirmed'],
+                'cgu_register' => 'accepted',
+                'profession_id' => 'integer'
+            ],
+            [
+                'email_register.required' => 'L\'email est obligatoire.',
+                'email_register.email' => 'Adresse mail non valide.',
+                'email_register.unique' => 'Cette email est déjà utilisée.',
+
+                'password_register.required' => 'Le mot de passe est obligatoire.',
+                'password_register.min' => 'Les mots de passe doivent au moins avoir 6 caractères.',
+                'password_register.confirmed' => 'Les mots de passe ne correspondent pas.',
+
+                'accepted' => 'Les conditions générales d\'utilisation doivent être acceptées',
+
+                'integer' => 'Vous devez selectionner un métier'
+            ]);
+        }else{
+            $validator = Validator::make($data,
+            [
+                'email_register' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+                'password_register' => ['required', 'string', 'min:6', 'confirmed'],
+                'cgu_register' => ['accepted']
+            ],
+            [
+                'email_register.required' => 'L\'email est obligatoire.',
+                'email_register.email' => 'Adresse mail non valide.',
+                'email_register.unique' => 'Cette e-mail est déjà utilisée.',
+
+                'password_register.required' => 'Le mot de passe est obligatoire.',
+                'password_register.min' => 'Les mots de passe doivent au moins avoir 6 caractères.',
+                'password_register.confirmed' => 'Les mots de passe ne correspondent pas.',
+
+                'accepted'=> 'Les conditions générales d\'utilisation doivent être acceptées'
+            ]);
+        }
+
+        
 
         $validator->setAttributeNames([
             'email_register' => 'email',
@@ -84,7 +116,6 @@ class RegisterController extends Controller
         }
 
         return User::create([
-            // 'name' => $data['name'],
             'email' => $data['email_register'],
             'password' => Hash::make($data['password_register']),
             'role_id' => $role_id,
