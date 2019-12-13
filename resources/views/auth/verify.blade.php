@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('meta_title')
+Vérification inscription
+@endsection
+
 @section('content')
 <div class="container ptb-5">
     <div class="row justify-content-center">
