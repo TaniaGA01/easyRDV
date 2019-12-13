@@ -22,7 +22,7 @@
     background-color: var(--bleu);
 }
 .bck-gray{
-    background-color: var(--gris);
+    background-color: var(--gris-cl);
 }
 
 /* =============== padding/margin ====================*/
@@ -237,9 +237,9 @@ select {
     -moz-appearance: none;
     -webkit-border-radius: 0px;
     background-image: url("https://image.flaticon.com/icons/svg/60/60781.svg");
-    background-position: 99% 50%;
+    background-position: 97% 50%;
     background-repeat: no-repeat;
-    background-size: 16px;
+    background-size: 12px;
   }
 
 /*================== list resultats =================*/
@@ -502,6 +502,15 @@ select {
     margin-left: 22px;
 }
 
+/* ================ alert =====================*/
+
+.alert-popup{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    top: 0;
+    margin-top: 1.4rem;
+}
 /* ================ footer =====================*/
 
 footer{
