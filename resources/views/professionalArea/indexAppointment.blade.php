@@ -6,18 +6,18 @@ Mes rendez-vous professionnels - {{ $user->first_name }} {{ $user->last_name }}
 
 @section('contentPagePerso')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="my-past-appointments bck-gray shadow-sm col-md-12 px-5 py-5">
-            @if (session('status'))
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    <div class="alert {{ session('alert-class') }}" role="alert">
-                        <i class="fas fa-check-circle"></i> {{ session('status') }}
-                    </div>
+    <div class="row justify-content-center position-relative">
+        @if (session('status'))
+            <div class="my-appointments bg-white shadow-sm col-md-12 px-5 py-5">
+                <div class="alert {{ session('alert-class') }} shadow" role="alert">
+                    <i class="fas fa-check-circle"></i> {{ session('status') }}
                 </div>
             </div>
-            @endif
-            @if(count($tab_my_activities_content)>0)
+
+        @endif
+        @if(count($tab_my_activities_content)>0)
+        <div class="my-appointments bck-gray shadow-sm col-md-12 px-5 py-5">
+
 
             <div class="container">
                 <h2>Mes activités</h2>
@@ -49,8 +49,9 @@ Mes rendez-vous professionnels - {{ $user->first_name }} {{ $user->last_name }}
                     @endforeach
                 </div>
             </div>
-            @endif
+
         </div>
+        @endif
     </div>
     <div class="row justify-content-center">
         <div class="my-appointments bg-white shadow-sm col-md-12 px-5 py-5">

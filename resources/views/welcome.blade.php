@@ -2,15 +2,15 @@
 
 @section('content')
 <section class="professional-search">
-    <div class="container ptb-5 ">
+    <div class="container ptb-5 position-relative">
         <div class="title">
             <h1>Trouvez des professionnels et demandez gratuitement rendez-vous en ligne</h1>
             <a class="btn btn-sec" href="{{ route('login') }}">{{ __('S\'inscrire') }}</a>
         </div>
         @if (session('status'))
-        <div class="row justify-content-center ">
+        <div class="row justify-content-center alert-popup ">
             <div class="col-md-8 col-sm-12">
-                <div class="alert {{ session('alert-class') }}" role="alert">
+                <div class="alert {{ session('alert-class') }} shadow" role="alert">
                     <i class="fas fa-exclamation-triangle"></i> {{ session('status') }}
                 </div>
             </div>

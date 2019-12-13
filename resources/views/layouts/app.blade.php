@@ -48,9 +48,11 @@
                                 <li class="nav-item">
                                     <a class="nav-link menu-it" href="{{route('about')}}">A propos</a>
                                 </li>
+                                @if(Auth::check() && Auth::user()->role_id == 2)
                                 <li class="nav-item">
                                     <a class="nav-link menu-it" href=" {{route('price')}}">Tarifs</a>
                                 </li>
+                                @endif
                                 <li class="nav-item">
                                     <a class="nav-link menu-it" href="{{route('contact.create')}}">Nous contacter</a>
                                 </li>
