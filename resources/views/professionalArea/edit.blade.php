@@ -36,28 +36,26 @@ Mes informations personnelles - {{ $user->first_name }} {{ $user->last_name }}
                                 </div>
                             </div>
                         </div> --}}
-
-                        <div class="form-group justify-content-center row">
-                            <div class="col-lg-10 col-md-12">
-                                <label for="last_name">Nom :</label>
-                                <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="@isset($user){{$user->last_name}}@else{{ old('last_name') }}@endisset">
-
-                                @error('last_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('last_name') }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
                         <div class="form-group justify-content-center row">
                             <div class="col-lg-10 col-md-12">
                                 <label for="first_name">Prénom :</label>
-                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="@isset($user){{$user->first_name}}@else{{ old('first_name') }}@endisset">
+                                <input id="first_name" disabled type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="@isset($user){{$user->first_name}}@else{{ old('first_name') }}@endisset">
 
                                 @error('first_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('first_name') }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group justify-content-center row">
+                            <div class="col-lg-10 col-md-12">
+                                <label for="last_name">Nom :</label>
+                                <input id="last_name" disabled type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="@isset($user){{$user->last_name}}@else{{ old('last_name') }}@endisset">
+
+                                @error('last_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('last_name') }}</strong>
                                     </span>
                                 @enderror
                             </div>
