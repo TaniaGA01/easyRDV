@@ -140,6 +140,8 @@ class ClientAreaController extends Controller
      */
     public function update(Request $request, $id){
         $user = User::find($id);
+        $user_id = Auth::id();
+
         //dd($user);
 
         // #TODO champs requis ?
@@ -175,10 +177,7 @@ class ClientAreaController extends Controller
 
         $request->session()->flash('status',"Vos informations personnelles ont bien été modifiées");
         $request->session()->flash('alert-class',"alert-success");
-        return view('clientArea/index',[
-            'user' => $user,
-            ]);
-
+        return redirect()->action('ClientAreaController@index', ['id' => $user_id]);
     }
 
 

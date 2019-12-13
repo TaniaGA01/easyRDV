@@ -185,6 +185,7 @@ class ProfessionalAreaController extends Controller
     public function update(Request $request, $id){
 
         $user = User::find($id);
+        $user_id = Auth::id();
         //dd($user);
 
         request()->validate([
@@ -215,9 +216,7 @@ class ProfessionalAreaController extends Controller
 
         $request->session()->flash('status',"Vos information personnelles ont bien été modifiés");
         $request->session()->flash('alert-class',"alert-success");
-        return view('professionalArea/indexAgenda',[
-            'user' => $user,
-            ]);
+        return redirect()->action('ProfessionalAreaController@indexAgenda', ['id' => $user_id]);
     }
 
     /**
