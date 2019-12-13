@@ -71,7 +71,7 @@ class ProfessionTableSeeder extends Seeder
                 'name' => 'Oncologue'
             ],
             [
-                'name' => 'Lécheurs-de-timbre'
+                'name' => 'Lécheur-de-timbre'
             ],
             [
                 'name' => 'Taxidermiste'
