@@ -1,5 +1,5 @@
 @component('mail::message')
-Bonjour !
+<h3>Bonjour !</h3>
 
 Veuillez cliquer sur le bouton ci-dessous pour vérifier votre adresse mail.
 

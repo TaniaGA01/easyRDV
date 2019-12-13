@@ -77,7 +77,7 @@ h3 {
 
 p {
     color: var(--bleu);;
-    font-size: 16px;
+    font-size: 1.1rem;
     line-height: 1.5em;
     margin-top: 0;
     text-align: left;
@@ -130,7 +130,7 @@ img {
 /* Body */
 
 .body {
-    background-color: #ffffff;
+    background-color: var(--orange-clair);
     border-bottom: 1px solid #edeff2;
     border-top: 1px solid #edeff2;
     margin: 0;
@@ -143,9 +143,9 @@ img {
 
 .inner-body {
     background-color: #ffffff;
-    margin: 0 auto;
+    margin: 30px auto;
     padding: 0;
-    width: 570px;
+    width: 650px;
     -premailer-cellpadding: 0;
     -premailer-cellspacing: 0;
     -premailer-width: 570px;
@@ -321,9 +321,8 @@ img {
     position: relative;
 }
 
-.h3{
-text-align: center;
-font-weight: 600;
-color: var(--bleu);
-font-size: 1.47rem;
+h3{
+    font-weight: 600;
+    color: var(--bleu);
+    font-size: 1.47rem;
 }
