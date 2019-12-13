@@ -32,7 +32,7 @@ class ProfessionTableSeeder extends Seeder
                 'name' => 'Ramasseur-de-champignons'
             ],
             [
-                'name' => 'Flyfu**er'
+                'name' => 'Flyfu--er'
             ],
             [
                 'name' => 'Moine-à-temps-partiel'
