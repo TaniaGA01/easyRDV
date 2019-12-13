@@ -56,7 +56,7 @@ class ProfessionTableSeeder extends Seeder
                 'name' => 'Web-designer'
             ],
             [
-                'name' => 'Péripapétitien*ne'
+                'name' => 'Péripapétitienne'
             ],
             [
                 'name' => 'Développeur-Web'
