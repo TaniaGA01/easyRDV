@@ -9,6 +9,7 @@ use App\Appointment;
 use Image;
 use App\Http\Requests\StoreNewAppointment;
 use Auth;
+use App\Rules\CityExists;
 
 class ProfessionalAreaController extends Controller
 {
@@ -189,12 +190,12 @@ class ProfessionalAreaController extends Controller
         //dd($user);
 
         request()->validate([
-            // 'last_name' => 'bail | required | min:3',
-            // 'first_name' => 'bail | required | min:3',
-            'email' => 'bail | required | email',
-            'phone' => 'bail | required',
-            'adresse' => 'bail | required',
-            'city' => 'bail | required'
+            // 'last_name' => 'required | min:3',
+            // 'first_name' => 'required | min:3',
+            'email' => 'required | email',
+            'phone' => 'required',
+            'adresse' => 'required',
+            'city' => new CityExists
         ]);
 
         $city = $request->input('city');
