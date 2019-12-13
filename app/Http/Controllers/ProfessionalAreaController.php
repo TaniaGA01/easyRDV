@@ -189,8 +189,8 @@ class ProfessionalAreaController extends Controller
         //dd($user);
 
         request()->validate([
-            'last_name' => 'bail | required | min:3',
-            'first_name' => 'bail | required | min:3',
+            // 'last_name' => 'bail | required | min:3',
+            // 'first_name' => 'bail | required | min:3',
             'email' => 'bail | required | email',
             'phone' => 'bail | required',
             'adresse' => 'bail | required',
@@ -202,8 +202,8 @@ class ProfessionalAreaController extends Controller
         $city_id = $city_input->id;
 
         $data = [
-            'last_name' => request('last_name'),
-            'first_name' => request('first_name'),
+            // 'last_name' => request('last_name'),
+            // 'first_name' => request('first_name'),
             'email' => request('email'),
             'phone_number' => request('phone'),
             'adresse' => request('adresse'),
