@@ -103,13 +103,11 @@
                                         rendez-vous</a>
                                     <a class="dropdown-item menu-it"
                                         href="{{ route('professionnelArea.edit', Auth::user()->id) }}">Mes infos perso</a>
-                                    <a class="dropdown-item menu-it" href="{{ url('/profile') }}">Profil</a>
                                     @elseif(Auth::user()->role_id == 3)
                                     <a class="dropdown-item menu-it" href="{{ route('clientArea.index', Auth::user()->id) }}">Mes
                                         rendez-vous</a>
                                     <a class="dropdown-item menu-it" href="{{ route('clientArea.edit', Auth::user()->id) }}">Mes
                                         infos perso</a>
-                                    <a class="dropdown-item menu-it" href="{{ url('/profile') }}">Profil</a>
                                     @endif
 
 
