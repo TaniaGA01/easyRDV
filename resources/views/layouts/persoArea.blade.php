@@ -5,11 +5,19 @@
     <div class="row">
             <div class="form-style-5 col-lg-4 col-md-12 min-height">
                 <div class="card-body text-center bg-white px-6 py-6 shadow-sm">
-                        <img src="@isset($user->image)/uploads/photos/{{ $user->image }}@else/uploads/photos/default.png @endisset" class="card-img-top" alt="...">
-                    <h5 class="card-title">{{ $user->first_name }} {{ Str::upper($user->last_name) }}</h5>
-                    @if($user->role_id == 2)
-                    <p class="card-text">{{ $user->profession->name }}</p>
-                    @endif
+                    <div class="row">
+                        <div class="col-4 p-0">
+                                <div class="persoPhoto">
+                                        <img src="@isset($user->image)/uploads/photos/{{ $user->image }}@else/uploads/photos/default.png @endisset" class="card-img-top" alt="...">
+                                    </div>
+                        </div>
+                        <div class="col-8 persoName">
+                                <h2>{{ $user->first_name }} {{ Str::upper($user->last_name) }}</h2>
+                                @if($user->role_id == 2)
+                                <p>{{ $user->profession->name }}</p>
+                        </div>
+                        @endif
+                    </div>
                 </div>
                 @if(Auth::user()->role_id == 3)
                     <form class="bg-white px-5 pt-4 mt-2 pb-2 shadow-sm" method="POST" autocomplete="off">
