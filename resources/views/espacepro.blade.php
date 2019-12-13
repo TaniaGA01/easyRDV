@@ -12,7 +12,7 @@
     <div class="row">
         <!-- présentation professionnel -->
         <div class="proInfo bg-white shadow-sm col-lg-4 col-md-12 px-6 py-6 min-height">
-            <img src="{{$pro[0]->image}}" class="card-img-top" alt="...">
+            <img src="/uploads/photos/{{$pro[0]->image}}" class="card-img-top" alt="{{$pro[0]->first_name}} {{$pro[0]->last_name}}, {{$pro[0]->profession->name}} à {{$pro[0]->city->name_ville}}">
             <div class="proInfoCard">
                 <h1>{{ $pro[0]->first_name }} {{ Str::upper($pro[0]->last_name) }}<br /><span>{{ $pro[0]->profession->name }}<br />{{ Str::title($pro[0]->city->name_ville) }}</span></h1>
                 <p><i class="far fa-calendar-alt"></i><strong> Horaires</strong><br>

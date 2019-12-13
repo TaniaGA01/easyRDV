@@ -85,7 +85,7 @@
                                 <a id="navbarDropdown" class="dropdown-toggle menu-it-name" href="#" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     <span class="avatar">
-                                        <img src="/uploads/avatars/{{ Auth::user()->avatar }}" width="40" height="40"
+                                        <img src="/uploads/photos/{{ Auth::user()->image }}" width="40" height="40"
                                             class="avatar">
                                     </span>
                                     <span class="user-name">@isset(Auth::user()->first_name)
