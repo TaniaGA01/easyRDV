@@ -4,7 +4,7 @@
 <div class="container ptb-5">
     <div class="row">
             <div class="form-style-5 bg-white shadow-sm col-lg-4 col-md-12 px-6 py-6 min-height">
-                <img src="{{$user->image}}" class="card-img-top" alt="...">
+                <img src="/uploads/photos/{{$user->image}}" class="card-img-top" alt="...">
                 <div class="card-body text-center">
                     <h5 class="card-title">{{ $user->first_name }} {{ Str::upper($user->last_name) }}</h5>
                     @if($user->role_id == 2)

@@ -15,7 +15,7 @@ Mes informations personnelles - {{ $user->first_name }} {{ $user->last_name }}
 
                     <form enctype="multipart/form-data" action="{{route('professionnelArea.updateAvatar', Auth::user()->id)}}" method="POST" style="max-width: 500px;margin: auto;margin-bottom: 25px;">
 
-                        <img src="/uploads/avatars/{{ $user->avatar }}" style="width:50px; height:50px; float:left; border-radius:50%; margin-right:25px;">
+                        <img src="/uploads/photos/{{ $user->image }}" style="width:50px; height:50px; float:left; border-radius:50%; margin-right:25px;">
 
                         <label>Selectionner une image de profil</label>
                         <input type="file" name="avatar">
