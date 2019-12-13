@@ -634,7 +634,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '29540',
                 'role_id' => '2',
                 'profession_id' => '22',
-                'image' => 'Jean-François_De-la-Bonne-Idée_Mannequin-de-crash-test;jpg',
+                'image' => 'Jean-François_De-la-Bonne-Idée_Mannequin-de-crash-test.jpg',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
                 'phone_number' => '0601020304',
             ],
