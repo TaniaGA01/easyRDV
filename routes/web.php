@@ -94,9 +94,3 @@ Route::post('/informations-personnelles', 'UserInfoController@store')->name('use
 // Auth
 Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
-
-//#######################################################
-// Avatar Profile
-
-Route::get('profile', 'UserController@profile');
-Route::post('profile', 'UserController@update_avatar');
