@@ -11,7 +11,7 @@ Mes rendez-vous - {{ $user->first_name }} {{ $user->last_name }}
             @if (session('status'))
             <div class="row justify-content-center ">
                 <div class="col-md-12">
-                    <div class="alert {{ session('alert-class') }}" role="alert">
+                    <div class="text-center alert {{ session('alert-class') }}" role="alert">
                         <i class="fas fa-check-circle"></i> {{ session('status') }}
                     </div>
                 </div>
