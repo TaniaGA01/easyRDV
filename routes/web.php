@@ -56,6 +56,7 @@ Route::get('mes-rendez-vous-client/{id}','ClientAreaController@index')->where('i
 Route::post('mes-rendez-vous-client/{id}/deleteAppointment','ClientAreaController@deleteAppointment')->where('id','[0-9]+')->name('clientArea.deleteAppointment')->middleware('verified')->middleware('completedPersonalInformation');
 
 Route::get('mes-informations-client/{id}/editer','ClientAreaController@edit')->where('id','[0-9]+')->name('clientArea.edit')->middleware('verified')->middleware('completedPersonalInformation');
+Route::post('mes-informations-client/{id}/avatar', 'ClientAreaController@updateAvatar')->where('id','[0-9]+')->name('clientArea.updateAvatar')->middleware('verified')->middleware('completedPersonalInformation');
 Route::put('mes-informations-client/{id}','ClientAreaController@update')->where('id','[0-9]+')->name('clientArea.update')->middleware('verified')->middleware('completedPersonalInformation');
 
 // Espace Professionnel
