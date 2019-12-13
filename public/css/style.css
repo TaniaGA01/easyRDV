@@ -91,6 +91,15 @@
 .title a{
     margin-top: 2rem;
 }
+.title-lg h2{
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: bold;
+    color: var(--bleu);
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2rem;
+}
 
 /* ================ buttons =====================*/
 .btn-pr{

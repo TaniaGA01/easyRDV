@@ -39,7 +39,7 @@ Mes informations personnelles - {{ $user->first_name }} {{ $user->last_name }}
                     <div class="form-group justify-content-center row">
                         <div class="col-lg-6 col-md-12">
                             <label for="first_name">Prénom :</label>
-                            <input id="first_name" type="text"
+                            <input id="first_name" disabled type="text"
                                 class="form-control @error('first_name') is-invalid @enderror" name="first_name"
                                 value="@isset($user){{$user->first_name}}@else{{ old('first_name') }}@endisset">
 
@@ -51,7 +51,7 @@ Mes informations personnelles - {{ $user->first_name }} {{ $user->last_name }}
                         </div>
                         <div class="col-lg-6 col-md-12">
                             <label for="last_name">Nom :</label>
-                            <input id="last_name" type="text"
+                            <input id="last_name" disabled type="text"
                                 class="form-control @error('last_name') is-invalid @enderror" name="last_name"
                                 value="@isset($user){{$user->last_name}}@else{{ old('last_name') }}@endisset">
 

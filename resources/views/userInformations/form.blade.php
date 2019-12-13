@@ -22,14 +22,17 @@ Mes informations personnelles
                 </div>
             </div>
             @endif
-            <div class="card">
+            <div class="bg-white shadow-sm col-lg-12 px-6 py-6 min-height">
                 <!-- #TODO required -->
-                <div class="card-header">Informations personnelles</div>
-                <div class="card-body py-6">
+
+                <div class="title-lg pb-4">
+                        <h2>Informations personnelles</h2>
+                    </div>
+
                     <form method="POST" action="{{ route('userInformations.store') }}" class="personalInfos">
                         @csrf
-                        <div class="form-group row justify-content-center">
-                            <div class="col-md-6">
+                        <div class="row justify-content-center">
+                            <div class="form-group col-md-6">
                                 <input class="form-control @error('first_name') is-invalid @enderror" placeholder="Prénom *" type="text"  name="first_name" value="{{ $user->first_name ? $user->first_name : old('first_name') }}"  autocomplete="given-name">
                                 @error('first_name')
                                 <span class="invalid-feedback" role="alert">
@@ -37,7 +40,7 @@ Mes informations personnelles
                                 </span>
                                 @enderror
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 form-group ">
                                 <input class="form-control @error('last_name') is-invalid @enderror"  placeholder="Nom *" type="text"  name="last_name" value="{{ $user->last_name ? $user->last_name : old('last_name') }}"  autocomplete="family-name">
                                 @error('last_name')
                                 <span class="invalid-feedback" role="alert">
@@ -46,8 +49,8 @@ Mes informations personnelles
                                 @enderror
                             </div>
                         </div>
-                        <div class="form-group row justify-content-center">
-                            <div class="col-md-3">
+                        <div class="row justify-content-center">
+                            <div class="form-group  col-md-3">
                                 <input class="form-control @error('phone_number') is-invalid @enderror" placeholder="Téléphone *" type="text"  name="phone_number" value="{{ $user->phone_number ? $user->phone_number : old('phone_number') }}"  autocomplete="tel">
                                 @error('phone_number')
                                 <span class="invalid-feedback" role="alert">
@@ -55,7 +58,16 @@ Mes informations personnelles
                                 </span>
                                 @enderror
                             </div>
-                            <div class="col-md-3">
+
+                            <div class="form-group  col-md-6">
+                                <input class="form-control @error('adresse') is-invalid @enderror" placeholder="Adresse @if($user->role_id == 2)* @endif" type="text"  name="adresse" value="{{ $user->adresse ? $user->adresse : old('adresse') }}" autocomplete="street-address" @if($user->role_id == 2)  @endif>
+                                @error('adresse')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                            <div class="form-group col-md-3">
                                 <input class="form-control input-search @error('city') is-invalid @enderror" id="city" list="cities" name="city" placeholder="Villes @if($user->role_id == 2)* @endif" value="@isset($user->city_id){{ $user->city->name_ville }}@else{{ old('city') }}@endisset">
                                 <datalist id="cities">
                                 @foreach($cities as $city)
@@ -63,14 +75,6 @@ Mes informations personnelles
                                 @endforeach
                             </datalist>
                                 @error('city')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                            <div class="col-md-6">
-                                <input class="form-control @error('adresse') is-invalid @enderror" placeholder="Adresse @if($user->role_id == 2)* @endif" type="text"  name="adresse" value="{{ $user->adresse ? $user->adresse : old('adresse') }}" autocomplete="street-address" @if($user->role_id == 2)  @endif>
-                                @error('adresse')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -96,7 +100,6 @@ Mes informations personnelles
                             </div>
                         </div>
                     </form>
-                </div>
             </div>
         </div>
     </div>
