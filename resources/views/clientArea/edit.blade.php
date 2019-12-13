@@ -105,7 +105,7 @@ Mes informations personnelles - {{ $user->first_name }} {{ $user->last_name }}
                         <div class="col-lg-6 col-md-12">
                             <label for="city">Ville :</label>
 
-                            <input id="city" list="cities" name="city" class="form-control input-search"
+                            <input id="city" list="cities" name="city" class="form-control input-search @error('city') is-invalid @enderror"
                                 value="@isset($user->city_id){{ $user->city->name_ville }}@endisset">
                             <datalist id="cities">
                                 @foreach($cities as $city)
@@ -113,9 +113,13 @@ Mes informations personnelles - {{ $user->first_name }} {{ $user->last_name }}
                                     value="@isset($user->city_id){{ $city->name_ville }}@endisset">
                                     @endforeach
                             </datalist>
+                            @error('city')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('city') }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
-
                     <div class="form-group justify-content-center row pt-2">
                         <div class="col-lg-12 col-md-12">
                             <input type="submit" class="btn-pr btn-block " value="Mettre à jour"></button>

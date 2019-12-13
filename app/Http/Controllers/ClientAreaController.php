@@ -9,6 +9,8 @@ use App\Appointment;
 use App\Profession;
 use Auth;
 use Image;
+// use Validator;
+use App\Rules\CityExists;
 
 class ClientAreaController extends Controller
 {
@@ -146,15 +148,16 @@ class ClientAreaController extends Controller
 
         // #TODO champs requis ?
         request()->validate([
-            'last_name' => 'bail | required | min:3',
-            'first_name' => 'bail | required | min:3',
-            'email' => 'bail | required | email',
-            'phone' => 'bail | required'
+            // 'last_name' => 'required | min:3',
+            // 'first_name' => 'required | min:3',
+            'email' => 'required | email',
+            'phone' => 'required',
+            'city' => new CityExists
         ]);
 
         $data = [
-            'last_name' => request('last_name'),
-            'first_name' => request('first_name'),
+            // 'last_name' => request('last_name'),
+            // 'first_name' => request('first_name'),
             'email' => request('email'),
             'phone_number' => request('phone'),
             'adresse' => request('adresse'),
@@ -192,7 +195,8 @@ class ClientAreaController extends Controller
 
             $avatar = $request->file('avatar');
             $image_name = $user->first_name.'_'.$user->last_name.'_'.time(). '.' .$avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/photos/' . $image_name ) );
+            Image::make($avatar)->resize(null, 300, function ($constraint) {$constraint->aspectRatio();})
+                                ->save( public_path('/uploads/photos/' . $image_name ) );
 
             $user->image = $image_name;
             $user->save();
