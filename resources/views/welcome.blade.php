@@ -17,36 +17,38 @@
         </div>
         @endif
         <div class="row pt-5 list-deco">
-            <div class="form bg-white shadow-sm col-lg-4 col-md-12 px-6 py-6 min-height">
-                <form method="POST" autocomplete="off">
-                    <fieldset>
-                        <h3>Prendre un rdv en ligne</h3>
-                        <p>Rechercher une profession</p>
-                        <input list="suggestions" type="text" name="pros" id="pros" placeholder="Profession"
-                            class="form-control my-2" autocomplete="off">
-                        <datalist id="suggestions"></datalist>
+            <div class="col-lg-4 col-md-12 ">
+                <div class="form bg-white shadow-sm px-6 py-6 min-height">
+                        <form method="POST" autocomplete="off">
+                                <fieldset>
+                                    <h3>Prendre un rendez-vous en ligne</h3>
+                                    <p>Rechercher une profession</p>
+                                    <input list="suggestions" type="text" name="pros" id="pros" placeholder="Profession"
+                                        class="form-control my-2" autocomplete="off">
+                                    <datalist id="suggestions"></datalist>
 
-                        <input list="suggestions-locs" type="text" name="locs" id="locs" placeholder="Lieu"
-                            class="form-control " autocomplete="off">
-                        <datalist id="suggestions-locs"></datalist>
+                                    <input list="suggestions-locs" type="text" name="locs" id="locs" placeholder="Lieu"
+                                        class="form-control " autocomplete="off">
+                                    <datalist id="suggestions-locs"></datalist>
 
-                        <input type="submit" value="Rechercher" class="btn-pr col-md-12 my-2"></button>
-                        @csrf
-                    </fieldset>
-                </form>
-                <form class="form-pros-accueil" method="POST" action="/pros" autocomplete="off">
-                    <fieldset>
-                        <p>Rechercher un professionnel</p>
-                        <input list="suggestions-pros" type="text" name="professionnels" id="professionnels"
-                            placeholder="Nom du professionnel" class="form-control" autocomplete="off">
-                        <datalist id="suggestions-pros"></datalist>
+                                    <input type="submit" value="Rechercher" class="btn-pr col-md-12 my-2"></button>
+                                    @csrf
+                                </fieldset>
+                            </form>
+                            <form class="form-pros-accueil" method="POST" action="/pros" autocomplete="off">
+                                <fieldset>
+                                    <p>Rechercher un professionnel</p>
+                                    <input list="suggestions-pros" type="text" name="professionnels" id="professionnels"
+                                        placeholder="Nom du professionnel" class="form-control" autocomplete="off">
+                                    <datalist id="suggestions-pros"></datalist>
 
-                        <input id="hidden-form-accueil" type="hidden" name="id-pro">
+                                    <input id="hidden-form-accueil" type="hidden" name="id-pro">
 
-                        <input type="submit" value="Rechercher" class="btn-pr col-md-12 my-2"></button>
-                        @csrf
-                    </fieldset>
-                </form>
+                                    <input type="submit" value="Rechercher" class="btn-pr col-md-12 my-2"></button>
+                                    @csrf
+                                </fieldset>
+                            </form>
+                </div>
             </div>
             <div class="col-lg-8 col-md-12">
 
