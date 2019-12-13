@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\City;
 Use Auth;
+use App\Rules\CityExists;
+
 
 class UserInfoController extends Controller
 {
@@ -29,7 +31,8 @@ class UserInfoController extends Controller
                 'first_name' => 'required',
                 'last_name' => 'required',
                 'phone_number' => 'required',
-                'city' => 'required',
+                'city' => [ 'required' , new CityExists],
+                //'city' => new CityExists,
                 'adresse' => 'required',
             ],[
                 'first_name.required' => 'Le prénom est obligatoire.',

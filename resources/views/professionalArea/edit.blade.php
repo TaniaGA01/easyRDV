@@ -104,12 +104,17 @@ Mes informations personnelles - {{ $user->first_name }} {{ $user->last_name }}
                             <div class="col-lg-10 col-md-12">
                             <label for="city">Ville :</label>
 
-                            <input id="city" list="cities" name="city" class="form-control input-search" value="@isset($user->city->name_ville){{ $user->city->name_ville }}@endisset">
+                            <input id="city" list="cities" name="city" class="form-control input-search @error('city') is-invalid @enderror" value="@isset($user->city->name_ville){{ $user->city->name_ville }}@endisset">
                             <datalist id="cities">
                             @foreach($cities as $city)
                                 <option data-value="{{ $city->id }}" value="{{ $city->name_ville }}">
                             @endforeach
                             </datalist>
+                            @error('city')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('city') }}</strong>
+                                </span>
+                            @enderror
                             </div>
                         </div>
 
