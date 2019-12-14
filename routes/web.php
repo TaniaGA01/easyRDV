@@ -22,8 +22,8 @@ Route::get('/liste-des-professionnels/{page}/{field}/{city}','HomeController@ind
 
 // Page espace pro
 Route::get('/professionnels/{profession}/{city}/{first_name}_{last_name}','HomeController@show')->name('show');
-Route::post('/professionnels/{profession}/{city}/{first_name}_{last_name}','EspaceProController@storeRdv')->name('espacePro.storeRdv')->middleware('verified')->middleware('completedPersonalInformation');
-Route::post('/professionnels/{profession}/{city}/{first_name}_{last_name}/delete','EspaceProController@deleteRdv')->name('espacePro.deleteRdv')->middleware('verified');
+Route::post('/professionnels/{profession}/{city}/{first_name}_{last_name}','EspaceProController@storeRdv')->name('espacePro.storeRdv')->middleware('verified')->middleware('completedPersonalInformation')->middleware('client');
+Route::post('/professionnels/{profession}/{city}/{first_name}_{last_name}/delete','EspaceProController@deleteRdv')->name('espacePro.deleteRdv')->middleware('verified')->middleware('completedPersonalInformation')->middleware('client');
 
 // Page "A propos"
 Route::get('/a-propos', 'AboutController@index')->name('about');

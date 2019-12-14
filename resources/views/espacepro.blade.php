@@ -41,7 +41,7 @@
                 <div class="row justify-content-center">
                     <div class="col-md-12">
                         <div class="alert {{ session('alert-class') }}" role="alert">
-                            <i class="fas fa-check-circle"></i> {{ session('status') }}
+                            <i class="{{ session('icon') }}"></i> {{ session('status') }}
                         </div>
                     </div>
                 </div>

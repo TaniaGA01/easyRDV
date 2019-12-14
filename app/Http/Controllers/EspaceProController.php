@@ -28,7 +28,8 @@ class EspaceProController extends Controller
         $newAppointment->id_client = $request->input('id_client');
 
         if ($newAppointment->save()) {
-            $request->session()->flash('status',"RDV enregistré avec succès");
+            $request->session()->flash('icon',"fas fa-check-circle");
+            $request->session()->flash('status',"Rendez-vous enregistré avec succès");
             $request->session()->flash('alert-class',"alert-success");
             return redirect()->action('HomeController@show', [
                 'profession' => $profession,
@@ -51,6 +52,7 @@ class EspaceProController extends Controller
         $appointment = Appointment::find($id_rdv);
 
         if ((isset($appointment)) && ($user_id==$appointment->id_client) && $appointment && $appointment->delete()) {
+            $request->session()->flash('icon',"fas fa-check-circle");
             $request->session()->flash('status',"Rendez-vous supprimé avec succès");
             $request->session()->flash('alert-class',"alert-success");
             return redirect()->action('HomeController@show', [
@@ -60,6 +62,7 @@ class EspaceProController extends Controller
                 'last_name' => $last_name,
             ]);
         }else {
+            $request->session()->flash('icon',"fas fa-exclamation-triangle");
             $request->session()->flash('status',"Impossible de supprimer cette entrée");
             $request->session()->flash('alert-class',"alert-danger");
             return redirect()->action('HomeController@show', [
