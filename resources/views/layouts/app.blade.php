@@ -161,7 +161,9 @@
                         <nav class="footer-nav">
                             <ul>
                                 <li><a href="{{route('about')}}">A propos</a></li>
-                                <li><a href="{{route('price')}}">Tarifs</a></li>
+                                @if(Auth::check() && Auth::user()->role_id == 2)
+                                    <li><a href="{{route('price')}}">Tarifs</a></li>
+                                @endif
                                 <li><a href="{{route('contact.create')}}">Nous contacter</a></li>
                                 <li><a href="{{route('legal.index')}}">Informations légales</a></li>
                             </ul>
