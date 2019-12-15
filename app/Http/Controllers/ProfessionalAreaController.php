@@ -16,7 +16,7 @@ class ProfessionalAreaController extends Controller
     /**
      * Affiche la page "Mon agenda" du professionnel
      */
-    public function indexAgenda($id){
+    public function indexAgenda(Request $request, $id){
         //$grid = self::getAgenda();
 
         $user = Auth::user();
@@ -29,6 +29,9 @@ class ProfessionalAreaController extends Controller
                 'rdvs' => $rdvs,
                 ]);
         }else{
+            $request->session()->flash('icon',"fas fa-exclamation-triangle");
+            $request->session()->flash('status',"La page que vous recherchez n'existe pas");
+            $request->session()->flash('alert-class',"alert-info");
             return view('welcome');
         }
     }
@@ -121,6 +124,7 @@ class ProfessionalAreaController extends Controller
                 'tab_data_tartempion' => $tab_data_tartempion,
                 ]);
         }else{
+            $request->session()->flash('icon',"fas fa-exclamation-triangle");
             $request->session()->flash('status',"La page que vous recherchez n'existe pas");
             $request->session()->flash('alert-class',"alert-info");
             return view('welcome');
@@ -164,7 +168,7 @@ class ProfessionalAreaController extends Controller
     /**
      * Affiche la page/formulaire "Mes informations personnelles" du professionnel
      */
-    public function edit($id){
+    public function edit(Request $request,$id){
         $user = Auth::user();
         $user_id = $user->id;
 
@@ -176,6 +180,9 @@ class ProfessionalAreaController extends Controller
                 'cities' => $cities
             ]);
         }else{
+            $request->session()->flash('icon',"fas fa-exclamation-triangle");
+            $request->session()->flash('status',"La page que vous recherchez n'existe pas");
+            $request->session()->flash('alert-class',"alert-info");
             return view('welcome');
         }
     }
@@ -188,36 +195,42 @@ class ProfessionalAreaController extends Controller
         $user = User::find($id);
         $user_id = Auth::id();
         //dd($user);
+        if($id == $user_id){
+            request()->validate([
+                // 'last_name' => 'required | min:3',
+                // 'first_name' => 'required | min:3',
+                'email' => 'required | email',
+                'phone' => 'required',
+                'adresse' => 'required',
+                'city' => new CityExists
+            ]);
 
-        request()->validate([
-            // 'last_name' => 'required | min:3',
-            // 'first_name' => 'required | min:3',
-            'email' => 'required | email',
-            'phone' => 'required',
-            'adresse' => 'required',
-            'city' => new CityExists
-        ]);
+            $city = $request->input('city');
+            $city_input = City::where('name_ville',$city)->first();
+            $city_id = $city_input->id;
 
-        $city = $request->input('city');
-        $city_input = City::where('name_ville',$city)->first();
-        $city_id = $city_input->id;
+            $data = [
+                // 'last_name' => request('last_name'),
+                // 'first_name' => request('first_name'),
+                'email' => request('email'),
+                'phone_number' => request('phone'),
+                'adresse' => request('adresse'),
+                // 'city' => $city_input->id,
+                'about' => request('about')
+            ];
 
-        $data = [
-            // 'last_name' => request('last_name'),
-            // 'first_name' => request('first_name'),
-            'email' => request('email'),
-            'phone_number' => request('phone'),
-            'adresse' => request('adresse'),
-            // 'city' => $city_input->id,
-            'about' => request('about')
-        ];
+            $user->city_id = $city_id;
+            $user->update($data);
 
-        $user->city_id = $city_id;
-        $user->update($data);
-
-        $request->session()->flash('status',"Vos information personnelles ont bien été modifiés");
-        $request->session()->flash('alert-class',"alert-success");
-        return redirect()->action('ProfessionalAreaController@indexAgenda', ['id' => $user_id]);
+            $request->session()->flash('status',"Vos information personnelles ont bien été modifiés");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('ProfessionalAreaController@indexAgenda', ['id' => $user_id]);
+        }else{
+            $request->session()->flash('icon',"fas fa-exclamation-triangle");
+            $request->session()->flash('status',"Impossible de modifier cette entrée");
+            $request->session()->flash('alert-class',"alert-danger");
+            return view('welcome');
+        }
     }
 
     /**
