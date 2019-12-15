@@ -23,7 +23,7 @@
             </div>
 
             @if(Auth::user()->role_id == 3)
-            <form class="bg-white px-5 pt-4 mt-2 pb-2 shadow-sm" method="POST" autocomplete="off">
+            <form class="bg-white px-5 pt-4 mt-2 pb-2 shadow-sm" method="POST" autocomplete="off" action="{{route('welcome')}}">
                 <fieldset>
                     <h3>Prendre un rdv en ligne</h3>
                     <p>Rechercher une profession</p>
