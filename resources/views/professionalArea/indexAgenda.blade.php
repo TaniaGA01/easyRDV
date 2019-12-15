@@ -22,7 +22,7 @@ Mon agenda professionnel - {{ $user->first_name }} {{ $user->last_name }}
 
             @php
             use App\User;
-            setlocale (LC_TIME, 'fr_FR','fra');
+            setlocale (LC_TIME, 'fr_FR.utf8','fra');
             $date = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
             $dateFr = utf8_encode(strftime('%d %B %Y', strtotime($date)));
 

@@ -54,10 +54,11 @@
                 <h2>Prendre rendez-vous</h2>
 
                 @php
-                $date_now_tartempion = date('Y-m-d_H',strtotime('+1 hour'));
-
                 setlocale (LC_TIME, 'fr_FR.utf8','fra');
                 $date = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
+
+                $date_now_tartempion = date('Y-m-d_H',strtotime('+1 hour'));
+
                 $dateFr = strftime('%d %B %Y', strtotime($date));
                 $timeStart = 8; // Heure du début de l'agenda
                 $timeEnd = 18; // Heure de fin de l'agenda
