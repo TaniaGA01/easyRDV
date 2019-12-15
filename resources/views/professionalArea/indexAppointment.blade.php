@@ -66,7 +66,7 @@ Mes rendez-vous professionnels - {{ $user->first_name }} {{ $user->last_name }}
                             <div class="rdvInfo">
                                 <div class="row">
                                     <div class="col-3">
-                                        <img src="https://picsum.photos/50/50" class="" alt="" width="50"
+                                        <img src="/uploads/photos/{{ $tab_clients_image[$j] ?: 'default.png' }}" class="" alt="{{ $tab_clients_name[$j] }}" width="50"
                                             height="50">
                                     </div>
                                     <div class="col-9">

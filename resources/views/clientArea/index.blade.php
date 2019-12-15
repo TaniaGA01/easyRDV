@@ -29,7 +29,7 @@ Mes rendez-vous - {{ $user->first_name }} {{ $user->last_name }}
                             <div class="rdvInfo">
                                 <div class="row">
                                     <div class="col-3">
-                                        <img src="https://picsum.photos/50/50" class="" alt="..." width="50" height="50">
+                                        <img src="/uploads/photos/{{ $tab_appointments[$i]['image'] ?: 'default.png' }}" class="" alt="{{ $tab_appointments[$i]['name'] }} {{ $tab_appointments[$i]['profession'] }}" width="50" height="50">
                                     </div>
                                     <div class="col-9">
                                         <h5>{{ $tab_appointments[$i]['name'] }}</h5>
@@ -76,7 +76,7 @@ Mes rendez-vous - {{ $user->first_name }} {{ $user->last_name }}
                             <div class="rdvInfo">
                                 <div class="row">
                                     <div class="col-3">
-                                        <img src="https://picsum.photos/50/50" class="" alt="..." width="50" height="50">
+                                        <img src="/uploads/photos/{{ $tab_appointments_before[$j]['image'] ?: 'default.png' }}" class="" alt="{{ $tab_appointments_before[$j]['name'] }} {{ $tab_appointments_before[$j]['profession'] }}" width="50" height="50">
                                     </div>
                                     <div class="col-9">
                                         <h5 class="card-title font-weight-bold">

@@ -65,7 +65,7 @@
                         <div class="row no-gutters search-row-resultat">
                             <div class="col-md-2">
                                 <figure>
-                                    <img src="@isset($result->image)/uploads/photos/{{$result->image}}@endisset" class="card-img"
+                                    <img src="/uploads/photos/{{$result->image ?: 'default.png' }}" class="card-img"
                                         alt="@isset($result->image){{$result->first_name}} {{$result->last_name}}, {{$result->profession->name}} à {{$result->city->name_ville}}@endisset" />
                                 </figure>
                             </div>

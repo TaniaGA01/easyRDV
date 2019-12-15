@@ -74,6 +74,7 @@ class ProfessionalAreaController extends Controller
             $rdvs = Appointment::where('id_pro', $user_id)->whereNotNull('id_client')->orderBy('data_tartempion', 'asc')->get();
 
             $tab_id_rdvs = [];
+            $tab_clients_image = [];
             $tab_clients_name = [];
             $tab_clients_phone = [];
             $tab_clients_mail = [];
@@ -85,6 +86,7 @@ class ProfessionalAreaController extends Controller
                 if($date_now <= $rdv->data_tartempion){
                     $id_client = $rdv->id_client;
                     $client = User::find($id_client);
+                    $client_image = $client->image;
                     $client_name = $client->last_name .' '. $client->first_name;
                     $client_phone = $client->phone_number;
                     $client_email = $client->email;
@@ -94,12 +96,14 @@ class ProfessionalAreaController extends Controller
 
                     array_push($tab_my_rdv_day,self::getDateHourFr($rdv->data_tartempion));
 
+                    array_push($tab_clients_image,$client_image);
                     array_push($tab_clients_name,$client_name);
                     array_push($tab_clients_phone,$client_phone);
                     array_push($tab_clients_mail,$client_email);
                 }
 
                 $tab_id_rdvs = array_slice($tab_id_rdvs,0,6);
+                $tab_clients_image = array_slice($tab_clients_image,0,6);
                 $tab_clients_name = array_slice($tab_clients_name,0,6);
                 $tab_clients_phone = array_slice($tab_clients_phone,0,6);
                 $tab_clients_mail = array_slice($tab_clients_mail,0,6);
@@ -117,6 +121,7 @@ class ProfessionalAreaController extends Controller
                 'tab_my_id_rdvs' => $tab_my_id_rdvs,
                 //'rdvs' => $rdvs,
                 'tab_id_rdvs' => $tab_id_rdvs,
+                'tab_clients_image' => $tab_clients_image,
                 'tab_clients_name' => $tab_clients_name,
                 'tab_clients_phone' => $tab_clients_phone,
                 'tab_clients_mail' => $tab_clients_mail,

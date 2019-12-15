@@ -13,7 +13,7 @@
         <!-- présentation professionnel -->
         <div class="col-lg-4 col-md-12 ">
             <div class="proInfo bg-white shadow-sm px-6 py-6 min-height">
-                    <img src="/uploads/photos/{{$pro[0]->image}}" class="card-img-top" alt="{{$pro[0]->first_name}} {{$pro[0]->last_name}}, {{$pro[0]->profession->name}} à {{$pro[0]->city->name_ville}}">
+                    <img src="/uploads/photos/{{$pro[0]->image ?: 'default.png'}}" class="card-img-top" alt="{{$pro[0]->first_name}} {{$pro[0]->last_name}}, {{$pro[0]->profession->name}} à {{$pro[0]->city->name_ville}}">
                     <div class="proInfoCard">
                         <h1>{{ $pro[0]->first_name }} {{ Str::upper($pro[0]->last_name) }}<br /><span class="profTitle">{{ $pro[0]->profession->name }}</span><br /><span>{{ Str::title($pro[0]->city->name_ville) }}</span></h1>
                         <p><i class="far fa-calendar-alt"></i><strong> Horaires</strong><br>

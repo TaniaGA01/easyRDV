@@ -40,6 +40,7 @@ class ClientAreaController extends Controller
                 if($date_now <= $appointment->data_tartempion){
                     $id_pro = $appointment->id_pro;
                     $pro = User::find($id_pro);
+                    $image = $pro->image;
                     $pro_name = $pro->last_name .' '. $pro->first_name;
                     $pro_profession = Profession::find($pro->profession_id)->name;
                     $pro_address = $pro->adresse;
@@ -47,6 +48,7 @@ class ClientAreaController extends Controller
                     $pro_phone = $pro->phone_number;
 
                     $tab_appointments[$i]['id_rdv'] =  $appointment->id;
+                    $tab_appointments[$i]['image'] =  $image;
                     $tab_appointments[$i]['name'] =  $pro_name;
                     $tab_appointments[$i]['profession'] =  $pro_profession;
                     $tab_appointments[$i]['address'] =  $pro_address;
@@ -65,6 +67,7 @@ class ClientAreaController extends Controller
                         if($date_now > $appointment_before[0]->data_tartempion){
                             $id_pro_before = $appointment_before[0]->id_pro;
                             $pro_before = User::find($id_pro_before);
+                            $pro_image_before = $pro_before->image;
                             $pro_name_before = $pro_before->last_name .' '. $pro_before->first_name;
                             $pro_last_name_before = $pro_before->last_name;
                             $pro_first_name_before = $pro_before->first_name;
@@ -73,6 +76,7 @@ class ClientAreaController extends Controller
                             $pro_city_before = City::find($pro_before->city_id)->name_ville;
                             $pro_phone_before = $pro_before->phone_number;
 
+                            $tab_appointments_before[$j]['image'] =  $pro_image_before;
                             $tab_appointments_before[$j]['name'] =  $pro_name_before;
                             $tab_appointments_before[$j]['last_name'] =  $pro_last_name_before;
                             $tab_appointments_before[$j]['first_name'] =  $pro_first_name_before;

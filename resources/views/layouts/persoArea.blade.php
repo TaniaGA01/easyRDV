@@ -10,7 +10,7 @@
                     <div class="col-4 p-0 ">
                         <div class="persoPhoto ">
                             <img src="@isset($user->image)/uploads/photos/{{ $user->image }}@else/uploads/photos/default.png @endisset"
-                                class="card-img-top" alt="...">
+                                class="card-img-top" alt="{{ $user->first_name }} {{ Str::upper($user->last_name) }}">
                         </div>
                     </div>
                     <div class="col-8 persoName">
