@@ -105,12 +105,19 @@ Inscription gratuite pour les professionnels
                     <li>Notifications E-mail</li>
                 </ul>
                 <h4>2€/mois</h4>
-                <a class="btn-pr btn-block btn" href="#">Je m'abonne</a>
+                <a class="btn-pr btn-block btn mt-3" href="#">Je m'abonne</a>
             </div>
         </div>
         <div class="col-lg-4 col-md-12 ">
             <div class="price container bck-bleu shadow-sm px-6 py-6 min-height">
-
+                <h3>Abonnement</h3>
+                <h2>PREMIUM</h2>
+                <ul>
+                    <li>Agenda, page de présentation, cinque images et map de situation</li>
+                    <li>Notifications et Réferencement Google</li>
+                </ul>
+                <h4>3,50€/mois</h4>
+                <a class="btn-pr btn-block btn mt-3" href="#">Je m'abonne</a>
             </div>
         </div>
     </div>

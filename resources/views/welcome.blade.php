@@ -8,13 +8,13 @@
             <a class="btn btn-sec" href="{{ route('login') }}">{{ __('S\'inscrire') }}</a>
         </div>
         @if (session('status'))
-        <div class="row justify-content-center alert-popup ">
-            <div class="col-md-8 col-sm-12">
-                <div class="alert {{ session('alert-class') }} shadow" role="alert">
-                    <i class="fas fa-exclamation-triangle"></i> {{ session('status') }}
+            <div class="row justify-content-center alert-popup ml-1">
+                <div class="col-md-8 col-sm-12">
+                    <div class="alert {{ session('alert-class') }} shadow" role="alert">
+                        <i class="fas fa-exclamation-triangle"></i> {{ session('status') }}
+                    </div>
                 </div>
             </div>
-        </div>
         @endif
         <div class="row pt-5 list-deco">
             <div class="col-lg-4 col-md-12 ">

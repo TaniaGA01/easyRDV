@@ -94,6 +94,9 @@ Mes informations personnelles
                             </div>
                         @endif
                         <small id="emailHelp" class="form-text text-muted mb-3">(*) Champs obligatoires</small>
+                        <div class="alert alert-primary" role="alert">
+                                Les informations enregistrées sont réservées à l’usage du (ou des) service(s) concerné(s) et ne peuvent être communiquées qu’aux professionnels contactés à travers de EasyRDV. Depuis la loi n° 78-17 du 6 janvier 1978 modifiée, relative à l’informatique, aux fichiers et aux libertés, toute personne peut obtenir communication et, le cas échéant, rectification ou suppression des informations la concernant, en s’adressant au service client de EasyRDV avec copie au DPO de l’établissement (quand il a été nommé).
+                              </div>
                         <div class="form-group justify-content-center row mb-0">
                             <div class="col-md-12">
                                 <button type="submit" class="btn-pr btn-block">Envoyer</button>

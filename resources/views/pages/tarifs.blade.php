@@ -8,73 +8,46 @@ Nos tarifs
 
 @section('content')
 
-<section class="pricing py-5">
+<section class="pricing ptb-5">
     <div class="container">
-      <div class="row">
-        <!-- Free Tier -->
-        <div class="col-lg-4">
-          <div class="card mb-5 mb-lg-0">
-            <div class="card-body">
-              <h5 class="card-title text-muted text-uppercase text-center">Gratuit</h5>
-              <h6 class="card-price text-center">€0<span class="period">/mois</span></h6>
-              <hr>
-              <ul class="fa-ul">
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Le Lorem Ipsum</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Le Lorem Ipsum</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Le Lorem Ipsum</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Le Lorem Ipsum</li>
-                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Le Lorem Ipsum</li>
-                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Le Lorem Ipsum</li>
-                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Le Lorem Ipsum</li>
-                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Le Lorem Ipsum</li>
-              </ul>
-              <a href="#" class="btn btn-block btn-primary text-uppercase">Je m'abonne</a>
+
+            <div class="title">
+                    <h1>
+                        Économisez du temps et de charges patronales avec nos prestations   
+                    </h1>
+                </div>
+        <div class="row pt-6">
+
+                <div class="col-lg-6 col-md-12 ">
+
+                    <div class="price container bck-bleu shadow-sm px-6 py-6 min-height">
+                        <h3>Abonnement</h3>
+                        <h2>BASIC</h2>
+                        <ul>
+                            <li>Agenda</li>
+                            <li>Page de présentation</li>
+                            <li>Une image</li>
+                            <li>Notifications E-mail</li>
+                        </ul>
+                        <h4>2€/mois</h4>
+                        <a class="btn-pr btn-block btn mt-3" href="#">Je m'abonne</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 ">
+                    <div class="price container bck-bleu shadow-sm px-6 py-6 min-height">
+                        <h3>Abonnement</h3>
+                        <h2>PREMIUM</h2>
+                        <ul>
+                            <li>Agenda, page de présentation</li>
+                            <li>Cinque images</li>
+                            <li>Map de situation</li>
+                            <li>Notifications et Réferencement Google</li>
+                        </ul>
+                        <h4>3,50€/mois</h4>
+                        <a class="btn-pr btn-block btn mt-3" href="#">Je m'abonne</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <!-- Plus Tier -->
-        <div class="col-lg-4">
-          <div class="card mb-5 mb-lg-0">
-            <div class="card-body">
-              <h5 class="card-title text-muted text-uppercase text-center">Premium Plus</h5>
-              <h6 class="card-price text-center">€9<span class="period">/mois</span></h6>
-              <hr>
-              <ul class="fa-ul">
-                <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Le Lorem Ipsum</strong></li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Le Lorem Ipsum</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Le Lorem Ipsum</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Le Lorem Ipsum</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Le Lorem Ipsum</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Le Lorem Ipsum</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Le Lorem Ipsum</li>
-                <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Le Lorem Ipsum</li>
-              </ul>
-              <a href="#" class="btn btn-block btn-primary text-uppercase">Je m'abonne</a>
-            </div>
-          </div>
-        </div>
-        <!-- Pro Tier -->
-        <div class="col-lg-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title text-muted text-uppercase text-center">Premium Pro</h5>
-              <h6 class="card-price text-center">€49<span class="period">/mois</span></h6>
-              <hr>
-              <ul class="fa-ul">
-                <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Le Lorem Ipsum</strong></li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Le Lorem Ipsum</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Le Lorem Ipsum</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Le Lorem Ipsum</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Le Lorem Ipsum</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Le Lorem Ipsum</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span><strong>Le Lorem Ipsum</strong> Le Lorem Ipsum</li>
-                <li><span class="fa-li"><i class="fas fa-check"></i></span>Le Lorem Ipsum</li>
-              </ul>
-              <a href="#" class="btn btn-block btn-primary text-uppercase">Je m'abonne</a>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 

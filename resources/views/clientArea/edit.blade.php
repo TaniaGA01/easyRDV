@@ -8,17 +8,19 @@ Mes informations personnelles - {{ $user->first_name }} {{ $user->last_name }}
 <div class="container">
     <div class="row justify-content-center ">
         <div class="col-md-12">
-            <div class="my-personal-info bg-white shadow-sm col-md-12 px-6 py-6">
-                <h2>Mes informations personnelles</h2>
+            <div class="bg-white shadow-sm col-md-12 px-6 py-6">
+
 
                 <form enctype="multipart/form-data" action="{{route('clientArea.updateAvatar', Auth::user()->id)}}" method="POST" style="max-width: 500px;margin: auto;margin-bottom: 25px;">
-
+                    <div class="title mb-4">
+                            <h2>Mes informations personnelles</h2>
+                        </div>
                     <img src="@isset($user->image)/uploads/photos/{{ $user->image }}@else/uploads/photos/default.png @endisset" style="width:50px; height:50px; float:left; border-radius:50%; margin-right:25px;">
 
                     <label>Selectionner une image de profil</label>
                     <input type="file" name="avatar">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="submit" class="pull-right btn btn-sm btn-primary">
+                    <input type="submit" class="pull-right btn btn-sm btn-pr">
                 </form>
 
                 <form enctype="multipart/form-data" action="{{route('clientArea.update', Auth::user()->id)}}"
