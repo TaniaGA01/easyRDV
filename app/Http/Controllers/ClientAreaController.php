@@ -95,6 +95,7 @@ class ClientAreaController extends Controller
                 'tab_appointments_before' => $tab_appointments_before
                 ]);
         }else{
+            $request->session()->flash('icon',"fas fa-exclamation-triangle");
             $request->session()->flash('status',"La page que vous recherchez n'existe pas");
             $request->session()->flash('alert-class',"alert-info");
             return view('welcome');
@@ -131,6 +132,7 @@ class ClientAreaController extends Controller
         if($id == $user_id){
             return view('clientArea/edit',['user' => $user,'cities' => $cities]);
         }else{
+            $request->session()->flash('icon',"fas fa-exclamation-triangle");
             $request->session()->flash('status',"La page que vous recherchez n'existe pas");
             $request->session()->flash('alert-class',"alert-info");
             return view('welcome');
@@ -144,43 +146,47 @@ class ClientAreaController extends Controller
         $user = User::find($id);
         $user_id = Auth::id();
 
-        //dd($user);
+        if($id == $user_id){
+            request()->validate([
+                // 'last_name' => 'required | min:3',
+                // 'first_name' => 'required | min:3',
+                'email' => 'required | email',
+                'phone' => 'required',
+                'city' => new CityExists
+            ]);
 
-        // #TODO champs requis ?
-        request()->validate([
-            // 'last_name' => 'required | min:3',
-            // 'first_name' => 'required | min:3',
-            'email' => 'required | email',
-            'phone' => 'required',
-            'city' => new CityExists
-        ]);
+            $data = [
+                // 'last_name' => request('last_name'),
+                // 'first_name' => request('first_name'),
+                'email' => request('email'),
+                'phone_number' => request('phone'),
+                'adresse' => request('adresse'),
+                // 'city_id' => null,
+                'about' => request('about')
+            ];
 
-        $data = [
-            // 'last_name' => request('last_name'),
-            // 'first_name' => request('first_name'),
-            'email' => request('email'),
-            'phone_number' => request('phone'),
-            'adresse' => request('adresse'),
-            // 'city_id' => null,
-            'about' => request('about')
-        ];
+            //dd($request->input('city'));
+            $user->city_id = null;
+            if($request->input('city')){
+                $city = $request->input('city');
+                $city_input = City::where('name_ville',$city)->first();
+                $city_id = $city_input->id;
 
-        //dd($request->input('city'));
-        $user->city_id = null;
-        if($request->input('city')){
-            $city = $request->input('city');
-            $city_input = City::where('name_ville',$city)->first();
-            $city_id = $city_input->id;
+                $user->city_id = $city_id;
+            }
 
-            $user->city_id = $city_id;
+
+            $user->update($data);
+
+            $request->session()->flash('status',"Vos informations personnelles ont bien été modifiées");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('ClientAreaController@index', ['id' => $user_id]);
+        }else{
+            $request->session()->flash('icon',"fas fa-exclamation-triangle");
+            $request->session()->flash('status',"La page que vous recherchez n'existe pas");
+            $request->session()->flash('alert-class',"alert-info");
+            return view('welcome');
         }
-
-
-        $user->update($data);
-
-        $request->session()->flash('status',"Vos informations personnelles ont bien été modifiées");
-        $request->session()->flash('alert-class',"alert-success");
-        return redirect()->action('ClientAreaController@index', ['id' => $user_id]);
     }
 
 
