@@ -102,14 +102,25 @@
 }
 /* ================ buttons =====================*/
 .btn-pr{
-    background-color: var(--orange);
-    color: var(--white) ;
+    background-color: var(--orange)!important;
+    color: var(--white)!important;
     border: none;
     padding: 10px 20px;
     border-radius: 0;
 }
 .btn-pr:hover{
-    background-color: var(--orange-fc);
+    background-color: var(--orange-fc)!important;
+    color: var(--white);
+}
+.btn-6{
+    background-color: var(--orange)!important;
+    color: var(--white)!important;
+    border: none;
+    padding: 10px;
+    border-radius: 0;
+}
+.btn-6:hover{
+    background-color: var(--orange-fc)!important;
     color: var(--white);
 }
 .btn-sec{
