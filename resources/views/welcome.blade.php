@@ -5,7 +5,12 @@
     <div class="container ptb-5 position-relative">
         <div class="title">
             <h1>Trouvez des professionnels et demandez gratuitement rendez-vous en ligne</h1>
-            <a class="btn btn-sec" href="{{ route('login') }}">{{ __('S\'inscrire') }}</a>
+            @guest
+                <a class="btn btn-sec" href="{{ route('login') }}">{{ __('S\'inscrire') }}</a>
+            @else
+                <br>
+                <br>
+            @endguest
         </div>
         @if (session('status'))
             <div class="row justify-content-center alert-popup ml-1">

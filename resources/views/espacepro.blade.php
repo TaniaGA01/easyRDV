@@ -130,7 +130,7 @@
                             $tartempion=$date_tar_day.'_'.$i;
                             $tab_json = json_decode($rdvs);
                             $add_class='data-rdv page-pro';
-                            $rdv='#';
+                            $rdv='Dispo';
                             $id_rdv='#';
 
                             if (!empty($tab_json)){
