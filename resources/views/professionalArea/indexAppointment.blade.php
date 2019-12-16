@@ -40,8 +40,8 @@ Mes rendez-vous professionnels - {{ $user->first_name }} {{ $user->last_name }}
                                 <input type="submit" data-id="{{ $tab_my_id_rdvs[$i] }}"
                                     data-tartempion="{{ $tab_my_activities_tartempion[$i] }}"
                                     data-token="<?php echo csrf_token();?>" data-pro="{{ $user->id }}"
-                                    class="btn-pr btn-block data-rdv page-pro rdv-loaded activ-annul"
-                                    value="Modifier/annuler l'activité"></button>
+                                    class="btn-6 btn-block data-rdv page-pro rdv-loaded activ-annul"
+                                    value="Modifier/annuler"></button>
                             </div>
                         </div>
                     </div>
