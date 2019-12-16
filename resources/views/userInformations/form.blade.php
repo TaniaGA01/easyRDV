@@ -60,7 +60,7 @@ Mes informations personnelles
                             </div>
 
                             <div class="form-group  col-md-6">
-                                <input class="form-control @error('adresse') is-invalid @enderror" placeholder="Adresse @if($user->role_id == 2)* @endif" type="text"  name="adresse" value="{{ $user->adresse ? $user->adresse : old('adresse') }}" autocomplete="street-address" @if($user->role_id == 2)  @endif>
+                                <input class="form-control @error('adresse') is-invalid @enderror" placeholder="Adresse @if($user->role_id == 2)* @endif" type="text"  name="adresse" value="{{ $user->adresse ? $user->adresse : old('adresse') }}" autocomplete="street-address" @if($user->role_id == 2) required @endif>
                                 @error('adresse')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -68,7 +68,7 @@ Mes informations personnelles
                                 @enderror
                             </div>
                             <div class="form-group col-md-3">
-                                <input class="form-control input-search @error('city') is-invalid @enderror" id="city" list="cities" name="city" placeholder="Villes @if($user->role_id == 2)* @endif" value="@isset($user->city_id){{ $user->city->name_ville }}@else{{ old('city') }}@endisset">
+                                <input class="form-control input-search @error('city') is-invalid @enderror" id="city" list="cities" name="city" placeholder="Villes @if($user->role_id == 2)* @endif" value="@isset($user->city_id){{ $user->city->name_ville }}@else{{ old('city') }}@endisset" @if($user->role_id == 2) required @endif>
                                 <datalist id="cities">
                                 @foreach($cities as $city)
                                     <option data-value="{{ $city->id }}" value="{{ $city->name_ville }}">
