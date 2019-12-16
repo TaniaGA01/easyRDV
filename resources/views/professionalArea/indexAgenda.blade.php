@@ -75,7 +75,7 @@ Mon agenda professionnel - {{ $user->first_name }} {{ $user->last_name }}
                                 }
                             }
 
-                            echo '<td colspan="2" class="'.$add_class.'" data-pro="'.$user->id.'" data-token="'.csrf_token().'" data-tartempion="'.$tartempion.'">'.$rdv.'</td>';
+                            echo '<td colspan="2" class="'.$add_class.'" data-pro="'.$user->id.'" data-token="'.csrf_token().'" data-tartempion="'.$tartempion.'" data-id="'.$id_rdv.'">'.$rdv.'</td>';
                             // if ($add_class==='data-rdv page-agenda agenda-mobile rdv-loaded') {
                             //     echo '<td class="btn-agenda agenda-modif" data-id="'.$id_rdv.'" data-tartempion="'.$tartempion.'" style="position: absolute;right:100px;"><a href="#">Modifier</a></td>';
                             //     echo '<td class="btn-agenda agenda-suppr" data-id="'.$id_rdv.'"     data-tartempion="'.$tartempion.'" style="position: absolute;right:15px;"><a href="#">Supprimer</a></td>';
