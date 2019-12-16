@@ -34,7 +34,7 @@ Nous contacter
 
                         <div class="justify-content-center row">
                             <div class="form-group  col-lg-6 col-md-12">
-                                <input type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" autocomplete="name" autofocus placeholder="Nom *">
+                                <input type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" autocomplete="name" autofocus placeholder="Nom *" required>
 
                                 @error('last_name')
                                     <span class="invalid-feedback" role="alert">
@@ -55,7 +55,7 @@ Nous contacter
 
                         <div class="justify-content-center row">
                             <div class="form-group col-lg-6 col-md-12">
-                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" autofocus placeholder="Email *">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email" autofocus placeholder="Email *" required>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -76,7 +76,7 @@ Nous contacter
 
                         <div class="justify-content-center row">
                             <div class="form-group col-lg-12 col-md-12">
-                                <textarea rows="5" class="form-control @error('content') is-invalid @enderror" name="content" autofocus placeholder="Message *">{{ old('content') }}</textarea>
+                                <textarea rows="5" class="form-control @error('content') is-invalid @enderror" name="content" autofocus placeholder="Message *" required>{{ old('content') }}</textarea>
 
                                 @error('content')
                                     <span class="invalid-feedback" role="alert">

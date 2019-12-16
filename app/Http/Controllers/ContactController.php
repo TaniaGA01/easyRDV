@@ -25,10 +25,11 @@ class ContactController extends Controller
     {
         // Vérification des champs
         request()->validate([
-            'last_name' => 'required',
+            'last_name' => 'required | min:3',
             'email' => 'required | email',
             'content' => 'required | min:10'
         ],[
+            'last_name.min' => 'Le nom est trop court',
             'last_name.required' => 'Le nom est obligatoire',
             'email.required' => 'L\'email est obligatoire.',
             'email.email' => 'Adresse mail non valide.',

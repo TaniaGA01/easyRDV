@@ -28,28 +28,34 @@ class UserInfoController extends Controller
 
         if($role_id == 2){
             $this->validate($request,[
-                'first_name' => 'required',
-                'last_name' => 'required',
-                'phone_number' => 'required',
+                'first_name' => 'required | min:3',
+                'last_name' => 'required | min:3',
+                'phone_number' => 'required | min:10',
                 'city' => [ 'required' , new CityExists],
                 //'city' => new CityExists,
                 'adresse' => 'required',
             ],[
                 'first_name.required' => 'Le prénom est obligatoire.',
+                'first_name.min' => 'Le prénom est trop court.',
                 'last_name.required' => 'Le nom est obligatoire.',
+                'last_name.min' => 'Le nom est trop court.',
                 'phone_number.required' => 'Le numéro de téléphone est obligatoire.',
+                'phone_number.min' => 'Le numéro de téléphone est trop court.',
                 'city.required' => 'La ville est obligatoire.',
                 'adresse.required' => 'L\'adresse est obligatoire.',
             ]);
         }else{
             $this->validate($request,[
-                'first_name' => 'required',
-                'last_name' => 'required',
-                'phone_number' => 'required',
+                'first_name' => 'required | min:3',
+                'last_name' => 'required | min:3',
+                'phone_number' => 'required | min:6',
             ],[
                 'first_name.required' => 'Le prénom est obligatoire.',
+                'first_name.min' => 'Le prénom est trop court.',
                 'last_name.required' => 'Le nom est obligatoire.',
+                'last_name.min' => 'Le nom est trop court.',
                 'phone_number.required' => 'Le numéro de téléphone est obligatoire.',
+                'phone_number.min' => 'Le numéro de téléphone est trop court.',
             ]);
         }
 

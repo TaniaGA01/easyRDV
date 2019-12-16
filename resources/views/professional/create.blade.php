@@ -21,7 +21,7 @@ Inscription gratuite pour les professionnels
                                 <div class="col-md-12">
                                     <input placeholder="Email" type="email"
                                         class="form-control @error('email_register') is-invalid @enderror" name="email_register"
-                                        value="{{ old('email_register') }}" autocomplete="email">
+                                        value="{{ old('email_register') }}" autocomplete="email" required>
 
                                     @error('email_register')
                                     <span class="invalid-feedback" role="alert">
@@ -35,7 +35,7 @@ Inscription gratuite pour les professionnels
                                 <div class="col-md-6">
                                     <input placeholder="Mot de passe" type="password"
                                         class="form-control @error('password_register') is-invalid @enderror"
-                                        name="password_register" autocomplete="new-password">
+                                        name="password_register" autocomplete="new-password" required>
 
                                     @error('password_register')
                                     <span class="invalid-feedback" role="alert">
@@ -46,13 +46,13 @@ Inscription gratuite pour les professionnels
 
                                 <div class="col-md-6">
                                     <input placeholder="Confirmer mot de passe" type="password" class="form-control"
-                                        name="password_register_confirmation" autocomplete="new-password">
+                                        name="password_register_confirmation" autocomplete="new-password" required>
                                 </div>
                             </div>
 
                             <div class="form-group row justify-content-center">
                                 <div class="col-md-12">
-                                    <select class="form-control @error('profession_id') is-invalid @enderror" name="profession_id">
+                                    <select class="form-control @error('profession_id') is-invalid @enderror" name="profession_id" required>
                                         <option>Sélectionnez votre métier</option>
                                         @foreach ($professions as $profession)
                                         <option value="{{$profession->id}}"
@@ -72,7 +72,7 @@ Inscription gratuite pour les professionnels
                                 <div class="col-md-12">
                                     <div class="form-check">
                                         <input class="form-check-input @error('cgu_register') is-invalid @enderror" type="checkbox"
-                                            name="cgu_register" id="cgu_register">
+                                            name="cgu_register" id="cgu_register" required>
 
                                         <label for="cgu_register">
                                             Je suis d'accord avec les<a href=""> Conditions Générales d'Utilisation</a>

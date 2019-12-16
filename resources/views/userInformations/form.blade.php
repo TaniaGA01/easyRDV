@@ -33,7 +33,7 @@ Mes informations personnelles
                         @csrf
                         <div class="row justify-content-center">
                             <div class="form-group col-md-6">
-                                <input class="form-control @error('first_name') is-invalid @enderror" placeholder="Prénom *" type="text"  name="first_name" value="{{ $user->first_name ? $user->first_name : old('first_name') }}"  autocomplete="given-name">
+                                <input class="form-control @error('first_name') is-invalid @enderror" placeholder="Prénom *" type="text"  name="first_name" value="{{ $user->first_name ? $user->first_name : old('first_name') }}"  autocomplete="given-name" required>
                                 @error('first_name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -41,7 +41,7 @@ Mes informations personnelles
                                 @enderror
                             </div>
                             <div class="col-md-6 form-group ">
-                                <input class="form-control @error('last_name') is-invalid @enderror"  placeholder="Nom *" type="text"  name="last_name" value="{{ $user->last_name ? $user->last_name : old('last_name') }}"  autocomplete="family-name">
+                                <input class="form-control @error('last_name') is-invalid @enderror"  placeholder="Nom *" type="text"  name="last_name" value="{{ $user->last_name ? $user->last_name : old('last_name') }}"  autocomplete="family-name" required>
                                 @error('last_name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -51,7 +51,7 @@ Mes informations personnelles
                         </div>
                         <div class="row justify-content-center">
                             <div class="form-group  col-md-3">
-                                <input class="form-control @error('phone_number') is-invalid @enderror" placeholder="Téléphone *" type="text"  name="phone_number" value="{{ $user->phone_number ? $user->phone_number : old('phone_number') }}"  autocomplete="tel">
+                                <input class="form-control @error('phone_number') is-invalid @enderror" placeholder="Téléphone *" type="text"  name="phone_number" value="{{ $user->phone_number ? $user->phone_number : old('phone_number') }}"  autocomplete="tel" required>
                                 @error('phone_number')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
