@@ -11,7 +11,7 @@
 
 <div class="container ptb-5">
     <div class="title">
-        <h1>Nous sommes une entreprise jeune et dynamique qui vous accompagne dans le croisement de votre business</h1>
+        <h1>Nous sommes une entreprise jeune et dynamique qui vous accompagne dans le développement de votre business</h1>
     </div>
     <div class="row justify-content-center pt-6">
         <div class="col-lg-6 col-md-12 about-img position-relative">
