@@ -110,7 +110,7 @@ function getForm(id,pro,message,token,status,content,idRdv) {
     }
     if ((status === 6)||(status === 8)) {
         let btnSupprimer = document.createElement('input');
-        setAttributes(btnSupprimer, {"type": "submit", "value":"Supprimer mon RDV", "class":"btn btn-primary btn-sec"});
+        setAttributes(btnSupprimer, {"type": "submit", "value":"Supprimer mon RDV", "class":"btn btn-primary btn-qt"});
         modalFooter.appendChild(btnSupprimer);
         btnSupprimer.addEventListener('click', function(e){
             if (status === 6) {
