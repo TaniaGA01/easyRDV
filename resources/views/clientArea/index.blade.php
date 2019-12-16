@@ -33,7 +33,7 @@ Mes rendez-vous - {{ $user->first_name }} {{ $user->last_name }}
                                     </div>
                                     <div class="col-9">
                                         <h5>{{ $tab_appointments[$i]['name'] }}</h5>
-                                        <h6>{{ $tab_appointments[$i]['profession'] }}</h6>
+                                        <h6>{{ str_replace('-',' ', $tab_appointments[$i]['profession']) }}</h6>
                                     </div>
                                 </div>
                                 <hr>
