@@ -7,7 +7,7 @@
 
             <div class="container">
                 <div class="row bg-white px-5 p-4 pb-2 shadow-sm">
-                    <div class="col-4 p-0 ">
+                    <div class="col-lg-4 col-md-12 p-0 ">
                         <div class="persoPhoto ">
                             <img src="@isset($user->image)/uploads/photos/{{ $user->image }}@else/uploads/photos/default.png @endisset"
                                 class="card-img-top" alt="{{ $user->first_name }} {{ Str::upper($user->last_name) }}">

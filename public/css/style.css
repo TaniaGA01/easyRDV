@@ -682,6 +682,12 @@ footer p {
 
 /*===================== responsive nav =======================*/
 
+@media (max-width: 1199px) {
+    .persoName{
+        padding-left: 25px;
+    }
+}
+
 @media (min-width: 992px){
     #gridMobile{
         display: none;
@@ -785,8 +791,9 @@ footer p {
     .footer-nav ul{
         padding: 2rem 0;
     }
-
-
+    .persoName{
+        padding-left: 0;
+    }
 
   }
 
