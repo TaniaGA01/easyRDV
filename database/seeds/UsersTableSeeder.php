@@ -132,7 +132,7 @@ class UsersTableSeeder extends Seeder
                 'phone_number' => '0601020304',
             ],
             [
-                'last_name' => 'Dupoil',
+                'last_name' => 'Mulais',
                 'first_name' => 'Erwann',
                 'email' => Str::random(10).'@gmail.com',
                 'password' => bcrypt('password'),
@@ -140,7 +140,7 @@ class UsersTableSeeder extends Seeder
                 'city_id' => '13',
                 'role_id' => '2',
                 'profession_id' => '12',
-                'image' => 'Erwann_Dupoil_Barbier.jpg',
+                'image' => 'Erwann_Mulais_Barbier.jpg',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
                 'phone_number' => '0601020304',
             ],
