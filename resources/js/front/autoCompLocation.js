@@ -28,7 +28,6 @@ if (formLocs){
                 if (locs.toLowerCase().match(regex)) {
                     let suggestionLocs = document.createElement('option');
                     suggestionLocs.setAttribute('value', locs);
-                    // suggestionLocs.classList.add('suggestion');
                     suggLocs.appendChild(suggestionLocs);
                     suggestionLocs.addEventListener('click', function(evt){
                         formLocs.value=locs;

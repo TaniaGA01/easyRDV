@@ -27,7 +27,6 @@ if (formPros) {
                 if (pros.toLowerCase().match(entree)) {
                     let suggestionPros = document.createElement('option');
                     suggestionPros.setAttribute('value', pros);
-                    // suggestionPros.classList.add('suggestion');
                     suggPros.appendChild(suggestionPros);
                     suggestionPros.addEventListener('click', function(evt){
                         formPros.value=pros;
@@ -38,4 +37,3 @@ if (formPros) {
         }
     });
 }
-
