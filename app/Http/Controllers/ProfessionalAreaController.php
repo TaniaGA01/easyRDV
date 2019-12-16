@@ -207,7 +207,7 @@ class ProfessionalAreaController extends Controller
                 'email' => 'required | email',
                 'phone' => 'required',
                 'adresse' => 'required',
-                'city' => new CityExists
+                'city' => [ 'required' , new CityExists]
             ]);
 
             $city = $request->input('city');

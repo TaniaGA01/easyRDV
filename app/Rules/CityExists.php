@@ -26,8 +26,9 @@ class CityExists implements Rule
      */
     public function passes($attribute, $value)
     {
+        //dd($value);
         $city_input = City::where('name_ville',$value)->first();
-        if($city_input == null){
+        if($city_input == null && $value != null){
             return false;
         }
         return true;
