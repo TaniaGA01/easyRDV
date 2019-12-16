@@ -139,6 +139,17 @@
     color: var(--white);
 }
 
+.btn-qt{
+    background-color: var(--bleu-fc);
+    color: var(--white) ;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 0;
+}
+.btn-qt:hover{
+    background-color: var(--bleu);
+}
+
 
 .custom-file-label::after{
     background-color: var(--bleu);
