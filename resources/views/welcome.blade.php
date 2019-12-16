@@ -4,7 +4,7 @@
 <section class="professional-search">
     <div class="container ptb-5 position-relative">
         <div class="title">
-            <h1>Trouvez des professionnels et demandez gratuitement rendez-vous en ligne</h1>
+            <h1>Trouvez des professionnels et prenez gratuitement rendez-vous en ligne</h1>
             @guest
                 <a class="btn btn-sec" href="{{ route('login') }}">{{ __('S\'inscrire') }}</a>
             @else
