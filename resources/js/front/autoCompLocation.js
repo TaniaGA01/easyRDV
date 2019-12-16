@@ -20,7 +20,7 @@ var suggLocs = document.getElementById('suggestions-locs');
 
 if (formLocs){
     formLocs.addEventListener('keyup', function(e){
-        if (formLocs.value.length>1 && e.keyCode != '40' && e.keyCode != '38'){
+        if (formLocs.value.length>1 && e.keyCode != '40' && e.keyCode != '38' && e.keyCode != '13'){
             let entree = e.target.value.toLowerCase();
             suggLocs.innerHTML='';
             for (let locs of tabLocs) {

@@ -27,7 +27,7 @@ var formHidden = document.getElementById('hidden-form-accueil');
 
 if (formProfessionnels) {
     formProfessionnels.addEventListener('input', function(e){
-        if (formProfessionnels.value.length>1 && e.keyCode != '40' && e.keyCode != '38') {
+        if (formProfessionnels.value.length>1 && e.keyCode != '40' && e.keyCode != '38' && e.keyCode != '13') {
             let entree = e.target.value.toLowerCase();
             suggProfessionnels.innerHTML='';
             for (let pros in tabProfessionnels) {
