@@ -54,7 +54,7 @@
                 <h2>Prendre rendez-vous</h2>
 
                 @php
-                setlocale (LC_TIME, 'fr_FR.utf8','fra');
+                setlocale (LC_TIME, 'fr_FR','fra');
                 $date = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
 
                 $date_now_tartempion = date('Y-m-d_H',strtotime('+1 hour'));
@@ -78,12 +78,12 @@
 
 
                 $monthFindFr = mb_strtoupper(utf8_encode(strftime('%B %Y', strtotime($date)))); // novembre 2019
-                echo "<h5 class=\"text-center\">$monthFindFr</h5>";
+                echo "<h5 class=\"text-center titleAgendaDesk\">$monthFindFr</h5>";
 
                 // $dd = strftime('%A %d', strtotime($date)); // vendredi 29
 
 
-                $gridD = '<div id="gridDesktop">';
+                $gridD = '<div id="gridDesktop" class="scheduler-pro">';
                 $gridD .= '<table class="table table-striped table-bordered">';
 
                 $gridD .= '<thead>';

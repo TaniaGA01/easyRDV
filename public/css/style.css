@@ -139,7 +139,7 @@
     color: var(--white);
 }
 
-.btn-qt{
+    .btn-qt{
     background-color: var(--bleu-fc);
     color: var(--white) ;
     border: none;
@@ -480,9 +480,15 @@ select {
 }
 #gridDesktop table th, #gridMobile table th{
     padding: 0;
+
 }
 #gridDesktop table thead th, #gridMobile table thead th{
     vertical-align: middle;
+}
+#gridDesktop table td, #gridMobile table td{
+    max-width: 70px;
+    vertical-align: middle;
+    text-align: center;
 }
 #gridDesktop table thead .arrows,
 #gridMobile table thead .arrows{
@@ -769,6 +775,9 @@ footer p {
     }
     #gridDesktop, .titleAgendaDesk{
         display: none;
+    }
+    .scheduler-pro{
+        display: block !important;
     }
     footer, .footer-nav{
         text-align: center;
