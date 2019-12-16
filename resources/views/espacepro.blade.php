@@ -83,7 +83,7 @@
                 // $dd = strftime('%A %d', strtotime($date)); // vendredi 29
 
 
-                $gridD = '<div id="gridDesktop" class="scheduler-pro">';
+                $gridD = '<div id="gridDesktop">';
                 $gridD .= '<table class="table table-striped table-bordered">';
 
                 $gridD .= '<thead>';
@@ -167,7 +167,75 @@
                 $gridD .= '</div>';
 
                 echo $gridD;
-                    @endphp
+                @endphp
+            </div>
+
+            <div>
+
+            @php
+                // ######################### MOBILE ###############################
+            $previousDay = date('Y-m-d', strtotime($date .' -1 day'));
+            $nextDay = date('Y-m-d', strtotime($date .' +1 day'));
+
+            $linkPrevDay = '<a href="?date='.$previousDay.'"><i class="fas fa-arrow-left"></i></a>';
+            $linkNextDay='<a href="?date=' .$nextDay.'"><i class="fas fa-arrow-right"></i></a>';
+            @endphp
+
+            <!-- <div id="gridMobile" class="d-none"> -->
+            <div id="gridMobile">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="arrows">@php echo $linkPrevDay; @endphp</th>
+                            <th>@php echo $dateFr; @endphp</th>
+                            <th class="arrows">@php echo $linkNextDay; @endphp</th>
+                    </thead>
+                    <tbody>
+                        @php
+                        $timeStart = 8;
+                        $timeEnd = 18;
+
+                        for($i=$timeStart; $i<=$timeEnd; $i++){
+                            if($i<10){
+                                $i="0" .$i;
+                            }
+                            $tartempion=$date.'_'.$i;
+                            $rdv='Dispo';
+                            $add_class='data-rdv page-pro agenda-mobile';
+                            $id_rdv='Dispo';
+                            echo '<tr>';
+                            echo "<th class=\" col-hour\"> {$i}h </th>";
+
+                            if (isset($rdvs)){
+                                foreach ($rdvs as $value) {
+                                    if ($tartempion==$value->data_tartempion) {
+                                        if ($value->id_client === $visiteur) {
+                                            if($date_now_tartempion < $tartempion){
+                                                $rdv='Prochain rdv';
+                                            }elseif($date_now_tartempion > $tartempion){
+                                                $rdv='Rdv passé';
+                                            }else{
+                                                $rdv='Rdv en cours, kestufou dépêche toi !';
+                                            }
+
+                                            $add_class.=' rdv-loaded';
+                                            $id_rdv=$value->id;
+                                        }else {
+                                            $rdv='Créneau non disponible';
+                                            $add_class.=' rdv-indispo';
+                                        }
+                                    }
+                                }
+                            }
+
+                            echo '<td colspan="2" class="'.$add_class.'" data-user="'.$visiteur.'" data-pro="'.$pro[0]->id.'" data-name-pro="'.$pro[0]->first_name.' '.$pro[0]->last_name.'" data-token="'.csrf_token().'" data-tartempion="'.$tartempion.'" data-id="'.$id_rdv.'">'.$rdv.'</td>';
+
+                            echo '</tr>';
+                        }
+                        echo '</tbody>';
+                    echo '</table>';
+                echo '</div>';
+                @endphp
             </div>
         </div>
     </div>
