@@ -15,7 +15,7 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             [
-                'last_name' => 'C',
+                'last_name' => 'Cé',
                 'first_name' => 'David',
                 'email' => 'randomdada@gmail.com',
                 'password' => bcrypt('1234'),
@@ -687,6 +687,42 @@ class UsersTableSeeder extends Seeder
                 'role_id' => '2',
                 'profession_id' => '26',
                 'image' => 'Jérémie_Lafleur_Porno-phonographiste.jpg',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
+            ],
+        ]);
+
+        DB::table('users')->insert([
+            [
+                'last_name' => 'Leclient',
+                'first_name' => 'Dom',
+                'email' => 'client@gmail.fr',
+                'password' => bcrypt('1234'),
+                'adresse' => '256 Boulevard Clientèle',
+                'city_id' => '1263',
+                'role_id' => '3',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
+            ],
+            [
+                'last_name' => 'Hasard',
+                'first_name' => 'Jérôme',
+                'email' => 'client2@gmail.fr',
+                'password' => bcrypt('1234'),
+                'adresse' => '23 Boulevard Clientèle',
+                'city_id' => '30125',
+                'role_id' => '3',
+                'email_verified_at' => Carbon::create('2000', '01', '01'),
+                'phone_number' => '0601020304',
+            ],
+            [
+                'last_name' => 'Randôme',
+                'first_name' => 'Laetitia',
+                'email' => 'client3@gmail.fr',
+                'password' => bcrypt('1234'),
+                'adresse' => '94 Avenue des clients',
+                'city_id' => '9464',
+                'role_id' => '3',
                 'email_verified_at' => Carbon::create('2000', '01', '01'),
                 'phone_number' => '0601020304',
             ],
