@@ -112,7 +112,7 @@ Mes informations personnelles - {{ $user->first_name }} {{ $user->last_name }}
                             <datalist id="cities">
                                 @foreach($cities as $city)
                                 <option data-value="{{ $city->id }}"
-                                    value="@isset($user->city_id){{ $city->name_ville }}@endisset">
+                                    value="@isset($user->city_id){{ $city->name_ville }}@else {{ $city->name_ville }} @endisset">
                                     @endforeach
                             </datalist>
                             @error('city')

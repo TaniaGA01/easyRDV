@@ -8,9 +8,6 @@ function appelAjaxLoc () {
                     if (value.name_ville) {
                         tabLocs.push(value.name_ville.replace(/-/g, ' '));
                     }
-                    // if (value.postal_code) {
-                    //     tabLocs.push(value.postal_code.replace(/-/g, ' '));
-                    // }
                 }
             }
             return tabLocs;
@@ -42,4 +39,3 @@ if (formLocs){
         }
     });
 }
-
