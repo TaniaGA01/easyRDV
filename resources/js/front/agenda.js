@@ -206,61 +206,29 @@ if (intervalles){
                     getForm(tartId,tartPro,renseignements,tartToken,formType,dataUser);
                 });
             }
-        }else{
+        }else if (heure.classList.contains("rdv-loaded")) {
             // Page Mon Agenda du professionnel
-            if (heure.classList.contains("rdv-loaded") && heure.classList.contains("agenda-mobile")) {
-                let btnModif = heure.nextSibling;
-                if (btnModif) {
-                    let tartContent = heure.innerText;
-                    let rdvId = btnModif.getAttribute('data-id');
-                    if (btnModif.classList.contains("agenda-annul")) {
-                        btnModif.addEventListener('click', function (e){
-                            formType=3;
-                            textAction = 'Annuler ';
-                            let renseignements =textAction+tartContent+' le '+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
-                            getForm(tartId,tartPro,renseignements,tartToken,formType,tartContent,rdvId);
-                        });
-                    }else{
-                        btnModif.addEventListener('click', function(evt){
-                            formType=2;
-                            textAction = 'Modifier le rendez-vous du ';
-                            let renseignements =textAction+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
-                            getForm(tartId,tartPro,renseignements,tartToken,formType,tartContent,rdvId);
-                        });
-                        let btnSuppr = btnModif.nextSibling;
-                        if (btnSuppr) {
-                            btnSuppr.addEventListener('click', function(evt){
-                                formType=3;
-                                textAction = 'Supprimer le rendez-vous du ';
-                                let renseignements =textAction+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
-                                getForm(tartId,tartPro,renseignements,tartToken,formType,tartContent,rdvId);
-                            });
-                        }
-                    }
-                }
-            }else if (heure.classList.contains("rdv-loaded") && heure.classList.contains("agenda-desktop")) {
-                let tartContent = heure.innerText;
-                let rdvId = heure.getAttribute('data-id');
-                if (heure.classList.contains("rdv-pro")) {
-                    heure.addEventListener('click', function (e){
-                        formType=3;
-                        textAction = 'Annuler ';
-                        let renseignements =textAction+tartContent+' le '+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
-                        getForm(tartId,tartPro,renseignements,tartToken,formType,tartContent,rdvId);
-                    });
-                }else{
-                    heure.addEventListener('click', function (e){
-                        formType=8;
-                        let renseignements = 'Modifier ou supprimer l\'activité du '+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h?';
-                        getForm(tartId,tartPro,renseignements,tartToken,formType,tartContent,rdvId);
-                    });
-                }
+            let tartContent = heure.innerText;
+            let rdvId = heure.getAttribute('data-id');
+            if (heure.classList.contains("rdv-pro")) {
+                heure.addEventListener('click', function (e){
+                    formType=3;
+                    textAction = 'Annuler ';
+                    let renseignements =textAction+tartContent+' le '+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
+                    getForm(tartId,tartPro,renseignements,tartToken,formType,tartContent,rdvId);
+                });
             }else{
                 heure.addEventListener('click', function (e){
-                    let renseignements =textAction+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
-                    getForm(tartId,tartPro,renseignements,tartToken,formType);
+                    formType=8;
+                    let renseignements = 'Modifier ou supprimer l\'activité du '+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h?';
+                    getForm(tartId,tartPro,renseignements,tartToken,formType,tartContent,rdvId);
                 });
             }
+        }else{
+            heure.addEventListener('click', function (e){
+                let renseignements =textAction+tartDay+' '+nomsMois[tartMonth]+' '+tartYear+' à '+tartHeure+' h ?';
+                getForm(tartId,tartPro,renseignements,tartToken,formType);
+            });
         }
     }
 }
