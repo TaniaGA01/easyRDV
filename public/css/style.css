@@ -461,32 +461,54 @@ select {
     font-weight: 700;
     margin-bottom: 2.5rem;
 }
-#gridDesktop table thead{
+#gridDesktop table thead, #gridMobile table thead{
     text-align: center;
     font-size: 0.8rem;
     background-color: var(--bleu);
     color: var(--white);
 }
-#gridDesktop table th{
+#gridDesktop table th, #gridMobile table th{
     padding: 0;
 }
-#gridDesktop table thead th {
+#gridDesktop table thead th, #gridMobile table thead th{
     vertical-align: middle;
 }
-#gridDesktop table thead .arrows{
+#gridDesktop table thead .arrows,
+#gridMobile table thead .arrows{
     background-color: var(--orange);
     color: var(--white);
 }
-#gridDesktop table thead .arrows a{
+#gridDesktop table thead .arrows a,
+#gridMobile table thead .arrows a{
     color: var(--white);
 }
-#gridDesktop table thead .arrows:hover{
+#gridDesktop table thead .arrows:hover,
+#gridMobile table thead .arrows:hover{
     background-color: var(--orange-fc);
 }
-#gridDesktop table thead .arrows a i {
+#gridDesktop table thead .arrows a i,
+#gridMobile table thead .arrows a i {
     font-size: 18px;
     padding: 20px;
 }
+#gridMobile .col-hour{
+    padding: 10px;
+}
+.data-rdv {
+    font-weight: 600;
+    color: #518f59;
+    background-color: rgba(113, 183, 118, 0.4);
+}
+.rdv-loaded,.rdv-indispo {
+    font-weight: 600;
+    color: #525252;
+    background-color: rgba(158, 158, 158, 0.41);
+
+}
+.rdv-indispo{
+    cursor: not-allowed !important;
+}
+
 
 
 /* ================ my appointments =====================*/
@@ -643,6 +665,12 @@ footer p {
 
 /*===================== responsive nav =======================*/
 
+@media (min-width: 992px){
+    #gridMobile{
+        display: none;
+    }
+}
+
 @media (max-width: 991.98px) {
     .container{
         contain: content;
@@ -727,6 +755,9 @@ footer p {
         width: 100%;
         position: relative;
         margin: 2rem 0;
+    }
+    #gridDesktop, .titleAgendaDesk{
+        display: none;
     }
     footer, .footer-nav{
         text-align: center;

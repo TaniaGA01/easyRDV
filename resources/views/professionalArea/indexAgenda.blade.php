@@ -22,7 +22,7 @@ Mon agenda professionnel - {{ $user->first_name }} {{ $user->last_name }}
 
             @php
             use App\User;
-            setlocale (LC_TIME, 'fr_FR.utf8','fra');
+            setlocale (LC_TIME, 'fr_FR','fra');
             $date = isset($_GET['date']) ? $_GET['date'] : date('Y-m-d');
             $dateFr = utf8_encode(strftime('%d %B %Y', strtotime($date)));
 
@@ -35,7 +35,7 @@ Mon agenda professionnel - {{ $user->first_name }} {{ $user->last_name }}
             @endphp
 
             <!-- <div id="gridMobile" class="d-none"> -->
-            <div id="gridMobile" class="d-none">
+            <div id="gridMobile">
                 <table class="table table-striped table-bordered">
                     <thead>
                         <tr>
@@ -53,9 +53,9 @@ Mon agenda professionnel - {{ $user->first_name }} {{ $user->last_name }}
                                 $i="0" .$i;
                             }
                             $tartempion=$date.'_'.$i;
-                            $rdv='#';
+                            $rdv='Dispo';
                             $add_class='data-rdv page-agenda agenda-mobile';
-                            $id_rdv='#';
+                            $id_rdv='Dispo';
                             echo '<tr>';
                             echo "<th class=\" col-hour\"> {$i}h </th>";
 
@@ -78,7 +78,7 @@ Mon agenda professionnel - {{ $user->first_name }} {{ $user->last_name }}
                             echo '<td colspan="2" class="'.$add_class.'" data-pro="'.$user->id.'" data-token="'.csrf_token().'" data-tartempion="'.$tartempion.'">'.$rdv.'</td>';
                             if ($add_class==='data-rdv page-agenda agenda-mobile rdv-loaded') {
                                 echo '<td class="btn-agenda agenda-modif" data-id="'.$id_rdv.'" data-tartempion="'.$tartempion.'" style="position: absolute;right:100px;"><a href="#">Modifier</a></td>';
-                                echo '<td class="btn-agenda agenda-suppr" data-id="'.$id_rdv.'" data-tartempion="'.$tartempion.'" style="position: absolute;right:15px;"><a href="#">Supprimer</a></td>';
+                                echo '<td class="btn-agenda agenda-suppr" data-id="'.$id_rdv.'"     data-tartempion="'.$tartempion.'" style="position: absolute;right:15px;"><a href="#">Supprimer</a></td>';
                             }elseif ($add_class==='data-rdv page-agenda agenda-mobile rdv-loaded rdv-pro') {
                                 echo '<td class="btn-agenda agenda-annul" data-id="'.$id_rdv.'" data-tartempion="'.$tartempion.'" style="position: absolute;right:15px;"><a href="#">Annuler</a></td>';
                             }
@@ -104,7 +104,7 @@ Mon agenda professionnel - {{ $user->first_name }} {{ $user->last_name }}
             //<i class="fas fa-arrow-right"></i>
 
             $monthFindFr = mb_strtoupper(utf8_encode(strftime('%B %Y', strtotime($date)))); // novembre 2019
-            echo "<h5 class=\"text-center\">$monthFindFr</h5>";
+            echo "<h5 class=\"text-center titleAgendaDesk\">$monthFindFr</h5>";
 
 
             // $dd = strftime('%A %d', strtotime($date)); // vendredi 29
@@ -141,9 +141,9 @@ Mon agenda professionnel - {{ $user->first_name }} {{ $user->last_name }}
                     if($j<count($days)){
                         $date_tar_day = date('Y-m-d', strtotime($date_tar .' +'.$j.' day'));
                         $tartempion=$date_tar_day.'_'.$i;
-                        $rdv='#';
+                        $rdv='Dispo';
                         $add_class='data-rdv page-agenda agenda-desktop';
-                        $id_rdv='#';
+                        $id_rdv='Dispo';
                         if (isset($rdvs)){
                         foreach ($rdvs as $value) {
                             if ($tartempion==$value->data_tartempion) {
