@@ -59,7 +59,7 @@
 
                 $date_now_tartempion = date('Y-m-d_H',strtotime('+1 hour'));
 
-                $dateFr = strftime('%d %B %Y', strtotime($date));
+                $dateFr = utf8_encode(strftime('%d %B %Y', strtotime($date)));
                 $timeStart = 8; // Heure du début de l'agenda
                 $timeEnd = 18; // Heure de fin de l'agenda
 
